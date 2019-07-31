@@ -1,0 +1,6 @@
+Draw Call
+
+디퍼드(G_Bupper)
+와 포워드의 차이
+
+PBR

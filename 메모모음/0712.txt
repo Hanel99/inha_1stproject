@@ -1,0 +1,30 @@
+NULL <- 쓰지말것!!!
+nulllptr ==
+
+auto 편리함
+자동으로 타입을 알아냄
+
+range for
+
+R-value Reference(&&)
+기존의 레퍼런스의 문제
+Class A{};
+Void func(int& value)
+Void func2(A& value)
+
+func(10) : 오류. 참조를 할 수 없음
+func2(A()) : 오류. 실제 변수가 아니므로 참조 불가능
+
+lamda
+[참조변수](매개변수)->리턴타입{코드};
+[]()->{};
+
+☆스마트포인터☆ 
+unique_ptr : 유일한 포인터
+shared_ptr : 스마트 포인터
+week_ptr : 참조 포인터
+
+기타 컨테이너
+std::unordered_map<key, value>
+std::tuple<key, value1, value2>
+std::array<type, 개수>

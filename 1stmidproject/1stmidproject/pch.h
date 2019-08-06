@@ -9,5 +9,12 @@
 
 // 여기에 미리 컴파일하려는 헤더 추가
 #include "framework.h"
+#include <gdiplus.h>
+#include <vector>
+#include "common.h"
+#include <unordered_map>
+//#include <functional>
+#include <memory>
+//#include "SceneManager.h"
 
 #endif //PCH_H

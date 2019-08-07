@@ -36,5 +36,9 @@ public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	
+	Gdiplus::Image* load;
+	StateManager sm;
+
 };
 

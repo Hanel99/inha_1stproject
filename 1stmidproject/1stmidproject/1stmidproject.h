@@ -26,9 +26,12 @@ public:
 	virtual int ExitInstance();
 
 // 구현입니다.
+	static DWORD PrevTick;
+	static bool bRender;
 
 public:
 	afx_msg void OnAppAbout();
+	static UINT funcThread(LPVOID pParam);
 	DECLARE_MESSAGE_MAP()
 };
 

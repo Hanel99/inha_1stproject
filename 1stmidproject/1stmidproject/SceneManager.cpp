@@ -14,46 +14,6 @@ void Btn::SendLButtonDown()
 	}
 }
 
-void Player::Update(float Delta)
-{
-	if (GetAsyncKeyState(VK_UP) & 0x8001)
-	{
-		rc.MoveToXY(rc.left, rc.top - Delta * Vel);
-	}
-
-	if (GetAsyncKeyState(VK_DOWN) & 0x8001)
-	{
-		rc.MoveToXY(rc.left, rc.top + Delta * Vel);
-	}
-
-	if (GetAsyncKeyState(VK_LEFT) & 0x8001)
-	{
-		rc.MoveToXY(rc.left - Delta * Vel, rc.top);
-	}
-
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8001)
-	{
-		rc.MoveToXY(rc.left + Delta * Vel, rc.top);
-	}
-
-	if (GetAsyncKeyState(VK_SPACE) & 0x0001)
-	{
-		AddDelta += Delta;
-		if (AddDelta > Rate)
-		{
-			AddDelta = 0;
-			SceneManager::GetInstance().GetCurScene()->info.emplace_back(
-				new Bullet(temp.Img, rc.CenterPoint().x - 25, rc.CenterPoint().y - rc.Height() * 0.5f, 300, -500));
-			SceneManager::GetInstance().GetCurScene()->info.emplace_back(
-				new Bullet(temp.Img, rc.CenterPoint().x, rc.CenterPoint().y - rc.Height() * 0.5f, 0, -500));
-			SceneManager::GetInstance().GetCurScene()->info.emplace_back(
-				new Bullet(temp.Img, rc.CenterPoint().x + 25, rc.CenterPoint().y - rc.Height() * 0.5f, -300, -500));
-		}
-	}
-	
-}
-
-
 void Scene::Start()
 {
 	bLoop = false;
@@ -72,6 +32,8 @@ void Scene::Loop(float Delta)
 void Scene::End()
 {
 	bLoop = false;
+	
+	/*	
 	for (auto& it : info)
 	{
 		delete it;
@@ -79,7 +41,9 @@ void Scene::End()
 	}
 
 	info.empty();
+	*/
 }
+
 
 SceneManager& SceneManager::GetInstance()
 {
@@ -90,9 +54,11 @@ SceneManager& SceneManager::GetInstance()
 SceneManager::SceneManager()
 	: CurScene(nullptr)
 {
+	
 	Scene* LoginScene = new Scene();
 	Scene* GameScene = new Scene();
 
+	/*
 	Btn* n1 = new Btn();
 	Btn* n2 = new Btn();
 
@@ -159,12 +125,16 @@ SceneManager::SceneManager()
 	LoginScene->info.emplace_back(n1);
 	LoginScene->info.emplace_back(n2);
 
+	*/
+
 	LoginScene->Name = "Scene_Start";
 	GameScene->Name = "Scene_Game";
 
 	mScene.emplace_back(LoginScene);
 	mScene.emplace_back(GameScene);
+
 }
+
 
 void SceneManager::LoadScene(CString& pName)
 {
@@ -179,6 +149,7 @@ void SceneManager::LoadScene(CString& pName)
 	//CurScene = nullptr;
 }
 
+/*
 void SceneManager::RenderScene(CDC* pDC)
 {
 	if (CurScene == nullptr) return;
@@ -246,3 +217,5 @@ void SceneManager::Update(float Delta)
 		}
 	}
 }
+
+*/

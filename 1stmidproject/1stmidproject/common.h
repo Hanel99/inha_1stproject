@@ -6,55 +6,30 @@ enum EScene {
 	eScene_Cnt
 };
 
+enum EState {
+	eState_Idle,
+	eState_Move,
+	eState_Cnt
+};
+
 enum EObjectType
 {
 	eObjectType_None,
 	eObjectType_Btn,
 	eObjectType_Static,
 	eObjectType_Player,
-	eObjectType_Bullet,
+	eObjectType_PBullet,
 	eObjectType_Enemy,
-	eObjectType_Cnt,
-	eObjectType_EnemyMissile
-};
-enum EAtlas
-{
-	eMissile = 1,
-	ePlayer = 2,
-	eEnemy = 3,
-	eGameStart = 4,
-	eGameEnd = 5,
-	eEnemyMissile = 6
-};
-enum EState
-{
-	eIdle,
-	eFail,
-	eClear
+	eObjectType_EBullet,
+	eObjectType_NextStage,
+	eObjectType_Cnt
 };
 
-class AtlasInfo
+enum EMonsterType
 {
-public:
-	AtlasInfo()
-	{
-
-	}
-
-	AtlasInfo(int _id, float _left, float _right, float _top, float _bottom)
-		:id(_id),
-		UV_Left(_left),
-		UV_Right(_right),
-		UV_Top(_top),
-		UV_Bottom(_bottom)
-	{
-
-	}
-
-public:
-	int id;
-	float UV_Left;
-	float UV_Right;
-	float UV_Top;
-	float UV_Bottom;
+	eMonsterType_Bird,
+	eMonsterType_Digda,
+	eMonsterType_Devil,
+	eMonsterType_Slime,
+	eMonsterType_Cnt
 };

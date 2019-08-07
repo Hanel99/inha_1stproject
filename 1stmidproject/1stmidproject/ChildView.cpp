@@ -7,6 +7,11 @@
 #include "1stmidproject.h"
 #include "ChildView.h"
 
+#include "SceneManager.h"
+#include "state.h"
+#include <vector>
+
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -44,6 +49,12 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 	cs.lpszClass = AfxRegisterWndClass(CS_HREDRAW|CS_VREDRAW|CS_DBLCLKS, 
 		::LoadCursor(nullptr, IDC_ARROW), reinterpret_cast<HBRUSH>(COLOR_WINDOW+1), nullptr);
 
+	SceneManager::GetInstance().LoadScene(CString("Scene_Start"));
+
+	sm.Add(new State_Idle());
+	sm.Add(new State_Move());
+
+
 	return TRUE;
 }
 
@@ -51,6 +62,30 @@ void CChildView::OnPaint()
 {
 	CPaintDC dc(this); // 그리기를 위한 디바이스 컨텍스트입니다.
 	
+
+	Gdiplus::Graphics MainG(dc);
+
+	CRect rc;
+	GetClientRect(rc);
+	Gdiplus::Rect rc2(rc.left, rc.top, rc.Width(), rc.Height());
+
+	Gdiplus::Bitmap BackBuffer(rc.Width(), rc.Height(), PixelFormat32bppARGB);
+	Gdiplus::Graphics MemG(&BackBuffer);
+
+	Gdiplus::SolidBrush WhiteBrush(Gdiplus::Color(180, 180, 180, 180));
+	MemG.FillRectangle(&WhiteBrush, rc2);
+
+	//static int PrevTick = GetTickCount();
+	//static int Delta = 0;
+	//Delta += GetTickCount() - PrevTick;
+	//sm.Update(Delta, &MemG);
+	//UpdateMove(Delta, &MemG);
+
+	//
+	// scene render
+
+	MainG.DrawImage(&BackBuffer, 0, 0, rc.Width(), rc.Height());
+
 
 	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
 	

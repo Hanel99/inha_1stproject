@@ -12,9 +12,13 @@
 #include <gdiplus.h>
 #include <vector>
 #include "common.h"
-#include <unordered_map>
+//#include <unordered_map>
 //#include <functional>
-#include <memory>
-//#include "SceneManager.h"
+//#include <memory>
+
+
+#include "SceneManager.h"
+#include "ObjectManager.h"
+#include "state.h"
 
 #endif //PCH_H

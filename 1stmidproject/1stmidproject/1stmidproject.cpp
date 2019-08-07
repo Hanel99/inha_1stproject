@@ -37,6 +37,8 @@ CMy1stmidprojectApp::CMy1stmidprojectApp() noexcept
 // 유일한 CMy1stmidprojectApp 개체입니다.
 
 CMy1stmidprojectApp theApp;
+DWORD CMy1stmidprojectApp::PrevTick = 0;
+bool CMy1stmidprojectApp::bRender = false;
 
 
 // CMy1stmidprojectApp 초기화
@@ -130,7 +132,40 @@ void CMy1stmidprojectApp::OnAppAbout()
 	aboutDlg.DoModal();
 }
 
+
 // CMy1stmidprojectApp 메시지 처리기
 
 
 
+
+
+UINT CMy1stmidprojectApp::funcThread(LPVOID pParam)
+{
+	while (1)
+	{
+		DWORD tick = GetTickCount();
+		DWORD Delta = tick - PrevTick;
+
+		if (CMainFrame * MainFrm = static_cast<CMainFrame*>(theApp.GetMainWnd()))
+		{
+			//if (!CshootApp::bRender)
+			{
+				// Update
+				//SceneManager::GetInstance().Update(Delta * 0.001f);
+
+				// Render
+				CChildView* view = MainFrm->GetView();
+
+				CRect rc;
+				view->GetClientRect(rc);
+				if (!rc.IsRectNull())
+					view->InvalidateRect(rc);
+			}
+		}
+
+		Sleep(1000 / 60);
+		PrevTick = tick;
+	}
+
+	return  -1;
+}

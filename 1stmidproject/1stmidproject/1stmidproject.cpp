@@ -43,9 +43,14 @@ bool CMy1stmidprojectApp::bRender = false;
 
 // CMy1stmidprojectApp 초기화
 
+ULONG_PTR gpToken;
+
 BOOL CMy1stmidprojectApp::InitInstance()
 {
 	CWinApp::InitInstance();
+
+	Gdiplus::GdiplusStartupInput start;
+	Gdiplus::GdiplusStartup(&gpToken, &start, nullptr);
 
 
 	EnableTaskbarInteraction(FALSE);
@@ -87,6 +92,10 @@ BOOL CMy1stmidprojectApp::InitInstance()
 int CMy1stmidprojectApp::ExitInstance()
 {
 	//TODO: 추가한 추가 리소스를 처리합니다.
+
+	Gdiplus::GdiplusShutdown(gpToken);
+
+
 	return CWinApp::ExitInstance();
 }
 

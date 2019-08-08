@@ -12,11 +12,12 @@
 #include <vector>
 
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
+//#ifdef _DEBUG
+//#define new DEBUG_NEW
+//#endif
 
-
+Gdiplus::RectF ProgressRect(0, 0, 1000, 30);
+Gdiplus::RectF ProgressRect2(0, 0, 1000, 30);
 // CChildView
 
 CChildView::CChildView()
@@ -58,6 +59,15 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 	return TRUE;
 }
 
+
+
+template<typename T>
+float Lerp(T Start, T Dst, float dt)
+{
+	return (Dst - Start) * dt;
+}
+
+
 void CChildView::OnPaint() 
 {
 	CPaintDC dc(this); // 그리기를 위한 디바이스 컨텍스트입니다.
@@ -75,10 +85,11 @@ void CChildView::OnPaint()
 	Gdiplus::SolidBrush WhiteBrush(Gdiplus::Color(180, 180, 180, 180));
 	MemG.FillRectangle(&WhiteBrush, rc2);
 
-	//static int PrevTick = GetTickCount();
-	//static int Delta = 0;
-	//Delta += GetTickCount() - PrevTick;
-	//sm.Update(Delta, &MemG);
+	//이거 필요없다고 하셨던거같음 근데 없으면 안됨
+	static int PrevTick = GetTickCount();
+	static int Delta = 0;
+	Delta += GetTickCount() - PrevTick;
+	sm.Update(Delta, &MemG);
 	//UpdateMove(Delta, &MemG);
 
 	//
@@ -116,6 +127,6 @@ int CChildView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
 	// TODO:  여기에 특수화된 작성 코드를 추가합니다.
-
+	CWinThread* pThread = AfxBeginThread(&CMy1stmidprojectApp::funcThread, NULL);
 	return 0;
 }

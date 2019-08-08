@@ -8,7 +8,7 @@
 #include "ChildView.h"
 
 #include "SceneManager.h"
-#include "state.h"
+#include "StateManager.h"
 #include <vector>
 
 
@@ -51,8 +51,8 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 
 	SceneManager::GetInstance().LoadScene(CString("Scene_Start"));
 
-	sm.Add(new State_Idle());
-	sm.Add(new State_Move());
+	statemgr.Add(new State_Idle());
+	statemgr.Add(new State_Move());
 
 
 	return TRUE;
@@ -81,16 +81,16 @@ void CChildView::OnPaint()
 	Gdiplus::Bitmap BackBuffer(rc.Width(), rc.Height(), PixelFormat32bppARGB);
 	Gdiplus::Graphics MemG(&BackBuffer);
 
-	Gdiplus::SolidBrush WhiteBrush(Gdiplus::Color(180, 180, 180, 180));
+	Gdiplus::SolidBrush WhiteBrush(Gdiplus::Color(255, 180, 180, 180));
 	MemG.FillRectangle(&WhiteBrush, rc2);
-
-
+	
 
 	//이거 필요없다고 하셨던거같음 근데 없으면 안됨
 	static int PrevTick = GetTickCount();
 	static int Delta = 0;
-	Delta += GetTickCount() - PrevTick;
-	sm.Update(Delta, &MemG);
+	Delta = GetTickCount() - PrevTick;
+	statemgr.Update(Delta * 0.001f, &MemG);
+	PrevTick = GetTickCount();
 	//UpdateMove(Delta, &MemG);
 
 	//

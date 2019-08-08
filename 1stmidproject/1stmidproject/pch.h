@@ -16,9 +16,9 @@
 //#include <functional>
 //#include <memory>
 
-
+#include "Singleton.h"
 #include "SceneManager.h"
 #include "ObjectManager.h"
-#include "state.h"
+#include "StateManager.h"
 
 #endif //PCH_H

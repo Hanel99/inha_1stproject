@@ -1,0 +1,17 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(438,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  pch.cpp
+  1stmidproject.cpp
+  ChildView.cpp
+  MainFrm.cpp
+  ObjectManager.cpp
+  SceneManager.cpp
+  state.cpp
+E:\inha_1stproject\1stmidproject\1stmidproject\ChildView.cpp(93,12): warning C4244:  '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\inha_1stproject\1stmidproject\1stmidproject\state.cpp(49,13): warning C4018:  '>': signed 또는 unsigned가 일치하지 않습니다.
+E:\inha_1stproject\1stmidproject\1stmidproject\state.cpp(111,13): warning C4018:  '>': signed 또는 unsigned가 일치하지 않습니다.
+  코드를 생성하고 있습니다.
+  397 of 399 functions (99.5%) were compiled, the rest were copied from previous compilation.
+    32 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  1stmidproject.vcxproj -> E:\inha_1stproject\1stmidproject\1stmidproject\../Output\1stmidproject.exe

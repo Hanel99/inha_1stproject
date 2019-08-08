@@ -11,7 +11,7 @@ public:
 	CString Name;	
 };
 
-class SceneManager
+class SceneManager : public Singleton<SceneManager>
 {
 public:
 	SceneManager();
@@ -27,3 +27,4 @@ private:
 	Scene* CurScene;
 };
 
+SceneManager* SceneManager::instance = nullptr;

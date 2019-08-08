@@ -42,10 +42,13 @@
     <ClInclude Include="common.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="state.h">
+    <ClInclude Include="ObjectManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectManager.h">
+    <ClInclude Include="Singleton.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,7 +71,7 @@
     <ClCompile Include="ObjectManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="state.cpp">
+    <ClCompile Include="StateManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,9 +2,15 @@
 #include "ObjectManager.h"
 
 
-/*
+void Enemy::Update(float Delta)
+{
+	//rc.MoveToXY(rc.left, rc.top + 100 * Delta);
+}
+
 void Player::Update(float Delta)
 {
+	/*
+	
 	if (GetAsyncKeyState(VK_UP) & 0x8001)
 	{
 		rc.MoveToXY(rc.left, rc.top - Delta * Vel);
@@ -39,7 +45,5 @@ void Player::Update(float Delta)
 				new Bullet(temp.Img, rc.CenterPoint().x + 25, rc.CenterPoint().y - rc.Height() * 0.5f, -300, -500));
 		}
 	}
-
+	*/
 }
-
-*/

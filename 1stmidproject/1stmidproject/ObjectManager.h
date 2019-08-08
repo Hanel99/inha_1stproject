@@ -17,10 +17,7 @@ public:
 	}
 
 	virtual void Begin() {}
-	virtual void Update(float Delta)
-	{
-
-	}
+	virtual void Update(float Delta) {}
 	virtual void End() {}
 
 public:
@@ -29,6 +26,8 @@ public:
 
 	//CRect rc;
 	EObjectType Objtype;
+	int objx;
+	int objy;
 };
 
 class Btn : public Object
@@ -100,8 +99,8 @@ public:
 				return true;
 			}
 			*/
+			//}
 		//}
-	//}
 
 	float velocityX;
 	float velocityY;
@@ -141,10 +140,7 @@ public:
 
 	}
 
-	virtual void Update(float Delta)
-	{
-		//rc.MoveToXY(rc.left, rc.top + 100 * Delta);
-	}
+	void Update(float Delta) override;
 
 	EMonsterType MonsterType;
 	int MonsterNum;
@@ -169,7 +165,7 @@ public:
 
 	}
 
-	virtual void Update(float Delta) {}
+	void Update(float Delta) override;
 
 	int HP;
 	int ATK;
@@ -187,3 +183,17 @@ public:
 
 	}
 };
+
+
+/*
+
+class ObjectManager : public Singleton<ObjectManager>
+{
+
+public:
+
+};
+
+ObjectManager* ObjectManager::instance = nullptr;
+
+*/

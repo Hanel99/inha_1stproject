@@ -138,20 +138,21 @@ SceneManager::SceneManager()
 
 void SceneManager::LoadScene(CString& pName)
 {
-	for (auto& it : mScene)
-	{
-		if (!it->Name.CompareNoCase(pName))
-		{
-			CurScene = it;
-		}
-	}
+	//for (auto& it : mScene)
+	//{
+		//if (!it->Name.CompareNoCase(pName))
+		//{
+			//CurScene = it;
+		//}
+	//}
 
 	//CurScene = nullptr;
 }
 
-/*
 void SceneManager::RenderScene(CDC* pDC)
 {
+	/*
+	
 	if (CurScene == nullptr) return;
 	if (pDC == nullptr) return;
 
@@ -162,6 +163,8 @@ void SceneManager::RenderScene(CDC* pDC)
 
 		it->Img.Draw(pDC->GetSafeHdc(), it->rc);
 	}
+	
+	*/
 }
 
 Scene* SceneManager::GetCurScene()
@@ -171,6 +174,8 @@ Scene* SceneManager::GetCurScene()
 
 void SceneManager::SendLButtonDown(UINT nFlags, CPoint point)
 {
+	/*
+	
 	if (CurScene == nullptr) return;
 
 	for (auto& it : CurScene->info)
@@ -181,10 +186,14 @@ void SceneManager::SendLButtonDown(UINT nFlags, CPoint point)
 			o->SendLButtonDown();
 		}
 	}
+	
+	*/
 }
 
 void SceneManager::Update(float Delta)
 {
+	/*
+	
 	if (CurScene == nullptr) return;
 
 	std::vector<Enemy*> enemyVec;
@@ -216,6 +225,6 @@ void SceneManager::Update(float Delta)
 			}
 		}
 	}
+	
+	*/
 }
-
-*/

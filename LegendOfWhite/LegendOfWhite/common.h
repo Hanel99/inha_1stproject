@@ -33,11 +33,11 @@ enum EObjectType
 	eObjectType_Cnt
 };
 
-enum EMonsterType
+enum EEnemyType
 {
-	eMonsterType_Bird,
-	eMonsterType_Digda,
-	eMonsterType_Devil,
-	eMonsterType_Slime,
-	eMonsterType_Cnt
+	eEnemyType_Bird,
+	eEnemyType_Digda,
+	eEnemyType_Devil,
+	eEnemyType_Slime,
+	eEnemyType_Cnt
 };

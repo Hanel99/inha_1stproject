@@ -1,9 +1,10 @@
 #pragma once
 #include "Scene.h"
 
-class IntroScene
+class IntroScene : public Scene
 {
 	IntroScene();
+	~IntroScene();
 
 	void Init();
 	void Control();

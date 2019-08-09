@@ -1,5 +1,5 @@
 #pragma once
-
+#include "pch.h"
 
 class Object
 {
@@ -20,12 +20,26 @@ public:
 	virtual void Update(float Delta) {}
 	virtual void End() {}
 
+	void SetXY(int getx, int gety)
+	{
+		x = getx;
+		y = gety;
+	}
+	int GetX()
+	{
+		return x;
+	}
+	int GetY()
+	{
+		return y;
+	}
+
 public:
 	//Gdiplus::Image* ParentImg;
 	//Gdiplus::Bitmap Img;
 
 	//CRect rc;
 	EObjectType Objtype;
-	int objx;
-	int objy;
+	int x;
+	int y;
 };

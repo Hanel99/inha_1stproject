@@ -20,6 +20,7 @@
 #include "Singleton.h"
 #include "SceneManager.h"
 #include "ObjectManager.h"
-#include "StateManager.h"
+#include "AssetManager.h"
+#include "GameData.h"
 
 #endif //PCH_H

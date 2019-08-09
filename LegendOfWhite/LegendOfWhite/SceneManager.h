@@ -11,22 +11,19 @@ public:
 	SceneManager();
 	~SceneManager();
 
-	Scene* GetCurScene();
-	void SetCurScene(Scene*);
-	void SetStagenum(int stagenum);
-	void SetChapternum(int chapnum);
 	void Init();
+	Scene* GetCurScene();
+	void SetCurScene(Scene* Scene);
 
-	void AddScene(Scene* Scene);
+	void MoveNextScene();
+	
 	
 private : 
-	int chapternum;
-	int stagenum;
-	Scene* IntroScene;
-	Scene* CurScene;
+	Scene* introScene;
+	std::vector<Scene*> gameScenes;
+	Scene* curScene;
 
-	std::vector<Scene*> SceneVec;
-
+	std::vector<Scene*> sceneVec;
 };
 
 SceneManager* SceneManager::instance = nullptr;

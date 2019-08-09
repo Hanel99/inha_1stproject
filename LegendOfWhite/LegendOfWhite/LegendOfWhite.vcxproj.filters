@@ -25,6 +25,9 @@
     <Filter Include="소스 파일\MFC">
       <UniqueIdentifier>{feb4afbc-aac2-472b-bf80-c6bc8d85a270}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Asset">
+      <UniqueIdentifier>{03448fc4-17be-44b4-904e-4683f3e4f7a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -81,6 +84,18 @@
     <ClInclude Include="State_EMove.h">
       <Filter>소스 파일\State</Filter>
     </ClInclude>
+    <ClInclude Include="AssetManager.h">
+      <Filter>소스 파일\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>소스 파일\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="State_PMove.h">
+      <Filter>소스 파일\State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameData.h">
+      <Filter>소스 파일\Asset</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneManager.cpp">
@@ -121,6 +136,18 @@
     </ClCompile>
     <ClCompile Include="State_EMove.cpp">
       <Filter>소스 파일\State</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager.cpp">
+      <Filter>소스 파일\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>소스 파일\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="State_PMove.cpp">
+      <Filter>소스 파일\State</Filter>
+    </ClCompile>
+    <ClCompile Include="GameData.cpp">
+      <Filter>소스 파일\Asset</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

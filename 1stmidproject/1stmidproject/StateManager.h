@@ -59,7 +59,6 @@ private:
 	std::vector<Gdiplus::Rect> rects;
 };
 
-
 class StateManager : public Singleton<StateManager>
 {
 public:
@@ -67,15 +66,14 @@ public:
 	void Add(State* pState);
 	bool ChangeState(EState InState);
 	void Update(float Delta);
-	void SetGraphics(Gdiplus::Graphics* Memg);
-	//void Update(float Delta, Gdiplus::Graphics* MemG);
+	void Render(Gdiplus::Graphics* DC);
 
+	//void Update(float Delta, Gdiplus::Graphics* MemG);
 private:
 	EState CurState;
 	std::vector<State*> statelist;
 	
 public:
-	Gdiplus::Graphics* MemG;
 };
 
 StateManager* StateManager::instance = nullptr;

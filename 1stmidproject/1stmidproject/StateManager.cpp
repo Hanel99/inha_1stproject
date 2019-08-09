@@ -39,7 +39,7 @@ void State_Idle::Update(float Delta)
 {
 	SDelta += Delta;
 
-	if (SDelta > 0.1f)
+	if (SDelta > 0.3f)
 	{
 		SDelta = 0;
 		++frame;
@@ -59,8 +59,8 @@ void State_Idle::Update(float Delta)
 
 	//그려줄 이미지의 크기를 결정
 	Gdiplus::Rect Dst2(x, 0, 90, 90);
-
-	StateManager::GetInstance()->MemG->DrawImage(&bm, Dst2);
+	if(StateManager::GetInstance()->MemG != nullptr)
+		StateManager::GetInstance()->MemG->DrawImage(&bm, Dst2);
 }
 
 /*
@@ -127,7 +127,7 @@ void State_Move::Begin()
 
 }
 
-void State_Move::Update(float Delta /*, Gdiplus::Graphics* MemG  */)
+void State_Move::Update(float Delta)
 {
 	SDelta += Delta;
 
@@ -165,9 +165,15 @@ void State_Move::Update(float Delta /*, Gdiplus::Graphics* MemG  */)
 	Gdiplus::Rect Dst2(x, y, 90, 90);
 
 
-	StateManager::GetInstance()->MemG->DrawImage(&bm, Dst2);
+	//StateManager::GetInstance()->MemG->DrawImage(&bm, Dst2);
 	//MemG->DrawImage(&bm, Dst2);
 }
+
+void StateManager::Render(Gdiplus::Graphics* DC)
+{
+
+}
+
 void State_Move::End()
 {
 
@@ -237,10 +243,8 @@ void StateManager::Update(float Delta)
 	//statelist[CurState]->Update(Delta, MemG);
 }
 
-void StateManager::SetGraphics(Gdiplus::Graphics* Memg)
-{
-	MemG = Memg;
-}
+
+
 
 /*
 

@@ -1,12 +1,12 @@
 ﻿
-// 1stmidproject.cpp: 애플리케이션에 대한 클래스 동작을 정의합니다.
+// LegendOfWhite.cpp: 애플리케이션에 대한 클래스 동작을 정의합니다.
 //
 
 #include "pch.h"
 #include "framework.h"
 #include "afxwinappex.h"
 #include "afxdialogex.h"
-#include "1stmidproject.h"
+#include "LegendOfWhite.h"
 #include "MainFrm.h"
 
 
@@ -15,43 +15,51 @@
 #endif
 
 
-// CMy1stmidprojectApp
+// CLegendOfWhiteApp
 
-BEGIN_MESSAGE_MAP(CMy1stmidprojectApp, CWinApp)
-	ON_COMMAND(ID_APP_ABOUT, &CMy1stmidprojectApp::OnAppAbout)
+BEGIN_MESSAGE_MAP(CLegendOfWhiteApp, CWinApp)
+	ON_COMMAND(ID_APP_ABOUT, &CLegendOfWhiteApp::OnAppAbout)
 END_MESSAGE_MAP()
 
 
-// CMy1stmidprojectApp 생성
+// CLegendOfWhiteApp 생성
 
-CMy1stmidprojectApp::CMy1stmidprojectApp() noexcept
+CLegendOfWhiteApp::CLegendOfWhiteApp() noexcept
 {
+	// 다시 시작 관리자 지원
+	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_ALL_ASPECTS;
+#ifdef _MANAGED
+	// 애플리케이션을 공용 언어 런타임 지원을 사용하여 빌드한 경우(/clr):
+	//     1) 이 추가 설정은 다시 시작 관리자 지원이 제대로 작동하는 데 필요합니다.
+	//     2) 프로젝트에서 빌드하려면 System.Windows.Forms에 대한 참조를 추가해야 합니다.
+	System::Windows::Forms::Application::SetUnhandledExceptionMode(System::Windows::Forms::UnhandledExceptionMode::ThrowException);
+#endif
+
 	// TODO: 아래 애플리케이션 ID 문자열을 고유 ID 문자열로 바꾸십시오(권장).
 	// 문자열에 대한 서식: CompanyName.ProductName.SubProduct.VersionInformation
-	SetAppID(_T("My1stmidproject.AppID.NoVersion"));
+	SetAppID(_T("LegendOfWhite.AppID.NoVersion"));
 
 	// TODO: 여기에 생성 코드를 추가합니다.
 	// InitInstance에 모든 중요한 초기화 작업을 배치합니다.
 }
 
-// 유일한 CMy1stmidprojectApp 개체입니다.
+// 유일한 CLegendOfWhiteApp 개체입니다.
 
-CMy1stmidprojectApp theApp;
-DWORD CMy1stmidprojectApp::PrevTick = 0;
-bool CMy1stmidprojectApp::bRender = false;
+CLegendOfWhiteApp theApp;
+DWORD CLegendOfWhiteApp::PrevTick = 0;
+bool CLegendOfWhiteApp::bRender = false;
 
-
-// CMy1stmidprojectApp 초기화
+// CLegendOfWhiteApp 초기화
 
 ULONG_PTR gpToken;
 
-BOOL CMy1stmidprojectApp::InitInstance()
+
+BOOL CLegendOfWhiteApp::InitInstance()
 {
 	CWinApp::InitInstance();
 
 	Gdiplus::GdiplusStartupInput start;
 	Gdiplus::GdiplusStartup(&gpToken, &start, nullptr);
-
 
 	EnableTaskbarInteraction(FALSE);
 
@@ -89,17 +97,15 @@ BOOL CMy1stmidprojectApp::InitInstance()
 	return TRUE;
 }
 
-int CMy1stmidprojectApp::ExitInstance()
+int CLegendOfWhiteApp::ExitInstance()
 {
 	//TODO: 추가한 추가 리소스를 처리합니다.
-
 	Gdiplus::GdiplusShutdown(gpToken);
-
 
 	return CWinApp::ExitInstance();
 }
 
-// CMy1stmidprojectApp 메시지 처리기
+// CLegendOfWhiteApp 메시지 처리기
 
 
 // 응용 프로그램 정보에 사용되는 CAboutDlg 대화 상자입니다.
@@ -135,24 +141,22 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 // 대화 상자를 실행하기 위한 응용 프로그램 명령입니다.
-void CMy1stmidprojectApp::OnAppAbout()
+void CLegendOfWhiteApp::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
 
-
-// CMy1stmidprojectApp 메시지 처리기
-
+// CLegendOfWhiteApp 메시지 처리기
 
 
 
 
-UINT CMy1stmidprojectApp::funcThread(LPVOID pParam)
+UINT CLegendOfWhiteApp::funcThread(LPVOID pParam)
 {
 	PrevTick = GetTickCount();
 	while (1)
-	{		
+	{
 		Delta = GetTickCount() - PrevTick;
 
 
@@ -161,20 +165,20 @@ UINT CMy1stmidprojectApp::funcThread(LPVOID pParam)
 			// Update
 			//SceneManager::GetInstance().Update(Delta * 0.001f);
 			//StateManager::Update(Delta * 0.001f);
-						
-			StateManager::GetInstance()->Update(Delta * 0.001f);
-			
+
+			//StateManager::GetInstance()->Update(Delta * 0.001f);
+
 
 			// Render
-			Gdiplus::Graphics* g;
-			StateManager::GetInstance()->Render(g);
+			//Gdiplus::Graphics* g;
+			//StateManager::GetInstance()->Render(g);
 
-			CChildView* view = MainFrm->GetView();
+			//CChildView* view = MainFrm->GetView();
 
-			CRect rc;
-			view->GetClientRect(rc);
-			if (!rc.IsRectNull())
-				view->InvalidateRect(rc);
+			//CRect rc;
+			//view->GetClientRect(rc);
+			//if (!rc.IsRectNull())
+				//view->InvalidateRect(rc);
 		}
 		Sleep(1);
 	}

@@ -1,5 +1,5 @@
 ﻿
-// 1stmidproject.h: 1stmidproject 애플리케이션의 기본 헤더 파일
+// LegendOfWhite.h: LegendOfWhite 애플리케이션의 기본 헤더 파일
 //
 #pragma once
 
@@ -10,14 +10,14 @@
 #include "resource.h"       // 주 기호입니다.
 
 
-// CMy1stmidprojectApp:
-// 이 클래스의 구현에 대해서는 1stmidproject.cpp을(를) 참조하세요.
+// CLegendOfWhiteApp:
+// 이 클래스의 구현에 대해서는 LegendOfWhite.cpp을(를) 참조하세요.
 //
 
-class CMy1stmidprojectApp : public CWinApp
+class CLegendOfWhiteApp : public CWinApp
 {
 public:
-	CMy1stmidprojectApp() noexcept;
+	CLegendOfWhiteApp() noexcept;
 
 
 // 재정의입니다.
@@ -26,14 +26,17 @@ public:
 	virtual int ExitInstance();
 
 // 구현입니다.
+
 	static DWORD PrevTick;
 	static DWORD Delta;
 	static bool bRender;
 
 public:
 	afx_msg void OnAppAbout();
+
 	static UINT funcThread(LPVOID pParam);
+
 	DECLARE_MESSAGE_MAP()
 };
 
-extern CMy1stmidprojectApp theApp;
+extern CLegendOfWhiteApp theApp;

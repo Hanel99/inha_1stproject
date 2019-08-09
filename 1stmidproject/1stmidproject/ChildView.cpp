@@ -74,7 +74,6 @@ void CChildView::OnPaint()
 {
 	CPaintDC dc(this); // 그리기를 위한 디바이스 컨텍스트입니다.
 	
-
 	Gdiplus::Graphics MainG(dc);
 
 	CRect rc;
@@ -87,18 +86,31 @@ void CChildView::OnPaint()
 	Gdiplus::SolidBrush WhiteBrush(Gdiplus::Color(255, 180, 180, 180));
 	MemG.FillRectangle(&WhiteBrush, rc2);
 	
+	/////////////////////////////////////////
 
+	//Gdiplus::Image img(TEXT("bgaimage.png"));
+	//MemG.DrawImage(&img, 0, 0, rc.Width(), rc.Height());
+	
+	//Gdiplus::Rect rr(0, 0, rc.Width(), rc.Height());
+	//Gdiplus::BitmapData pt;
+	//BackBuffer.LockBits(&rr, Gdiplus::ImageLockModeWrite, PixelFormat32bppARGB, &pt);
+	//grayscale(rr.Width / 2, rr.Height / 2, pt);
+	//BackBuffer.UnlockBits(&pt);
+
+
+	//////////////////////////////////////
 	//이거 필요없다고 하셨던거같음 근데 없으면 안됨
-	static int PrevTick = GetTickCount();
-	static int Delta = 0;
-	Delta = GetTickCount() - PrevTick;
+	//static int PrevTick = GetTickCount();
+	//static int Delta = 0;
+	//Delta = GetTickCount() - PrevTick;
 
 	//statemgr.Update(Delta * 0.001f, &MemG);
-	StateManager::GetInstance()->SetGraphics(&MemG);
-	StateManager::GetInstance()->Update(Delta * 0.001f);
-	//StateManager::GetInstance()->Update(Delta * 0.001f, &MemG);
+	
+	
+	//StateManager::GetInstance()->Update(Delta * 0.001f);
+	
 
-	PrevTick = GetTickCount();
+	//PrevTick = GetTickCount();
 	//UpdateMove(Delta, &MemG);
 
 	//
@@ -162,3 +174,27 @@ int CChildView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CWinThread* pThread = AfxBeginThread(&CMy1stmidprojectApp::funcThread, NULL);
 	return 0;
 }
+
+
+/*
+
+void grayscale(int width, int height, Gdiplus::BitmapData& pData)
+{
+	BYTE* pt = static_cast<BYTE*>(pData.Scan0);
+	BYTE* pt2 = pt;
+	for (int i = 0; i < height; ++i)
+	{
+		pt = pt2 + i * pData.Width * 4;
+		for (int j = 0; j < width; ++j)
+		{
+			BYTE calc = *(pt) * 0.299 + *(pt + 1) * 0.587 + *(pt + 2) * 0.114;
+			*(pt) = calc;
+			*(pt+1) = calc;
+			*(pt+2) = calc;
+			pt += 4;
+		}
+	}
+}
+
+
+*/

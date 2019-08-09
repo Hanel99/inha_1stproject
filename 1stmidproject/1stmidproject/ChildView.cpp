@@ -49,10 +49,13 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 	cs.lpszClass = AfxRegisterWndClass(CS_HREDRAW|CS_VREDRAW|CS_DBLCLKS, 
 		::LoadCursor(nullptr, IDC_ARROW), reinterpret_cast<HBRUSH>(COLOR_WINDOW+1), nullptr);
 
-	SceneManager::GetInstance().LoadScene(CString("Scene_Start"));
+	SceneManager::GetInstance()->LoadScene(CString("Scene_Start"));
 
-	statemgr.Add(new State_Idle());
-	statemgr.Add(new State_Move());
+	StateManager::GetInstance()->Add(new State_Idle());
+	StateManager::GetInstance()->Add(new State_Move());
+
+	//Statemanager.Add(new State_Idle());
+	//Statemanager.Add(new State_Move());
 
 
 	return TRUE;
@@ -89,7 +92,12 @@ void CChildView::OnPaint()
 	static int PrevTick = GetTickCount();
 	static int Delta = 0;
 	Delta = GetTickCount() - PrevTick;
-	statemgr.Update(Delta * 0.001f, &MemG);
+
+	//statemgr.Update(Delta * 0.001f, &MemG);
+	StateManager::GetInstance()->SetGraphics(&MemG);
+	StateManager::GetInstance()->Update(Delta * 0.001f);
+	//StateManager::GetInstance()->Update(Delta * 0.001f, &MemG);
+
 	PrevTick = GetTickCount();
 	//UpdateMove(Delta, &MemG);
 
@@ -97,6 +105,13 @@ void CChildView::OnPaint()
 	// scene render
 
 	MainG.DrawImage(&BackBuffer, 0, 0, rc.Width(), rc.Height());
+
+
+	//싱글톤 적용한거 이렇게 쓰면 됨
+	//Scene* s = SceneManager::GetInstance()->GetCurScene();
+
+
+
 
 
 	// TODO: 여기에 메시지 처리기 코드를 추가합니다.

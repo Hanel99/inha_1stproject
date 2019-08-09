@@ -18,22 +18,15 @@ State::State(EState InState)
 }
 
 
-
 State_Idle::State_Idle()
 	: frame(0)
 {
-	load = new Gdiplus::Image(TEXT("Asset\\b.png"));
+	load = new Gdiplus::Image(TEXT("Asset\\pidle.png"));
 
-
-	for (int i = 0; i < 6; ++i)
+	for (int i = 0; i < 2; ++i)
 	{
-		for (int j = 0; j < 9; ++j)
-		{
-			int x = j * 108;
-			int y = i * 149;
-
-			rects.emplace_back(Gdiplus::Rect(x, y, 108, 149));
-		}
+		int x = i * 128;
+		rects.emplace_back(Gdiplus::Rect(x, 0, 128, 128));
 	}
 }
 
@@ -41,6 +34,36 @@ void State_Idle::Begin()
 {
 
 };
+
+void State_Idle::Update(float Delta)
+{
+	SDelta += Delta;
+
+	if (SDelta > 0.1f)
+	{
+		SDelta = 0;
+		++frame;
+		if (frame > rects.size() - 1)
+			frame = 0;
+	}
+
+	Gdiplus::Rect Dst(0, 0, 128, 128);
+	//불러올 이미지의 크기를 결정.
+	Gdiplus::Bitmap bm(128, 128, PixelFormat32bppARGB);
+	Gdiplus::Graphics test(&bm);
+	test.DrawImage(load, Dst, rects[frame].X, rects[frame].Y, rects[frame].Width,
+		rects[frame].Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+
+	if (bleft)
+		bm.RotateFlip(Gdiplus::Rotate180FlipY);
+
+	//그려줄 이미지의 크기를 결정
+	Gdiplus::Rect Dst2(x, 0, 90, 90);
+
+	StateManager::GetInstance()->MemG->DrawImage(&bm, Dst2);
+}
+
+/*
 
 void State_Idle::Update(float Delta, Gdiplus::Graphics* MemG)
 {
@@ -69,6 +92,8 @@ void State_Idle::Update(float Delta, Gdiplus::Graphics* MemG)
 
 	MemG->DrawImage(&bm, Dst2);
 }
+
+*/
 void State_Idle::End()
 {
 
@@ -102,7 +127,7 @@ void State_Move::Begin()
 
 }
 
-void State_Move::Update(float Delta, Gdiplus::Graphics* MemG)
+void State_Move::Update(float Delta /*, Gdiplus::Graphics* MemG  */)
 {
 	SDelta += Delta;
 
@@ -114,8 +139,8 @@ void State_Move::Update(float Delta, Gdiplus::Graphics* MemG)
 			frame = 0;
 	}
 
-	Gdiplus::Rect Dst(0, 0, 116, 164);
-	Gdiplus::Bitmap bm(116, 164, PixelFormat32bppARGB);
+	Gdiplus::Rect Dst(0, 0, 128, 128);
+	Gdiplus::Bitmap bm(128, 128, PixelFormat32bppARGB);
 	Gdiplus::Graphics test(&bm);
 	test.DrawImage(load, Dst, rects[frame].X, rects[frame].Y,
 		rects[frame].Width, rects[frame].Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
@@ -131,13 +156,17 @@ void State_Move::Update(float Delta, Gdiplus::Graphics* MemG)
 
 	if (bup)
 	{
-		y -= 10;
+		//y -= 10;
 	}
 	else
-		y += 10;
+		//y += 10;
+		;
 
 	Gdiplus::Rect Dst2(x, y, 90, 90);
-	MemG->DrawImage(&bm, Dst2);
+
+
+	StateManager::GetInstance()->MemG->DrawImage(&bm, Dst2);
+	//MemG->DrawImage(&bm, Dst2);
 }
 void State_Move::End()
 {
@@ -177,6 +206,44 @@ bool StateManager::ChangeState(EState InState)
 	return false;
 }
 
+void StateManager::Update(float Delta)
+{
+	if (GetAsyncKeyState(VK_LEFT) & 0x8001)
+	{
+		bleft = true;
+		ChangeState(eState_Move);
+	}
+	else if (GetAsyncKeyState(VK_RIGHT) & 0x8001)
+	{
+		bleft = false;
+		ChangeState(eState_Move);
+	}
+	else if (GetAsyncKeyState(VK_UP) & 0x8001)
+	{
+		bup = true;
+		ChangeState(eState_Move);
+	}
+	else if (GetAsyncKeyState(VK_DOWN) & 0x8001)
+	{
+		bup = false;
+		ChangeState(eState_Move);
+	}
+	else
+	{
+		ChangeState(eState_Idle);
+	}
+
+	statelist[CurState]->Update(Delta);
+	//statelist[CurState]->Update(Delta, MemG);
+}
+
+void StateManager::SetGraphics(Gdiplus::Graphics* Memg)
+{
+	MemG = Memg;
+}
+
+/*
+
 void StateManager::Update(float Delta, Gdiplus::Graphics* MemG)
 {
 	if (GetAsyncKeyState(VK_LEFT) & 0x8001)
@@ -206,3 +273,5 @@ void StateManager::Update(float Delta, Gdiplus::Graphics* MemG)
 
 	statelist[CurState]->Update(Delta, MemG);
 }
+
+*/

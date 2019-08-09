@@ -6,7 +6,7 @@ void Btn::SendLButtonDown()
 	switch (ID)
 	{
 	case 0:
-		SceneManager::GetInstance().LoadScene(CString("Scene_Game"));
+		SceneManager::GetInstance()->LoadScene(CString("Scene_Game"));
 		break;
 	case 1:
 		PostQuitMessage(0);
@@ -45,11 +45,6 @@ void Scene::End()
 }
 
 
-SceneManager& SceneManager::GetInstance()
-{
-	static SceneManager cm;
-	return cm;
-}
 
 SceneManager::SceneManager()
 	: CurScene(nullptr)

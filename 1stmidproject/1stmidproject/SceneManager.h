@@ -18,7 +18,6 @@ public:
 	void LoadScene(CString& pName);
 	void RenderScene(CDC* pDC);
 	Scene* GetCurScene();
-	static SceneManager& GetInstance();
 	void SendLButtonDown(UINT nFlags, CPoint point);
 	void Update(float Delta);
 

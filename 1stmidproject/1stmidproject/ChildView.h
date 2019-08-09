@@ -38,7 +38,6 @@ public:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	
 	Gdiplus::Image* load;
-	StateManager statemgr;
-
+	//StateManager Statemanager;
 };
 

@@ -155,11 +155,19 @@ UINT CMy1stmidprojectApp::funcThread(LPVOID pParam)
 		DWORD tick = GetTickCount();
 		DWORD Delta = tick - PrevTick;
 		PrevTick = tick;
+
+
+		//StateManager::GetInstance()->Update(Delta * 0.001f);
+
+
 		if (CMainFrame * MainFrm = static_cast<CMainFrame*>(theApp.GetMainWnd()))
 		{
 			// Update
 			//SceneManager::GetInstance().Update(Delta * 0.001f);
 			//StateManager::Update(Delta * 0.001f);
+
+			
+
 
 			// Render
 			CChildView* view = MainFrm->GetView();

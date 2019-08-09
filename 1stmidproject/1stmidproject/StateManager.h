@@ -17,7 +17,8 @@ public:
 	State(EState InState);
 
 	virtual void Begin() = 0;
-	virtual void Update(float Delta, Gdiplus::Graphics* MemG) = 0;
+	//virtual void Update(float Delta, Gdiplus::Graphics* MemG) = 0;
+	virtual void Update(float Delta) = 0;
 	virtual void End() = 0;
 	virtual bool ChangeState(EState InState) = 0;
 
@@ -31,7 +32,8 @@ class State_Idle : public State
 public:
 	State_Idle();
 	void Begin() override;
-	void Update(float Delta, Gdiplus::Graphics* MemG) override;
+	//void Update(float Delta, Gdiplus::Graphics* MemG) override;
+	void Update(float Delta) override;
 	void End() override;
 	bool ChangeState(EState InState) override;
 
@@ -46,7 +48,8 @@ class State_Move : public State
 public:
 	State_Move();
 	void Begin() override;
-	void Update(float Delta, Gdiplus::Graphics* MemG)override;
+	//void Update(float Delta, Gdiplus::Graphics* MemG)override;
+	void Update(float Delta)override;
 	void End() override;
 	bool ChangeState(EState InState) override;
 
@@ -57,15 +60,22 @@ private:
 };
 
 
-class StateManager
+class StateManager : public Singleton<StateManager>
 {
 public:
 	StateManager();
 	void Add(State* pState);
 	bool ChangeState(EState InState);
-	void Update(float Delta, Gdiplus::Graphics* MemG);
+	void Update(float Delta);
+	void SetGraphics(Gdiplus::Graphics* Memg);
+	//void Update(float Delta, Gdiplus::Graphics* MemG);
 
 private:
 	EState CurState;
 	std::vector<State*> statelist;
+	
+public:
+	Gdiplus::Graphics* MemG;
 };
+
+StateManager* StateManager::instance = nullptr;

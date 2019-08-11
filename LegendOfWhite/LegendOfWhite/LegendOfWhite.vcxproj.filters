@@ -96,6 +96,12 @@
     <ClInclude Include="GameData.h">
       <Filter>소스 파일\Asset</Filter>
     </ClInclude>
+    <ClInclude Include="StatusScene.h">
+      <Filter>소스 파일\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>소스 파일\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneManager.cpp">
@@ -148,6 +154,12 @@
     </ClCompile>
     <ClCompile Include="GameData.cpp">
       <Filter>소스 파일\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="StatusScene.cpp">
+      <Filter>소스 파일\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>소스 파일\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

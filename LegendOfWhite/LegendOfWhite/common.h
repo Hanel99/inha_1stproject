@@ -3,6 +3,7 @@
 enum EScene {
 	eScene_Intro,
 	eScene_Game,
+	eScene_Status,
 	eScene_Cnt
 };
 

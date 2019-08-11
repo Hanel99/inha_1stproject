@@ -4,7 +4,3 @@
 Scene::Scene()
 {
 }
-
-Scene::~Scene()
-{
-}

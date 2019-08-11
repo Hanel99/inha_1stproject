@@ -76,12 +76,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>../Output</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>../Output</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -193,6 +195,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameData.h" />
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="IntroScene.h" />
     <ClInclude Include="LegendOfWhite.h" />
     <ClInclude Include="MainFrm.h" />
@@ -208,6 +211,7 @@
     <ClInclude Include="State_EMove.h" />
     <ClInclude Include="State_PIdle.h" />
     <ClInclude Include="State_PMove.h" />
+    <ClInclude Include="StatusScene.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
@@ -215,6 +219,7 @@
     <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameData.cpp" />
+    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="IntroScene.cpp" />
     <ClCompile Include="LegendOfWhite.cpp" />
     <ClCompile Include="MainFrm.cpp" />
@@ -233,6 +238,7 @@
     <ClCompile Include="State_EMove.cpp" />
     <ClCompile Include="State_PIdle.cpp" />
     <ClCompile Include="State_PMove.cpp" />
+    <ClCompile Include="StatusScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LegendOfWhite.rc" />

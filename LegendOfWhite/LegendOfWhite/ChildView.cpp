@@ -50,7 +50,22 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 void CChildView::OnPaint() 
 {
 	CPaintDC dc(this); // 그리기를 위한 디바이스 컨텍스트입니다.
-	
+	Gdiplus::Graphics MainG(dc);
+
+	CRect rc;
+	GetClientRect(rc);
+	Gdiplus::Rect rc2(rc.left, rc.top, rc.Width(), rc.Height());
+
+	Gdiplus::Bitmap BackBuffer(rc.Width(), rc.Height(), PixelFormat32bppARGB);
+	Gdiplus::Graphics MemG(&BackBuffer);
+
+	Gdiplus::SolidBrush WhiteBrush(Gdiplus::Color(255, 102, 102, 102));
+	MemG.FillRectangle(&WhiteBrush, rc2);
+
+	//씬 렌더 만들면 이거 활성화 시켜줄것
+	//SceneManager::GetInstance()->GetCurScene()->Render(&MemG);
+
+	MainG.DrawImage(&BackBuffer, 0, 0, rc.Width(), rc.Height());
 	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
 	
 	// 그리기 메시지에 대해서는 CWnd::OnPaint()를 호출하지 마십시오.

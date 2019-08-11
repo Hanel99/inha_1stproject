@@ -1,14 +1,13 @@
 #pragma once
 #include "Scene.h"
 
-class IntroScene : public Scene
+class StatusScene : public Scene
 {
 public:
-	IntroScene();
+	StatusScene();
 
 	void Init();
 	void Control();
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics G);
 };
-

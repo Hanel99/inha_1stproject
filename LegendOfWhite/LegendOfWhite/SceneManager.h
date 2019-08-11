@@ -2,6 +2,8 @@
 #include "Singleton.h"
 #include "Scene.h"
 #include "IntroScene.h"
+#include "GameScene.h"
+#include "StatusScene.h"
 
 #include <vector>
 
@@ -13,15 +15,20 @@ public:
 
 	void Init();
 	Scene* GetCurScene();
-	void SetCurScene(Scene* Scene);
+	void SetCurScene(Scene* scene);
+	void SetCurScene(Scene* scene, int chapternum, int stagenum);
 
 	void MoveNextScene();
+	void SwapStatusScene();
 	
 	
 private : 
 	Scene* introScene;
-	std::vector<Scene*> gameScenes;
+	Scene* gameScene;
+	Scene* statusScene;
 	Scene* curScene;
+
+	int scenenum;
 
 	std::vector<Scene*> sceneVec;
 };

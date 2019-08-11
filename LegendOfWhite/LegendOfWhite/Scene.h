@@ -5,7 +5,6 @@ class Scene
 {
 public:
 	Scene();
-	virtual ~Scene();
 
 	virtual void Init() = 0;
 	virtual void Control() = 0;

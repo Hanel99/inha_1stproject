@@ -6,7 +6,7 @@ class Object
 public:
 	Object()
 		: Objtype(eObjectType_None)
-		, xy(0,0)
+		, xy(0, 0)
 	{
 
 	}
@@ -27,6 +27,14 @@ public:
 		xy.x = getx;
 		xy.y = gety;
 	}
+	void SetX(int getx)
+	{
+		xy.x = getx;
+	}
+	void SetY(int gety)
+	{
+		xy.y = gety;
+	}
 	CPoint GetXY()
 	{
 		return xy;
@@ -40,7 +48,7 @@ public:
 		return xy.y;
 	}
 
-private:	
+private:
 	CPoint xy;
 	EObjectType Objtype;
 };

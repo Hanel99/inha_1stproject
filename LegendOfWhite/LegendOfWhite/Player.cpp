@@ -3,10 +3,43 @@
 
 void Player::ProcessInput()
 {
+	if (GetAsyncKeyState(VK_LEFT) & 0x1001)
+	{
+		eplayerlook = ePlayerLook_Left;
+	}
+	else if (GetAsyncKeyState(VK_RIGHT) & 0x1001)
+	{
+		eplayerlook = ePlayerLook_Right;
+	}
+	else if (GetAsyncKeyState(VK_UP) & 0x1001)
+	{
+		eplayerlook = ePlayerLook_Up;
+	}
+	else if (GetAsyncKeyState(VK_DOWN) & 0x1001)
+	{
+		eplayerlook = ePlayerLook_Down;
+	}
+
 }
 
 void Player::Update(float Delta)
 {
+	if (GetAsyncKeyState(VK_LEFT) & 0x1001)
+	{
+		SetX(GetX() - 10);
+	}
+	else if (GetAsyncKeyState(VK_RIGHT) & 0x1001)
+	{
+		SetX(GetX() + 10);
+	}
+	else if (GetAsyncKeyState(VK_UP) & 0x1001)
+	{
+		SetY(GetY() - 10);
+	}
+	else if (GetAsyncKeyState(VK_DOWN) & 0x1001)
+	{
+		SetY(GetY() + 10);
+	}
 }
 
 void Player::Render(Gdiplus::Graphics* MemG)
@@ -23,25 +56,25 @@ void Player::Render(Gdiplus::Graphics* MemG)
 	switch (eplayerlook)
 	{
 	case ePlayerLook_Left:
-		playerimg = AssetManager::GetInstance()->GetImage(TEXT("pl.png"));
+		playerimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\pl.png"));
 		break;
 	case ePlayerLook_Right:
-		playerimg = AssetManager::GetInstance()->GetImage(TEXT("pr.png"));
+		playerimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\pr.png"));
 		break;
 	case ePlayerLook_Up:
-		playerimg = AssetManager::GetInstance()->GetImage(TEXT("pu.png"));
+		playerimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\pu.png"));
 		break;
 	case ePlayerLook_Down:
-		playerimg = AssetManager::GetInstance()->GetImage(TEXT("pd.png"));
+		playerimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\pd.png"));
 		break;
 	}
 
 	
 	temp.DrawImage(playerimg.lock().get(),
-		rect, 0, 0, 50, 50, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+		rect, 0, 0, width, height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	//그려줄 screen좌표의 rect
-	Gdiplus::Rect screenPosRect(GetX(), GetY(), width, height);
+	Gdiplus::Rect screenPosRect(GetX(), GetY(), 50, 50);
 
 	MemG->DrawImage(&bm, screenPosRect);
 

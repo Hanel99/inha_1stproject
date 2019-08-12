@@ -12,8 +12,8 @@ public:
 		, SPD(100)
 		, SSPD(100)
 		, CRI(0)
-		, width(90)
-		, height(90)
+		, width(128)
+		, height(128)
 		, eplayerlook(ePlayerLook_Down)
 	{
 

@@ -1,6 +1,8 @@
 #pragma once
 #include "Scene.h"
 #include "Object.h"
+#include "Player.h"
+#include "Enemy.h"
 
 class GameScene : public Scene
 {
@@ -13,6 +15,8 @@ public:
 	void Render(Gdiplus::Graphics* MemG);
 
 private:
-	Object* player;
+	Player* player;
+	Enemy* enemy;
+
 	std::vector<Object*> objectVec;
 };

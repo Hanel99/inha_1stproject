@@ -7,8 +7,10 @@ public:
 	IntroScene();
 
 	void Init();
-	void Control();
+	void ProcessInput();
 	void Update(float Delta);
-	void Render(Gdiplus::Graphics G);
+	void Render(Gdiplus::Graphics* MemG);
+
+	std::weak_ptr<Gdiplus::Image> introImg;
 };
 

@@ -19,8 +19,7 @@ public:
 	void SetCurScene(Scene* scene, int chapternum, int stagenum);
 
 	void MoveNextScene();
-	void SwapStatusScene();
-	
+	void SwapStatusScene();	
 	
 private : 
 	Scene* introScene;

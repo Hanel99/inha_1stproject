@@ -8,7 +8,7 @@ public:
 	Enemy()
 		: Object(EObjectType::eObjectType_Enemy)
 		, EnemyType(EEnemyType::eEnemyType_Bird)
-		, EnemyNum(0)
+		, EnemyNum(1)
 		, HP(1)
 		, ATK(1)
 		, SPD(1)
@@ -23,12 +23,14 @@ public:
 		, HP(hp)
 		, ATK(1)
 		, SPD(100)
-		, SSPD(100)
+		, SSPD(10)
 	{
 
 	}
 
-	void Update(float Delta) override;
+	void ProcessInput();
+	void Update(float Delta);
+	void Render(Gdiplus::Graphics* MemG);
 
 	EEnemyType EnemyType;
 	int EnemyNum;

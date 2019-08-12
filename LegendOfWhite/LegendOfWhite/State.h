@@ -8,7 +8,7 @@ public:
 	~State();
 
 	virtual void Begin() = 0;
-	virtual void Update(float Delta, Gdiplus::Graphics* G) = 0;
+	virtual void Update(float Delta, Gdiplus::Graphics* MemG) = 0;
 	virtual void End() = 0;
 
 protected:

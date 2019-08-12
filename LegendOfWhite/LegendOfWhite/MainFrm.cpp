@@ -26,6 +26,7 @@ END_MESSAGE_MAP()
 CMainFrame::CMainFrame() noexcept
 {
 	// TODO: 여기에 멤버 초기화 코드를 추가합니다.
+	SceneManager::GetInstance()->Init();
 }
 
 CMainFrame::~CMainFrame()
@@ -44,12 +45,12 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 	}
 
-	if (!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
-		!m_wndToolBar.LoadToolBar(IDR_MAINFRAME))
-	{
-		TRACE0("도구 모음을 만들지 못했습니다.\n");
-		return -1;      // 만들지 못했습니다.
-	}
+	//if (!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
+	//	!m_wndToolBar.LoadToolBar(IDR_MAINFRAME))
+	//{
+	//	TRACE0("도구 모음을 만들지 못했습니다.\n");
+	//	return -1;      // 만들지 못했습니다.
+	//}
 
 	// TODO: 도구 모음을 도킹할 수 없게 하려면 이 세 줄을 삭제하십시오.
 	//m_wndToolBar.EnableDocking(CBRS_ALIGN_ANY);
@@ -70,8 +71,14 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 	cs.style = WS_OVERLAPPED | WS_CAPTION | FWS_ADDTOTITLE
 		| WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_SYSMENU;
 
-	cs.cx = 1000;
-	cs.cy = 800;
+	if (cs.hMenu != nullptr)
+	{
+		::DestroyMenu(cs.hMenu);
+		cs.hMenu = nullptr;
+	}
+
+	cs.cx = WIDTH;
+	cs.cy = HEIGHT;
 
 	cs.dwExStyle &= ~WS_EX_CLIENTEDGE;
 	cs.lpszClass = AfxRegisterWndClass(0);
@@ -111,3 +118,9 @@ BOOL CMainFrame::OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO*
 	return CFrameWnd::OnCmdMsg(nID, nCode, pExtra, pHandlerInfo);
 }
 
+void CMainFrame::Render()
+{
+	CRect rc;
+	m_wndView.GetClientRect(rc);
+	m_wndView.InvalidateRect(rc);
+}

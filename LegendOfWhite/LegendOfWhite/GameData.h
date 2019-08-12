@@ -16,8 +16,6 @@ public:
 	void SetChapternum(int chapter);
 
 private:
-	Player* player;
-	//std::vector<Enemy
 	int chapternum;
 	int stagenum;
 };

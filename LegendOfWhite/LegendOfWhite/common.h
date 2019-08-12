@@ -9,10 +9,7 @@ enum EScene {
 
 enum EPlayerState {
 	ePlayerState_PIdle,
-	ePlayerState_PMoveL,
-	ePlayerState_PMoveR,
-	ePlayerState_PMoveU,
-	ePlayerState_PMoveD,
+	ePlayerState_PMove,
 	ePlayerState_Cnt
 };
 
@@ -22,6 +19,13 @@ enum EEnemyState {
 	eEnemyState_Cnt
 };
 
+enum EPlayerLook
+{
+	ePlayerLook_Left,
+	ePlayerLook_Right,
+	ePlayerLook_Up,
+	ePlayerLook_Down
+};
 enum EObjectType
 {
 	eObjectType_None,

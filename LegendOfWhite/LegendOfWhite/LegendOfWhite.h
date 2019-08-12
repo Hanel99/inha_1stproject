@@ -27,8 +27,10 @@ public:
 
 // 구현입니다.
 
-	static DWORD PrevTick;
-	static DWORD Delta;
+public:
+	static DWORD prevTick;
+	static DWORD delta;
+	static DWORD currentTick;
 	static bool bRender;
 
 public:

@@ -7,19 +7,21 @@
 #ifndef PCH_H
 #define PCH_H
 
+#define WIDTH 1000
+#define HEIGHT 800
+
 // 여기에 미리 컴파일하려는 헤더 추가
 #include "framework.h"
 #include <gdiplus.h>
 #include <vector>
 
-//#include <unordered_map>
-//#include <functional>
-//#include <memory>
+#include <unordered_map>
+#include <functional>
+#include <memory>
 
 #include "common.h"
 #include "Singleton.h"
 #include "SceneManager.h"
-#include "ObjectManager.h"
 #include "AssetManager.h"
 #include "GameData.h"
 

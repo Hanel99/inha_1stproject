@@ -6,6 +6,7 @@
 
 SceneManager::SceneManager()
 {
+	Init();
 }
 
 SceneManager::~SceneManager()
@@ -15,12 +16,13 @@ SceneManager::~SceneManager()
 void SceneManager::Init()
 {
 	introScene = new IntroScene();
+	//게임씬을 양산해서 사용할것. 여기선 임시로 하나만
 	gameScene = new GameScene();
 	statusScene = new StatusScene();
 	
 	sceneVec.emplace_back(introScene);
-	sceneVec.emplace_back(gameScene);
 	sceneVec.emplace_back(statusScene);
+	sceneVec.emplace_back(gameScene);
 
 	scenenum = 0;
 	curScene = sceneVec[scenenum];	
@@ -47,12 +49,14 @@ void SceneManager::MoveNextScene()
 	if (scenenum == 0)
 	{
 		//인트로 -> 게임
-		curScene = sceneVec[++scenenum];
+		//새로시작의 경우 2로, 저장되있는 경우 저장한 수의 씬으로 이동
+		curScene = sceneVec[2];
+		scenenum = 2;
 	}
-	else if (scenenum == 1)
+	else if (scenenum > 2)
 	{
 		//스테이지 클리어 후 다음 스테이지로 이동
-		if (GameData::GetInstance()->GetStagenum == BOSS_STAGE)
+		if (GameData::GetInstance()->GetStagenum() == BOSS_STAGE)
 		{
 			GameData::GetInstance()->SetChapternum(GameData::GetInstance()->GetChapternum() + 1);
 			GameData::GetInstance()->SetStagenum(1);

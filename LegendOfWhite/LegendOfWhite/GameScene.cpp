@@ -9,14 +9,26 @@ void GameScene::Init()
 {
 }
 
-void GameScene::Control()
+void GameScene::ProcessInput()
 {
+	for (auto& it : objectVec)
+	{
+		it->ProcessInput();
+	}
 }
 
 void GameScene::Update(float Delta)
 {
+	for (auto& it : objectVec)
+	{
+		it->Update(Delta);
+	}
 }
 
-void GameScene::Render(Gdiplus::Graphics G)
+void GameScene::Render(Gdiplus::Graphics* MemG)
 {
+	for (auto& it : objectVec)
+	{
+		it->Render(MemG);
+	}
 }

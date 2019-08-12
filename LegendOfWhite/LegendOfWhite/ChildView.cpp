@@ -7,6 +7,8 @@
 #include "LegendOfWhite.h"
 #include "ChildView.h"
 
+#include "SceneManager.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -63,7 +65,7 @@ void CChildView::OnPaint()
 	MemG.FillRectangle(&WhiteBrush, rc2);
 
 	//씬 렌더 만들면 이거 활성화 시켜줄것
-	//SceneManager::GetInstance()->GetCurScene()->Render(&MemG);
+	SceneManager::GetInstance()->GetCurScene()->Render(&MemG);
 
 	MainG.DrawImage(&BackBuffer, 0, 0, rc.Width(), rc.Height());
 	// TODO: 여기에 메시지 처리기 코드를 추가합니다.

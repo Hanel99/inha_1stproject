@@ -30,17 +30,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>소스 파일\Scene</Filter>
     </ClInclude>
     <ClInclude Include="IntroScene.h">
       <Filter>소스 파일\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectManager.h">
-      <Filter>소스 파일\Object</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>소스 파일\Object</Filter>
@@ -102,6 +96,9 @@
     <ClInclude Include="GameScene.h">
       <Filter>소스 파일\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneManager.cpp">
@@ -109,9 +106,6 @@
     </ClCompile>
     <ClCompile Include="IntroScene.cpp">
       <Filter>소스 파일\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectManager.cpp">
-      <Filter>소스 파일\Object</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>소스 파일\Object</Filter>

@@ -46,7 +46,9 @@ CLegendOfWhiteApp::CLegendOfWhiteApp() noexcept
 // 유일한 CLegendOfWhiteApp 개체입니다.
 
 CLegendOfWhiteApp theApp;
-DWORD CLegendOfWhiteApp::PrevTick = 0;
+DWORD CLegendOfWhiteApp::prevTick = 0;
+DWORD CLegendOfWhiteApp::currentTick = 0;
+DWORD CLegendOfWhiteApp::delta = 0;
 bool CLegendOfWhiteApp::bRender = false;
 
 // CLegendOfWhiteApp 초기화
@@ -154,33 +156,30 @@ void CLegendOfWhiteApp::OnAppAbout()
 
 UINT CLegendOfWhiteApp::funcThread(LPVOID pParam)
 {
-	PrevTick = GetTickCount();
+	prevTick = GetTickCount64();
 	while (1)
 	{
-		Delta = GetTickCount() - PrevTick;
-
+		currentTick = GetTickCount64();
+		delta = currentTick - prevTick;
 
 		if (CMainFrame * MainFrm = static_cast<CMainFrame*>(theApp.GetMainWnd()))
 		{
-			// Update
-			//SceneManager::GetInstance().Update(Delta * 0.001f);
-			//StateManager::Update(Delta * 0.001f);
-
-			//StateManager::GetInstance()->Update(Delta * 0.001f);
-
+			//update
+			SceneManager::GetInstance()->GetCurScene()->ProcessInput();
+			SceneManager::GetInstance()->GetCurScene()->Update(delta * 0.001f);
 
 			// Render
-			//Gdiplus::Graphics* g;
-			//StateManager::GetInstance()->Render(g);
+			//Main에서 가져온 CChildView
+			CChildView* view = MainFrm->GetView();
 
-			//CChildView* view = MainFrm->GetView();
+			CRect rc;
+			view->GetClientRect(rc);
 
-			//CRect rc;
-			//view->GetClientRect(rc);
-			//if (!rc.IsRectNull())
-				//view->InvalidateRect(rc);
+			if (!rc.IsRectNull())
+				view->InvalidateRect(rc);
 		}
 		Sleep(1);
+		prevTick = currentTick;
 	}
 
 	return  -1;

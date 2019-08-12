@@ -1,6 +1,18 @@
 #include "pch.h"
 #include "GameData.h"
 
+GameData::GameData()
+{
+}
+
+GameData::~GameData()
+{
+}
+
+void GameData::Init()
+{
+}
+
 int GameData::GetStagenum()
 {
 	return stagenum;

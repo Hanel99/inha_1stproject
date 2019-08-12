@@ -9,7 +9,7 @@ void StatusScene::Init()
 {
 }
 
-void StatusScene::Control()
+void StatusScene::ProcessInput()
 {
 }
 
@@ -17,6 +17,6 @@ void StatusScene::Update(float Delta)
 {
 }
 
-void StatusScene::Render(Gdiplus::Graphics G)
+void StatusScene::Render(Gdiplus::Graphics* MemG)
 {
 }

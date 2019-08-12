@@ -14,6 +14,8 @@ public:
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 
+public:
+	std::weak_ptr<Gdiplus::Image> bgImg;
 private:
 	Player* player;
 	Enemy* enemy;

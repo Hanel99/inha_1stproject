@@ -31,15 +31,11 @@ void IntroScene::Render(Gdiplus::Graphics* MemG)
 
 	Gdiplus::Bitmap bm(WIDTH, HEIGHT, PixelFormat32bppARGB);
 	Gdiplus::Graphics temp(&bm);
-	//temp.DrawImage(playerAnimationList[state]->GetAtlasImg().lock().get(), rect, atlasRect.X, atlasRect.Y, atlasRect.Width, atlasRect.Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	//Gdiplus::Image tempImg(TEXT("bgaimage.png"));
-
 
 	Gdiplus::SolidBrush WhiteBrush(Gdiplus::Color(255, 255, 255, 255));
 	MemG->FillRectangle(&WhiteBrush, rect);
 
-
-	introImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\a.png"));
+	introImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\introImg.png"));
 
 
 	temp.DrawImage(introImg.lock().get(),

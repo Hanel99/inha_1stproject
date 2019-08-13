@@ -23,6 +23,8 @@ void Player::ProcessInput()
 
 void Player::Update(float Delta)
 {
+	addDelta += Delta;
+
 	if (GetAsyncKeyState(VK_LEFT) & 0x8001)
 	{
 		SetX(GetX() - (Delta * SPD));

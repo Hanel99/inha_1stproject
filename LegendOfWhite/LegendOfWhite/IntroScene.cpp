@@ -46,3 +46,7 @@ void IntroScene::Render(Gdiplus::Graphics* MemG)
 
 	MemG->DrawImage(&bm, screenPosRect);
 }
+
+void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
+{
+}

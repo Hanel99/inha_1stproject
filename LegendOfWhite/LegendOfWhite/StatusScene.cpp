@@ -44,3 +44,7 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 		//it->Render(MemG);
 	//}
 }
+
+void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
+{
+}

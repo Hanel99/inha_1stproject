@@ -25,13 +25,14 @@ void SceneManager::Init()
 	sceneVec.emplace_back(gameScene);
 
 	scenenum = 0;
-	curScene = sceneVec[scenenum];	
+	curScene = introScene;	
 }
 
 Scene* SceneManager::GetCurScene()
 {
 	return curScene;
 }
+
 
 void SceneManager::SetCurScene(Scene* scene)
 {

@@ -12,9 +12,8 @@ public:
 		, SPD(300)
 		, SSPD(100)
 		, CRI(0.0f)
-		//, width(128)
-		//, height(128)
 		, eplayerlook(ePlayerLook_Down)
+		, addDelta(0)
 	{
 		width = 128;
 		height = 128;
@@ -29,6 +28,8 @@ public:
 	int SPD;
 	int SSPD;
 	float CRI;
+
+	float addDelta;
 
 	EPlayerLook eplayerlook;
 	std::weak_ptr<Gdiplus::Image> playerimg;

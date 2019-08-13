@@ -156,10 +156,10 @@ void CLegendOfWhiteApp::OnAppAbout()
 
 UINT CLegendOfWhiteApp::funcThread(LPVOID pParam)
 {
-	prevTick = GetTickCount64();
+	prevTick = GetTickCount();
 	while (1)
 	{
-		currentTick = GetTickCount64();
+		currentTick = GetTickCount();
 		delta = currentTick - prevTick;
 
 		if (CMainFrame * MainFrm = static_cast<CMainFrame*>(theApp.GetMainWnd()))

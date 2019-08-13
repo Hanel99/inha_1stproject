@@ -11,13 +11,12 @@ GameScene::GameScene()
 void GameScene::Init()
 {
 	player = GameData::GetInstance()->player;
-	enemy = new Enemy();
-	bul = new Bullet();
+	SetStartPos(100, 100);
 
+	enemy = new Enemy();
 	objectVec.emplace_back(player);
 	objectVec.emplace_back(enemy);
-	objectVec.emplace_back(bul);
-	SetStartPos(300, 300);
+	
 }
 
 void GameScene::ProcessInput()
@@ -74,5 +73,11 @@ void GameScene::SetStartPos(int x, int y)
 void GameScene::SetStartPos(CPoint cp)
 {
 	player->SetXY(cp.x, cp.y);
+}
+
+void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
+{
+	Bullet * b = new Bullet(player->GetX() + player->width/2, player->GetY() + player->height/2, point.x, point.y);
+	objectVec.emplace_back(b);
 }
 

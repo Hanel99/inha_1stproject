@@ -18,12 +18,12 @@ public:
 
 	void SetStartPos(int x, int y);
 	void SetStartPos(CPoint cp);
+	void SendLButtonDown(UINT nFlags, CPoint point);
 
 public:
 	std::weak_ptr<Gdiplus::Image> bgImg;
 private:
 	Player* player;
 	Enemy* enemy;
-	Bullet* bul;
 	std::vector<Object*> objectVec;
 };

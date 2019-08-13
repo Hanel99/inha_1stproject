@@ -6,14 +6,16 @@ class Object
 public:
 	Object()
 		: Objtype(eObjectType_None)
-		, xy(0, 0)
+		, x(0.0f)
+		, y(0.0f)
 	{
 
 	}
 
 	Object(EObjectType InType)
 		: Objtype(InType)
-		, xy(0, 0)
+		, x(0.0f)
+		, y(0.0f)
 	{
 
 	}
@@ -22,30 +24,21 @@ public:
 	virtual void Update(float Delta) = 0;
 	virtual void Render(Gdiplus::Graphics* G) = 0;
 
-	void SetXY(int getx, int gety)
+	void SetX(float getx)
 	{
-		xy.x = getx;
-		xy.y = gety;
+		x = getx;
 	}
-	void SetX(int getx)
+	void SetY(float gety)
 	{
-		xy.x = getx;
+		y = gety;
 	}
-	void SetY(int gety)
+	float GetX()
 	{
-		xy.y = gety;
+		return x;
 	}
-	CPoint GetXY()
+	float GetY()
 	{
-		return xy;
-	}
-	int GetX()
-	{
-		return xy.x;
-	}
-	int GetY()
-	{
-		return xy.y;
+		return y;
 	}
 
 public:
@@ -53,7 +46,8 @@ public:
 	int height;
 
 private:
-	CPoint xy;
+	float x;
+	float y;
 	EObjectType Objtype;
 
 };

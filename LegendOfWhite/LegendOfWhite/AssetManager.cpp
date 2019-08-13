@@ -48,19 +48,18 @@ std::weak_ptr<Gdiplus::Image> AssetManager::GetImage(std::wstring str)
 {
 	//hash는 img에 저장된 고유 인덱스. 아래 MyLoadImage에서 첫 호출시 각각 할당해준다
 	std::hash<std::wstring> makeHash;
-	//ret는 return value
-	std::weak_ptr<Gdiplus::Image> ret;
+	std::weak_ptr<Gdiplus::Image> retimg;
 
 	//hash를 통해 imgDic에 있는 img정보를 찾는다.
 	auto it = imgDic.find(makeHash(str));
 
 	//만약 현재 imgDic에 없다면 MyLoadImage로 가서 img정보를 저장해준다.
 	if (it == imgDic.end())
-		ret = MyLoadImage(str);
+		retimg = MyLoadImage(str);
 	else
-		ret = it->second;
+		retimg = it->second;
 
-	return ret;
+	return retimg;
 }
 
 std::weak_ptr<Gdiplus::Image> AssetManager::MyLoadImage(std::wstring fileName)

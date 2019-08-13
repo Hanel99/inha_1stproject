@@ -19,7 +19,7 @@ public:
 	Bullet(int px, int py, int clickx, int clicky)
 		: Object(EObjectType::eObjectType_EBullet)
 		, ATK(GameData::GetInstance()->player->ATK)
-		, SPD(1200)
+		, SPD(300)
 	{
 		width = 40;
 		height = 40;

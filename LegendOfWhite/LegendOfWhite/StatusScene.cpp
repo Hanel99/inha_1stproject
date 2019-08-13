@@ -29,7 +29,7 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	Gdiplus::Bitmap bm(WIDTH, HEIGHT, PixelFormat32bppARGB);
 	Gdiplus::Graphics temp(&bm);
 
-	statImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\a.png"));
+	statImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\statImg.png"));
 
 	temp.DrawImage(statImg.lock().get(),
 		rect, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);

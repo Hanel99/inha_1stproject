@@ -16,8 +16,7 @@ public:
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 
-	void SetStartPos(int x, int y);
-	void SetStartPos(CPoint cp);
+	void SetStartPos(float x, float y);
 	void SendLButtonDown(UINT nFlags, CPoint point);
 
 public:

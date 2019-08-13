@@ -64,15 +64,10 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	}
 }
 
-void GameScene::SetStartPos(int x, int y)
+void GameScene::SetStartPos(float x, float y)
 { 
 	player->SetX(x);
 	player->SetY(y);
-}
-
-void GameScene::SetStartPos(CPoint cp)
-{
-	player->SetXY(cp.x, cp.y);
 }
 
 void GameScene::SendLButtonDown(UINT nFlags, CPoint point)

@@ -3,19 +3,19 @@
 
 void Player::ProcessInput()
 {
-	if (GetAsyncKeyState(VK_LEFT))
+	if (GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('a') || GetAsyncKeyState('A'))
 	{
 		eplayerlook = ePlayerLook_Left;
 	}
-	else if (GetAsyncKeyState(VK_RIGHT))
+	else if (GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('d') || GetAsyncKeyState('D'))
 	{
 		eplayerlook = ePlayerLook_Right;
 	}
-	else if (GetAsyncKeyState(VK_UP))
+	else if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('w') || GetAsyncKeyState('W'))
 	{
 		eplayerlook = ePlayerLook_Up;
 	}
-	else if (GetAsyncKeyState(VK_DOWN))
+	else if (GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('s') || GetAsyncKeyState('S'))
 	{
 		eplayerlook = ePlayerLook_Down;
 	}
@@ -25,19 +25,19 @@ void Player::Update(float Delta)
 {
 	addDelta += Delta;
 
-	if (GetAsyncKeyState(VK_LEFT) & 0x8001)
+	if ((GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('a') || GetAsyncKeyState('A')) & 0x8001)
 	{
 		SetX(GetX() - (Delta * SPD));
 	}
-	else if (GetAsyncKeyState(VK_RIGHT) & 0x8001)
+	else if ((GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('d') || GetAsyncKeyState('D')) & 0x8001)
 	{
 		SetX(GetX() + (Delta * SPD));
 	}
-	else if (GetAsyncKeyState(VK_UP) & 0x8001)
+	else if ((GetAsyncKeyState(VK_UP) || GetAsyncKeyState('w') || GetAsyncKeyState('W')) & 0x8001)
 	{
 		SetY(GetY() - (Delta * SPD));
 	}
-	else if (GetAsyncKeyState(VK_DOWN) & 0x8001)
+	else if ((GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('s') || GetAsyncKeyState('S')) & 0x8001)
 	{
 		SetY(GetY() + (Delta * SPD));
 	}

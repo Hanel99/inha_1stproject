@@ -2,11 +2,6 @@
 #include "Object.h"
 #include "Bullet.h"
 
-void Bullet::Init()
-{
-
-}
-
 void Bullet::ProcessInput()
 {
 

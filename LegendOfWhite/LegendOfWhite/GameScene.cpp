@@ -1,22 +1,33 @@
 #include "pch.h"
 #include "GameScene.h"
 
+
 GameScene::GameScene()
 {
 	Init();
 }
 
+
 void GameScene::Init()
 {
-	player = new Player();
+	player = GameData::GetInstance()->player;
 	enemy = new Enemy();
+	bul = new Bullet();
 
 	objectVec.emplace_back(player);
 	objectVec.emplace_back(enemy);
+	objectVec.emplace_back(bul);
+	SetStartPos(300, 300);
 }
 
 void GameScene::ProcessInput()
 {
+	//½ºÅÈÃ¢À¸·Î
+	if (GetAsyncKeyState(VK_TAB) & 0x1001)
+	{
+		SceneManager::GetInstance()->SwapStatusScene();
+	}
+
 	for (auto& it : objectVec)
 	{
 		it->ProcessInput();
@@ -53,3 +64,15 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 		it->Render(MemG);
 	}
 }
+
+void GameScene::SetStartPos(int x, int y)
+{ 
+	player->SetX(x);
+	player->SetY(y);
+}
+
+void GameScene::SetStartPos(CPoint cp)
+{
+	player->SetXY(cp.x, cp.y);
+}
+

@@ -48,7 +48,12 @@ public:
 		return xy.y;
 	}
 
+public:
+	int width;
+	int height;
+
 private:
 	CPoint xy;
 	EObjectType Objtype;
+
 };

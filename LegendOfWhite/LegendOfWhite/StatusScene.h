@@ -10,4 +10,8 @@ public:
 	void ProcessInput();
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
+
+public:
+	std::weak_ptr<Gdiplus::Image> statImg;
+
 };

@@ -15,7 +15,10 @@ public:
 	int GetChapternum();
 	void SetChapternum(int chapter);
 
-private:
+public:
+	Player* player;
+
+private:	
 	int chapternum;
 	int stagenum;
 };

@@ -2,7 +2,10 @@
 #include "GameData.h"
 
 GameData::GameData()
+	: stagenum(1)
+	, chapternum(1)
 {
+	Init();
 }
 
 GameData::~GameData()
@@ -11,6 +14,7 @@ GameData::~GameData()
 
 void GameData::Init()
 {
+	player = new Player;
 }
 
 int GameData::GetStagenum()

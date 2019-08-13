@@ -19,26 +19,25 @@ void Player::ProcessInput()
 	{
 		eplayerlook = ePlayerLook_Down;
 	}
-
 }
 
 void Player::Update(float Delta)
 {
 	if (GetAsyncKeyState(VK_LEFT) & 0x8001)
 	{
-		SetX(GetX() - 1);
+		SetX(GetX() - (Delta * SPD));
 	}
 	else if (GetAsyncKeyState(VK_RIGHT) & 0x8001)
 	{
-		SetX(GetX() + 1);
+		SetX(GetX() + (Delta * SPD));
 	}
 	else if (GetAsyncKeyState(VK_UP) & 0x8001)
 	{
-		SetY(GetY() - 1);
+		SetY(GetY() - (Delta * SPD));
 	}
 	else if (GetAsyncKeyState(VK_DOWN) & 0x8001)
 	{
-		SetY(GetY() + 1);
+		SetY(GetY() + (Delta * SPD));
 	}
 }
 
@@ -74,7 +73,7 @@ void Player::Render(Gdiplus::Graphics* MemG)
 		rect, 0, 0, width, height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	//그려줄 screen좌표의 rect
-	Gdiplus::Rect screenPosRect(GetX(), GetY(), 50, 50);
+	Gdiplus::Rect screenPosRect(GetX(), GetY(), 100, 100);
 
 	MemG->DrawImage(&bm, screenPosRect);
 

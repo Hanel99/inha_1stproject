@@ -60,8 +60,7 @@ void CChildView::OnPaint()
 
 	Gdiplus::Bitmap BackBuffer(rc.Width(), rc.Height(), PixelFormat32bppARGB);
 	Gdiplus::Graphics MemG(&BackBuffer);
-
-	
+		
 
 	//씬 렌더 만들면 이거 활성화 시켜줄것
 	SceneManager::GetInstance()->GetCurScene()->Render(&MemG);

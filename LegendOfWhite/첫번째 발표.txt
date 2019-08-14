@@ -6,3 +6,6 @@
 DoxyGen이라는 프로그램으로 chm파일을 만들수있다. 주석만 달면 간지난걸 보여준다.
 
 전체 그리드 나눠서 만들기
+
+vector < pait<bool, Bullet*>>이렇게 하고 bool로 true false 줘서 쓴건지 안쓴건지
+reserve, resize (10000);

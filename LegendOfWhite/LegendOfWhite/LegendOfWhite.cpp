@@ -49,6 +49,9 @@ CLegendOfWhiteApp theApp;
 DWORD CLegendOfWhiteApp::prevTick = 0;
 DWORD CLegendOfWhiteApp::currentTick = 0;
 DWORD CLegendOfWhiteApp::delta = 0;
+DWORD CLegendOfWhiteApp::AddDelta = 0;
+DWORD CLegendOfWhiteApp::StaticTick = 0;
+int CLegendOfWhiteApp::CallCount = 0;
 bool CLegendOfWhiteApp::bRender = false;
 
 // CLegendOfWhiteApp 초기화
@@ -117,7 +120,7 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg() noexcept;
 
-// 대화 상자 데이터입니다.
+	// 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
@@ -148,10 +151,7 @@ void CLegendOfWhiteApp::OnAppAbout()
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
-
 // CLegendOfWhiteApp 메시지 처리기
-
-
 
 
 UINT CLegendOfWhiteApp::funcThread(LPVOID pParam)
@@ -161,14 +161,34 @@ UINT CLegendOfWhiteApp::funcThread(LPVOID pParam)
 	{
 		currentTick = GetTickCount();
 		delta = currentTick - prevTick;
+		prevTick = currentTick;
+		AddDelta = 0;
+		StaticTick += delta;
+		AddDelta += delta;
+		static DWORD minDelta = 1000 / 60;
+
 
 		if (CMainFrame * MainFrm = static_cast<CMainFrame*>(theApp.GetMainWnd()))
 		{
+			if (AddDelta < minDelta)
+			{
+				continue;
+				//   Sleep(minDelta - AddDelta);
+			}
+			else
+			{
+				if (AddDelta > 1000)
+					AddDelta = 0;
+				else
+					AddDelta = AddDelta - minDelta;
+				delta = minDelta;
+			}
+
 			//update
+			++CallCount;
 			SceneManager::GetInstance()->GetCurScene()->Update(delta * 0.001f);
 
 			// Render
-			//Main에서 가져온 CChildView
 			CChildView* view = MainFrm->GetView();
 
 			CRect rc;
@@ -176,10 +196,15 @@ UINT CLegendOfWhiteApp::funcThread(LPVOID pParam)
 
 			if (!rc.IsRectNull())
 				view->InvalidateRect(rc);
+
+			if (StaticTick > 1000)
+			{
+				printf("count : %d \n", CallCount);
+				CallCount = 0;
+				StaticTick = 0;
+			}
 		}
 		Sleep(1);
-		prevTick = currentTick;
 	}
-
 	return  -1;
 }

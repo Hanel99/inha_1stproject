@@ -9,10 +9,10 @@ class Bullet : public Object
 public:
 	Bullet()
 		: Object(EObjectType::eObjectType_EBullet)
-		, damage(GameData::GetInstance()->player->ATK)
 		, SPD(DefaultSPD)
-		, SPDX(1)
+		, damage(1)
 		, SPDY(1)
+		, SPDX(1)
 	{
 		width = 40;
 		height = 40;
@@ -32,6 +32,8 @@ public:
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 	void SPDSet(int px, int py, int clickx, int clicky);
+	void BulletInit(int px, int py, int clickx, int clicky);
+	void BulletReset();
 
 private:
 	int damage;

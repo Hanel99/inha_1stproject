@@ -5,13 +5,18 @@
 class AssetManager : public Singleton<AssetManager>
 {
 public:
+	AssetManager();
+
 	std::weak_ptr<Gdiplus::Image> GetImage(std::wstring str);
 	void SetXMLData(std::vector<Gdiplus::Rect>& Rect, char* fileName);
-private:
-	std::weak_ptr<Gdiplus::Image> MyLoadImage(std::wstring std);
+
+	Bullet* CreateBullet();
+	void RetrunBullet(Bullet* pBullet);
 
 private:
-	//size_t ´Â ±×³É unsigned int
+	std::vector<std::pair<bool, Bullet*>> bulletmemoryVec;
+
+	std::weak_ptr<Gdiplus::Image> MyLoadImage(std::wstring std);
 	std::unordered_map<size_t, std::shared_ptr<Gdiplus::Image>> imgDic;
 	//std::unordered_map<size_t, Image*> soundDic;
 };

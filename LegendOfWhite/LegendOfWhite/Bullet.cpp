@@ -4,12 +4,6 @@
 
 void Bullet::Update(float Delta)
 {
-	if (GetX() > WIDTH || GetX() < 0 || GetY() > HEIGHT || GetY() < 0)
-	{
-		//delete this;
-	}
-		
-
 	SetX(GetX() + Delta * SPDX * SPD);
 	SetY(GetY() + Delta * SPDY * SPD);
 }
@@ -29,7 +23,6 @@ void Bullet::Render(Gdiplus::Graphics* MemG)
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), 20, 20);
 
 	MemG->DrawImage(&bm, screenPosRect);
-
 }
 
 void Bullet::SPDSet(int px, int py, int clickx, int clicky)
@@ -44,3 +37,22 @@ void Bullet::SPDSet(int px, int py, int clickx, int clicky)
 		SPDY = -SPDY;
 	
 }
+
+void Bullet::BulletInit(int px, int py, int clickx, int clicky)
+{
+	damage = GameData::GetInstance()->player->ATK;
+	SetX(px);
+	SetY(py);
+	SPDSet(px, py, clickx, clicky);	
+}
+
+void Bullet::BulletReset()
+{
+	damage = 1;
+	SetX(1);
+	SetY(1);
+	SPDX = 1;
+	SPDY = 1;
+}
+
+

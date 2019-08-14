@@ -19,6 +19,8 @@
 #include <functional>
 #include <memory>
 
+//#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
+
 #include "common.h"
 #include "Singleton.h"
 #include "SceneManager.h"

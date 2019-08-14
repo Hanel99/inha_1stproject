@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "GameScene.h"
 
-
 GameScene::GameScene()
 {
 	Init();
@@ -15,6 +14,7 @@ void GameScene::Init()
 
 	enemy = new Enemy();
 
+	//이거 이렇게 하면 안되고 그리드 나눠서 해당영역 그리게 해놓을것
 	for (int yy = 0; yy < HEIGHT; yy += 80)
 	{
 		wallVec.emplace_back(new Wall(0, yy));
@@ -24,18 +24,10 @@ void GameScene::Init()
 	{
 		wallVec.emplace_back(new Wall(xx, 0));
 		wallVec.emplace_back(new Wall(xx, HEIGHT-80));
-	}
-	
-
-
-	for (auto& it : wallVec)
-	{
-		objectVec.emplace_back(it);
-	}
+	}	
 
 	objectVec.emplace_back(player);
-	objectVec.emplace_back(enemy);
-	
+	objectVec.emplace_back(enemy);	
 }
 
 void GameScene::Update(float Delta)
@@ -48,6 +40,21 @@ void GameScene::Update(float Delta)
 	for (auto& it : objectVec)
 	{
 		it->Update(Delta);
+	}
+	for (auto& it : wallVec)
+	{
+		it->Update(Delta);
+	}
+	for (auto& it : bulletVec)
+	{
+		it->Update(Delta);
+		
+		if (it->GetX() > WIDTH || it->GetX() < 0 || it->GetY() > HEIGHT || it->GetY() < 0)
+		{
+			//오브젝트벡터에서 빼서 렌더 그만시킨다음에 에셋매니저 불릿벡터에 다시 넣어줘야함
+			ReturnBulletFromGameScene(it);
+			AssetManager::GetInstance()->RetrunBullet(it);
+		}
 	}
 }
 
@@ -72,6 +79,14 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	{
 		it->Render(MemG);
 	}
+	for (auto& it : wallVec)
+	{
+		it->Render(MemG);
+	}
+	for (auto& it : bulletVec)
+	{
+		it->Render(MemG);
+	}
 }
 
 void GameScene::SetStartPos(float x, float y)
@@ -82,7 +97,31 @@ void GameScene::SetStartPos(float x, float y)
 
 void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 {
-	Bullet * b = new Bullet(player->GetX() + player->width/2, player->GetY() + player->height/2, point.x, point.y);
-	objectVec.emplace_back(b);
+	//Bullet* b = new Bullet(player->GetX() + player->width / 2, player->GetY() + player->height / 2, point.x + (i * 20), point.y+(i * 20));
+	
+	//for (int i = 0; i < 20; ++i)
+	//{
+	//	Bullet* b = AssetManager::GetInstance()->CreateBullet();
+	//	if (b != nullptr)
+	//	{
+	//		b->BulletInit(player->GetX() + player->width / 2, player->GetY() + player->height / 2, point.x + (i * 20), point.y + (i * 20));
+	//		bulletVec.emplace_back(b);
+	//	}
+	//}
+
+	Bullet* b = AssetManager::GetInstance()->CreateBullet();
+	if (b != nullptr)
+	{
+		b->BulletInit(player->GetX() + (player->width / 2), player->GetY() + (player->height / 2), point.x, point.y);
+		bulletVec.emplace_back(b);
+	}
 }
+
+void GameScene::ReturnBulletFromGameScene(Bullet* b)
+{
+	std::vector<Bullet*>::iterator it = std::find(bulletVec.begin(), bulletVec.end(), b);
+	bulletVec.erase(it);
+}
+
+
 

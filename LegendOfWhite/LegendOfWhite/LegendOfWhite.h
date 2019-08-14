@@ -30,7 +30,10 @@ public:
 public:
 	static DWORD prevTick;
 	static DWORD delta;
+	static DWORD AddDelta;
 	static DWORD currentTick;
+	static DWORD StaticTick;
+	static int CallCount;
 	static bool bRender;
 
 public:

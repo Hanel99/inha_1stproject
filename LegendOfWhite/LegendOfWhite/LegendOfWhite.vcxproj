@@ -198,6 +198,7 @@
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="ChildView.h" />
+    <ClInclude Include="CMemoryPool.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="framework.h" />

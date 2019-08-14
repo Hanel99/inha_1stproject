@@ -1,48 +1,46 @@
 #include "pch.h"
 #include "AssetManager.h"
 
-#pragma region MyRegion
+#define VEC_LENGTH 200
 
-//struct MemoryPool
-//{
-//	float radius;
-//public:
-//	MemoryPool()
-//	{
-//		Datas.reserve(10000);
-//		Datas.resize(10000);
-//	}
-//
-//	BulletData CreateBullet()
-//	{
-//		for (auto& it : Datas)
-//		{
-//			if (it.first == 0)
-//			{
-//				it.first = 1;
-//				return it.second;
-//			}
-//		}
-//		return nullptr;
-//	}
-//
-//	void RetrunBullet(BulletData* pBullet)
-//	{
-//		for (auto& it : Datas)
-//		{
-//			if (&it.second == pBullet)
-//			{
-//				it.first = 0;
-//				it.second.reset();
-//			}
-//		}
-//	}
-//private:
-//	std::vector<std::pair<int, BulletData>> Datas;
-//};
-#pragma endregion
+AssetManager::AssetManager()
+{	
+	//메모리 풀을 이용해서 총알로 인한 메모리 파편화를 방지
+	bulletmemoryVec.reserve(VEC_LENGTH);
+	bulletmemoryVec.resize(VEC_LENGTH);
+	for (int i = 0; i < VEC_LENGTH; ++i)
+	{
+		bool canuse = true;
+		Bullet* b = new Bullet();
+		bulletmemoryVec[i] = std::pair<bool, Bullet*>(canuse, b);
+	}
+}
 
-//오브젝트들은 이미지의 하드 포인터를 들고있으면 안되기 때문에 Weak_ptr을 사용해줘야한다.
+Bullet* AssetManager::CreateBullet()
+{
+	for (auto& it : bulletmemoryVec)
+	{
+		if (it.first)
+		{
+			it.first = false;
+			return it.second;
+		}
+	}
+	return nullptr;
+}
+
+void AssetManager::RetrunBullet(Bullet* b)
+{
+	for (auto& it : bulletmemoryVec)
+	{
+		if (it.second == b)
+		{
+			it.first = true;
+			it.second->BulletReset();
+		}
+	}
+}
+
 
 std::weak_ptr<Gdiplus::Image> AssetManager::GetImage(std::wstring str)
 {
@@ -72,6 +70,8 @@ std::weak_ptr<Gdiplus::Image> AssetManager::MyLoadImage(std::wstring fileName)
 
 	return Img;
 }
+
+
 
 void AssetManager::SetXMLData(std::vector<Gdiplus::Rect>& Rects, char* fileName)
 {

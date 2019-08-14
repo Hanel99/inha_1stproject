@@ -165,7 +165,6 @@ UINT CLegendOfWhiteApp::funcThread(LPVOID pParam)
 		if (CMainFrame * MainFrm = static_cast<CMainFrame*>(theApp.GetMainWnd()))
 		{
 			//update
-			SceneManager::GetInstance()->GetCurScene()->ProcessInput();
 			SceneManager::GetInstance()->GetCurScene()->Update(delta * 0.001f);
 
 			// Render

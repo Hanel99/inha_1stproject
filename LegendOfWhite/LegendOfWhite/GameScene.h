@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Bullet.h"
+#include "Wall.h"
 
 class GameScene : public Scene
 {
@@ -12,7 +13,6 @@ public:
 
 
 	void Init();
-	void ProcessInput();
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 
@@ -24,5 +24,8 @@ public:
 private:
 	Player* player;
 	Enemy* enemy;
+
+	Wall* border;
+	std::vector<Wall*> wallVec;
 	std::vector<Object*> objectVec;
 };

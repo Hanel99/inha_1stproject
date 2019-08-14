@@ -2,13 +2,15 @@
 #include "Object.h"
 #include "GameData.h"
 
+#define DefaultSPD 500
+
 class Bullet : public Object
 {
 public:
 	Bullet()
 		: Object(EObjectType::eObjectType_EBullet)
 		, damage(GameData::GetInstance()->player->ATK)
-		, SPD(300)
+		, SPD(DefaultSPD)
 		, SPDX(1)
 		, SPDY(1)
 	{
@@ -18,7 +20,7 @@ public:
 	Bullet(int px, int py, int clickx, int clicky)
 		: Object(EObjectType::eObjectType_EBullet)
 		, damage(GameData::GetInstance()->player->ATK)
-		, SPD(300)
+		, SPD(DefaultSPD)
 	{
 		width = 40;
 		height = 40;
@@ -27,7 +29,6 @@ public:
 		SetY(py);
 	}
 
-	void ProcessInput();
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 	void SPDSet(int px, int py, int clickx, int clicky);

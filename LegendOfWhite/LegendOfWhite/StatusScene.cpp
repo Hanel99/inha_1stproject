@@ -9,17 +9,13 @@ void StatusScene::Init()
 {
 }
 
-void StatusScene::ProcessInput()
+void StatusScene::Update(float Delta)
 {
 	//°ÔÀÓ¾ÀÀ¸·Î
 	if (GetAsyncKeyState(VK_TAB) & 0x1001)
 	{
 		SceneManager::GetInstance()->SwapStatusScene();
 	}
-}
-
-void StatusScene::Update(float Delta)
-{
 }
 
 void StatusScene::Render(Gdiplus::Graphics* MemG)

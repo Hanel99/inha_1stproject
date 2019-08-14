@@ -20,7 +20,6 @@ public:
 
 	}
 
-	virtual void ProcessInput() = 0;
 	virtual void Update(float Delta) = 0;
 	virtual void Render(Gdiplus::Graphics* G) = 0;
 

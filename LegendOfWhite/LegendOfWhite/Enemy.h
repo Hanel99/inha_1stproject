@@ -14,7 +14,8 @@ public:
 		, SPD(1)
 		, SSPD(1)
 	{
-
+		width = 128;
+		height = 128;
 	}
 	Enemy(EEnemyType enemytype, int enemynum, int hp)
 		: Object(EObjectType::eObjectType_Enemy)
@@ -25,10 +26,10 @@ public:
 		, SPD(100)
 		, SSPD(10)
 	{
-
+		width = 128;
+		height = 128;
 	}
 
-	void ProcessInput();
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 

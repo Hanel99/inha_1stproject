@@ -29,7 +29,7 @@ enum EPlayerLook
 enum EObjectType
 {
 	eObjectType_None,
-	eObjectType_Object,
+	eObjectType_Wall,
 	eObjectType_Player,
 	eObjectType_PBullet,
 	eObjectType_Enemy,

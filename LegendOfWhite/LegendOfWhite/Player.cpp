@@ -1,44 +1,29 @@
 #include "pch.h"
 #include "Player.h"
 
-void Player::ProcessInput()
-{
-	if (GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('a') || GetAsyncKeyState('A'))
-	{
-		eplayerlook = ePlayerLook_Left;
-	}
-	else if (GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('d') || GetAsyncKeyState('D'))
-	{
-		eplayerlook = ePlayerLook_Right;
-	}
-	else if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('w') || GetAsyncKeyState('W'))
-	{
-		eplayerlook = ePlayerLook_Up;
-	}
-	else if (GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('s') || GetAsyncKeyState('S'))
-	{
-		eplayerlook = ePlayerLook_Down;
-	}
-}
-
 void Player::Update(float Delta)
 {
 	addDelta += Delta;
+	//state머신을 바꿀것
 
 	if ((GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('a') || GetAsyncKeyState('A')) & 0x8001)
 	{
+		eplayerlook = ePlayerLook_Left;
 		SetX(GetX() - (Delta * SPD));
 	}
 	else if ((GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('d') || GetAsyncKeyState('D')) & 0x8001)
 	{
+		eplayerlook = ePlayerLook_Right;
 		SetX(GetX() + (Delta * SPD));
 	}
 	else if ((GetAsyncKeyState(VK_UP) || GetAsyncKeyState('w') || GetAsyncKeyState('W')) & 0x8001)
 	{
+		eplayerlook = ePlayerLook_Up;
 		SetY(GetY() - (Delta * SPD));
 	}
 	else if ((GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('s') || GetAsyncKeyState('S')) & 0x8001)
 	{
+		eplayerlook = ePlayerLook_Down;
 		SetY(GetY() + (Delta * SPD));
 	}
 }

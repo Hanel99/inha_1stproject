@@ -19,7 +19,6 @@ public:
 		height = 128;
 	}
 
-	void ProcessInput();
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 

@@ -2,16 +2,16 @@
 #include "Object.h"
 #include "Bullet.h"
 
-void Bullet::ProcessInput()
-{
-
-}
-
 void Bullet::Update(float Delta)
 {
+	if (GetX() > WIDTH || GetX() < 0 || GetY() > HEIGHT || GetY() < 0)
+	{
+		//delete this;
+	}
+		
+
 	SetX(GetX() + Delta * SPDX * SPD);
 	SetY(GetY() + Delta * SPDY * SPD);
-
 }
 
 void Bullet::Render(Gdiplus::Graphics* MemG)

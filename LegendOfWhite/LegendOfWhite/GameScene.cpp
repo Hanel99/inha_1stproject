@@ -14,27 +14,37 @@ void GameScene::Init()
 	SetStartPos(100, 100);
 
 	enemy = new Enemy();
+
+	for (int yy = 0; yy < HEIGHT; yy += 80)
+	{
+		wallVec.emplace_back(new Wall(0, yy));
+		wallVec.emplace_back(new Wall(WIDTH-80, yy));
+	}
+	for (int xx = 0; xx < WIDTH; xx += 80)
+	{
+		wallVec.emplace_back(new Wall(xx, 0));
+		wallVec.emplace_back(new Wall(xx, HEIGHT-80));
+	}
+	
+
+
+	for (auto& it : wallVec)
+	{
+		objectVec.emplace_back(it);
+	}
+
 	objectVec.emplace_back(player);
 	objectVec.emplace_back(enemy);
 	
 }
 
-void GameScene::ProcessInput()
+void GameScene::Update(float Delta)
 {
 	//½ºÅÈÃ¢À¸·Î
 	if (GetAsyncKeyState(VK_TAB) & 0x1001)
 	{
 		SceneManager::GetInstance()->SwapStatusScene();
 	}
-
-	for (auto& it : objectVec)
-	{
-		it->ProcessInput();
-	}
-}
-
-void GameScene::Update(float Delta)
-{
 	for (auto& it : objectVec)
 	{
 		it->Update(Delta);

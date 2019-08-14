@@ -41,10 +41,6 @@ void GameScene::Update(float Delta)
 	{
 		it->Update(Delta);
 	}
-	for (auto& it : wallVec)
-	{
-		it->Update(Delta);
-	}
 	for (auto& it : bulletVec)
 	{
 		it->Update(Delta);
@@ -52,7 +48,7 @@ void GameScene::Update(float Delta)
 		if (it->GetX() > WIDTH || it->GetX() < 0 || it->GetY() > HEIGHT || it->GetY() < 0)
 		{
 			//오브젝트벡터에서 빼서 렌더 그만시킨다음에 에셋매니저 불릿벡터에 다시 넣어줘야함
-			ReturnBulletFromGameScene(it);
+			//ReturnBulletFromGameScene(it);
 			AssetManager::GetInstance()->RetrunBullet(it);
 		}
 	}
@@ -75,10 +71,6 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 
 	MemG->DrawImage(&bm, screenPosRect);
 
-	for (auto& it : objectVec)
-	{
-		it->Render(MemG);
-	}
 	for (auto& it : wallVec)
 	{
 		it->Render(MemG);
@@ -87,6 +79,10 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	{
 		it->Render(MemG);
 	}
+	for (auto& it : objectVec)
+	{
+		it->Render(MemG);
+	}	
 }
 
 void GameScene::SetStartPos(float x, float y)

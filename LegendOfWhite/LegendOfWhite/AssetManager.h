@@ -14,7 +14,7 @@ public:
 	void RetrunBullet(Bullet* pBullet);
 
 private:
-	std::vector<std::pair<bool, Bullet*>> bulletmemoryVec;
+	std::vector<std::pair<bool, Bullet*>> AssetbulletVec;
 
 	std::weak_ptr<Gdiplus::Image> MyLoadImage(std::wstring std);
 	std::unordered_map<size_t, std::shared_ptr<Gdiplus::Image>> imgDic;

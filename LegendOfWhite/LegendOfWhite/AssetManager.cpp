@@ -6,19 +6,19 @@
 AssetManager::AssetManager()
 {	
 	//메모리 풀을 이용해서 총알로 인한 메모리 파편화를 방지
-	bulletmemoryVec.reserve(VEC_LENGTH);
-	bulletmemoryVec.resize(VEC_LENGTH);
+	AssetbulletVec.reserve(VEC_LENGTH);
+	AssetbulletVec.resize(VEC_LENGTH);
 	for (int i = 0; i < VEC_LENGTH; ++i)
 	{
 		bool canuse = true;
 		Bullet* b = new Bullet();
-		bulletmemoryVec[i] = std::pair<bool, Bullet*>(canuse, b);
+		AssetbulletVec[i] = std::pair<bool, Bullet*>(canuse, b);
 	}
 }
 
 Bullet* AssetManager::CreateBullet()
 {
-	for (auto& it : bulletmemoryVec)
+	for (auto& it : AssetbulletVec)
 	{
 		if (it.first)
 		{
@@ -31,7 +31,7 @@ Bullet* AssetManager::CreateBullet()
 
 void AssetManager::RetrunBullet(Bullet* b)
 {
-	for (auto& it : bulletmemoryVec)
+	for (auto& it : AssetbulletVec)
 	{
 		if (it.second == b)
 		{

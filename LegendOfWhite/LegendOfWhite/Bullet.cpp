@@ -41,6 +41,7 @@ void Bullet::SPDSet(int px, int py, int clickx, int clicky)
 void Bullet::BulletInit(int px, int py, int clickx, int clicky)
 {
 	damage = GameData::GetInstance()->player->ATK;
+	SPD = DefaultSPD;
 	SetX(px);
 	SetY(py);
 	SPDSet(px, py, clickx, clicky);	
@@ -49,10 +50,11 @@ void Bullet::BulletInit(int px, int py, int clickx, int clicky)
 void Bullet::BulletReset()
 {
 	damage = 1;
-	SetX(1);
-	SetY(1);
-	SPDX = 1;
-	SPDY = 1;
+	SetX(10);
+	SetY(10);
+	SPDX = 0;
+	SPDY = 0;
+	SPD = 0;
 }
 
 

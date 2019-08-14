@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "AssetManager.h"
 
-#define VEC_LENGTH 200
+#define VEC_LENGTH 1000
 
 AssetManager::AssetManager()
 {	

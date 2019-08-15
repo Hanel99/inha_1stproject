@@ -18,6 +18,7 @@
 #include <unordered_map>
 #include <functional>
 #include <memory>
+#include <tinyxml2.h>
 
 //#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 

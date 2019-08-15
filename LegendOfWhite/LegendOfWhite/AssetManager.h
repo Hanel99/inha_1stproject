@@ -8,13 +8,15 @@ public:
 	AssetManager();
 
 	std::weak_ptr<Gdiplus::Image> GetImage(std::wstring str);
-	void SetXMLData(std::vector<Gdiplus::Rect>& Rect, char* fileName);
+	void SetXMLData(std::vector<Gdiplus::Rect>& rects, EXMLType etype);
 
 	Bullet* CreateBullet();
 	void RetrunBullet(Bullet* pBullet);
 
 private:
 	std::vector<std::pair<bool, Bullet*>> AssetbulletVec;
+	std::vector<Gdiplus::Rect> AssetBtnImgVec;
+	std::vector<Gdiplus::Rect> AssetObjImgVec;
 
 	std::weak_ptr<Gdiplus::Image> MyLoadImage(std::wstring std);
 	std::unordered_map<size_t, std::shared_ptr<Gdiplus::Image>> imgDic;

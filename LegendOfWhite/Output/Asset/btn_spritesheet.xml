@@ -1,0 +1,8 @@
+<TextureAtlas imagePath="btn_spritesheet.png">
+	<SubTexture name="btn_01.png" x="0" y="0" width="368" height="134"/>
+	<SubTexture name="btn_02.png" x="0" y="134" width="368" height="134"/>
+	<SubTexture name="btn_03.png" x="0" y="268" width="368" height="134"/>
+	<SubTexture name="btn_04.png" x="0" y="402" width="368" height="134"/>
+	<SubTexture name="btn_05.png" x="0" y="536" width="368" height="134"/>
+	<SubTexture name="btn_06.png" x="0" y="670" width="368" height="134"/>
+</TextureAtlas>

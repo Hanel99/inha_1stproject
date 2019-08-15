@@ -46,3 +46,33 @@ enum EEnemyType
 	eEnemyType_Slime,
 	eEnemyType_Cnt
 };
+
+enum EXMLType
+{
+	eXMLType_Btn,
+	eXMLType_Obj,
+	eXMLType_Cnt
+};
+
+enum EXMLObjnum
+{
+	eXMLObjnum_Wall_blue,
+	eXMLObjnum_Wall_gray,
+	eXMLObjnum_EBullet,
+	eXMLObjnum_PBullet,
+	eXMLObjnum_NextStage,
+	eXMLObjnum_Ground,
+	eXMLObjnum_pu2,
+	eXMLObjnum_pu3,
+	eXMLObjnum_pr1,
+	eXMLObjnum_pr2,
+	eXMLObjnum_pr3,
+	eXMLObjnum_pl1,
+	eXMLObjnum_pl2,
+	eXMLObjnum_pl3,
+	eXMLObjnum_pd1,
+	eXMLObjnum_pd2,
+	eXMLObjnum_pd3,
+	eXMLObjnum_pu1,
+	eXMLObjnum_Cnt
+};

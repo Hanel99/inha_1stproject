@@ -157,16 +157,16 @@ void GameScene::IsPlayerColl(Player* p)
 			switch (p->eplayerlook)
 			{
 			case ePlayerLook_Down:
-				p->SetY(p->GetY() - 10);
+				p->SetY(p->GetY() - 3);
 				break;
 			case ePlayerLook_Up:
-				p->SetY(p->GetY() + 10);
+				p->SetY(p->GetY() + 3);
 				break;
 			case ePlayerLook_Left:
-				p->SetX(p->GetX() + 10);
+				p->SetX(p->GetX() + 3);
 				break;
 			case ePlayerLook_Right:
-				p->SetX(p->GetX() - 10);
+				p->SetX(p->GetX() - 3);
 				break;
 			}
 			printf("Ãæµ¹!\n");

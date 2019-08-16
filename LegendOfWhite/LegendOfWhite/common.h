@@ -54,6 +54,17 @@ enum EXMLType
 	eXMLType_Cnt
 };
 
+enum EXMLBtnnum
+{
+	eXMLBtnnum_Newplay,
+	eXMLBtnnum_Loadplay,
+	eXMLBtnnum_Gameend,
+	eXMLBtnnum_Newplayh,
+	eXMLBtnnum_Loadplayh,
+	eXMLBtnnum_Gameendh,
+	eXMLBtnnum_Cnt
+};
+
 enum EXMLObjnum
 {
 	eXMLObjnum_Wall_blue,
@@ -62,17 +73,17 @@ enum EXMLObjnum
 	eXMLObjnum_PBullet,
 	eXMLObjnum_NextStage,
 	eXMLObjnum_Ground,
-	eXMLObjnum_pu2,
-	eXMLObjnum_pu3,
-	eXMLObjnum_pr1,
-	eXMLObjnum_pr2,
-	eXMLObjnum_pr3,
-	eXMLObjnum_pl1,
-	eXMLObjnum_pl2,
-	eXMLObjnum_pl3,
-	eXMLObjnum_pd1,
-	eXMLObjnum_pd2,
-	eXMLObjnum_pd3,
-	eXMLObjnum_pu1,
+	eXMLObjnum_Pu2,
+	eXMLObjnum_Pu3,
+	eXMLObjnum_Pr1,
+	eXMLObjnum_Pr2,
+	eXMLObjnum_Pr3,
+	eXMLObjnum_Pl1,
+	eXMLObjnum_Pl2,
+	eXMLObjnum_Pl3,
+	eXMLObjnum_Pd1,
+	eXMLObjnum_Pd2,
+	eXMLObjnum_Pd3,
+	eXMLObjnum_Pu1,
 	eXMLObjnum_Cnt
 };

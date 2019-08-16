@@ -15,8 +15,8 @@ AssetManager::AssetManager()
 		AssetbulletVec[i] = std::pair<bool, Bullet*>(canuse, b);
 	}
 
-	//SetXMLData(AssetBtnImgVec, eXMLType_Btn);
-	//SetXMLData(AssetObjImgVec, eXMLType_Obj);
+	SetXMLData(AssetBtnImgVec, eXMLType_Btn);
+	SetXMLData(AssetObjImgVec, eXMLType_Obj);
 }
 
 Bullet* AssetManager::CreateBullet()
@@ -42,6 +42,20 @@ void AssetManager::RetrunBullet(Bullet* b)
 			it.second->BulletReset();
 		}
 	}
+}
+
+Gdiplus::Rect* AssetManager::GetRect(EXMLType etype, int i)
+{
+	switch (etype)
+	{
+	case eXMLType_Btn:
+		return &AssetBtnImgVec[i];
+		break;
+	case eXMLType_Obj:
+		return &AssetObjImgVec[i];
+		break;
+	}
+	return nullptr;
 }
 
 

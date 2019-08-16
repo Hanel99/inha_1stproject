@@ -12,6 +12,7 @@ public:
 
 	Bullet* CreateBullet();
 	void RetrunBullet(Bullet* pBullet);
+	Gdiplus::Rect* GetRect(EXMLType, int);
 
 private:
 	std::vector<std::pair<bool, Bullet*>> AssetbulletVec;

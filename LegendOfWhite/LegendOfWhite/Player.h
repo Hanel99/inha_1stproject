@@ -17,6 +17,8 @@ public:
 	{
 		width = 128;
 		height = 128;
+		center.x = GetX() + width / 2;
+		center.y = GetY() + height / 2;
 	}
 
 	void Update(float Delta);
@@ -27,6 +29,7 @@ public:
 	int SPD;
 	int SSPD;
 	float CRI;
+	CPoint center;
 
 	float addDelta;
 

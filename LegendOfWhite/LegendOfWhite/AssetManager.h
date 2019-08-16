@@ -6,6 +6,7 @@ class AssetManager : public Singleton<AssetManager>
 {
 public:
 	AssetManager();
+	~AssetManager();
 
 	std::weak_ptr<Gdiplus::Image> GetImage(std::wstring str);
 	void SetXMLData(std::vector<Gdiplus::Rect>& rects, EXMLType etype);

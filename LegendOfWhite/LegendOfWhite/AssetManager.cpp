@@ -19,6 +19,11 @@ AssetManager::AssetManager()
 	SetXMLData(AssetObjImgVec, eXMLType_Obj);
 }
 
+AssetManager::~AssetManager()
+{
+}
+
+
 Bullet* AssetManager::CreateBullet()
 {
 	for (auto& it : AssetbulletVec)
@@ -40,6 +45,7 @@ void AssetManager::RetrunBullet(Bullet* b)
 		{
 			it.first = true;
 			it.second->BulletReset();
+			break;
 		}
 	}
 }
@@ -125,5 +131,6 @@ void AssetManager::SetXMLData(std::vector<Gdiplus::Rect>& rects, EXMLType etype)
 		Gdiplus::Rect r(Gdiplus::Rect(element->IntAttribute("x"), element->IntAttribute("y"),
 			element->IntAttribute("width"), element->IntAttribute("height")));
 		rects.emplace_back(r);
-	}
+	}	
+	delete doc;
 }

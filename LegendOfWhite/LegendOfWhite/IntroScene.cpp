@@ -48,3 +48,7 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 {
 	SceneManager::GetInstance()->MoveNextScene();
 }
+
+void IntroScene::SendRButtonDown(UINT nFlags, CPoint point)
+{
+}

@@ -26,6 +26,8 @@ void Player::Update(float Delta)
 		eplayerlook = ePlayerLook_Down;
 		SetY(GetY() + (Delta * SPD));
 	}
+	center.x = GetX() + width / 2;
+	center.y = GetY() + height / 2;
 }
 
 void Player::Render(Gdiplus::Graphics* MemG)

@@ -14,20 +14,22 @@ void GameScene::Init()
 
 	enemy = new Enemy();
 
-	//이거 이렇게 하면 안되고 그리드 나눠서 해당영역 그리게 해놓을것
-	for (int yy = 0; yy < HEIGHT; yy += 80)
+	for (int gridy = 0; gridy * 80 < HEIGHT; ++gridy)
 	{
-		wallVec.emplace_back(new Wall(0, yy));
-		wallVec.emplace_back(new Wall(WIDTH-80, yy));
+		for (int gridx = 0; gridx * 80 < WIDTH; ++gridx)
+		{
+			if (gridx == 0 || gridx == 15 || gridy == 0 || gridy == 8)
+			{
+				wallVec.emplace_back(new Wall(gridx * 80, gridy * 80));
+			}
+
+			if (gridx == 3 && gridy == 5)
+				wallVec.emplace_back(new Wall(gridx * 80, gridy * 80));
+		}
 	}
-	for (int xx = 0; xx < WIDTH; xx += 80)
-	{
-		wallVec.emplace_back(new Wall(xx, 0));
-		wallVec.emplace_back(new Wall(xx, HEIGHT-80));
-	}	
 
 	objectVec.emplace_back(player);
-	objectVec.emplace_back(enemy);	
+	objectVec.emplace_back(enemy);
 }
 
 void GameScene::Update(float Delta)
@@ -44,12 +46,8 @@ void GameScene::Update(float Delta)
 	for (auto& it : bulletVec)
 	{
 		it->Update(Delta);
-		
-		if (it->GetX() > WIDTH || it->GetX() < 0 || it->GetY() > HEIGHT || it->GetY() < 0)
-		{
-			AssetManager::GetInstance()->RetrunBullet(it);
-			ReturnBulletFromGameScene(it);			
-		}
+		IsCollCheck(it);
+
 	}
 }
 
@@ -62,8 +60,7 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 
 	bgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bgImg.png"));
 
-	temp.DrawImage(bgImg.lock().get(),
-		rect, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	temp.DrawImage(bgImg.lock().get(), rect, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
@@ -81,29 +78,17 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	for (auto& it : objectVec)
 	{
 		it->Render(MemG);
-	}	
+	}
 }
 
 void GameScene::SetStartPos(float x, float y)
-{ 
+{
 	player->SetX(x);
 	player->SetY(y);
 }
 
 void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 {
-	//Bullet* b = new Bullet(player->GetX() + player->width / 2, player->GetY() + player->height / 2, point.x + (i * 20), point.y+(i * 20));
-	
-	//for (int i = 0; i < 20; ++i)
-	//{
-	//	Bullet* b = AssetManager::GetInstance()->CreateBullet();
-	//	if (b != nullptr)
-	//	{
-	//		b->BulletInit(player->GetX() + player->width / 2, player->GetY() + player->height / 2, point.x + (i * 20), point.y + (i * 20));
-	//		bulletVec.emplace_back(b);
-	//	}
-	//}
-
 	Bullet* b = AssetManager::GetInstance()->CreateBullet();
 	if (b != nullptr)
 	{
@@ -112,10 +97,45 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 	}
 }
 
+void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
+{
+	for (int i = 0; i < 20; ++i)
+	{
+		Bullet* b = AssetManager::GetInstance()->CreateBullet();
+		if (b != nullptr)
+		{
+			b->BulletInit(player->GetX() + (player->width / 2), player->GetY() + (player->height / 2), point.x + i * 40, point.y + i * 40);
+			bulletVec.emplace_back(b);
+		}
+	}
+}
+
 void GameScene::ReturnBulletFromGameScene(Bullet* b)
 {
 	std::vector<Bullet*>::iterator it = std::find(bulletVec.begin(), bulletVec.end(), b);
 	bulletVec.erase(it);
+}
+
+void GameScene::IsCollCheck(Bullet* bullet)
+{
+	if (bullet->GetX() > WIDTH || bullet->GetX() < 0 || bullet->GetY() > HEIGHT || bullet->GetY() < 0)
+	{
+		AssetManager::GetInstance()->RetrunBullet(bullet);
+		ReturnBulletFromGameScene(bullet);
+	}
+	for (auto& it : wallVec)
+	{
+		int aa = it->center.x - bullet->center.x;
+		int bb = it->center.y - bullet->center.y;
+		int a = pow(aa, 2) + pow(bb, 2);
+		int b = pow((it->width + bullet->width), 2);
+		if (pow((it->center.x - bullet->center.x), 2) + pow((it->center.y - bullet->center.y), 2) <= pow((it->width/3 + bullet->width/3), 2))
+		{
+			//벽과 충돌
+			AssetManager::GetInstance()->RetrunBullet(bullet);
+			ReturnBulletFromGameScene(bullet);
+		}
+	}
 }
 
 

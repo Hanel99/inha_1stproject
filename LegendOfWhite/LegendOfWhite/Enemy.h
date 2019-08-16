@@ -16,6 +16,8 @@ public:
 	{
 		width = 128;
 		height = 128;
+		center.x = GetX() + width / 2;
+		center.y = GetY() + height / 2;
 	}
 	Enemy(EEnemyType enemytype, int enemynum, int hp)
 		: Object(EObjectType::eObjectType_Enemy)
@@ -28,6 +30,8 @@ public:
 	{
 		width = 128;
 		height = 128;
+		center.x = GetX() + width / 2;
+		center.y = GetY() + height / 2;
 	}
 
 	void Update(float Delta);
@@ -39,5 +43,6 @@ public:
 	int ATK;
 	int SPD;
 	int SSPD;
+	CPoint center;
 };
 

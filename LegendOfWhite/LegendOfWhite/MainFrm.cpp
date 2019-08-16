@@ -63,24 +63,26 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
-	if( !CFrameWnd::PreCreateWindow(cs) )
+	if (!CFrameWnd::PreCreateWindow(cs))
 		return FALSE;
 	// TODO: CREATESTRUCT cs를 수정하여 여기에서
 	//  Window 클래스 또는 스타일을 수정합니다.
 
-	cs.style = WS_OVERLAPPED | WS_CAPTION | FWS_ADDTOTITLE
-		| WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_SYSMENU;
+	cs.style = WS_SYSMENU;
 
 	if (cs.hMenu != nullptr)
 	{
 		::DestroyMenu(cs.hMenu);
 		cs.hMenu = nullptr;
 	}
+	//GetWindowRect() - GetClientRect();
+
 
 	cs.cx = WIDTH;
 	cs.cy = HEIGHT;
 
 	cs.dwExStyle &= ~WS_EX_CLIENTEDGE;
+	cs.dwExStyle &= ~WS_BORDER;
 	cs.lpszClass = AfxRegisterWndClass(0);
 	return TRUE;
 }

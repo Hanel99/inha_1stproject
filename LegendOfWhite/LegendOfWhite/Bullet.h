@@ -16,6 +16,8 @@ public:
 	{
 		width = 40;
 		height = 40;
+		center.x = GetX() + width / 2;
+		center.y = GetY() + height / 2;
 	}
 	Bullet(int px, int py, int clickx, int clicky)
 		: Object(EObjectType::eObjectType_EBullet)
@@ -27,6 +29,8 @@ public:
 		SPDSet(px, py, clickx, clicky);
 		SetX(px);
 		SetY(py);
+		center.x = GetX() + width / 2;
+		center.y = GetY() + height / 2;
 	}
 
 	void Update(float Delta);
@@ -34,6 +38,7 @@ public:
 	void SPDSet(int px, int py, int clickx, int clicky);
 	void BulletInit(int px, int py, int clickx, int clicky);
 	void BulletReset();
+	CPoint center;
 
 private:
 	int damage;

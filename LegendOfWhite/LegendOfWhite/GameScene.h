@@ -17,7 +17,9 @@ public:
 
 	void SetStartPos(float x, float y);
 	void SendLButtonDown(UINT nFlags, CPoint point);
+	void SendRButtonDown(UINT nFlags, CPoint point);
 	void ReturnBulletFromGameScene(Bullet* b);
+	void IsCollCheck(Bullet* it);
 
 public:
 	std::weak_ptr<Gdiplus::Image> bgImg;

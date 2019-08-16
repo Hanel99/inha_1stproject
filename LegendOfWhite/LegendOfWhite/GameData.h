@@ -17,6 +17,8 @@ public:
 
 public:
 	Player* player;
+	int winWIDTH;
+	int winHEIGHT;
 
 private:	
 	int chapternum;

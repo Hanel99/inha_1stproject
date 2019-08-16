@@ -6,6 +6,8 @@ void Bullet::Update(float Delta)
 {
 	SetX(GetX() + Delta * SPDX * SPD);
 	SetY(GetY() + Delta * SPDY * SPD);
+	center.x = GetX() + width / 2;
+	center.y = GetY() + height / 2;
 }
 
 void Bullet::Render(Gdiplus::Graphics* MemG)
@@ -45,6 +47,8 @@ void Bullet::BulletInit(int px, int py, int clickx, int clicky)
 	SetX(px);
 	SetY(py);
 	SPDSet(px, py, clickx, clicky);	
+	center.x = GetX() + width / 2;
+	center.y = GetY() + height / 2;
 }
 
 void Bullet::BulletReset()

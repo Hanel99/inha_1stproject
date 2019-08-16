@@ -23,7 +23,11 @@ void GameScene::Init()
 				wallVec.emplace_back(new Wall(gridx * 80, gridy * 80));
 			}
 
-			if (gridx == 3 && gridy == 5)
+			if (gridx == 5 && gridy == 2)
+				wallVec.emplace_back(new Wall(gridx * 80, gridy * 80));
+			else if (gridx == 12 && gridy == 4)
+				wallVec.emplace_back(new Wall(gridx * 80, gridy * 80));
+			else if (gridx == 10 && gridy == 5)
 				wallVec.emplace_back(new Wall(gridx * 80, gridy * 80));
 		}
 	}
@@ -45,9 +49,9 @@ void GameScene::Update(float Delta)
 	}
 	for (auto& it : bulletVec)
 	{
+		if (it == nullptr) break;
 		it->Update(Delta);
-		IsCollCheck(it);
-
+		BulletCollCheck(it);
 	}
 }
 
@@ -113,30 +117,41 @@ void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 void GameScene::ReturnBulletFromGameScene(Bullet* b)
 {
 	std::vector<Bullet*>::iterator it = std::find(bulletVec.begin(), bulletVec.end(), b);
-	bulletVec.erase(it);
+	if (it < bulletVec.end())
+		bulletVec.erase(it);
 }
 
-void GameScene::IsCollCheck(Bullet* bullet)
+void GameScene::BulletCollCheck(Bullet* b)
 {
-	if (bullet->GetX() > WIDTH || bullet->GetX() < 0 || bullet->GetY() > HEIGHT || bullet->GetY() < 0)
+	if (b->GetX() > WIDTH || b->GetX() < 0 || b->GetY() > HEIGHT || b->GetY() < 0)
 	{
-		AssetManager::GetInstance()->RetrunBullet(bullet);
-		ReturnBulletFromGameScene(bullet);
+		AssetManager::GetInstance()->RetrunBullet(b);
+		ReturnBulletFromGameScene(b);
 	}
-	for (auto& it : wallVec)
+	else
 	{
-		int aa = it->center.x - bullet->center.x;
-		int bb = it->center.y - bullet->center.y;
-		int a = pow(aa, 2) + pow(bb, 2);
-		int b = pow((it->width + bullet->width), 2);
-		if (pow((it->center.x - bullet->center.x), 2) + pow((it->center.y - bullet->center.y), 2) <= pow((it->width/3 + bullet->width/3), 2))
+		for (auto& it : wallVec)
 		{
-			//벽과 충돌
-			AssetManager::GetInstance()->RetrunBullet(bullet);
-			ReturnBulletFromGameScene(bullet);
+			if (pow((it->center.x - b->center.x), 2) + pow((it->center.y - b->center.y), 2) <= pow((it->width / 3 + b->width / 3), 2))
+			{
+				//벽과 충돌
+				AssetManager::GetInstance()->RetrunBullet(b);
+				ReturnBulletFromGameScene(b);
+			}
 		}
 	}
 }
-
-
-
+//
+//void GameScene::IsPlayerColl(Player* p)
+//{
+//	p->canmove = true;
+//	for (auto& it : wallVec)
+//	{
+//		if (pow((it->center.x - p->center.x), 2) + pow((it->center.y - p->center.y), 2) <= pow((it->width/3 + p->width/3), 2))
+//		{
+//			printf("충돌!");
+//			p->canmove = false;
+//			break;
+//		}
+//	}
+//}

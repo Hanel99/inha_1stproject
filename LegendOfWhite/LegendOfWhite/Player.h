@@ -14,6 +14,7 @@ public:
 		, CRI(0.0f)
 		, eplayerlook(ePlayerLook_Down)
 		, addDelta(0)
+		, canmove(true)
 	{
 		width = 128;
 		height = 128;
@@ -32,6 +33,7 @@ public:
 	CPoint center;
 
 	float addDelta;
+	bool canmove;
 
 	EPlayerLook eplayerlook;
 	std::weak_ptr<Gdiplus::Image> playerimg;

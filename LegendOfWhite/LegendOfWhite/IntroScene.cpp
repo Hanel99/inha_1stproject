@@ -40,7 +40,6 @@ void IntroScene::Render(Gdiplus::Graphics * MemG)
 
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
-
 	MemG->DrawImage(&bm, screenPosRect);
 }
 

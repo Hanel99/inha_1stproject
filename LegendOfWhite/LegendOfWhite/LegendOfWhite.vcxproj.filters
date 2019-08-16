@@ -108,9 +108,6 @@
     <ClInclude Include="Wall.h">
       <Filter>소스 파일\Object</Filter>
     </ClInclude>
-    <ClInclude Include="CMemoryPool.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneManager.cpp">

@@ -39,12 +39,15 @@ Bullet* AssetManager::CreateBullet()
 
 void AssetManager::RetrunBullet(Bullet* b)
 {
+	int i=0;
 	for (auto& it : AssetbulletVec)
 	{
+		i++;
 		if (it.second == b)
 		{
 			it.first = true;
 			it.second->BulletReset();
+			printf("%d¹ø ºÒ¸´ º¹±Í\n", i);
 			break;
 		}
 	}

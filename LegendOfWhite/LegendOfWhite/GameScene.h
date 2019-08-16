@@ -19,7 +19,8 @@ public:
 	void SendLButtonDown(UINT nFlags, CPoint point);
 	void SendRButtonDown(UINT nFlags, CPoint point);
 	void ReturnBulletFromGameScene(Bullet* b);
-	void IsCollCheck(Bullet* it);
+	void BulletCollCheck(Bullet* b);
+	//void IsPlayerColl(Player* p);
 
 public:
 	std::weak_ptr<Gdiplus::Image> bgImg;

@@ -13,8 +13,9 @@ public:
 		SetY(gety);
 		width = 128;
 		height = 128;
-		center.x = GetX() + width / 2;
-		center.y = GetY() + height / 2;
+		r = 30;
+		center.x = GetX() + 10;
+		center.y = GetY() + 10;
 	}
 
 	void Update(float Delta);

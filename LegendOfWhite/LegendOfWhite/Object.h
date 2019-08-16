@@ -43,7 +43,7 @@ public:
 public:
 	int width;
 	int height;
-
+	int r;
 private:
 	float x;
 	float y;

@@ -18,7 +18,7 @@ void Wall::Render(Gdiplus::Graphics* MemG)
 		rect, 0, 0, width, height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	//그려줄 screen좌표의 rect
-	Gdiplus::Rect screenPosRect(GetX(), GetY(), 80,80);
+	Gdiplus::Rect screenPosRect(GetX(), GetY(), 80, 80);
 
 	MemG->DrawImage(&bm, screenPosRect);
 }

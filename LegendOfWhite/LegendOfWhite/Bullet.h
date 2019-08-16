@@ -16,8 +16,9 @@ public:
 	{
 		width = 40;
 		height = 40;
-		center.x = GetX() + width / 2;
-		center.y = GetY() + height / 2;
+		r = 5;
+		center.x = GetX() + 10;
+		center.y = GetY() + 10;
 	}
 	Bullet(int px, int py, int clickx, int clicky)
 		: Object(EObjectType::eObjectType_EBullet)
@@ -29,8 +30,9 @@ public:
 		SPDSet(px, py, clickx, clicky);
 		SetX(px);
 		SetY(py);
-		center.x = GetX() + width / 2;
-		center.y = GetY() + height / 2;
+		r = 10;
+		center.x = GetX() + 10;
+		center.y = GetY() + 10;
 	}
 
 	void Update(float Delta);

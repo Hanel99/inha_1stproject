@@ -14,9 +14,11 @@ public:
 		, SPD(1)
 		, SSPD(1)
 	{
-		width = 128;
-		height = 128;
-		r = width / 2;
+		SetX(1000);
+		SetY(100);
+		width = 256;
+		height = 256;
+		r = 100;
 		center.x = GetX() + r;
 		center.y = GetY() + r;
 	}
@@ -29,9 +31,11 @@ public:
 		, SPD(100)
 		, SSPD(10)
 	{
-		width = 128;
-		height = 128;
-		r = width / 2;
+		SetX(1000);
+		SetY(100);
+		width = 256;
+		height = 256;
+		r = 100;
 		center.x = GetX() + r;
 		center.y = GetY() + r;
 	}
@@ -46,5 +50,7 @@ public:
 	int SPD;
 	int SSPD;
 	CPoint center;
+
+	std::weak_ptr<Gdiplus::Image> enemyimg;
 };
 

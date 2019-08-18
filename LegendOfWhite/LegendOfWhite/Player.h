@@ -15,11 +15,11 @@ public:
 		, eplayerlook(ePlayerLook_Down)
 		, addDelta(0)
 	{
-		width = 128;
-		height = 128;
+		width = 80;
+		height = 80;
 		r = 20;
-		center.x = GetX() + 50;
-		center.y = GetY() + 50;
+		center.x = GetX() + 40;
+		center.y = GetY() + 40;
 	}
 
 	void Update(float Delta);

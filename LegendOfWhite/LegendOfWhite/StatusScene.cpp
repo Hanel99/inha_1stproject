@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "StatusScene.h"
 
+#define _CRT_SECURE_NO_WARNINGS
+
 StatusScene::StatusScene()
 {
 }
@@ -32,6 +34,16 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 
 	//±×·ÁÁÙ screenÁÂÇ¥ÀÇ rect
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
+
+	Gdiplus::Font F(L"¸¼Àº°íµñ", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+	Gdiplus::PointF P(100.0f, 10.0f);
+	Gdiplus::SolidBrush B(Gdiplus::Color(255, 255, 255));
+	int _gold = 1000;
+
+
+	std::wstring tempStr = std::to_wstring(_gold) + L"pt";
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+
 
 	// ½ºÅÈ ÁÂÇ¥
 	Gdiplus::Rect statrc(STATX_WIDTH, STATY_HEIGHT, STAT_WIDTH, STAT_HEIGHT);
@@ -140,12 +152,17 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	temp.DrawImage(bgImg.lock().get(),
 		rminiStatrc5, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
-	MemG->DrawImage(&bm, screenPosRect);
+
+	
+
+
 
 	//for (auto& it : objectVec)
 	//{
 		//it->Render(MemG);
 	//}
+
+	MemG->DrawImage(&bm, screenPosRect);
 }
 
 void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)

@@ -6,6 +6,7 @@ GameScene::GameScene()
 	Init();
 }
 
+#define GRID 80
 
 void GameScene::Init()
 {
@@ -13,20 +14,21 @@ void GameScene::Init()
 	SetStartPos(100, 100);
 
 	enemy = new Enemy();
+	nextStageBoard = new NextStage(400, 400);
 
-	for (int gridy = 0; gridy * 80 < HEIGHT; ++gridy)
+	for (int gridy = 0; gridy * GRID < HEIGHT; ++gridy)
 	{
-		for (int gridx = 0; gridx * 80 < WIDTH; ++gridx)
+		for (int gridx = 0; gridx * GRID < WIDTH; ++gridx)
 		{
 			if (gridx == 0 || gridx == 15 || gridy == 0 || gridy == 8)
 			{
-				wallVec.emplace_back(new Wall(gridx * 80, gridy * 80));
+				wallVec.emplace_back(new Wall(gridx * GRID, gridy * GRID));
 			}
 		}
 	}
-	wallVec.emplace_back(new Wall(5 * 80, 2 * 80));
-	wallVec.emplace_back(new Wall(12 * 80, 4 * 80));
-	wallVec.emplace_back(new Wall(10 * 80, 5 * 80));
+	wallVec.emplace_back(new Wall(5 * GRID, 2 * GRID));
+	wallVec.emplace_back(new Wall(12 * GRID, 4 * GRID));
+	wallVec.emplace_back(new Wall(10 * GRID, 5 * GRID));
 
 	objectVec.emplace_back(player);
 	objectVec.emplace_back(enemy);
@@ -60,7 +62,6 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	Gdiplus::Graphics temp(&bm);
 
 	bgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bgImg.png"));
-
 	temp.DrawImage(bgImg.lock().get(), rect, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	//그려줄 screen좌표의 rect
@@ -80,6 +81,7 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	{
 		it->Render(MemG);
 	}
+	nextStageBoard->Render(MemG);
 }
 
 void GameScene::SetStartPos(float x, float y)
@@ -169,7 +171,7 @@ void GameScene::IsPlayerColl(Player* p)
 				p->SetX(p->GetX() - 3);
 				break;
 			}
-			printf("충돌!\n");
+			//printf("충돌!\n");
 		}
 	}
 }

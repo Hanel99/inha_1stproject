@@ -5,6 +5,7 @@
 #include "Enemy.h"
 #include "Bullet.h"
 #include "Wall.h"
+#include "NextStage.h"
 
 class GameScene : public Scene
 {
@@ -27,8 +28,8 @@ public:
 private:
 	Player* player;
 	Enemy* enemy;
+	NextStage* nextStageBoard;
 
-	Wall* border;
 	std::vector<Wall*> wallVec;
 	std::vector<Bullet*> bulletVec;
 	std::vector<Object*> objectVec;

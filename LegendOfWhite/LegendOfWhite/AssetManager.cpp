@@ -47,7 +47,7 @@ void AssetManager::RetrunBullet(Bullet* b)
 		{
 			it.first = true;
 			it.second->BulletReset();
-			printf("%d¹ø ºÒ¸´ º¹±Í\n", i);
+			//printf("%d¹ø ºÒ¸´ º¹±Í\n", i);
 			break;
 		}
 	}

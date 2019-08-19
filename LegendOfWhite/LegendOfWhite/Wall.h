@@ -2,7 +2,6 @@
 #include "Object.h"
 #include "common.h"
 
-
 class Wall : public Object
 {
 public:

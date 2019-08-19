@@ -29,8 +29,9 @@ private:
 	Player* player;
 	Enemy* enemy;
 	NextStage* nextStageBoard;
+	int isAllEnemyDead;
 
 	std::vector<Wall*> wallVec;
 	std::vector<Bullet*> bulletVec;
-	std::vector<Object*> objectVec;
+	std::vector<Enemy*> enemyVec;
 };

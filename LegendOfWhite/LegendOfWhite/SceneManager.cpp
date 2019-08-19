@@ -19,10 +19,12 @@ void SceneManager::Init()
 	//게임씬을 양산해서 사용할것. 여기선 임시로 하나만
 	gameScene = new GameScene();
 	statusScene = new StatusScene();
+	allClearScene = new AllClearScene();
 	
 	sceneVec.emplace_back(introScene);
 	sceneVec.emplace_back(statusScene);
 	sceneVec.emplace_back(gameScene);
+	sceneVec.emplace_back(allClearScene);
 
 	scenenum = 0;
 	curScene = introScene;	
@@ -82,3 +84,8 @@ void SceneManager::SwapStatusScene()
 	}
 }
 
+void SceneManager::GotoAllClearScene()
+{
+	scenenum = 3;
+	curScene = sceneVec[scenenum];
+}

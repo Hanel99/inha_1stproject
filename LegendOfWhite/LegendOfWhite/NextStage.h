@@ -2,7 +2,7 @@
 #include "Object.h"
 #include "common.h"
 
-class NextStage : Object
+class NextStage : public Object
 {
 public:
 	NextStage(int getx, int gety)
@@ -12,9 +12,9 @@ public:
 		SetY(gety);
 		width = 64;
 		height = 64;
-		r = 2;
-		center.x = GetX() + 40;
-		center.y = GetY() + 40;
+		r = 3;
+		center.x = GetX() + 20;
+		center.y = GetY() + 20;
 	}
 
 	void Update(float Delta);

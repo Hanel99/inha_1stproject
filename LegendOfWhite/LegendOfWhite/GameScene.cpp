@@ -14,7 +14,7 @@ void GameScene::Init()
 	SetStartPos(100, 100);
 
 	enemy = new Enemy();
-	nextStageBoard = new NextStage(100, 100);
+	isAllEnemyDead = false;
 
 	for (int gridy = 0; gridy * GRID < HEIGHT; ++gridy)
 	{
@@ -30,8 +30,9 @@ void GameScene::Init()
 	wallVec.emplace_back(new Wall(12 * GRID, 4 * GRID));
 	wallVec.emplace_back(new Wall(10 * GRID, 5 * GRID));
 
-	objectVec.emplace_back(player);
-	objectVec.emplace_back(enemy);
+	nextStageBoard = new NextStage(12 * GRID, 2 * GRID);
+
+	enemyVec.emplace_back(enemy);
 }
 
 void GameScene::Update(float Delta)
@@ -41,11 +42,21 @@ void GameScene::Update(float Delta)
 	{
 		SceneManager::GetInstance()->SwapStatusScene();
 	}
-	for (auto& it : objectVec)
+	player->Update(Delta);
+	IsPlayerColl(player);
+
+	if (enemyVec.empty())
 	{
-		it->Update(Delta);
-		IsPlayerColl(player);
+		isAllEnemyDead = true;
 	}
+	else
+	{
+		for (auto& it : enemyVec)
+		{
+			it->Update(Delta);
+		}
+	}
+	
 	for (auto& it : bulletVec)
 	{
 		if (it == nullptr) break;
@@ -69,6 +80,8 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 
 	MemG->DrawImage(&bm, screenPosRect);
 
+
+	nextStageBoard->Render(MemG);
 	for (auto& it : wallVec)
 	{
 		it->Render(MemG);
@@ -77,11 +90,11 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	{
 		it->Render(MemG);
 	}
-	for (auto& it : objectVec)
+	for (auto& it : enemyVec)
 	{
 		it->Render(MemG);
 	}
-	nextStageBoard->Render(MemG);
+	player->Render(MemG);
 }
 
 void GameScene::SetStartPos(float x, float y)
@@ -111,6 +124,8 @@ void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 			bulletVec.emplace_back(b);
 		}
 	}
+	enemyVec.clear();
+	enemyVec.empty();
 }
 
 void GameScene::ReturnBulletFromGameScene(Bullet* b)
@@ -145,15 +160,6 @@ void GameScene::IsPlayerColl(Player* p)
 {
 	for (auto& it : wallVec)
 	{
-		//if (p->GetX() + p->width > it->GetX()) //플레이어가 오른쪽으로 이동해 벽과 충돌
-		//	p->SetX(p->GetX() - 100);
-		//else if (p->GetX() < it->GetX() + it->width) //플레이어가 왼쪽으로 이동해 벽과 충돌
-		//	p->SetX(p->GetX() + 100);
-		//else if (p->GetY() + p->height > it->GetY()) //플레이어가 아래로 이동해 벽과 충돌
-		//	p->SetY(p->GetY() + 100);
-		//else if (p->GetY() + p->height > it->GetY()) //플레이어가 위로 이동해 벽과 충돌
-		//	p->SetY(p->GetY() - 100);
-
 		if (pow((it->center.x - p->center.x), 2) + pow((it->center.y - p->center.y), 2) <= pow((it->r + p->r), 2))
 		{
 			switch (p->eplayerlook)
@@ -171,7 +177,12 @@ void GameScene::IsPlayerColl(Player* p)
 				p->SetX(p->GetX() - 3);
 				break;
 			}
-			//printf("충돌!\n");
 		}
+	}
+	if (pow((nextStageBoard->center.x - p->center.x), 2) + pow((nextStageBoard->center.y - p->center.y), 2) <= pow((nextStageBoard->r + p->r), 2) && isAllEnemyDead)
+	{
+		printf("다음씬!");
+		SetStartPos(100, 100);
+		SceneManager::GetInstance()->GotoAllClearScene();
 	}
 }

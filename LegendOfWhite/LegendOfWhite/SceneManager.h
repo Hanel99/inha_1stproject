@@ -4,6 +4,7 @@
 #include "IntroScene.h"
 #include "GameScene.h"
 #include "StatusScene.h"
+#include "AllClearScene.h"
 
 #include <vector>
 
@@ -20,11 +21,13 @@ public:
 
 	void MoveNextScene();
 	void SwapStatusScene();
+	void GotoAllClearScene();
 
 private : 
 	Scene* introScene;
 	Scene* gameScene;
 	Scene* statusScene;
+	Scene* allClearScene;
 	Scene* curScene;
 
 	int scenenum;

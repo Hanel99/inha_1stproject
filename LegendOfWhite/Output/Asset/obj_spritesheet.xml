@@ -3,7 +3,7 @@
 	<SubTexture name="crate_06.png" x="320" y="512" width="64" height="64"/>
 	<SubTexture name="environment_05.png" x="20" y="576" width="20" height="20"/>
 	<SubTexture name="environment_08.png" x="80" y="576" width="20" height="20"/>
-	<SubTexture name="ground_01.png" x="320" y="320" width="64" height="64"/>
+	<SubTexture name="ground_01.png" x="64" y="64" width="64" height="64"/>
 	<SubTexture name="ground_04.png" x="320" y="192" width="64" height="64"/>
 	<SubTexture name="player_01.png" x="558" y="0" width="42" height="50"/>
 	<SubTexture name="player_02.png" x="554" y="158" width="42" height="50"/>

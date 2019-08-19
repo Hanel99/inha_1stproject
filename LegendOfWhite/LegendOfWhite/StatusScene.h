@@ -1,38 +1,33 @@
 #pragma once
 #include "Scene.h"
 
-// 스탯
-#define STATX_WIDTH 560 // 위치값
-#define STATY_HEIGHT 155 // 위치값
-#define STAT_WIDTH 100 // 길이값
-#define STAT_HEIGHT 53 // 높이값
+// 숫자 출력 스테이터스 L
+#define LSTATNUM_WIDTH 575.0f
+#define LSTATNUM_HEIGHT 168.0f
 
-// 퍼센트 스탯
-#define STATPX_WIDTH 680 // 위치값
-#define STATPY_HEIGHT 160 // 위치값
-#define STATP_WIDTH 113 // 길이값
-#define STATP_HEIGHT 42 // 길이값
+// 위아래 간격
+#define STATITV 92.0f
 
-// 사이 간격
-#define STAT_HITV 39 // 스탯 위아래 사이 간격
-#define STATP_HITV 50 // 스탯 퍼센트 위아래 사이 간격
-#define MINISTAT_HITV 65 // 왼쪽 작은 스탯 버튼 위아래 사이 간격
+// 숫자 출력 스테이터스 R
+#define RSTATNUM_WIDTH 694.0f
 
-// 스탯 업그레이드
-#define STATUX_WIDTH 1002 // 위치값
-#define STATUY_HEIGHT 160 // 위치값
 
-// 스탯 업그레이드 퍼센트
-#define STATUPX_WIDTH 1131 // 위치값
+// 숫자 출력 스테이터스 강화 L
+#define LSTATUPNUM_WIDTH 1016.0f
+#define LSTATUPNUM_HEIGHT 168.0f
 
-// 왼쪽 작은 스탯 버튼
-#define LMINISTATX_WIDTH 1058 // 위치값
-#define LMINISTATY_HEIGHT 192 // 위치값
-#define LMINISTAT_WIDTH 66 // 길이값
-#define LMINISTAT_HEIGHT 28 // 길이값
+// 숫자 출력 스테이터스 강화 R
+#define RSTATUPNUM_WIDTH 1145.0f
 
-// 오른쪽 작은 스탯 버튼
-#define RMINISTATX_WIDTH 1187 // 위치값
+// 작은 버튼 L
+#define LMSTATNUM_WIDTH 1067.0f
+#define LMSTATNUM_HEIGHT 197.f
+
+// 작은 버튼 R
+#define RMSTATUM_WIDTH 1196.0f
+
+// 간격
+#define MSTATITV 93.0f
 
 
 class StatusScene : public Scene

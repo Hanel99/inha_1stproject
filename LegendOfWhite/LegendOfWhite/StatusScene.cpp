@@ -32,139 +32,152 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	temp.DrawImage(statImg.lock().get(),
 		rect, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
+
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 
-	Gdiplus::Font F(L"맑은고딕", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);	
+	Gdiplus::Font F(L"맑은고딕", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	Gdiplus::SolidBrush B(Gdiplus::Color(255, 255, 255));
 
-	P.X = 100.0f;
-	P.Y = 10.0f;
+	// 스테이터스 L
+	P.X = LSTATNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT;
 	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
 	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	P.X = 120.0f;
-	P.Y = 20.0f;
+	P.X = LSTATNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV;
 	tempStr = L"1pt";
 	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	P.X = 200.0f;
-	P.Y = 10.0f;
+	P.X = LSTATNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV * 2;
 	tempStr = std::to_wstring(GameData::GetInstance()->ATKM) + L"%";
 	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	P.X = 220.0f;
-	P.Y = 20.0f;
-	tempStr = std::to_wstring((GameData::GetInstance()->ATKM+10) / 5) + L"pt";
+	P.X = LSTATNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV * 3;
+	tempStr = std::to_wstring((GameData::GetInstance()->ATKM + 10) / 5) + L"pt";
 	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
+	P.X = LSTATNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV * 4;
+	tempStr = std::to_wstring((GameData::GetInstance()->ATKM + 10) / 5) + L"pt";
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	// 스탯 좌표
-	Gdiplus::Rect statrc(STATX_WIDTH, STATY_HEIGHT, STAT_WIDTH, STAT_HEIGHT);
-	Gdiplus::Rect statrc2(STATX_WIDTH, STATY_HEIGHT + STAT_HEIGHT + STAT_HITV, STAT_WIDTH, STAT_HEIGHT);
-	Gdiplus::Rect statrc3(STATX_WIDTH, STATY_HEIGHT + STAT_HEIGHT * 2 + STAT_HITV * 2, STAT_WIDTH, STAT_HEIGHT);
-	Gdiplus::Rect statrc4(STATX_WIDTH, STATY_HEIGHT + STAT_HEIGHT * 3 + STAT_HITV * 3, STAT_WIDTH, STAT_HEIGHT);
-	Gdiplus::Rect statrc5(STATX_WIDTH, STATY_HEIGHT + STAT_HEIGHT * 4 + STAT_HITV * 4, STAT_WIDTH, STAT_HEIGHT);
+	// 스테이터스 R
+	P.X = RSTATNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	// 스탯 퍼센트
-	Gdiplus::Rect statPrc(STATPX_WIDTH, STATPY_HEIGHT, STATP_WIDTH, STATP_HEIGHT);
-	Gdiplus::Rect statPrc2(STATPX_WIDTH, STATPY_HEIGHT + STATP_HEIGHT + STATP_HITV, STATP_WIDTH, STATP_HEIGHT);
-	Gdiplus::Rect statPrc3(STATPX_WIDTH, STATPY_HEIGHT + STATP_HEIGHT * 2 + STATP_HITV * 2, STATP_WIDTH, STATP_HEIGHT);
+	P.X = RSTATNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	// 스탯 업그레이드
-	Gdiplus::Rect statUrc(STATUX_WIDTH, STATUY_HEIGHT, STATP_WIDTH, STATP_HEIGHT);
-	Gdiplus::Rect statUrc2(STATUX_WIDTH, STATUY_HEIGHT + STATP_HEIGHT + STATP_HITV, STATP_WIDTH, STATP_HEIGHT);
-	Gdiplus::Rect statUrc3(STATUX_WIDTH, STATUY_HEIGHT + STATP_HEIGHT * 2 + STATP_HITV * 2, STATP_WIDTH, STATP_HEIGHT);
-	Gdiplus::Rect statUrc4(STATUX_WIDTH, STATUY_HEIGHT + STATP_HEIGHT * 3 + STATP_HITV * 3, STATP_WIDTH, STATP_HEIGHT);
+	P.X = RSTATNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV * 2;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	// 스탯 업그레이드 퍼센트
-	Gdiplus::Rect statUPrc(STATUPX_WIDTH, STATUY_HEIGHT, STATP_WIDTH, STATP_HEIGHT);
-	Gdiplus::Rect statUPrc2(STATUPX_WIDTH, STATUY_HEIGHT + STATP_HEIGHT + STATP_HITV, STATP_WIDTH, STATP_HEIGHT);
-	Gdiplus::Rect statUPrc3(STATUPX_WIDTH, STATUY_HEIGHT + STATP_HEIGHT * 2 + STATP_HITV * 2, STATP_WIDTH, STATP_HEIGHT);
-	Gdiplus::Rect statUPrc4(STATUPX_WIDTH, STATUY_HEIGHT + STATP_HEIGHT * 3 + STATP_HITV * 3, STATP_WIDTH, STATP_HEIGHT);
-	Gdiplus::Rect statUPrc5(STATUPX_WIDTH, STATUY_HEIGHT + STATP_HEIGHT * 4 + STATP_HITV * 4, STATP_WIDTH, STATP_HEIGHT);
-	
-	// 왼쪽 작은 스탯 버튼
-	Gdiplus::Rect lminiStatrc(LMINISTATX_WIDTH, LMINISTATY_HEIGHT, LMINISTAT_WIDTH, LMINISTAT_HEIGHT);
-	Gdiplus::Rect lminiStatrc2(LMINISTATX_WIDTH, LMINISTATY_HEIGHT + LMINISTAT_HEIGHT + MINISTAT_HITV, LMINISTAT_WIDTH, LMINISTAT_HEIGHT);
-	Gdiplus::Rect lminiStatrc3(LMINISTATX_WIDTH, LMINISTATY_HEIGHT + LMINISTAT_HEIGHT * 2 + MINISTAT_HITV * 2, LMINISTAT_WIDTH, LMINISTAT_HEIGHT);
-	Gdiplus::Rect lminiStatrc4(LMINISTATX_WIDTH, LMINISTATY_HEIGHT + LMINISTAT_HEIGHT * 3 + MINISTAT_HITV * 3, LMINISTAT_WIDTH, LMINISTAT_HEIGHT);
+	// 스테이터스 강화 L
+	P.X = LSTATUPNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	// 오른쪽 작은 스탯 버튼
-	Gdiplus::Rect rminiStatrc(RMINISTATX_WIDTH, LMINISTATY_HEIGHT, LMINISTAT_WIDTH, LMINISTAT_HEIGHT);
-	Gdiplus::Rect rminiStatrc2(RMINISTATX_WIDTH, LMINISTATY_HEIGHT + LMINISTAT_HEIGHT + MINISTAT_HITV, LMINISTAT_WIDTH, LMINISTAT_HEIGHT);
-	Gdiplus::Rect rminiStatrc3(RMINISTATX_WIDTH, LMINISTATY_HEIGHT + LMINISTAT_HEIGHT * 2 + MINISTAT_HITV * 2, LMINISTAT_WIDTH, LMINISTAT_HEIGHT);
-	Gdiplus::Rect rminiStatrc4(RMINISTATX_WIDTH, LMINISTATY_HEIGHT + LMINISTAT_HEIGHT * 3 + MINISTAT_HITV * 3, LMINISTAT_WIDTH, LMINISTAT_HEIGHT);
-	Gdiplus::Rect rminiStatrc5(RMINISTATX_WIDTH, LMINISTATY_HEIGHT + LMINISTAT_HEIGHT * 4 + MINISTAT_HITV * 4, LMINISTAT_WIDTH, LMINISTAT_HEIGHT);
+	P.X = LSTATUPNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
+	P.X = LSTATUPNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV * 2;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
+	P.X = LSTATUPNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV * 3;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	// 스탯 죄표
-	bgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bgImg.png"));
-	temp.DrawImage(bgImg.lock().get(),
-		statrc, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	//bgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bgImg.png"));
-	temp.DrawImage(bgImg.lock().get(),
-		statrc2, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statrc3, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statrc4, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statrc5, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	// 스테이터스 강화 R
 
-	// 스탯 퍼센트
-	temp.DrawImage(bgImg.lock().get(),
-		statPrc, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statPrc2, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statPrc3, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	P.X = RSTATUPNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	// 스탯 업그레이드
-	temp.DrawImage(bgImg.lock().get(),
-		statUrc, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statUrc2, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statUrc3, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statUrc4, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	P.X = RSTATUPNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	// 스탯 업그레이드 퍼센트
-	temp.DrawImage(bgImg.lock().get(),
-		statUPrc, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statUPrc2, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statUPrc3, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statUPrc4, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		statUPrc5, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	P.X = RSTATUPNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV * 2;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	// 왼쪽 작은 스탯 버튼
-	bgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\wall_blue.png"));
-	temp.DrawImage(bgImg.lock().get(),
-		lminiStatrc, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		lminiStatrc2, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		lminiStatrc3, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		lminiStatrc4, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	P.X = RSTATUPNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV * 3;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	// 오른쪽 작은 스탯 버튼
-	temp.DrawImage(bgImg.lock().get(),
-		rminiStatrc, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		rminiStatrc2, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		rminiStatrc3, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		rminiStatrc4, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	temp.DrawImage(bgImg.lock().get(),
-		rminiStatrc5, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	P.X = RSTATUPNUM_WIDTH;
+	P.Y = LSTATNUM_HEIGHT + STATITV * 4;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+
+	// 작은 버튼 L
+	Gdiplus::Font F2(L"맑은고딕", 13, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+	Gdiplus::SolidBrush B2(Gdiplus::Color(255, 255, 255));
+
+	P.X = LMSTATNUM_WIDTH;
+	P.Y = LMSTATNUM_HEIGHT;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+
+	P.X = LMSTATNUM_WIDTH;
+	P.Y = LMSTATNUM_HEIGHT + MSTATITV;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+
+	P.X = LMSTATNUM_WIDTH;
+	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 2;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+
+	P.X = LMSTATNUM_WIDTH;
+	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 3;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+
+	// 작은 버튼 R
+	P.X = RMSTATUM_WIDTH;
+	P.Y = LMSTATNUM_HEIGHT;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+
+	P.X = RMSTATUM_WIDTH;
+	P.Y = LMSTATNUM_HEIGHT + MSTATITV;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+
+	P.X = RMSTATUM_WIDTH;
+	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 2;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+
+	P.X = RMSTATUM_WIDTH;
+	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 3;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+
+	P.X = RMSTATUM_WIDTH;
+	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 4;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 
 	

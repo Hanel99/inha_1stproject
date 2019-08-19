@@ -9,7 +9,7 @@ public:
 		: Object(EObjectType::eObjectType_Enemy)
 		, EnemyType(EEnemyType::eEnemyType_Bird)
 		, EnemyNum(1)
-		, HP(1)
+		, HP(10)
 		, ATK(1)
 		, SPD(1)
 		, SSPD(1)

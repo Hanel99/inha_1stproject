@@ -124,8 +124,6 @@ void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 			bulletVec.emplace_back(b);
 		}
 	}
-	enemyVec.clear();
-	enemyVec.empty();
 }
 
 void GameScene::ReturnBulletFromGameScene(Bullet* b)
@@ -137,20 +135,30 @@ void GameScene::ReturnBulletFromGameScene(Bullet* b)
 
 void GameScene::BulletCollCheck(Bullet* b)
 {
-	if (b->GetX() > WIDTH || b->GetX() < 0 || b->GetY() > HEIGHT || b->GetY() < 0)
+	for (auto& it : wallVec)
 	{
-		AssetManager::GetInstance()->RetrunBullet(b);
-		ReturnBulletFromGameScene(b);
-	}
-	else
-	{
-		for (auto& it : wallVec)
+		if (pow((it->center.x - b->center.x), 2) + pow((it->center.y - b->center.y), 2) <= pow((it->width / 5 + b->width / 3), 2))
 		{
-			if (pow((it->center.x - b->center.x), 2) + pow((it->center.y - b->center.y), 2) <= pow((it->width/5 + b->width/3), 2))
+			//벽과 충돌
+			AssetManager::GetInstance()->RetrunBullet(b);
+			ReturnBulletFromGameScene(b);
+		}
+	}
+
+	for (auto& it : enemyVec)
+	{
+		if (pow((it->center.x - b->center.x), 2) + pow((it->center.y - b->center.y), 2) <= pow((it->width / 5 + b->width / 3), 2))
+		{
+			//몬스터와 충돌
+			AssetManager::GetInstance()->RetrunBullet(b);
+			ReturnBulletFromGameScene(b);
+			printf("%d에서 %d만큼 데미지를 받아", it->HP, player->ATK);
+			it->HP = it->HP - player->ATK;
+			printf(" %d의 hp가 남음\n",it->HP);
+			if (it->HP <= 0)
 			{
-				//벽과 충돌
-				AssetManager::GetInstance()->RetrunBullet(b);
-				ReturnBulletFromGameScene(b);
+				std::vector<Enemy*>::iterator itr = std::find(enemyVec.begin(), enemyVec.end(), it);
+				enemyVec.erase(itr);
 			}
 		}
 	}

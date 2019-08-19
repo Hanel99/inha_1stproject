@@ -47,7 +47,7 @@ void GameScene::Update(float Delta)
 
 	addDelta += Delta;
 	addDelta2 += Delta;
-	if (addDelta > 10.0f) //일정 시간이 지나면 다시 몬스터 생성. 테스트용임니다
+	if (addDelta > 10.0f && enemyVec.empty()) //일정 시간이 지나면 다시 몬스터 생성. 테스트용임니다
 	{
 		addDelta = 0.0f;
 		enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 1000, 100);
@@ -202,6 +202,7 @@ void GameScene::BulletCollCheck(Bullet* b)
 			{
 				//죽었습니다 씬 만들것
 				SceneManager::GetInstance()->GotoTitleScene();
+				player->HP = 3;
 			}
 		}
 	}

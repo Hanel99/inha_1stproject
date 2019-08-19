@@ -12,6 +12,9 @@ public:
 		, SPD(300)
 		, SSPD(100)
 		, CRI(0.0f)
+		, LV(1)
+		, EXP(0)
+		, skillPoint(0)
 		, eplayerlook(ePlayerLook_Down)
 		, addDelta(0)
 	{
@@ -24,6 +27,10 @@ public:
 
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
+
+	int LV;
+	int EXP;
+	int skillPoint;
 
 	int HP;
 	int ATK;

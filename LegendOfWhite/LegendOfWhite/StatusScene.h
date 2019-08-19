@@ -44,8 +44,9 @@ public:
 	Gdiplus::PointF P;
 	std::wstring tempStr;
 
+	Player* player;
+
 public:
 	std::weak_ptr<Gdiplus::Image> statImg;
 	std::weak_ptr<Gdiplus::Image> bgImg;
-
 };

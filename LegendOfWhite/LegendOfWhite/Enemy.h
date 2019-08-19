@@ -13,6 +13,7 @@ public:
 		, ATK(1)
 		, SPD(1)
 		, SSPD(1)
+		, EXP(1000)
 	{
 		SetX(1000);
 		SetY(100);
@@ -30,6 +31,7 @@ public:
 		, ATK(1)
 		, SPD(100)
 		, SSPD(10)
+		, EXP(1000)
 		
 	{
 		SetX(x);
@@ -50,6 +52,7 @@ public:
 	int ATK;
 	int SPD;
 	int SSPD;
+	int EXP;
 	CPoint center;
 
 	std::weak_ptr<Gdiplus::Image> enemyimg;

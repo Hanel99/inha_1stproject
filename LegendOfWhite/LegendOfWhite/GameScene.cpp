@@ -9,8 +9,15 @@ GameScene::GameScene()
 #define GRID 80
 
 void GameScene::Init()
-{	
+{
 	player = GameData::GetInstance()->player;
+
+	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
+	player->SPD = 300 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.5f;
+	player->SSPD = GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM);
+	player->HP = GameData::GetInstance()->HP;
+	player->CRI = GameData::GetInstance()->CRI;
+
 	SetStartPos(100, 100);
 	addDelta = 30.0f;
 	addDelta2 = 0.0f;
@@ -32,6 +39,11 @@ void GameScene::Init()
 
 	nextStageBoard = new NextStage(12 * GRID, 2 * GRID);
 
+
+	enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 1000, 100);
+	enemyVec.emplace_back(enemy);
+
+
 }
 
 void GameScene::Update(float Delta)
@@ -44,15 +56,23 @@ void GameScene::Update(float Delta)
 	player->Update(Delta);
 	IsPlayerColl(player);
 
-
-	addDelta += Delta;
-	addDelta2 += Delta;
-	if (addDelta > 10.0f && enemyVec.empty()) //일정 시간이 지나면 다시 몬스터 생성. 테스트용임니다
+	if (GetAsyncKeyState(VK_SPACE) & 0x1001)
 	{
-		addDelta = 0.0f;
-		enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 1000, 100);
-		enemyVec.emplace_back(enemy);
+		if (enemyVec.empty())
+		{
+			enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 1000, 100);
+			enemyVec.emplace_back(enemy);
+		}
 	}
+
+	//addDelta += Delta;
+	addDelta2 += Delta;
+	//if (addDelta > 10.0f && enemyVec.empty()) //일정 시간이 지나면 다시 몬스터 생성. 테스트용임니다
+	//{
+	//	addDelta = 0.0f;
+	//	enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 1000, 100);
+	//	enemyVec.emplace_back(enemy);
+	//}
 
 
 	if (enemyVec.empty())
@@ -65,7 +85,7 @@ void GameScene::Update(float Delta)
 		{
 			it->Update(Delta);
 
-			if (addDelta2 > 1.0f)
+			if (addDelta2 > 0.1f)
 			{
 				addDelta2 = 0.0f;
 				Bullet* b = AssetManager::GetInstance()->CreateBullet();
@@ -75,11 +95,11 @@ void GameScene::Update(float Delta)
 					bulletVec.emplace_back(b);
 				}
 			}
-			
+
 		}
 		isAllEnemyDead = false;
 	}
-	
+
 	for (auto& it : bulletVec)
 	{
 		if (it == nullptr) break;
@@ -98,13 +118,17 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	bgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bgImg.png"));
 	temp.DrawImage(bgImg.lock().get(), rect, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
-	//그려줄 screen좌표의 rect
-	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 
+
+
+	//그려줄 screen좌표의 rect
+
+	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 	MemG->DrawImage(&bm, screenPosRect);
 
 
-	nextStageBoard->Render(MemG);
+	if (isAllEnemyDead)
+		nextStageBoard->Render(MemG);
 	for (auto& it : wallVec)
 	{
 		it->Render(MemG);
@@ -118,6 +142,35 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 		it->Render(MemG);
 	}
 	player->Render(MemG);
+	StringRender(MemG);
+}
+
+void GameScene::StringRender(Gdiplus::Graphics* MemG)
+{
+	Gdiplus::Bitmap bm(WIDTH, HEIGHT, PixelFormat32bppARGB);
+	Gdiplus::Graphics temp(&bm);
+
+	Gdiplus::PointF P;
+	std::wstring tempStr;
+	Gdiplus::SolidBrush B(Gdiplus::Color(255, 255, 255));
+	Gdiplus::Font F3(L"맑은고딕", 30, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+	P.X = 10;
+	P.Y = 10;
+	tempStr = L"LV : " + std::to_wstring(player->LV);
+	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
+
+	P.X = 180;
+	P.Y = 10;
+	tempStr = L"HP : " + std::to_wstring(player->HP);
+	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
+
+	P.X = 10;
+	P.Y = 40;
+	tempStr = L"EXP : " + std::to_wstring(player->EXP);
+	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
+
+	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
+	MemG->DrawImage(&bm, screenPosRect);
 }
 
 void GameScene::SetStartPos(float x, float y)
@@ -178,14 +231,15 @@ void GameScene::BulletCollCheck(Bullet* b)
 				AssetManager::GetInstance()->RetrunBullet(b);
 				ReturnBulletFromGameScene(b);
 				printf("몬스터가 %d에서 %d만큼 데미지를 받아", it->HP, player->ATK);
-				it->HP = it->HP - player->ATK;
+				it->HP -= player->ATK;
 				printf(" %d의 hp가 남음\n", it->HP);
 				if (it->HP <= 0)
 				{
 					std::vector<Enemy*>::iterator itr = std::find(enemyVec.begin(), enemyVec.end(), it);
 					enemyVec.erase(itr);
+					player->EXP += it->EXP;
 				}
-			}			
+			}
 		}
 	}
 	if (pow((player->center.x - b->center.x), 2) + pow((player->center.y - b->center.y), 2) <= pow((player->width / 5 + b->width / 3), 2))
@@ -196,13 +250,15 @@ void GameScene::BulletCollCheck(Bullet* b)
 			AssetManager::GetInstance()->RetrunBullet(b);
 			ReturnBulletFromGameScene(b);
 			printf("플레이어가 %d에서 %d만큼 데미지를 받아", player->HP, enemy->ATK);
-			player->HP = player->HP - enemy->ATK;
+			player->HP -= enemy->ATK;
 			printf(" %d의 hp가 남음\n", player->HP);
 			if (player->HP <= 0)
 			{
-				//죽었습니다 씬 만들것
-				SceneManager::GetInstance()->GotoTitleScene();
-				player->HP = 3;
+				//플레이어 사망
+				SetStartPos(100, 100);
+				GameData::GetInstance()->HP = 6;
+				SceneManager::GetInstance()->SetGameClear(false);
+				SceneManager::GetInstance()->GotoResultScene();
 			}
 		}
 	}
@@ -217,24 +273,25 @@ void GameScene::IsPlayerColl(Player* p)
 			switch (p->eplayerlook)
 			{
 			case ePlayerLook_Down:
-				p->SetY(p->GetY() - 3);
+				p->SetY(p->GetY() - (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.1f);
 				break;
 			case ePlayerLook_Up:
-				p->SetY(p->GetY() + 3);
+				p->SetY(p->GetY() + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.1f);
 				break;
 			case ePlayerLook_Left:
-				p->SetX(p->GetX() + 3);
+				p->SetX(p->GetX() + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.1f);
 				break;
 			case ePlayerLook_Right:
-				p->SetX(p->GetX() - 3);
+				p->SetX(p->GetX() - (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.1f);
 				break;
 			}
 		}
 	}
 	if (pow((nextStageBoard->center.x - p->center.x), 2) + pow((nextStageBoard->center.y - p->center.y), 2) <= pow((nextStageBoard->r + p->r), 2) && isAllEnemyDead)
 	{
-		printf("다음씬!");
 		SetStartPos(100, 100);
-		SceneManager::GetInstance()->GotoAllClearScene();
+		GameData::GetInstance()->HP = 6;
+		SceneManager::GetInstance()->SetGameClear(true);
+		SceneManager::GetInstance()->GotoResultScene();
 	}
 }

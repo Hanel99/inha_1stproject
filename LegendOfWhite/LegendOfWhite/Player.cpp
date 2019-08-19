@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Player.h"
 
+
 void Player::Update(float Delta)
 {
 	addDelta += Delta;
@@ -28,6 +29,13 @@ void Player::Update(float Delta)
 
 	center.x = GetX() + r;
 	center.y = GetY() + r;
+
+	if (EXP >= 100)
+	{
+		EXP -= 100;
+		++skillPoint;
+		++LV;
+	}
 }
 
 void Player::Render(Gdiplus::Graphics* MemG)

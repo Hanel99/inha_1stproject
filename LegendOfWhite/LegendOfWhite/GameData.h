@@ -20,13 +20,14 @@ public:
 	int winWIDTH;
 	int winHEIGHT;
 	int ATKP; //공격력 합
-	int ATKM; //공격력 곱
+	float ATKM; //공격력 곱
 	int SSPDP; //샷스피드(공속) 합
-	int SSPDM; //샷스피드(공속) 곱
+	float SSPDM; //샷스피드(공속) 곱
 	int SPDP; //스피드 합
-	int SPDM; //스피드 곱
+	float SPDM; //스피드 곱
 	int HP; //최대체력
-	int CRI; //크리티컬 확률
+	int healCount;//회복한 횟수
+	float CRI; //크리티컬 확률
 
 
 private:	

@@ -4,7 +4,7 @@
 #include "IntroScene.h"
 #include "GameScene.h"
 #include "StatusScene.h"
-#include "AllClearScene.h"
+#include "ResultScene.h"
 
 #include <vector>
 
@@ -21,8 +21,10 @@ public:
 
 	void MoveNextScene();
 	void SwapStatusScene();
-	void GotoAllClearScene();
+	void GotoResultScene();
 	void GotoTitleScene();
+	void SetGameClear(bool bol);
+	bool IsGameClear();
 
 private : 
 	Scene* introScene;
@@ -32,7 +34,7 @@ private :
 	Scene* curScene;
 
 	int scenenum;
-
+	bool isgameclear;
 	std::vector<Scene*> sceneVec;
 };
 

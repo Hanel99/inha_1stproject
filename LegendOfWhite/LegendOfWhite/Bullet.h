@@ -8,7 +8,7 @@ class Bullet : public Object
 {
 public:
 	Bullet()
-		: Object(EObjectType::eObjectType_EBullet)
+		: Object(EObjectType::eObjectType_PBullet)
 		, SPD(DefaultSPD)
 		, damage(1)
 		, SPDY(1)
@@ -20,8 +20,8 @@ public:
 		center.x = GetX() + 10;
 		center.y = GetY() + 10;
 	}
-	Bullet(int px, int py, int clickx, int clicky)
-		: Object(EObjectType::eObjectType_EBullet)
+	Bullet(int px, int py, int clickx, int clicky, EObjectType type)
+		: Object(type)
 		, damage(GameData::GetInstance()->player->ATK)
 		, SPD(DefaultSPD)
 	{
@@ -30,7 +30,7 @@ public:
 		SPDSet(px, py, clickx, clicky);
 		SetX(px);
 		SetY(py);
-		r = 10;
+		r = 5;
 		center.x = GetX() + 10;
 		center.y = GetY() + 10;
 	}
@@ -38,9 +38,11 @@ public:
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 	void SPDSet(int px, int py, int clickx, int clicky);
-	void BulletInit(int px, int py, int clickx, int clicky);
+	void BulletInit(int px, int py, int clickx, int clicky, EObjectType type);
 	void BulletReset();
 	CPoint center;
+
+	Gdiplus::Rect* rec;
 
 private:
 	int damage;
@@ -50,38 +52,3 @@ private:
 
 	std::weak_ptr<Gdiplus::Image> bulletimg;
 };
-
-
-/*
-	bool IsCullBull(std::vector<Enemy*> vec)
-	{
-		CRect Rect;
-		for (auto& it : vec)
-		{
-			//rc는 bullet의 rc
-			if (Rect.IntersectRect(rc, it->rc))
-			{
-				it->Hp -= Dmg;
-				if (it->Hp <= 0)
-				{
-					//Object에 Enable 값을 정해서 출력할지 정해주는 부분
-					//enemy의 Enable을 false로
-					it->Enable = false;
-
-					//it->Img.Detach();
-					//it->Img.Destroy();
-
-					//delete it;
-					//it = nullptr;
-				}
-				return true;
-			}
-		}
-	}
-
-	float velocityX;
-	float velocityY;
-	int Dmg;
-};
-
-*/

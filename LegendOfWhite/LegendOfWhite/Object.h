@@ -44,9 +44,8 @@ public:
 	int width;
 	int height;
 	int r;
+	EObjectType Objtype;
 private:
 	float x;
 	float y;
-	EObjectType Objtype;
-
 };

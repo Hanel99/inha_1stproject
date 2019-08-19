@@ -30,6 +30,7 @@ void AllClearScene::Render(Gdiplus::Graphics* MemG)
 
 void AllClearScene::SendLButtonDown(UINT nFlags, CPoint point)
 {
+	SceneManager::GetInstance()->GotoTitleScene();
 }
 
 void AllClearScene::SendRButtonDown(UINT nFlags, CPoint point)

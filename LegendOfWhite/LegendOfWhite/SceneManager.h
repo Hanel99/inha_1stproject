@@ -22,6 +22,7 @@ public:
 	void MoveNextScene();
 	void SwapStatusScene();
 	void GotoAllClearScene();
+	void GotoTitleScene();
 
 private : 
 	Scene* introScene;

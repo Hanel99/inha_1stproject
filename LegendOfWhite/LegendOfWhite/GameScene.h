@@ -29,7 +29,9 @@ private:
 	Player* player;
 	Enemy* enemy;
 	NextStage* nextStageBoard;
-	int isAllEnemyDead;
+	bool isAllEnemyDead;
+	float addDelta;
+	float addDelta2;
 
 	std::vector<Wall*> wallVec;
 	std::vector<Bullet*> bulletVec;

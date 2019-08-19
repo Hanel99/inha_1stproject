@@ -9,11 +9,11 @@ GameScene::GameScene()
 #define GRID 80
 
 void GameScene::Init()
-{
+{	
 	player = GameData::GetInstance()->player;
 	SetStartPos(100, 100);
-
-	enemy = new Enemy();
+	addDelta = 30.0f;
+	addDelta2 = 0.0f;
 	isAllEnemyDead = false;
 
 	for (int gridy = 0; gridy * GRID < HEIGHT; ++gridy)
@@ -32,7 +32,6 @@ void GameScene::Init()
 
 	nextStageBoard = new NextStage(12 * GRID, 2 * GRID);
 
-	enemyVec.emplace_back(enemy);
 }
 
 void GameScene::Update(float Delta)
@@ -45,6 +44,17 @@ void GameScene::Update(float Delta)
 	player->Update(Delta);
 	IsPlayerColl(player);
 
+
+	addDelta += Delta;
+	addDelta2 += Delta;
+	if (addDelta > 10.0f) //일정 시간이 지나면 다시 몬스터 생성. 테스트용임니다
+	{
+		addDelta = 0.0f;
+		enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 1000, 100);
+		enemyVec.emplace_back(enemy);
+	}
+
+
 	if (enemyVec.empty())
 	{
 		isAllEnemyDead = true;
@@ -54,7 +64,20 @@ void GameScene::Update(float Delta)
 		for (auto& it : enemyVec)
 		{
 			it->Update(Delta);
+
+			if (addDelta2 > 1.0f)
+			{
+				addDelta2 = 0.0f;
+				Bullet* b = AssetManager::GetInstance()->CreateBullet();
+				if (b != nullptr)
+				{
+					b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, player->GetX() + (player->r), player->GetY() + (player->r), eObjectType_EBullet);
+					bulletVec.emplace_back(b);
+				}
+			}
+			
 		}
+		isAllEnemyDead = false;
 	}
 	
 	for (auto& it : bulletVec)
@@ -108,7 +131,7 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 	Bullet* b = AssetManager::GetInstance()->CreateBullet();
 	if (b != nullptr)
 	{
-		b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x, point.y);
+		b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x, point.y, eObjectType_PBullet);
 		bulletVec.emplace_back(b);
 	}
 }
@@ -120,7 +143,7 @@ void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x + i * 100, point.y + i * 100);
+			b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x + i * 100, point.y + i * 100, eObjectType_PBullet);
 			bulletVec.emplace_back(b);
 		}
 	}
@@ -149,16 +172,36 @@ void GameScene::BulletCollCheck(Bullet* b)
 	{
 		if (pow((it->center.x - b->center.x), 2) + pow((it->center.y - b->center.y), 2) <= pow((it->width / 5 + b->width / 3), 2))
 		{
-			//몬스터와 충돌
+			if (b->Objtype == eObjectType_PBullet)
+			{
+				//플레이어의 총알과 몬스터가 충돌
+				AssetManager::GetInstance()->RetrunBullet(b);
+				ReturnBulletFromGameScene(b);
+				printf("몬스터가 %d에서 %d만큼 데미지를 받아", it->HP, player->ATK);
+				it->HP = it->HP - player->ATK;
+				printf(" %d의 hp가 남음\n", it->HP);
+				if (it->HP <= 0)
+				{
+					std::vector<Enemy*>::iterator itr = std::find(enemyVec.begin(), enemyVec.end(), it);
+					enemyVec.erase(itr);
+				}
+			}			
+		}
+	}
+	if (pow((player->center.x - b->center.x), 2) + pow((player->center.y - b->center.y), 2) <= pow((player->width / 5 + b->width / 3), 2))
+	{
+		if (b->Objtype == eObjectType_EBullet)
+		{
+			//몬스터의 총알과 플레이어가 충돌
 			AssetManager::GetInstance()->RetrunBullet(b);
 			ReturnBulletFromGameScene(b);
-			printf("%d에서 %d만큼 데미지를 받아", it->HP, player->ATK);
-			it->HP = it->HP - player->ATK;
-			printf(" %d의 hp가 남음\n",it->HP);
-			if (it->HP <= 0)
+			printf("플레이어가 %d에서 %d만큼 데미지를 받아", player->HP, enemy->ATK);
+			player->HP = player->HP - enemy->ATK;
+			printf(" %d의 hp가 남음\n", player->HP);
+			if (player->HP <= 0)
 			{
-				std::vector<Enemy*>::iterator itr = std::find(enemyVec.begin(), enemyVec.end(), it);
-				enemyVec.erase(itr);
+				//죽었습니다 씬 만들것
+				SceneManager::GetInstance()->GotoTitleScene();
 			}
 		}
 	}

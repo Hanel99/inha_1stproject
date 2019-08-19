@@ -89,3 +89,10 @@ void SceneManager::GotoAllClearScene()
 	scenenum = 3;
 	curScene = sceneVec[scenenum];
 }
+
+
+void SceneManager::GotoTitleScene()
+{
+	scenenum = 0;
+	curScene = sceneVec[scenenum];
+}

@@ -16,10 +16,26 @@ void Bullet::Render(Gdiplus::Graphics* MemG)
 
 	Gdiplus::Bitmap bm(width, height, PixelFormat32bppARGB);
 	Gdiplus::Graphics temp(&bm);
-	bulletimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bullet.png"));
 
-	temp.DrawImage(bulletimg.lock().get(),
-		rect, 0, 0, width, height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	
+	bulletimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\obj_spritesheet.png"));
+	if (this->Objtype == eObjectType_PBullet)
+	{
+		rec = AssetManager::GetInstance()->GetRect(eXMLType_Obj, eXMLObjnum_PBullet);		
+	}
+	else if (this->Objtype == eObjectType_EBullet)
+	{
+		rec = AssetManager::GetInstance()->GetRect(eXMLType_Obj, eXMLObjnum_EBullet);
+	}
+	temp.DrawImage(bulletimg.lock().get(), rect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+
+
+	//bulletimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bullet.png"));
+
+	//temp.DrawImage(bulletimg.lock().get(),
+	//	rect, 0, 0, width, height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+
+
 
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), 20, 20);
@@ -40,8 +56,9 @@ void Bullet::SPDSet(int px, int py, int clickx, int clicky)
 	
 }
 
-void Bullet::BulletInit(int px, int py, int clickx, int clicky)
+void Bullet::BulletInit(int px, int py, int clickx, int clicky, EObjectType type)
 {
+	Objtype = type;
 	damage = GameData::GetInstance()->player->ATK;
 	SPD = DefaultSPD;
 	SetX(px);

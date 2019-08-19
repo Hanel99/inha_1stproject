@@ -22,7 +22,7 @@ public:
 		center.x = GetX() + r;
 		center.y = GetY() + r;
 	}
-	Enemy(EEnemyType enemytype, int enemynum, int hp)
+	Enemy(EEnemyType enemytype, int enemynum, int hp, int x, int y)
 		: Object(EObjectType::eObjectType_Enemy)
 		, EnemyType(enemytype)
 		, EnemyNum(enemynum)
@@ -30,9 +30,10 @@ public:
 		, ATK(1)
 		, SPD(100)
 		, SSPD(10)
+		
 	{
-		SetX(1000);
-		SetY(100);
+		SetX(x);
+		SetY(y);
 		width = 256;
 		height = 256;
 		r = 100;

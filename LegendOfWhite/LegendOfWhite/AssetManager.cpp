@@ -121,7 +121,7 @@ void AssetManager::SetXMLData(std::vector<Gdiplus::Rect>& rects, EXMLType etype)
 		doc->LoadFile("Asset\\btn_spritesheet.xml");
 		break;
 	case eXMLType_Obj:
-		doc->LoadFile("Asset\\sokoban_spritesheet.xml");
+		doc->LoadFile("Asset\\obj_spritesheet.xml");
 		break;
 	}
 	if (doc == nullptr) return;

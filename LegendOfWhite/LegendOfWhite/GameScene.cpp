@@ -14,7 +14,7 @@ void GameScene::Init()
 	SetStartPos(100, 100);
 
 	enemy = new Enemy();
-	nextStageBoard = new NextStage(400, 400);
+	nextStageBoard = new NextStage(100, 100);
 
 	for (int gridy = 0; gridy * GRID < HEIGHT; ++gridy)
 	{

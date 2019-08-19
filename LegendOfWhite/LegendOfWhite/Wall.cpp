@@ -14,8 +14,7 @@ void Wall::Render(Gdiplus::Graphics* MemG)
 	Gdiplus::Graphics temp(&bm);
 	wallimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\wall_blue.png"));
 
-	temp.DrawImage(wallimg.lock().get(),
-		rect, 0, 0, width, height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	temp.DrawImage(wallimg.lock().get(), rect, 0, 0, width, height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), 80, 80);

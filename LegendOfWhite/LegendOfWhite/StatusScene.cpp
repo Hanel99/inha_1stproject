@@ -35,13 +35,27 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	//±×·ÁÁÙ screenÁÂÇ¥ÀÇ rect
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 
-	Gdiplus::Font F(L"¸¼Àº°íµñ", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
-	Gdiplus::PointF P(100.0f, 10.0f);
+	Gdiplus::Font F(L"¸¼Àº°íµñ", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);	
 	Gdiplus::SolidBrush B(Gdiplus::Color(255, 255, 255));
-	int _gold = 1000;
 
+	P.X = 100.0f;
+	P.Y = 10.0f;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
-	std::wstring tempStr = std::to_wstring(_gold) + L"pt";
+	P.X = 120.0f;
+	P.Y = 20.0f;
+	tempStr = L"1pt";
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+
+	P.X = 200.0f;
+	P.Y = 10.0f;
+	tempStr = std::to_wstring(GameData::GetInstance()->ATKM) + L"%";
+	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+
+	P.X = 220.0f;
+	P.Y = 20.0f;
+	tempStr = std::to_wstring((GameData::GetInstance()->ATKM+10) / 5) + L"pt";
 	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 

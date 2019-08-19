@@ -45,6 +45,9 @@ public:
 	void Render(Gdiplus::Graphics* MemG);
 	void SendLButtonDown(UINT nFlags, CPoint point);
 	void SendRButtonDown(UINT nFlags, CPoint point);
+	
+	Gdiplus::PointF P;
+	std::wstring tempStr;
 
 public:
 	std::weak_ptr<Gdiplus::Image> statImg;

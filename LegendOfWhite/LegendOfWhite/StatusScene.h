@@ -30,6 +30,18 @@
 #define MSTATITV 93.0f
 
 
+// 스탯 업그레이드
+#define STATUX_WIDTH 1002 // 위치값
+#define STATUY_HEIGHT 160 // 위치값
+#define STATUB_WIDTH 113 // 버튼길이
+#define STATUB_HEIGHT 42 // 버튼길이
+// 스탯 업그레이드 퍼센트
+#define STATUPX_WIDTH 1131 // 위치값
+#define STATP_HITV 50 // 스탯 퍼센트 위아래 사이 간격
+
+
+
+
 class StatusScene : public Scene
 {
 public:

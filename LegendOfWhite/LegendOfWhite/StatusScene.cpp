@@ -212,10 +212,119 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 
 void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 {
-	if (player->skillPoint > 0)
+	// 공격력 합
+	if (MouseManager::GetInstance()->GetMousePos().x >= STATUX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUX_WIDTH + STATUB_WIDTH
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT && MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT)
 	{
-		--player->skillPoint;
-		GameData::GetInstance()->ATKP++;
+
+		if (player->skillPoint > 0)
+		{
+			--player->skillPoint;
+			GameData::GetInstance()->ATKP++;
+		}
+	}
+	
+	// 공격력 곱
+	if (MouseManager::GetInstance()->GetMousePos().x >= STATUPX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUPX_WIDTH + STATUB_WIDTH
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT && MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT)
+	{
+
+		if (player->skillPoint > 0)
+		{
+			--player->skillPoint;
+			GameData::GetInstance()->ATKM++;
+		}
+	}
+
+	// 공격속도 합
+	if (MouseManager::GetInstance()->GetMousePos().x >= STATUX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUX_WIDTH + STATUB_WIDTH
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT + STATP_HITV 
+		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 2 + STATP_HITV)
+	{
+
+		if (player->skillPoint > 0)
+		{
+			--player->skillPoint;
+			GameData::GetInstance()->SSPDP++;
+		}
+	}
+
+	// 공격속도 곱
+	if (MouseManager::GetInstance()->GetMousePos().x >= STATUPX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUPX_WIDTH + STATUB_WIDTH
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT + STATP_HITV 
+		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 2 + STATP_HITV)
+	{
+
+		if (player->skillPoint > 0)
+		{
+			--player->skillPoint;
+			GameData::GetInstance()->SSPDM++;
+		}
+	}
+
+	// 이동속도 합
+	if (MouseManager::GetInstance()->GetMousePos().x >= STATUX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUX_WIDTH + STATUB_WIDTH
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT *2 + STATP_HITV * 2
+		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 3 + STATP_HITV * 2)
+	{
+
+		if (player->skillPoint > 0)
+		{
+			--player->skillPoint;
+			GameData::GetInstance()->SPDP++;
+		}
+	}
+
+	// 이동속도 곱
+	if (MouseManager::GetInstance()->GetMousePos().x >= STATUPX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUPX_WIDTH + STATUB_WIDTH
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT * 2 + STATP_HITV * 2
+		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 3 + STATP_HITV * 2)
+	{
+
+		if (player->skillPoint > 0)
+		{
+			--player->skillPoint;
+			GameData::GetInstance()->SPDM++;
+		}
+	}
+
+	// 최대 체력
+	if (MouseManager::GetInstance()->GetMousePos().x >= STATUX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUX_WIDTH + STATUB_WIDTH
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT * 3 + STATP_HITV * 3
+		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 4 + STATP_HITV * 3)
+	{
+
+		if (player->skillPoint > 0)
+		{
+			--player->skillPoint;
+			GameData::GetInstance()->HP++;
+		}
+	}
+
+	// 회복한 횟수
+	if (MouseManager::GetInstance()->GetMousePos().x >= STATUPX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUPX_WIDTH + STATUB_WIDTH
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT * 3 + STATP_HITV * 3
+		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 4 + STATP_HITV * 3)
+	{
+
+		if (player->skillPoint > 0)
+		{
+			--player->skillPoint;
+			GameData::GetInstance()->healCount++;
+		}
+	}
+
+	// 크리티컬 확률
+	if (MouseManager::GetInstance()->GetMousePos().x >= STATUPX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUPX_WIDTH + STATUB_WIDTH
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT * 4 + STATP_HITV * 4
+		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 5 + STATP_HITV * 4)
+	{
+
+		if (player->skillPoint > 0)
+		{
+			--player->skillPoint;
+			GameData::GetInstance()->CRI++;
+		}
 	}
 }
 

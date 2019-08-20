@@ -18,11 +18,11 @@ public:
 		, eplayerlook(ePlayerLook_Down)
 		, addDelta(0)
 	{
-		width = 80;
-		height = 80;
+		width = 60;
+		height = 60;
 		r = 20;
-		center.x = GetX() + 40;
-		center.y = GetY() + 40;
+		center.x = GetX() + 30;
+		center.y = GetY() + 30;
 	}
 
 	void Update(float Delta);

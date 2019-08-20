@@ -65,14 +65,10 @@ void Player::Render(Gdiplus::Graphics* MemG)
 		break;
 	}	
 	temp.DrawImage(playerimg.lock().get(),
-		rect, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-
-
-	
+		rect, 0, 0, 128, 128, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);	
 
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), width, height);
 
 	MemG->DrawImage(&bm, screenPosRect);
-
 }

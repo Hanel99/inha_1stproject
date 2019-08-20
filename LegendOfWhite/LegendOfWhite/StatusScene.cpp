@@ -23,7 +23,6 @@ void StatusScene::Update(float Delta)
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
 	player->SPD = 300 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.5f;
 	player->SSPD = GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM);
-	player->HP = GameData::GetInstance()->HP;
 	player->CRI = GameData::GetInstance()->CRI;
 }
 
@@ -75,11 +74,12 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	// ½ºÅ×ÀÌÅÍ½º R
 	P.X = RSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT;
+	Gdiplus::Font F0(L"¸¼Àº°íµñ", 16, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	tempStr = std::to_wstring(player->LV) + L"+";
 	tempStr.append(std::to_wstring(GameData::GetInstance()->ATKP) + L" * ");
 	tempStr.append(std::to_wstring((int)(GameData::GetInstance()->ATKM * 100)));
 	tempStr.append(L"%");
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	temp.DrawString(tempStr.c_str(), -1, &F0, P, &B);
 
 	P.X = RSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV;

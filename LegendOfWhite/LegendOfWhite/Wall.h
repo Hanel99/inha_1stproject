@@ -13,8 +13,8 @@ public:
 		width = 128;
 		height = 128;
 		r = 30;
-		center.x = GetX() + 10;
-		center.y = GetY() + 10;
+		center.x = GetX() + 20;
+		center.y = GetY() + 20;
 	}
 
 	void Update(float Delta);

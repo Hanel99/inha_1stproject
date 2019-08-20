@@ -27,6 +27,7 @@ void IntroScene::Render(Gdiplus::Graphics * MemG)
 	Gdiplus::Bitmap bm(WIDTH, HEIGHT, PixelFormat32bppARGB);
 	Gdiplus::Graphics temp(&bm);
 
+	
 	introImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\introImg.jpg"));
 	temp.DrawImage(introImg.lock().get(), introImgrc, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 

@@ -206,6 +206,7 @@
     <ClInclude Include="IntroScene.h" />
     <ClInclude Include="LegendOfWhite.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MouseManager.h" />
     <ClInclude Include="NextStage.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="pch.h" />
@@ -233,6 +234,7 @@
     <ClCompile Include="IntroScene.cpp" />
     <ClCompile Include="LegendOfWhite.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MouseManager.cpp" />
     <ClCompile Include="NextStage.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="pch.cpp">

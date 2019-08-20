@@ -17,5 +17,8 @@ public:
 	void SendRButtonDown(UINT nFlags, CPoint point);
 	std::weak_ptr<Gdiplus::Image> introImg;
 	std::weak_ptr<Gdiplus::Image> btnImg;
+	Gdiplus::Rect* r;
+
+	int eXMLBtnnum;
 };
 

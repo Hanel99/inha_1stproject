@@ -17,9 +17,9 @@ public:
 	{
 		SetX(1000);
 		SetY(100);
-		width = 256;
-		height = 256;
-		r = 100;
+		width = 140;
+		height = 140;
+		r = width/2;
 		center.x = GetX() + r;
 		center.y = GetY() + r;
 	}
@@ -36,9 +36,9 @@ public:
 	{
 		SetX(x);
 		SetY(y);
-		width = 256;
-		height = 256;
-		r = 100;
+		width = 140;
+		height = 140;
+		r = width / 2;
 		center.x = GetX() + r;
 		center.y = GetY() + r;
 	}

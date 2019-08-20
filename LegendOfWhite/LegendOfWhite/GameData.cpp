@@ -20,12 +20,12 @@ void GameData::Init()
 
 	ATKP = 1;
 	ATKM = 0.0f;
-	SSPDP = 23;
-	SSPDM = 0.2f;
-	SPDP = 91;
-	SPDM = 0.8f;
-	HP = 6;
-	healCount = 14;
+	SSPDP = 1;
+	SSPDM = 0.0f;
+	SPDP = 1;
+	SPDM = 0.0f;
+	HP = 3;
+	healCount = 0;
 	CRI = 0.0f;
 
 	//ATKP = 1;

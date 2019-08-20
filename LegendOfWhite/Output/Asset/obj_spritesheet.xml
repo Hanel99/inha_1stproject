@@ -5,16 +5,16 @@
 	<SubTexture name="environment_10.png" x="60" y="576" width="20" height="20"/>
 	<SubTexture name="ground_01.png" x="64" y="64" width="64" height="64"/>
 	<SubTexture name="ground_04.png" x="320" y="192" width="64" height="64"/>
-	<SubTexture name="player_01.png" x="558" y="0" width="42" height="50"/>
-	<SubTexture name="player_02.png" x="554" y="158" width="42" height="50"/>
-	<SubTexture name="player_09.png" x="512" y="0" width="46" height="54"/>
-	<SubTexture name="player_10.png" x="497" y="440" width="46" height="54"/>
+	<SubTexture name="player_14.png" x="543" y="440" width="45" height="50"/>
+	<SubTexture name="player_15.png" x="543" y="490" width="45" height="50"/>
+	<SubTexture name="player_16.png" x="538" y="548" width="45" height="50"/>
 	<SubTexture name="player_11.png" x="512" y="108" width="45" height="50"/>
 	<SubTexture name="player_12.png" x="493" y="548" width="45" height="50"/>
 	<SubTexture name="player_13.png" x="448" y="548" width="45" height="50"/>
-	<SubTexture name="player_14.png" x="543" y="440" width="45" height="50"/>	
-	<SubTexture name="player_21.png" x="448" y="386" width="49" height="54"/>
-	<SubTexture name="player_22.png" x="448" y="332" width="49" height="54"/>
+	<SubTexture name="player_02.png" x="554" y="158" width="42" height="50"/>
+	<SubTexture name="player_03.png" x="546" y="350" width="42" height="50"/>
+	<SubTexture name="player_04.png" x="546" y="300" width="42" height="50"/>
 	<SubTexture name="player_23.png" x="554" y="208" width="42" height="50"/>
 	<SubTexture name="player_24.png" x="557" y="108" width="42" height="50"/>
+	<SubTexture name="player_01.png" x="558" y="0" width="42" height="50"/>
 </TextureAtlas>

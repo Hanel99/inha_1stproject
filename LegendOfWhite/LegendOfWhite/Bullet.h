@@ -14,25 +14,25 @@ public:
 		, SPDY(1)
 		, SPDX(1)
 	{
-		width = 40;
-		height = 40;
-		r = 5;
-		center.x = GetX() + 10;
-		center.y = GetY() + 10;
+		width = 20;
+		height = 20;
+		r = width/2;
+		center.x = GetX() + r;
+		center.y = GetY() + r;
 	}
 	Bullet(int px, int py, int clickx, int clicky, EObjectType type)
 		: Object(type)
 		, damage(GameData::GetInstance()->player->ATK)
 		, SPD(DefaultSPD)
 	{
-		width = 40;
-		height = 40;
+		width = 20;
+		height = 20;
 		SPDSet(px, py, clickx, clicky);
 		SetX(px);
-		SetY(py);
-		r = 5;
-		center.x = GetX() + 10;
-		center.y = GetY() + 10;
+		SetY(py);		
+		r = width / 2;
+		center.x = GetX() + r;
+		center.y = GetY() + r;
 	}
 
 	void Update(float Delta);

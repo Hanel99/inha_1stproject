@@ -22,16 +22,15 @@ public:
 	void SendRButtonDown(UINT nFlags, CPoint point);
 	void ReturnBulletFromGameScene(Bullet* b);
 	void BulletCollCheck(Bullet* b);
-	void IsPlayerColl(Player* p);
+	void IsPlayerColl(Player* p, float Delta);
 
-public:
 	std::weak_ptr<Gdiplus::Image> bgImg;
+
 private:
 	Player* player;
 	Enemy* enemy;
 	NextStage* nextStageBoard;
 	bool isAllEnemyDead;
-	float addDelta;
 	float addDelta2;
 
 	std::vector<Wall*> wallVec;

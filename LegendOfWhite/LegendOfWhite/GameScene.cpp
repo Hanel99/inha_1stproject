@@ -19,7 +19,6 @@ void GameScene::Init()
 	player->CRI = GameData::GetInstance()->CRI;
 
 	SetStartPos(100, 100);
-	addDelta = 30.0f;
 	addDelta2 = 0.0f;
 	isAllEnemyDead = false;
 
@@ -64,7 +63,7 @@ void GameScene::Update(float Delta)
 		SceneManager::GetInstance()->SwapStatusScene();
 	}
 	player->Update(Delta);
-	IsPlayerColl(player);
+	IsPlayerColl(player, Delta);
 
 	if (GetAsyncKeyState(VK_SPACE) & 0x1001)
 	{
@@ -169,16 +168,6 @@ void GameScene::StringRender(Gdiplus::Graphics* MemG)
 	tempStr = L"EXP : " + std::to_wstring(player->EXP);
 	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
 
-	P.X = 10;
-	P.Y = 100;
-	tempStr = L"X : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().x);
-	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
-
-	P.X = 10;
-	P.Y = 140;
-	tempStr = L"Y : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().y);
-	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
-
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 	MemG->DrawImage(&bm, screenPosRect);
 }
@@ -270,7 +259,7 @@ void GameScene::BulletCollCheck(Bullet* b)
 	}
 }
 
-void GameScene::IsPlayerColl(Player* p)
+void GameScene::IsPlayerColl(Player* p, float Delta)
 {
 	for (auto& it : wallVec)
 	{
@@ -279,16 +268,16 @@ void GameScene::IsPlayerColl(Player* p)
 			switch (p->eplayerlook)
 			{
 			case ePlayerLook_Down:
-				p->SetY(p->GetY() - (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.1f);
+				p->SetY(p->GetY() - (Delta * p->SPD));
 				break;
 			case ePlayerLook_Up:
-				p->SetY(p->GetY() + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.1f);
+				p->SetY(p->GetY() + (Delta * p->SPD));
 				break;
 			case ePlayerLook_Left:
-				p->SetX(p->GetX() + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.1f);
+				p->SetX(p->GetX() + (Delta * p->SPD));
 				break;
 			case ePlayerLook_Right:
-				p->SetX(p->GetX() - (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.1f);
+				p->SetX(p->GetX() - (Delta * p->SPD));
 				break;
 			}
 		}

@@ -12,11 +12,10 @@ void Bullet::Update(float Delta)
 
 void Bullet::Render(Gdiplus::Graphics* MemG)
 {
-	Gdiplus::Rect rect(0, 0, width, height);
+	Gdiplus::Rect rect(0, 0, 40, 40);
 
-	Gdiplus::Bitmap bm(width, height, PixelFormat32bppARGB);
+	Gdiplus::Bitmap bm(40, 40, PixelFormat32bppARGB);
 	Gdiplus::Graphics temp(&bm);
-
 	
 	bulletimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\obj_spritesheet.png"));
 	if (this->Objtype == eObjectType_PBullet)
@@ -29,16 +28,12 @@ void Bullet::Render(Gdiplus::Graphics* MemG)
 	}
 	temp.DrawImage(bulletimg.lock().get(), rect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
-
-	//bulletimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bullet.png"));
-
-	//temp.DrawImage(bulletimg.lock().get(),
-	//	rect, 0, 0, width, height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-
-
-
 	//그려줄 screen좌표의 rect
-	Gdiplus::Rect screenPosRect(GetX(), GetY(), 20, 20);
+	Gdiplus::Rect screenPosRect(GetX(), GetY(), width, height);
+
+
+	Gdiplus::Pen P(Gdiplus::Color(255, 0, 0), 1);
+	MemG->DrawEllipse(&P, (int)(GetX()), (int)(GetY()), width, height);
 
 	MemG->DrawImage(&bm, screenPosRect);
 }

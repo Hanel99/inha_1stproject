@@ -73,26 +73,6 @@ void IntroScene::Render(Gdiplus::Graphics* MemG)
 	//±×·ÁÁÙ screenÁÂÇ¥ÀÇ rect
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 
-	Gdiplus::PointF P;
-	std::wstring tempStr;
-	Gdiplus::SolidBrush B(Gdiplus::Color(255, 255, 255));
-	Gdiplus::Font F3(L"¸¼Àº°íµñ", 30, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
-
-	P.X = 10;
-	P.Y = 100;
-	tempStr = L"X : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().x);
-	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
-
-	P.X = 10;
-	P.Y = 140;
-	tempStr = L"Y : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().y);
-	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
-
-	P.X = 200;
-	P.Y = 100;
-	tempStr = std::to_wstring(eXMLBtnnum);
-	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
-
 	MemG->DrawImage(&bm, screenPosRect);
 }
 

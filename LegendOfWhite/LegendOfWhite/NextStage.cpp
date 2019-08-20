@@ -20,5 +20,8 @@ void NextStage::Render(Gdiplus::Graphics* MemG)
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), width, height);
 
+	Gdiplus::Pen P(Gdiplus::Color(255, 0, 0), 1);
+	MemG->DrawEllipse(&P, (int)(GetX()), (int)(GetY()), width, height);
+
 	MemG->DrawImage(&bm, screenPosRect);
 }

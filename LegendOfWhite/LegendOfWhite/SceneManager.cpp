@@ -103,6 +103,6 @@ void SceneManager::SetGameClear(bool bol)
 }
 
 bool SceneManager::IsGameClear()
-{
+{	
 	return isgameclear;
 }

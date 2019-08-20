@@ -18,11 +18,11 @@ public:
 		, eplayerlook(ePlayerLook_Down)
 		, addDelta(0)
 	{
-		width = 60;
-		height = 60;
-		r = 20;
-		center.x = GetX() + 30;
-		center.y = GetY() + 30;
+		width = 35;
+		height = 42;
+		r = width/2;
+		center.x = GetX() + r;
+		center.y = GetY() + r;
 	}
 
 	void Update(float Delta);
@@ -40,6 +40,7 @@ public:
 	CPoint center;
 
 	float addDelta;
+	Gdiplus::Rect* rec;
 
 	EPlayerLook eplayerlook;
 	std::weak_ptr<Gdiplus::Image> playerimg;

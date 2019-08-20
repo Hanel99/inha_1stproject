@@ -10,11 +10,11 @@ public:
 	{
 		SetX(getx);
 		SetY(gety);
-		width = 128;
-		height = 128;
-		r = 30;
-		center.x = GetX() + 20;
-		center.y = GetY() + 20;
+		width = 60;
+		height = 60;
+		r = width/2;
+		center.x = GetX() + r;
+		center.y = GetY() + r;
 	}
 
 	void Update(float Delta);

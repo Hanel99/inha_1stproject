@@ -119,7 +119,6 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 
 
 
-
 	//그려줄 screen좌표의 rect
 
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
@@ -141,13 +140,18 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 		it->Render(MemG);
 	}
 	player->Render(MemG);
-	StringRender(MemG);
+	UIRender(MemG);
 }
 
-void GameScene::StringRender(Gdiplus::Graphics* MemG)
+void GameScene::UIRender(Gdiplus::Graphics* MemG)
 {
 	Gdiplus::Bitmap bm(WIDTH, HEIGHT, PixelFormat32bppARGB);
 	Gdiplus::Graphics temp(&bm);
+
+	Gdiplus::Rect rect(1210, 100, 50, 720);
+
+	tabImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\tab.png"));
+	temp.DrawImage(tabImg.lock().get(), rect, 0, 0, 32, 512, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	Gdiplus::PointF P;
 	std::wstring tempStr;
@@ -167,6 +171,12 @@ void GameScene::StringRender(Gdiplus::Graphics* MemG)
 	P.Y = 40;
 	tempStr = L"EXP : " + std::to_wstring(player->EXP);
 	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
+
+	/*P.X = 100;
+	P.Y = 40;
+	tempStr = L"X : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().x);
+	tempStr.append(L" / Y : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().y));
+	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);*/
 
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 	MemG->DrawImage(&bm, screenPosRect);

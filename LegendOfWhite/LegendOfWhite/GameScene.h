@@ -15,7 +15,7 @@ public:
 	void Init();
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
-	void StringRender(Gdiplus::Graphics* MemG);
+	void UIRender(Gdiplus::Graphics* MemG);
 
 	void SetStartPos(float x, float y);
 	void SendLButtonDown(UINT nFlags, CPoint point);
@@ -25,6 +25,7 @@ public:
 	void IsPlayerColl(Player* p, float Delta);
 
 	std::weak_ptr<Gdiplus::Image> bgImg;
+	std::weak_ptr<Gdiplus::Image> tabImg;
 
 private:
 	Player* player;

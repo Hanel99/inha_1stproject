@@ -231,8 +231,8 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 		if (player->skillPoint > 0)
 		{
-			--player->skillPoint;
-			GameData::GetInstance()->ATKM++;
+			player->skillPoint -= GameData::GetInstance()->ATKM * 100 / 5 + 2;
+			GameData::GetInstance()->ATKM += 0.1f;
 		}
 	}
 
@@ -257,8 +257,8 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 		if (player->skillPoint > 0)
 		{
-			--player->skillPoint;
-			GameData::GetInstance()->SSPDM++;
+			player->skillPoint -= GameData::GetInstance()->SSPDM * 100 / 5 + 2;
+			GameData::GetInstance()->SSPDM += 0.1f;
 		}
 	}
 
@@ -283,8 +283,8 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 		if (player->skillPoint > 0)
 		{
-			--player->skillPoint;
-			GameData::GetInstance()->SPDM++;
+			player->skillPoint -= GameData::GetInstance()->SPDM * 100 / 5 + 2;
+			GameData::GetInstance()->SPDM += 0.1f;
 		}
 	}
 
@@ -296,7 +296,7 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 		if (player->skillPoint > 0)
 		{
-			--player->skillPoint;
+			player->skillPoint -= (GameData::GetInstance()->HP - 2) * 10;
 			GameData::GetInstance()->HP++;
 		}
 	}
@@ -308,9 +308,13 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 	{
 
 		if (player->skillPoint > 0)
-		{
-			--player->skillPoint;
-			GameData::GetInstance()->healCount++;
+		{			
+			if (GameData::GetInstance()->HP > GameData::GetInstance()->player->HP)
+			{
+				player->skillPoint -= GameData::GetInstance()->healCount;
+				GameData::GetInstance()->healCount++;
+				GameData::GetInstance()->player->HP++;
+			}
 		}
 	}
 
@@ -322,8 +326,8 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 		if (player->skillPoint > 0)
 		{
-			--player->skillPoint;
-			GameData::GetInstance()->CRI++;
+			player->skillPoint -= GameData::GetInstance()->CRI * 100 / 5 + 2;
+			GameData::GetInstance()->CRI += 0.1f;
 		}
 	}
 }

@@ -34,13 +34,10 @@ Scene* SceneManager::GetCurScene()
 {
 	return curScene;
 }
-
-
 void SceneManager::SetCurScene(Scene* scene)
 {
 	curScene = scene;
 }
-
 //나중에 게임씬 양산하고 넣어줄때는 이렇게 넣을 것
 void SceneManager::SetCurScene(Scene* scene, int chapternum, int stagenum)
 {
@@ -89,8 +86,6 @@ void SceneManager::GotoResultScene()
 	scenenum = 3;
 	curScene = sceneVec[scenenum];
 }
-
-
 void SceneManager::GotoTitleScene()
 {
 	scenenum = 0;
@@ -101,7 +96,6 @@ void SceneManager::SetGameClear(bool bol)
 {
 	isgameclear = bol;
 }
-
 bool SceneManager::IsGameClear()
 {	
 	return isgameclear;

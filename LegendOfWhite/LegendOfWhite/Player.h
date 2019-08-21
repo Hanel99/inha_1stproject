@@ -20,9 +20,9 @@ public:
 	{
 		width = 35;
 		height = 42;
-		r = width/2;
-		center.x = GetX() + r;
-		center.y = GetY() + r;
+		r = width / 2;
+		center.x = GetX() + width / 2;
+		center.y = GetY() + height / 2;
 	}
 
 	void Update(float Delta);

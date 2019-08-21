@@ -1,22 +1,11 @@
 #pragma once
 
-enum EScene {
+enum EScene
+{
 	eScene_Intro,
 	eScene_Game,
 	eScene_Status,
 	eScene_Cnt
-};
-
-enum EPlayerState {
-	ePlayerState_PIdle,
-	ePlayerState_PMove,
-	ePlayerState_Cnt
-};
-
-enum EEnemyState {
-	eEnemyState_EMoveL,
-	eEnemyState_EMoveR,
-	eEnemyState_Cnt
 };
 
 enum EPlayerLook

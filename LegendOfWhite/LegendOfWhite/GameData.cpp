@@ -27,16 +27,6 @@ void GameData::Init()
 	HP = 3;
 	healCount = 0;
 	CRI = 0.0f;
-
-	//ATKP = 1;
-	//ATKM = 0.0f;
-	//SSPDP = 1;
-	//SSPDM = 0.0f;
-	//SPDP = 1;
-	//SPDM = 0.0f;
-	//HP = 3;
-	//healCount = 0;
-	//CRI = 0.0f;
 }
 
 int GameData::GetStagenum()

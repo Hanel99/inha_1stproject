@@ -43,10 +43,11 @@ public:
 	CPoint center;
 
 	Gdiplus::Rect* rec;
-
+	Gdiplus::SolidBrush* P;
+	int SPD;
 private:
 	int damage;
-	int SPD;
+	//int SPD;
 	float SPDX;
 	float SPDY;
 	bool updown = false;

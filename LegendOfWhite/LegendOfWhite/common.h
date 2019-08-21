@@ -17,14 +17,14 @@ enum EPlayerLook
 };
 enum EObjectType
 {
-	eObjectType_None,
-	eObjectType_Wall,
-	eObjectType_Player,
-	eObjectType_PBullet,
-	eObjectType_Enemy,
-	eObjectType_EBullet,
-	eObjectType_NextStage,
-	eObjectType_Cnt
+	eObjectType_None = 0,
+	eObjectType_Wall = 1,
+	eObjectType_Player = 2,
+	eObjectType_PBullet = 3,
+	eObjectType_Enemy = 4,
+	eObjectType_EBullet = 5,
+	eObjectType_NextStage = 6,
+	eObjectType_Cnt = 7
 };
 
 enum EEnemyType

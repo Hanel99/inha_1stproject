@@ -21,6 +21,7 @@
 #include <tinyxml2.h>
 #include <sqlite3.h>
 #include <string>
+#include <afx.h>
 
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 

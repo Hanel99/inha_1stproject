@@ -14,13 +14,12 @@ void GameScene::Init()
 	player = GameData::GetInstance()->player;
 
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
-	player->SPD = 300 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM) * 1.5f);
-	player->SSPD = 500 + (GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM) * 3.0f);
+	player->SPD = 500 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM) * 1.5f);
+	player->SSPD = 800 + (GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM) * 3.0f);
 	player->HP = GameData::GetInstance()->HP;
 	player->CRI = GameData::GetInstance()->CRI;
 
 	SetStartPos(100, 100);
-	addDelta2 = 0.0f;
 	isAllEnemyDead = false;
 
 	for (int gridy = 0; gridy * GRID < HEIGHT; ++gridy)
@@ -50,6 +49,8 @@ void GameScene::Init()
 
 	enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 600, 300);
 	enemyVec.emplace_back(enemy);
+	enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 900, 400);
+	enemyVec.emplace_back(enemy);
 	bulletVec.reserve(1000);
 }
 
@@ -57,6 +58,7 @@ bool xup = false;
 bool yup = true;
 int x = 2;
 int y = 1;
+int i = 0;
 
 void GameScene::Update(float Delta)
 {
@@ -76,7 +78,6 @@ void GameScene::Update(float Delta)
 			enemyVec.emplace_back(enemy);
 		}
 	}
-	addDelta2 += Delta;
 
 	if (enemyVec.empty())
 	{
@@ -88,52 +89,44 @@ void GameScene::Update(float Delta)
 		{
 			it->Update(Delta);
 
-			//패턴1 - 플레이어 유도
-			/*if (addDelta2 > 0.1f)
+			if (it->addDelta > 2.0f)
 			{
-				addDelta2 = 0.0f;
-				Bullet* b = AssetManager::GetInstance()->CreateBullet();
-				if (b != nullptr)
-				{
-					b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, player->GetX() + (player->r), player->GetY() + (player->r), eObjectType_EBullet);
-					bulletVec.emplace_back(b);
-				}
-			}*/
+				it->addDelta = 0.0f;
+				i++;
+				if (i >= 3) i = 0;
+			}
 
-			//패턴2 - 8방향 변속
-			EnemyPattern1(it);
-
-			
-			/*if (addDelta2 > 0.1f)
+			switch (i)
 			{
-				addDelta2 = 0.0f;
-				if (y >= 3 || y <= -3)
-					yup = !yup;
-				if (x >= 3 || x <= -3)
-					xup = !xup;
-				if (xup)
-					x++;
-				else
-					x--;
-				if (yup)
-					y++;
-				else
-					y--;
+			case 0:
+				EnemyPattern1(it);
+				break;
+			case 1:
+				EnemyPattern2(it);
+				break;
+			case 2:
+				EnemyPattern3(it);
+				break;
+			default:
+				break;
+			}
 
-				Bullet* b = AssetManager::GetInstance()->CreateBullet();
-				if (b != nullptr)
-				{
-					b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r + x, it->GetY() + it->r + y, eObjectType_EBullet);
-					bulletVec.emplace_back(b);
-				}
-			}*/
+			if (it->EnemyType == eEnemyType_Bird)
+			{
+				EnemyPattern1(it);
+			}
+			else if (it->EnemyType == eEnemyType_Devil)
+			{
+				EnemyPattern2(it);
+			}
+
 		}
 		isAllEnemyDead = false;
 	}
 
 	for (auto& it : bulletVec)
 	{
-		if (it == nullptr) break;
+		//if (it == nullptr)	break;
 		it->Update(Delta);
 		BulletCollCheck(it);
 	}
@@ -145,9 +138,9 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	++CLegendOfWhiteApp::CallCount;
 	Gdiplus::Rect rect(0, 0, WIDTH, HEIGHT);
 
-	
-	
-	
+
+
+
 	bgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bgImg.png"));
 	//temp.DrawImage(bgImg.lock().get(), rect, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
@@ -195,10 +188,10 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	//	temp.SetCompositingMode(Gdiplus::CompositingMode::CompositingModeSourceCopy);
 	//	temp.FillRectangle(&emptybrush, rect);
 	//	temp.SetCompositingMode(Gdiplus::CompositingMode::CompositingModeSourceOver);
-		for (auto& it : bulletVec)
-		{
-			it->Render(MemG);
-		}
+	for (auto& it : bulletVec)
+	{
+		it->Render(MemG);
+	}
 	//	MemG->DrawImage(bm2, screenPosRect);
 	//}
 	//else
@@ -236,7 +229,7 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 	//Gdiplus::Bitmap bm(WIDTH, HEIGHT, PixelFormat32bppARGB);
 	//Gdiplus::Graphics temp(&bm);
 
-	Gdiplus::Rect rect(1210, 100, 50, 720);
+	Gdiplus::Rect rect(1210, 120, 50, 450);
 
 	tabImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\tab.png"));
 	//temp.DrawImage(tabImg.lock().get(), rect, 0, 0, 32, 512, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
@@ -260,11 +253,11 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 	tempStr = L"EXP : " + std::to_wstring(player->EXP);
 	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
 
-	/*P.X = 100;
+	P.X = 100;
 	P.Y = 40;
 	tempStr = L"X : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().x);
 	tempStr.append(L" / Y : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().y));
-	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);*/
+	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
 
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 	MemG->DrawImage(tabImg.lock().get(), rect, 0, 0, 32, 512, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
@@ -288,7 +281,7 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 {
-	for (int i = 0; i < 20; ++i)
+	for (int i = -10; i < 10; ++i)
 	{
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
@@ -392,12 +385,13 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 	}
 }
 
-void GameScene::EnemyPattern1(Enemy* it)
+
+void GameScene::EnemyPattern1(Enemy* it) //8방향 발사
 {
 	Bullet* b;
-	if (addDelta2 > 0.5f)
+	if (it->addDelta2 > 0.5f)
 	{
-		addDelta2 = 0.0f;
+		it->addDelta2 = 0.0f;
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
@@ -471,6 +465,47 @@ void GameScene::EnemyPattern1(Enemy* it)
 		if (b != nullptr)
 		{
 			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r + 10, it->GetY() + it->r - 20, eObjectType_EBullet);
+			bulletVec.emplace_back(b);
+		}
+	}
+}
+
+void GameScene::EnemyPattern2(Enemy* it) //회오리 발사
+{
+	if (it->addDelta2 > 0.1f)
+	{
+		it->addDelta2 = 0.0f;
+		if (y >= 3 || y <= -3)
+			yup = !yup;
+		if (x >= 3 || x <= -3)
+			xup = !xup;
+		if (xup)
+			x++;
+		else
+			x--;
+		if (yup)
+			y++;
+		else
+			y--;
+
+		Bullet* b = AssetManager::GetInstance()->CreateBullet();
+		if (b != nullptr)
+		{
+			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r + x, it->GetY() + it->r + y, eObjectType_EBullet);
+			bulletVec.emplace_back(b);
+		}
+	}
+}
+
+void GameScene::EnemyPattern3(Enemy* it) //플레이어 유도
+{
+	if (it->addDelta2 > 0.1f)
+	{
+		it->addDelta2 = 0.0f;
+		Bullet* b = AssetManager::GetInstance()->CreateBullet();
+		if (b != nullptr)
+		{
+			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, player->GetX() + (player->r), player->GetY() + (player->r), eObjectType_EBullet);
 			bulletVec.emplace_back(b);
 		}
 	}

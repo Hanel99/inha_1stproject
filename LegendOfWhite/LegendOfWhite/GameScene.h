@@ -10,7 +10,7 @@
 class GameScene : public Scene
 {
 public:
-	GameScene();
+	GameScene();	
 
 	void Init();
 	void Update(float Delta);
@@ -25,6 +25,8 @@ public:
 	void IsPlayerColl(Player* p, float Delta);
 
 	void EnemyPattern1(Enemy* it);
+	void EnemyPattern2(Enemy* it);
+	void EnemyPattern3(Enemy* it);
 
 
 	std::weak_ptr<Gdiplus::Image> bgImg;
@@ -35,7 +37,6 @@ private:
 	Enemy* enemy;
 	NextStage* nextStageBoard;
 	bool isAllEnemyDead;
-	float addDelta2;
 
 	std::vector<Wall*> wallVec;
 	std::vector<Bullet*> bulletVec;

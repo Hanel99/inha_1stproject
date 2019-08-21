@@ -14,6 +14,8 @@ public:
 		, SPD(1)
 		, SSPD(1)
 		, EXP(1000)
+		, addDelta(0.0f)
+		, addDelta2(0.0f)
 	{
 		SetX(1000);
 		SetY(100);
@@ -32,7 +34,8 @@ public:
 		, SPD(100)
 		, SSPD(10)
 		, EXP(1000)
-		
+		, addDelta(0.0f)
+		, addDelta2(0.0f)
 	{
 		SetX(x);
 		SetY(y);
@@ -54,6 +57,8 @@ public:
 	int SSPD;
 	int EXP;
 	CPoint center;
+	float addDelta;
+	float addDelta2;
 
 	std::weak_ptr<Gdiplus::Image> enemyimg;
 };

@@ -42,18 +42,26 @@ void Bullet::Render(Gdiplus::Graphics* MemG)
 	{
 		bulletimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\obj_spritesheet.png"));
 	}
+
+	
+	
 	if (this->Objtype == eObjectType_PBullet)
-		rec = AssetManager::GetInstance()->GetRect(eXMLType_Obj, eXMLObjnum_PBullet);
+	{
+		//rec = AssetManager::GetInstance()->GetRect(eXMLType_Obj, eXMLObjnum_PBullet);
+		P = new Gdiplus::SolidBrush(Gdiplus::Color(88, 200, 200));
+	}		
 	else if (this->Objtype == eObjectType_EBullet)
-		rec = AssetManager::GetInstance()->GetRect(eXMLType_Obj, eXMLObjnum_EBullet);
+	{
+		//rec = AssetManager::GetInstance()->GetRect(eXMLType_Obj, eXMLObjnum_EBullet);
+		P = new Gdiplus::SolidBrush(Gdiplus::Color(255, 73, 73));
+	}
+
 	//temp.DrawImage(bulletimg.lock().get(), rect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), width, height);
-
-
-	Gdiplus::SolidBrush P(Gdiplus::Color(255, 0, 0));
-	MemG->FillEllipse(&P, (int)(GetX()), (int)(GetY()), width, height);
+	
+	MemG->FillEllipse(P, (int)(GetX()), (int)(GetY()), width, height);
 
 	//MemG->DrawImage(bulletimg.lock().get(), screenPosRect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 }

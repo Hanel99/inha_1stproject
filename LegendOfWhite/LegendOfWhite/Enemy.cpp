@@ -4,6 +4,8 @@
 
 void Enemy::Update(float Delta)
 {
+	addDelta += Delta;
+	addDelta2 += Delta;
 }
 
 void Enemy::Render(Gdiplus::Graphics* MemG)

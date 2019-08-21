@@ -173,7 +173,7 @@ UINT CLegendOfWhiteApp::funcThread(LPVOID pParam)
 			if (AddDelta < minDelta)
 			{
 				continue;
-				//   Sleep(minDelta - AddDelta);
+				 //  Sleep(minDelta - AddDelta);
 			}
 			else
 			{
@@ -185,7 +185,7 @@ UINT CLegendOfWhiteApp::funcThread(LPVOID pParam)
 			}
 
 			//update
-			++CallCount;
+			//++CallCount;
 			SceneManager::GetInstance()->GetCurScene()->Update(delta * 0.001f);
 
 			// Render

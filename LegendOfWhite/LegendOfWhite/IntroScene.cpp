@@ -11,6 +11,14 @@ IntroScene::IntroScene()
 void IntroScene::Init()
 {
 	eXMLBtnnum = 0;
+
+
+
+
+
+
+
+
 }
 
 void IntroScene::Update(float Delta)

@@ -19,9 +19,10 @@
 #include <functional>
 #include <memory>
 #include <tinyxml2.h>
+#include <sqlite3.h>
 #include <string>
 
-//#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
+#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 #include "common.h"
 #include "Singleton.h"

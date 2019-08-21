@@ -24,6 +24,9 @@ public:
 	void BulletCollCheck(Bullet* b);
 	void IsPlayerColl(Player* p, float Delta);
 
+	void EnemyPattern1(Enemy* it);
+
+
 	std::weak_ptr<Gdiplus::Image> bgImg;
 	std::weak_ptr<Gdiplus::Image> tabImg;
 
@@ -37,4 +40,6 @@ private:
 	std::vector<Wall*> wallVec;
 	std::vector<Bullet*> bulletVec;
 	std::vector<Enemy*> enemyVec;
+	Gdiplus::Bitmap* bm;
+	Gdiplus::Bitmap* bm2;
 };

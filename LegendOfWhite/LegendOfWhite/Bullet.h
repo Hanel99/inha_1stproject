@@ -49,6 +49,7 @@ private:
 	int SPD;
 	float SPDX;
 	float SPDY;
+	bool updown = false;
 
 	std::weak_ptr<Gdiplus::Image> bulletimg;
 };

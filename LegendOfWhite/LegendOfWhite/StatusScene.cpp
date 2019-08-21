@@ -21,8 +21,8 @@ void StatusScene::Update(float Delta)
 	}
 
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
-	player->SPD = 300 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)) * 0.5f;
-	player->SSPD = GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM);
+	player->SPD = 300 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM) * 1.5f);
+	player->SSPD = 500 + (GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM) * 3.0f);
 	player->CRI = GameData::GetInstance()->CRI;
 }
 
@@ -53,12 +53,14 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 
 	P.X = LSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV;
-	tempStr = std::to_wstring(player->SSPD);
+	//tempStr = std::to_wstring(player->SSPD);
+	tempStr = std::to_wstring((int)(GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM)));
 	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = LSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 2;
-	tempStr = std::to_wstring(player->SPD);
+	//tempStr = std::to_wstring(player->SPD);
+	tempStr = std::to_wstring((int)(GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)));
 	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = LSTATNUM_WIDTH;
@@ -86,14 +88,14 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	tempStr = std::to_wstring(GameData::GetInstance()->SSPDP) + L" * ";
 	tempStr.append(std::to_wstring((int)(GameData::GetInstance()->SSPDM * 100)));
 	tempStr.append(L"%");
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	temp.DrawString(tempStr.c_str(), -1, &F0, P, &B);
 
 	P.X = RSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 2;
 	tempStr = std::to_wstring(GameData::GetInstance()->SPDP) + L" * ";
 	tempStr.append(std::to_wstring((int)(GameData::GetInstance()->SPDM * 100)));
 	tempStr.append(L"%");
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	temp.DrawString(tempStr.c_str(), -1, &F0, P, &B);
 
 	// 스테이터스 강화 L
 	P.X = LSTATUPNUM_WIDTH;

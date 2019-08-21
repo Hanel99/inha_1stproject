@@ -21,6 +21,11 @@ AssetManager::AssetManager()
 
 AssetManager::~AssetManager()
 {
+	for (auto& it : AssetbulletVec)
+	{
+		delete it.second;
+	}
+	AssetbulletVec.clear();
 }
 
 

@@ -2,32 +2,32 @@
 #include "Scene.h"
 
 // 숫자 출력 스테이터스 L
-#define LSTATNUM_WIDTH 575.0f
-#define LSTATNUM_HEIGHT 168.0f
+#define LSTATNUM_WIDTH 575
+#define LSTATNUM_HEIGHT 168
 
 // 위아래 간격
-#define STATITV 92.0f
+#define STATITV 92
 
 // 숫자 출력 스테이터스 R
-#define RSTATNUM_WIDTH 694.0f
+#define RSTATNUM_WIDTH 694
 
 
 // 숫자 출력 스테이터스 강화 L
-#define LSTATUPNUM_WIDTH 1016.0f
-#define LSTATUPNUM_HEIGHT 168.0f
+#define LSTATUPNUM_WIDTH 1016
+#define LSTATUPNUM_HEIGHT 168
 
 // 숫자 출력 스테이터스 강화 R
-#define RSTATUPNUM_WIDTH 1145.0f
+#define RSTATUPNUM_WIDTH 1145
 
 // 작은 버튼 L
-#define LMSTATNUM_WIDTH 1067.0f
-#define LMSTATNUM_HEIGHT 197.f
+#define LMSTATNUM_WIDTH 1067
+#define LMSTATNUM_HEIGHT 197
 
 // 작은 버튼 R
-#define RMSTATUM_WIDTH 1196.0f
+#define RMSTATUM_WIDTH 1196
 
 // 간격
-#define MSTATITV 93.0f
+#define MSTATITV 93
 
 
 // 스탯 업그레이드

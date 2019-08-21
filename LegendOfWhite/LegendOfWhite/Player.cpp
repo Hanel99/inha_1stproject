@@ -27,8 +27,8 @@ void Player::Update(float Delta)
 		SetY(GetY() + (Delta * SPD));
 	}
 
-	center.x = GetX() + r;
-	center.y = GetY() + r;
+	center.x = GetX() + width / 2;
+	center.y = GetY() + height / 2;
 
 	if (EXP >= 100)
 	{
@@ -39,9 +39,7 @@ void Player::Update(float Delta)
 }
 
 void Player::Render(Gdiplus::Graphics* MemG)
-{
-	Gdiplus::Pen P(Gdiplus::Color(255, 0, 0), 1);
-
+{	
 	playerimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\obj_spritesheet.png"));	
 	switch (eplayerlook)
 	{
@@ -59,18 +57,18 @@ void Player::Render(Gdiplus::Graphics* MemG)
 		break;
 	}
 	//Player의 크기
-	Gdiplus::Rect rect(0, 0, rec->Width, rec->Height);
+	Gdiplus::Rect rect(0, 0, 35, 42);
 
-	Gdiplus::Bitmap bm(rec->Width, rec->Height, PixelFormat32bppARGB);
-	Gdiplus::Graphics temp(&bm);
+	//Gdiplus::Bitmap bm(rec->Width, rec->Height, PixelFormat32bppARGB);
+	//Gdiplus::Graphics temp(&bm);
 
-	temp.DrawImage(playerimg.lock().get(), rect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	//temp.DrawImage(playerimg.lock().get(), rect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), rec->Width, rec->Height);
+	
+	MemG->DrawImage(playerimg.lock().get(), screenPosRect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
-	//MemG->DrawEllipse(&P, (int)(GetX()), (int)(GetY()), rec->Width, rec->Height);
-	MemG->DrawEllipse(&P, (int)(GetX()), (int)(GetY()), width, height);
-
-	MemG->DrawImage(&bm, screenPosRect);
+	//Gdiplus::Pen P(Gdiplus::Color(255, 0, 0), 5);
+	//MemG->DrawEllipse(&P, (int)(center.x - r), (int)(center.y - r), r * 2, r * 2);
 }

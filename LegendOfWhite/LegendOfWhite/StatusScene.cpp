@@ -247,7 +247,8 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		if (player->skillPoint > 0)
 		{
 			--player->skillPoint;
-			GameData::GetInstance()->SSPDP++;
+			//GameData::GetInstance()->SSPDP++;
+			GameData::GetInstance()->SSPDP += 200;
 		}
 	}
 

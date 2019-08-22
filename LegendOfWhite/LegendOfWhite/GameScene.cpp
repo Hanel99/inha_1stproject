@@ -197,6 +197,7 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 	Gdiplus::SolidBrush B4(Gdiplus::Color(255, 236, 79)); // EXP 事
 	Gdiplus::SolidBrush B5(Gdiplus::Color(76, 101, 228)); // chapter 事
 	Gdiplus::SolidBrush B6(Gdiplus::Color(133, 51, 255)); // stage 事
+	Gdiplus::SolidBrush B7(Gdiplus::Color(228, 39, 39)); // HP 事
 	Gdiplus::Font F3(L"Berlin Sans FB", 28, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	Gdiplus::Font F4(L"Berlin Sans FB", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	
@@ -208,7 +209,7 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 	P.X = 150;
 	P.Y = 8;
 	tempStr = L"HP : " + std::to_wstring(player->HP);
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B7);
 
 	P.X = 12;
 	P.Y = 42;

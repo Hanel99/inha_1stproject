@@ -198,6 +198,8 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	//레벨과 잔여포인트 표시
 	Gdiplus::Font F3(L"Berlin Sans FB", 28, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	Gdiplus::SolidBrush B3(Gdiplus::Color(126, 109, 225)); // SP 색
+
+
 	// Lv
 	P.X = 12;
 	P.Y = 8;

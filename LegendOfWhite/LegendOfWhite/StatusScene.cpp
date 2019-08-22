@@ -22,7 +22,11 @@ void StatusScene::Update(float Delta)
 	if (GetAsyncKeyState(VK_UP)  && GetAsyncKeyState(VK_DOWN))
 	{
 		GameData::GetInstance()->ATKP = 10000;
+		GameData::GetInstance()->SPDM = 1000;
+		GameData::GetInstance()->SSPDM = 1000;
+		GameData::GetInstance()->MAXHP = 10000;
 		GameData::GetInstance()->player->HP = 10000;
+		GameData::GetInstance()->player->CRI = 0.8f;
 	}
 
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
@@ -35,17 +39,16 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 {
 	Gdiplus::Rect rect(0, 0, WIDTH, HEIGHT);
 
-	Gdiplus::Bitmap bm(WIDTH, HEIGHT, PixelFormat32bppARGB);
-	Gdiplus::Graphics temp(&bm);
+	Gdiplus::Rect recttab(336, 180, 40, 330);
+	tabImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\tab.png"));
+	MemG->DrawImage(tabImg.lock().get(), recttab);
 
 	statImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\statImg.png"));
-
-	temp.DrawImage(statImg.lock().get(),
-		rect, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-
+	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
+	MemG->DrawImage(statImg.lock().get(), screenPosRect);
 
 	//그려줄 screen좌표의 rect
-	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
+	
 
 	Gdiplus::Font F(L"맑은고딕", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	Gdiplus::SolidBrush B(Gdiplus::Color(255, 255, 255));
@@ -54,29 +57,29 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	P.X = LSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT;
 	tempStr = std::to_wstring(player->ATK);
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = LSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV;
 	//tempStr = std::to_wstring(player->SSPD);
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM)));
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = LSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 2;
 	//tempStr = std::to_wstring(player->SPD);
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM)));
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = LSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 3;
 	tempStr = std::to_wstring(player->HP);
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = LSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 4;
 	tempStr = std::to_wstring((int)(player->CRI * 100)) + L"%";
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	// 스테이터스 R
 	P.X = RSTATNUM_WIDTH;
@@ -86,69 +89,69 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	tempStr.append(std::to_wstring(GameData::GetInstance()->ATKP) + L" * ");
 	tempStr.append(std::to_wstring((int)(GameData::GetInstance()->ATKM * 100)));
 	tempStr.append(L"%");
-	temp.DrawString(tempStr.c_str(), -1, &F0, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F0, P, &B);
 
 	P.X = RSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV;
 	tempStr = std::to_wstring(GameData::GetInstance()->SSPDP) + L" * ";
 	tempStr.append(std::to_wstring((int)(GameData::GetInstance()->SSPDM * 100)));
 	tempStr.append(L"%");
-	temp.DrawString(tempStr.c_str(), -1, &F0, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F0, P, &B);
 
 	P.X = RSTATNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 2;
 	tempStr = std::to_wstring(GameData::GetInstance()->SPDP) + L" * ";
 	tempStr.append(std::to_wstring((int)(GameData::GetInstance()->SPDM * 100)));
 	tempStr.append(L"%");
-	temp.DrawString(tempStr.c_str(), -1, &F0, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F0, P, &B);
 
 	// 스테이터스 강화 L
 	P.X = LSTATUPNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT;
 	tempStr = std::to_wstring(GameData::GetInstance()->ATKP);
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = LSTATUPNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV;
 	tempStr = std::to_wstring(GameData::GetInstance()->SSPDP);
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = LSTATUPNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 2;
 	tempStr = std::to_wstring(GameData::GetInstance()->SPDP);
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = LSTATUPNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 3;
 	tempStr = std::to_wstring(GameData::GetInstance()->MAXHP);
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	// 스테이터스 강화 R
 
 	P.X = RSTATUPNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT;
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->ATKM * 100)) + L"%";
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = RSTATUPNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV;
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->SSPDM * 100)) + L"%";
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = RSTATUPNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 2;
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->SPDM * 100)) + L"%";
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = RSTATUPNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 3;
 	tempStr = L"+1";
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	P.X = RSTATUPNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 4;
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->CRI * 100)) + L"%";
-	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	// 작은 버튼 L
 	Gdiplus::Font F2(L"맑은고딕", 13, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
@@ -157,71 +160,83 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	P.X = LMSTATNUM_WIDTH;
 	P.Y = LMSTATNUM_HEIGHT;
 	tempStr = L"1pt";
-	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	P.X = LMSTATNUM_WIDTH;
 	P.Y = LMSTATNUM_HEIGHT + MSTATITV;
 	tempStr = L"1pt";
-	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	P.X = LMSTATNUM_WIDTH;
 	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 2;
 	tempStr = L"1pt";
-	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	P.X = LMSTATNUM_WIDTH;
 	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 3;
 	tempStr = std::to_wstring((int)((GameData::GetInstance()->MAXHP - 2) * 10)) + L"pt";
-	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	// 작은 버튼 R
 	P.X = RMSTATUM_WIDTH;
 	P.Y = LMSTATNUM_HEIGHT;
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->ATKM * 100 / 5 + 2)) + L"pt";
-	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	P.X = RMSTATUM_WIDTH;
 	P.Y = LMSTATNUM_HEIGHT + MSTATITV;
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->SSPDM * 100 / 5 + 2)) + L"pt";
-	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	P.X = RMSTATUM_WIDTH;
 	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 2;
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->SPDM * 100 / 5 + 2)) + L"pt";
-	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	P.X = RMSTATUM_WIDTH;
 	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 3;
 	tempStr = std::to_wstring(GameData::GetInstance()->healCount) + L"pt";
-	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	P.X = RMSTATUM_WIDTH;
 	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 4;
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->CRI * 100 / 5 + 2)) + L"pt";
-	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
+	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	//레벨과 잔여포인트 표시
 	Gdiplus::Font F3(L"Berlin Sans FB", 28, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	Gdiplus::SolidBrush B3(Gdiplus::Color(126, 109, 225)); // SP 색
+	Gdiplus::SolidBrush B7(Gdiplus::Color(228, 39, 39)); // HP 색
+
 	// Lv
 	P.X = 12;
 	P.Y = 8;
 	tempStr = L"Lv. " + std::to_wstring(player->LV);
-	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
+
+	//HP
+	P.X = 150;
+	P.Y = 8;
+	tempStr = L"HP : " + std::to_wstring(player->HP);
+	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B7);
 
 	// SP
 	P.X = 204;
 	P.Y = 42;
 	tempStr = L"SP " + std::to_wstring(player->skillPoint);
-	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B3);
-
-
-
-	MemG->DrawImage(&bm, screenPosRect);
+	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B3);
 }
 
 void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
-{
+{	
+	// 탭 닫기
+	if (MouseManager::GetInstance()->GetMousePos().x >= 336 && MouseManager::GetInstance()->GetMousePos().x <= 376
+		&& MouseManager::GetInstance()->GetMousePos().y >= 180 && MouseManager::GetInstance()->GetMousePos().y <= 510)
+	{
+		SceneManager::GetInstance()->SwapStatusScene();
+	}
+
+
 	// 공격력 합
 	if (MouseManager::GetInstance()->GetMousePos().x >= STATUX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUX_WIDTH + STATUB_WIDTH
 		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT && MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT)
@@ -343,4 +358,9 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 void StatusScene::SendRButtonDown(UINT nFlags, CPoint point)
 {
+	//좌클릭 10번
+	for (int i = 0; i < 10; i++)
+	{
+		SendLButtonDown(nFlags, point);
+	}
 }

@@ -257,20 +257,30 @@ void GameScene::SetStartPos(float x, float y)
 
 void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 {
-	Bullet* b = AssetManager::GetInstance()->CreateBullet();
-	if (rand() % 100 < player->CRI * 100)
+	Gdiplus::Rect rect(1220, 180, 40, 330);
+	// ÅÇ ¿­±â
+	if (MouseManager::GetInstance()->GetMousePos().x >= 1220 && MouseManager::GetInstance()->GetMousePos().x <= 1260
+		&& MouseManager::GetInstance()->GetMousePos().y >= 180 && MouseManager::GetInstance()->GetMousePos().y <= 510)
 	{
-		b->iscritical = true;
+		SceneManager::GetInstance()->SwapStatusScene();
 	}
 	else
 	{
-		b->iscritical = false;
-	}
-	if (b != nullptr)
-	{
-		b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x, point.y, eObjectType_PBullet, 1);
-		bulletVec.emplace_back(b);
-	}
+		Bullet* b = AssetManager::GetInstance()->CreateBullet();
+		if (rand() % 100 < player->CRI * 100)
+		{
+			b->iscritical = true;
+		}
+		else
+		{
+			b->iscritical = false;
+		}
+		if (b != nullptr)
+		{
+			b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x, point.y, eObjectType_PBullet, 1);
+			bulletVec.emplace_back(b);
+		}
+	}	
 }
 
 void GameScene::SendRButtonDown(UINT nFlags, CPoint point)

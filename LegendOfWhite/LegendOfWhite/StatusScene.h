@@ -60,5 +60,6 @@ public:
 
 public:
 	std::weak_ptr<Gdiplus::Image> statImg;
+	std::weak_ptr<Gdiplus::Image> tabImg;
 	std::weak_ptr<Gdiplus::Image> bgImg;
 };

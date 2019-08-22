@@ -16,7 +16,7 @@ void GameScene::Init()
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
 	player->SPD = 500 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM) * 1.5f);
 	player->SSPD = 800 + (GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM) * 3.0f);
-	player->HP = GameData::GetInstance()->HP;
+	player->HP = GameData::GetInstance()->MAXHP;
 	player->CRI = GameData::GetInstance()->CRI;
 
 	SetStartPos(100, 100);
@@ -320,9 +320,8 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 	}
 	if (pow((nextStageBoard->center.x - p->center.x), 2) + pow((nextStageBoard->center.y - p->center.y), 2) <= pow((nextStageBoard->r + p->r), 2) && isAllEnemyDead)
 	{
-		SetStartPos(100, 100);
-		GameData::GetInstance()->HP = 6;
 		SceneManager::GetInstance()->SetGameClear(true);
+		GameData::GetInstance()->SavePlayerData();
 		SceneManager::GetInstance()->GotoResultScene();
 	}
 }

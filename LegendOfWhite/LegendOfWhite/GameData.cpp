@@ -18,20 +18,20 @@ void GameData::Init()
 	//이어하기를 눌렀을경우, DB불러서 데이터 가져오기
 	//새로시작의 경우 위 DB불러오는걸 넘기고 초기값 셋팅해준뒤 바로 게임씬으로 이동.
 
-	ATKP = 5;
+	ATKP = 1;
 	ATKM = 0.0f;
 	SSPDP = 1;
 	SSPDM = 0.0f;
 	SPDP = 1;
 	SPDM = 0.0f;
-	HP = 3;
+	MAXHP = 3;
+	player->HP = 3;
 	healCount = 0;
-	CRI = 0.2f;
+	CRI = 0.0f;
 
-	SavePlayerData();
-
-	LoadPlayerData();
-	LoadSceneData();
+	//SavePlayerData();
+	//LoadPlayerData();
+	//LoadSceneData(TEXT(""));
 }
 
 int GameData::GetStagenum()
@@ -71,8 +71,8 @@ void GameData::SavePlayerData()
 	else
 	{
 		CString temp;
-		temp.Format(TEXT("UPDATE playerdata SET LV = %d, EXP = %d, skillPoint = %d, chapter = %d, stage = %d, HP = %d, ATKP = %d, ATKM = %f, SPDP = %d, SPDM = %f, SSPDP = %d, SSPDM = %f, CRI = %f, healCount = %d  WHERE datanum = 1")
-			, player->LV, player->EXP, player->skillPoint, chapternum, stagenum, player->HP, ATKP, ATKM, SPDP, SPDM, SSPDP, SSPDM, CRI, healCount);
+		temp.Format(TEXT("UPDATE playerdata SET LV = %d, EXP = %d, skillPoint = %d, chapter = %d, stage = %d, MAXHP = %d,playerHP = %d, ATKP = %d, ATKM = %f, SPDP = %d, SPDM = %f, SSPDP = %d, SSPDM = %f, CRI = %f, healCount = %d  WHERE datanum = 1")
+			, player->LV, player->EXP, player->skillPoint, chapternum, stagenum, MAXHP, player->HP, ATKP, ATKM, SPDP, SPDM, SSPDP, SSPDM, CRI, healCount);
 
 		rst = sqlite3_exec(pSQLite3, (CStringA)temp.GetBuffer(), 0, 0, 0);
 	}
@@ -81,7 +81,34 @@ void GameData::SavePlayerData()
 	sqlite3_close(pSQLite3);
 }
 
-int GameData::LoadSceneData()
+void GameData::SaveFirstPlayerData()
+{
+	sqlite3* pSQLite3 = NULL;
+	// SQLite DB 객체저장변수
+	char* szErrMsg = NULL;
+	// Error 발생시메세지를저장하는변수
+
+	// 데이터베이스열기: 파일이존재하지않으면생성한다. 
+	int rst = sqlite3_open("maindb.db", &pSQLite3);
+	if (rst)
+	{
+		printf("Can't open database: %s\n", sqlite3_errmsg(pSQLite3));
+		sqlite3_close(pSQLite3); pSQLite3 = NULL;
+	}
+	else
+	{
+		CString temp;
+		temp.Format(TEXT("UPDATE playerdata SET LV = %d, EXP = %d, skillPoint = %d, chapter = %d, stage = %d, MAXHP = %d,playerHP = %d, ATKP = %d, ATKM = %f, SPDP = %d, SPDM = %f, SSPDP = %d, SSPDM = %f, CRI = %f, healCount = %d  WHERE datanum = 1")
+			, 1, 0, 0, 1, 1, 3, 3, 1, 0.0f, 1, 0.0f, 1, 0.0f, 0.0f, 0);
+
+		rst = sqlite3_exec(pSQLite3, (CStringA)temp.GetBuffer(), 0, 0, 0);
+	}
+	//객체해제 
+	sqlite3_free(szErrMsg);
+	sqlite3_close(pSQLite3);
+}
+
+int GameData::LoadSceneData(CString where)
 {
 	sqlite3* pSQLite3 = NULL;
 	char* szErrMsg = NULL;
@@ -97,7 +124,9 @@ int GameData::LoadSceneData()
 	}
 	else
 	{
-		err = sqlite3_prepare_v2(pSQLite3, "SELECT * FROM scenedata", 1000, &stmt, &tail);
+		CString temp = TEXT("SELECT * FROM scenedata");
+		temp.Append(where);
+		err = sqlite3_prepare_v2(pSQLite3, (CStringA)temp.GetBuffer(), 1000, &stmt, &tail);
 
 		if (err != SQLITE_OK) {
 			printf("Select failed");
@@ -150,21 +179,48 @@ int GameData::LoadPlayerData()
 			dbPlayerData.skillPoint = sqlite3_column_int(stmt, 3); //skillPoint
 			dbPlayerData.chapter = sqlite3_column_int(stmt, 4); //chapter
 			dbPlayerData.stage = sqlite3_column_int(stmt, 5); //stage
-			dbPlayerData.HP = sqlite3_column_int(stmt, 6); //HP
-			dbPlayerData.ATKP = sqlite3_column_int(stmt, 7); //ATKP
-			dbPlayerData.ATKM = sqlite3_column_double(stmt, 8); //ATKM
-			dbPlayerData.SPDP = sqlite3_column_int(stmt, 9); //SPDP
-			dbPlayerData.SPDM = sqlite3_column_double(stmt, 10); //SPDM
-			dbPlayerData.SSPDP = sqlite3_column_int(stmt, 11); //SSPDP
-			dbPlayerData.SSPDM = sqlite3_column_double(stmt, 12); //SSPDM
-			dbPlayerData.CRI = sqlite3_column_double(stmt, 13); //CRI
-			dbPlayerData.healCount = sqlite3_column_int(stmt, 14); //healCount
+			dbPlayerData.MAXHP = sqlite3_column_int(stmt, 6); //MAXHP
+			dbPlayerData.playerHP = sqlite3_column_int(stmt, 7); //playerHP
+			dbPlayerData.ATKP = sqlite3_column_int(stmt, 8); //ATKP
+			dbPlayerData.ATKM = sqlite3_column_double(stmt, 9); //ATKM
+			dbPlayerData.SPDP = sqlite3_column_int(stmt, 10); //SPDP
+			dbPlayerData.SPDM = sqlite3_column_double(stmt, 11); //SPDM
+			dbPlayerData.SSPDP = sqlite3_column_int(stmt, 12); //SSPDP
+			dbPlayerData.SSPDM = sqlite3_column_double(stmt, 13); //SSPDM
+			dbPlayerData.CRI = sqlite3_column_double(stmt, 14); //CRI
+			dbPlayerData.healCount = sqlite3_column_int(stmt, 15); //healCount
 			cnt++;
 		}
 	}
 	//객체해제 
 	sqlite3_free(szErrMsg);
 	sqlite3_close(pSQLite3);
+}
+
+void GameData::SetPlayerDBData()
+{
+	player->LV = dbPlayerData.LV;
+	player->EXP = dbPlayerData.EXP;
+	player->skillPoint = dbPlayerData.skillPoint;
+	chapternum = dbPlayerData.chapter;
+	stagenum = dbPlayerData.stage;
+
+	MAXHP = dbPlayerData.MAXHP;
+	player->HP = dbPlayerData.playerHP;
+
+	ATKP = dbPlayerData.ATKP;
+	ATKM = dbPlayerData.ATKM;
+	SPDP = dbPlayerData.SPDP;
+	SPDM = dbPlayerData.SPDM;
+	SSPDP = dbPlayerData.SSPDP;
+	SSPDM = dbPlayerData.SSPDM;
+	CRI = dbPlayerData.CRI;
+	healCount = dbPlayerData.healCount;
+
+	player->ATK = (player->LV + ATKP) * (1 + ATKM);
+	player->SPD = 500 + (SPDP * (1 + SPDM) * 1.5f);
+	player->SSPD = 800 + (SSPDP * (1 + SSPDM) * 3.0f);
+	player->CRI = CRI;
 }
 
 

@@ -1,24 +1,16 @@
 #include "pch.h"
 #include "IntroScene.h"
 #include "framework.h"
+#include "Player.h"
 
 IntroScene::IntroScene()
 {
 	Init();
 }
 
-
 void IntroScene::Init()
 {
 	eXMLBtnnum = 0;
-
-
-
-
-
-
-
-
 }
 
 void IntroScene::Update(float Delta)
@@ -89,13 +81,20 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 	if (MouseManager::GetInstance()->GetMousePos().x >= WIDTH / 2 - BTN_WIDTH / 2 && MouseManager::GetInstance()->GetMousePos().x <= WIDTH / 2 + BTN_WIDTH / 2
 		&& MouseManager::GetInstance()->GetMousePos().y >= HEIGHT / 2 && MouseManager::GetInstance()->GetMousePos().y <= HEIGHT / 2 + BTN_HEIGHT)
 	{
-		// 바로 게임 시작
+		// DB 초기화 뒤 게임 시작
+		GameData::GetInstance()->SaveFirstPlayerData();
+		GameData::GetInstance()->LoadPlayerData();
+		GameData::GetInstance()->SetPlayerDBData();
+		SetStartPos(100, 100);
 		SceneManager::GetInstance()->MoveNextScene();
 	}
 	else if (MouseManager::GetInstance()->GetMousePos().x >= WIDTH / 2 - BTN_WIDTH / 2 && MouseManager::GetInstance()->GetMousePos().x <= WIDTH / 2 + BTN_WIDTH / 2
 		&& MouseManager::GetInstance()->GetMousePos().y >= HEIGHT / 2 + BTN_HEIGHT + 14 && MouseManager::GetInstance()->GetMousePos().y <= HEIGHT / 2 + BTN_HEIGHT + 14 + BTN_HEIGHT)
 	{
 		//DB에서 데이터 불러오는 작업 거친 뒤 게임 시작
+		GameData::GetInstance()->LoadPlayerData();
+		GameData::GetInstance()->SetPlayerDBData();
+		SetStartPos(100, 100);
 		SceneManager::GetInstance()->MoveNextScene();
 	}
 	else if (MouseManager::GetInstance()->GetMousePos().x >= WIDTH / 2 - BTN_WIDTH / 2 && MouseManager::GetInstance()->GetMousePos().x <= WIDTH / 2 + BTN_WIDTH / 2
@@ -112,4 +111,10 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 void IntroScene::SendRButtonDown(UINT nFlags, CPoint point)
 {
+}
+
+void IntroScene::SetStartPos(float x, float y)
+{
+	GameData::GetInstance()->player->SetX(x);
+	GameData::GetInstance()->player->SetY(y);
 }

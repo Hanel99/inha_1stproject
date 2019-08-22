@@ -21,8 +21,8 @@ void StatusScene::Update(float Delta)
 	}
 
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
-	player->SPD = 300 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM) * 1.5f);
-	player->SSPD = 500 + (GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM) * 3.0f);
+	player->SPD = 500 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM) * 1.5f);
+	player->SSPD = 800 + (GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM) * 3.0f);
 	player->CRI = GameData::GetInstance()->CRI;
 }
 
@@ -115,7 +115,7 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 
 	P.X = LSTATUPNUM_WIDTH;
 	P.Y = LSTATNUM_HEIGHT + STATITV * 3;
-	tempStr = std::to_wstring(GameData::GetInstance()->HP);
+	tempStr = std::to_wstring(GameData::GetInstance()->MAXHP);
 	temp.DrawString(tempStr.c_str(), -1, &F, P, &B);
 
 	// 스테이터스 강화 R
@@ -166,7 +166,7 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 
 	P.X = LMSTATNUM_WIDTH;
 	P.Y = LMSTATNUM_HEIGHT + MSTATITV * 3;
-	tempStr = std::to_wstring((int)((GameData::GetInstance()->HP - 2) * 10)) + L"pt";
+	tempStr = std::to_wstring((int)((GameData::GetInstance()->MAXHP - 2) * 10)) + L"pt";
 	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	// 작은 버튼 R
@@ -295,10 +295,10 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 4 + STATP_HITV * 3)
 	{
 
-		if (player->skillPoint >= (GameData::GetInstance()->HP - 2) * 10)
+		if (player->skillPoint >= (GameData::GetInstance()->MAXHP - 2) * 10)
 		{
-			player->skillPoint -= (GameData::GetInstance()->HP - 2) * 10;
-			GameData::GetInstance()->HP++;
+			player->skillPoint -= (GameData::GetInstance()->MAXHP - 2) * 10;
+			GameData::GetInstance()->MAXHP++;
 		}
 	}
 
@@ -310,7 +310,7 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 		if (player->skillPoint >= GameData::GetInstance()->healCount)
 		{			
-			if (GameData::GetInstance()->HP > GameData::GetInstance()->player->HP)
+			if (GameData::GetInstance()->MAXHP > GameData::GetInstance()->player->HP)
 			{
 				player->skillPoint -= GameData::GetInstance()->healCount;
 				GameData::GetInstance()->healCount++;

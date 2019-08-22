@@ -4,8 +4,6 @@
 #define VEC_LENGTH 1000
 
 
-
-
 AssetManager::AssetManager()
 {	
 	//메모리 풀을 이용해서 총알로 인한 메모리 파편화를 방지

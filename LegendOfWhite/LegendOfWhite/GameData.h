@@ -22,7 +22,8 @@ public:
 	int skillPoint;
 	int chapter;
 	int stage;
-	int HP;
+	int MAXHP;
+	int playerHP;
 	int ATKP;
 	float ATKM;
 	int SPDP;
@@ -56,13 +57,15 @@ public:
 	float SSPDM; //샷스피드(공속) 곱
 	int SPDP; //스피드 합
 	float SPDM; //스피드 곱
-	int HP; //최대체력
+	int MAXHP; //최대체력
 	int healCount;//회복한 횟수
 	float CRI; //크리티컬 확률
 
 	void SavePlayerData();
-	int LoadSceneData();
+	void SaveFirstPlayerData();
+	int LoadSceneData(CString where);
 	int LoadPlayerData();
+	void SetPlayerDBData();
 	DBSceneData* GetSceneData(int chapter, int stage);
 
 	std::vector<int> AssetObjImgVec;

@@ -19,6 +19,7 @@ public:
 	std::weak_ptr<Gdiplus::Image> btnImg;
 	Gdiplus::Rect* r;
 
+	void SetStartPos(float x, float y);
 	int eXMLBtnnum;
 };
 

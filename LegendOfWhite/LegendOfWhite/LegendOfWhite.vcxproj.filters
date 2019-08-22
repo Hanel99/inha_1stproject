@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\State">
-      <UniqueIdentifier>{932e500f-7c90-44bd-a62d-51f1e62e064c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Object">
       <UniqueIdentifier>{cc2bb6e2-5bc0-40e1-ab6d-3ea05e58b0bc}</UniqueIdentifier>
     </Filter>
@@ -41,9 +38,6 @@
     </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>소스 파일\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="State.h">
-      <Filter>소스 파일\State</Filter>
     </ClInclude>
     <ClInclude Include="common.h">
       <Filter>헤더 파일</Filter>
@@ -72,20 +66,11 @@
     <ClInclude Include="Singleton.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="State_PIdle.h">
-      <Filter>소스 파일\State</Filter>
-    </ClInclude>
-    <ClInclude Include="State_EMove.h">
-      <Filter>소스 파일\State</Filter>
-    </ClInclude>
     <ClInclude Include="AssetManager.h">
       <Filter>소스 파일\Asset</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>소스 파일\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="State_PMove.h">
-      <Filter>소스 파일\State</Filter>
     </ClInclude>
     <ClInclude Include="GameData.h">
       <Filter>소스 파일\Asset</Filter>
@@ -128,9 +113,6 @@
     <ClCompile Include="Object.cpp">
       <Filter>소스 파일\Object</Filter>
     </ClCompile>
-    <ClCompile Include="State.cpp">
-      <Filter>소스 파일\State</Filter>
-    </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
@@ -146,20 +128,11 @@
     <ClCompile Include="pch.cpp">
       <Filter>소스 파일\MFC</Filter>
     </ClCompile>
-    <ClCompile Include="State_PIdle.cpp">
-      <Filter>소스 파일\State</Filter>
-    </ClCompile>
-    <ClCompile Include="State_EMove.cpp">
-      <Filter>소스 파일\State</Filter>
-    </ClCompile>
     <ClCompile Include="AssetManager.cpp">
       <Filter>소스 파일\Asset</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>소스 파일\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="State_PMove.cpp">
-      <Filter>소스 파일\State</Filter>
     </ClCompile>
     <ClCompile Include="GameData.cpp">
       <Filter>소스 파일\Asset</Filter>

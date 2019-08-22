@@ -45,11 +45,12 @@ public:
 	Gdiplus::Rect* rec;
 	Gdiplus::SolidBrush* P;
 	int SPD;
+	bool iscritical = false;
 private:
 	int damage;
 	float SPDX;
 	float SPDY;
-	bool updown = false;
+	
 
 	std::weak_ptr<Gdiplus::Image> bulletimg;
 };

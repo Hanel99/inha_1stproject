@@ -258,6 +258,14 @@ void GameScene::SetStartPos(float x, float y)
 void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 {
 	Bullet* b = AssetManager::GetInstance()->CreateBullet();
+	if (rand() % 100 < player->CRI * 100)
+	{
+		b->iscritical = true;
+	}
+	else
+	{
+		b->iscritical = false;
+	}
 	if (b != nullptr)
 	{
 		b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x, point.y, eObjectType_PBullet, 1);
@@ -369,7 +377,7 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 		if (GameData::GetInstance()->stagenum == 11)
 		{
 			SceneManager::GetInstance()->SetGameClear(true);
-			GameData::GetInstance()->chapternum = 2;
+			GameData::GetInstance()->chapternum++;
 			GameData::GetInstance()->stagenum = 1;
 			GameData::GetInstance()->SavePlayerData();
 			SceneManager::GetInstance()->GotoResultScene();

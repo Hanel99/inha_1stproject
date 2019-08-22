@@ -23,7 +23,7 @@
 #include <string>
 #include <afx.h>
 
-#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
+//#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 #include "common.h"
 #include "Singleton.h"

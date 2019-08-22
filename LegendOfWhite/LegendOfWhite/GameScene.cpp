@@ -32,19 +32,6 @@ void GameScene::Init()
 			}
 		}
 	}
-	//wallVec.emplace_back(new Wall(3 * GRID, 2 * GRID - 20));
-	//wallVec.emplace_back(new Wall(5 * GRID, 4 * GRID - 20));
-	//wallVec.emplace_back(new Wall(7 * GRID, 6 * GRID - 20));
-
-	//wallVec.emplace_back(new Wall(12 * GRID, 1 * GRID - 20));
-	//wallVec.emplace_back(new Wall(12 * GRID, 2 * GRID - 20));
-	//wallVec.emplace_back(new Wall(12 * GRID, 3 * GRID - 20));
-	//wallVec.emplace_back(new Wall(12 * GRID, 4 * GRID - 20));
-	//wallVec.emplace_back(new Wall(12 * GRID, 5 * GRID - 20));
-	//wallVec.emplace_back(new Wall(12 * GRID, 6 * GRID - 20));
-	//wallVec.emplace_back(new Wall(12 * GRID, 7 * GRID - 20));
-	//wallVec.emplace_back(new Wall(12 * GRID, 8 * GRID - 20));
-
 	nextStageBoard = new NextStage(13 * GRID, 4 * GRID);
 
 	enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 600, 300);
@@ -148,15 +135,11 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	//MemG->FillRectangle(&WhiteBrush, rect);
 
 	//그려줄 screen좌표의 rect
-	//int bg = GetTickCount();
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 	MemG->DrawImage(bgImg.lock().get(), screenPosRect);
-	//bg = GetTickCount() - bg;
-	//printf("bgRender : %d \n", bg);
 
 	if (isAllEnemyDead)
 		nextStageBoard->Render(MemG);
-	//int wallDraw = GetTickCount();
 	static bool bInit = false;
 	if (!bInit)
 	{
@@ -172,67 +155,28 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	{
 		MemG->DrawImage(bm, screenPosRect);
 	}
-	//wallDraw = GetTickCount() - wallDraw;
-	//printf("wallDraw : %d \n", wallDraw);
 	static bool bInit2 = false;
 	if (!bInit2)
 	{
 		bInit2 = true;
 		bm2 = new Gdiplus::Bitmap(WIDTH, HEIGHT, PixelFormat32bppARGB);
 	}
-
-	//if (CLegendOfWhiteApp::CallCount % 3)
-	//{
-	//	Gdiplus::Graphics temp(bm2);
-	//	Gdiplus::SolidBrush emptybrush(Gdiplus::Color(0, 0, 0, 0));
-	//	temp.SetCompositingMode(Gdiplus::CompositingMode::CompositingModeSourceCopy);
-	//	temp.FillRectangle(&emptybrush, rect);
-	//	temp.SetCompositingMode(Gdiplus::CompositingMode::CompositingModeSourceOver);
 	for (auto& it : bulletVec)
 	{
 		it->Render(MemG);
 	}
-	//	MemG->DrawImage(bm2, screenPosRect);
-	//}
-	//else
-//	{
-//		MemG->DrawImage(bm2, screenPosRect);
-//	}
-
-	//int BulletRender = GetTickCount();
-	//for (auto& it : bulletVec)
-	//{
-	//	it->Render(MemG);
-	//}
-
-	//BulletRender = GetTickCount() - BulletRender;
-	//printf("BulletRender : %d \n", BulletRender);
-
-	//int enemyRender = GetTickCount();
 	for (auto& it : enemyVec)
 	{
 		it->Render(MemG);
 	}
-	//enemyRender = GetTickCount() - enemyRender;
-	//printf("enemyRender : %d \n", enemyRender);
-
-	//int OtherRender = GetTickCount();
 	player->Render(MemG);
 	UIRender(MemG);
-	//OtherRender = GetTickCount() - OtherRender;
-	//printf("OtherRender : %d \n", OtherRender);
-
 }
 
 void GameScene::UIRender(Gdiplus::Graphics* MemG)
 {
-	//Gdiplus::Bitmap bm(WIDTH, HEIGHT, PixelFormat32bppARGB);
-	//Gdiplus::Graphics temp(&bm);
-
 	Gdiplus::Rect rect(1210, 120, 50, 450);
-
 	tabImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\tab.png"));
-	//temp.DrawImage(tabImg.lock().get(), rect, 0, 0, 32, 512, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	Gdiplus::PointF P;
 	std::wstring tempStr;
@@ -253,7 +197,7 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 	tempStr = L"EXP : " + std::to_wstring(player->EXP);
 	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
 
-	P.X = 100;
+	P.X = 200;
 	P.Y = 40;
 	tempStr = L"X : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().x);
 	tempStr.append(L" / Y : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().y));
@@ -344,8 +288,6 @@ void GameScene::BulletCollCheck(Bullet* b)
 			if (player->HP <= 0)
 			{
 				//플레이어 사망
-				SetStartPos(100, 100);
-				GameData::GetInstance()->HP = 6;
 				SceneManager::GetInstance()->SetGameClear(false);
 				SceneManager::GetInstance()->GotoResultScene();
 			}

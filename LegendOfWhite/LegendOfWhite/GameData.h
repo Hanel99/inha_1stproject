@@ -61,16 +61,14 @@ public:
 	float CRI; //크리티컬 확률
 
 	void SavePlayerData();
-	void LoadSceneData();
-	void LoadPlayerData();
+	int LoadSceneData();
+	int LoadPlayerData();
 	DBSceneData* GetSceneData(int chapter, int stage);
 
 	std::vector<int> AssetObjImgVec;
 	std::vector<DBSceneData*> DBSceneVec;
 	DBPlayerData dbPlayerData;
 	DBSceneData* dbSceneData;
-
-	bool isPlayerData = false;
 
 private:	
 	int chapternum;

@@ -44,7 +44,7 @@ void GameScene::SceneSetting()
 		{
 			if (it->enemytype == eEnemyType_Boss)
 			{
-				enemyVec.emplace_back(new Enemy((EEnemyType)it->enemytype, 1, 100 * it->stage * it->chapter, it->x * GRID, it->y * GRID));
+				enemyVec.emplace_back(new Enemy((EEnemyType)it->enemytype, 1, 200 * it->stage * it->chapter, it->x * GRID, it->y * GRID));
 			}
 			else
 			{
@@ -116,13 +116,13 @@ void GameScene::Update(float Delta)
 				EnemyPattern1(it);
 				break;
 			case eEnemyType_Digda: //디그다
-				EnemyPattern3(it);
+				EnemyPattern2(it);
 				break;
 			case eEnemyType_Digda2: //디그다2
-				EnemyPattern4(it);
+				EnemyPattern3(it);
 				break;
 			case eEnemyType_Slime: //슬라임
-				EnemyPattern2(it);
+				EnemyPattern4(it);
 				break;
 			case eEnemyType_Boss: //보스
 				EnemyPattern5(it);

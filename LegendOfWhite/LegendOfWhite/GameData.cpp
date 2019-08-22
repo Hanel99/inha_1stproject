@@ -78,7 +78,7 @@ void GameData::SaveFirstPlayerData()
 	else
 	{
 		CString temp;
-		temp.Format(TEXT("UPDATE playerdata SET LV = %d, EXP = %d, skillPoint = %d, chapter = %d, stage = %d, MAXHP = %d,playerHP = %d, ATKP = %d, ATKM = %f, SPDP = %d, SPDM = %f, SSPDP = %d, SSPDM = %f, CRI = %f, healCount = %d  WHERE datanum = 1")
+		temp.Format(TEXT("UPDATE playerdata SET LV = %d, EXP = %d, skillPoint = %d, chapter = %d, stage = %d, MAXHP = %d, playerHP = %d, ATKP = %d, ATKM = %f, SPDP = %d, SPDM = %f, SSPDP = %d, SSPDM = %f, CRI = %f, healCount = %d  WHERE datanum = 1")
 			, 1, 0, 0, 1, 1, 3, 3, 1, 0.0f, 1, 0.0f, 1, 0.0f, 0.0f, 0);
 
 		rst = sqlite3_exec(pSQLite3, (CStringA)temp.GetBuffer(), 0, 0, 0);

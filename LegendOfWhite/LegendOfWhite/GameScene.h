@@ -31,6 +31,8 @@ public:
 
 	std::weak_ptr<Gdiplus::Image> bgImg;
 	std::weak_ptr<Gdiplus::Image> tabImg;
+	std::weak_ptr<Gdiplus::Image> uibgImg;
+	std::weak_ptr<Gdiplus::Image> stagebgImg;
 
 private:
 	Player* player;

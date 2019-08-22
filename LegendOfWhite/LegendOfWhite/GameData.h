@@ -41,12 +41,7 @@ public:
 	~GameData();
 
 	void Init();
-
-	int GetStagenum();
-	void SetStagenum(int stage);
-	int GetChapternum();
-	void SetChapternum(int chapter);
-
+	
 public:
 	Player* player;
 	int winWIDTH;
@@ -71,9 +66,7 @@ public:
 	std::vector<int> AssetObjImgVec;
 	std::vector<DBSceneData*> DBSceneVec;
 	DBPlayerData dbPlayerData;
-	DBSceneData* dbSceneData;
-
-private:	
+	DBSceneData* dbSceneData;	
 	int chapternum;
 	int stagenum;
 };

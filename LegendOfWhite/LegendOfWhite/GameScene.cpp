@@ -129,14 +129,18 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 
 
 	bgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bgImg.png"));
+	//uibgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\uibgImg.png")); // ui 배경
 	//temp.DrawImage(bgImg.lock().get(), rect, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
 	//Gdiplus::SolidBrush WhiteBrush(Gdiplus::Color(255, 180, 180, 180));
 	//MemG->FillRectangle(&WhiteBrush, rect);
 
 	//그려줄 screen좌표의 rect
-	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
+	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);	
 	MemG->DrawImage(bgImg.lock().get(), screenPosRect);
+
+	//Gdiplus::Rect screenPosRect2(0, 0, 350, 114); // ui배경
+	//MemG->DrawImage(uibgImg.lock().get(), screenPosRect2);
 
 	if (isAllEnemyDead)
 		nextStageBoard->Render(MemG);
@@ -170,6 +174,16 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 		it->Render(MemG);
 	}
 	player->Render(MemG);
+
+
+	uibgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\uibgImg.png")); // ui 배경
+	Gdiplus::Rect screenPosRect2(0, 0, 340, 90); // ui배경
+	MemG->DrawImage(uibgImg.lock().get(), screenPosRect2);
+
+	stagebgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\stagebgImg.png")); // ui 배경
+	Gdiplus::Rect screenPosRect3(1085, 0, 234, 68); // ui배경
+	MemG->DrawImage(stagebgImg.lock().get(), screenPosRect3);
+
 	UIRender(MemG);
 }
 
@@ -181,30 +195,44 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 	Gdiplus::PointF P;
 	std::wstring tempStr;
 	Gdiplus::SolidBrush B(Gdiplus::Color(255, 255, 255));
-	Gdiplus::Font F3(L"맑은고딕", 30, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
-	P.X = 10;
-	P.Y = 10;
-	tempStr = L"LV : " + std::to_wstring(player->LV);
+	Gdiplus::SolidBrush B4(Gdiplus::Color(255, 236, 79)); // EXP 색
+	Gdiplus::SolidBrush B5(Gdiplus::Color(76, 101, 228)); // chapter 색
+	Gdiplus::SolidBrush B6(Gdiplus::Color(133, 51, 255)); // stage 색
+	Gdiplus::Font F3(L"Berlin Sans FB", 28, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+	Gdiplus::Font F4(L"Berlin Sans FB", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+	P.X = 12;
+	P.Y = 8;
+	tempStr = L"Lv. " + std::to_wstring(player->LV);
 	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
 
-	P.X = 180;
-	P.Y = 10;
+	P.X = 150;
+	P.Y = 8;
 	tempStr = L"HP : " + std::to_wstring(player->HP);
 	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
 
-	P.X = 10;
-	P.Y = 40;
+	P.X = 12;
+	P.Y = 42;
 	tempStr = L"EXP : " + std::to_wstring(player->EXP);
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B4);
 
-	P.X = 200;
-	P.Y = 40;
-	tempStr = L"X : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().x);
-	tempStr.append(L" / Y : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().y));
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
+	P.X = 1100;
+	P.Y = 8;
+	tempStr = L"CHAPTER : " + std::to_wstring(GameData::GetInstance()->chapternum); // chapter값 받아야됨
+	MemG->DrawString(tempStr.c_str(), -1, &F4, P, &B5);
 
-	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
-	MemG->DrawImage(tabImg.lock().get(), rect, 0, 0, 32, 512, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	P.X = 1128;
+	P.Y = 33;
+	tempStr = L"STAGE : " + std::to_wstring(GameData::GetInstance()->stagenum); // stage값 받아야됨
+	MemG->DrawString(tempStr.c_str(), -1, &F4, P, &B6);
+
+	//P.X = 200;
+	//P.Y = 56;
+	//tempStr = L"X : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().x);
+	//tempStr.append(L" / Y : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().y));
+	//MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
+
+	//Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
+	//MemG->DrawImage(tabImg.lock().get(), rect, 0, 0, 32, 512, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 }
 
 void GameScene::SetStartPos(float x, float y)

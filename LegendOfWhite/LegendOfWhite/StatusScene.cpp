@@ -196,16 +196,19 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	temp.DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	//·¹º§°ú ÀÜ¿©Æ÷ÀÎÆ® Ç¥½Ã
-	Gdiplus::Font F3(L"¸¼Àº°íµñ", 30, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
-	P.X = 10;
-	P.Y = 10;
-	tempStr = L"LV : " + std::to_wstring(player->LV);
+	Gdiplus::Font F3(L"Berlin Sans FB", 28, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+	Gdiplus::SolidBrush B3(Gdiplus::Color(126, 109, 225)); // SP »ö
+	// Lv
+	P.X = 12;
+	P.Y = 8;
+	tempStr = L"Lv. " + std::to_wstring(player->LV);
 	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
 
-	P.X = 10;
-	P.Y = 40;
-	tempStr = L"Skillpoint : " + std::to_wstring(player->skillPoint);
-	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B);
+	// SP
+	P.X = 204;
+	P.Y = 42;
+	tempStr = L"SP " + std::to_wstring(player->skillPoint);
+	temp.DrawString(tempStr.c_str(), -1, &F3, P, &B3);
 
 
 

@@ -34,26 +34,6 @@ void GameData::Init()
 	//LoadSceneData(TEXT(""));
 }
 
-int GameData::GetStagenum()
-{
-	return stagenum;
-}
-
-void GameData::SetStagenum(int stage)
-{
-	stagenum = stage;
-}
-
-int GameData::GetChapternum()
-{
-	return chapternum;
-}
-
-void GameData::SetChapternum(int chapter)
-{
-	chapternum = chapter;
-}
-
 void GameData::SavePlayerData()
 {
 	sqlite3* pSQLite3 = NULL;

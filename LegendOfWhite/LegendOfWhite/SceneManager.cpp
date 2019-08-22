@@ -56,13 +56,13 @@ void SceneManager::MoveNextScene()
 	else if (scenenum > 2)
 	{
 		//스테이지 클리어 후 다음 스테이지로 이동
-		if (GameData::GetInstance()->GetStagenum() == BOSS_STAGE)
+		if (GameData::GetInstance()->stagenum == BOSS_STAGE)
 		{
-			GameData::GetInstance()->SetChapternum(GameData::GetInstance()->GetChapternum() + 1);
-			GameData::GetInstance()->SetStagenum(1);
+			GameData::GetInstance()->chapternum++;
+			GameData::GetInstance()->stagenum = 1;
 		}
 		else {
-			GameData::GetInstance()->SetStagenum(GameData::GetInstance()->GetStagenum() + 1);
+			GameData::GetInstance()->stagenum++;
 		}
 	}
 }

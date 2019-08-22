@@ -202,14 +202,3 @@ void GameData::SetPlayerDBData()
 	player->SSPD = 800 + (SSPDP * (1 + SSPDM) * 3.0f);
 	player->CRI = CRI;
 }
-
-
-DBSceneData* GameData::GetSceneData(int chapter, int stage)
-{
-	for (auto& it : DBSceneVec)
-	{
-		if (it->chapter == chapter && it->stage == stage)
-			return it;
-	}
-	return nullptr;
-}

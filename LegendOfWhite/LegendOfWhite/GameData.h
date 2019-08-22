@@ -44,8 +44,6 @@ public:
 	
 public:
 	Player* player;
-	int winWIDTH;
-	int winHEIGHT;
 	int ATKP; //공격력 합
 	float ATKM; //공격력 곱
 	int SSPDP; //샷스피드(공속) 합
@@ -61,7 +59,6 @@ public:
 	int LoadSceneData(CString where);
 	int LoadPlayerData();
 	void SetPlayerDBData();
-	DBSceneData* GetSceneData(int chapter, int stage);
 
 	std::vector<int> AssetObjImgVec;
 	std::vector<DBSceneData*> DBSceneVec;

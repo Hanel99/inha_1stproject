@@ -17,7 +17,6 @@ void GameScene::SceneSetting()
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
 	player->SPD = 500 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM) * 1.5f);
 	player->SSPD = 800 + (GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM) * 3.0f);
-	player->HP = GameData::GetInstance()->MAXHP;
 	player->CRI = GameData::GetInstance()->CRI;
 
 	SetStartPos(100, 100);
@@ -35,8 +34,16 @@ void GameScene::SceneSetting()
 	bulletVec.clear();
 	bulletVec.empty();
 
-	enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 600, 300);
-	enemyVec.emplace_back(enemy);
+	enemyVec.clear();
+	enemyVec.empty();
+
+	for (auto& it : GameData::GetInstance()->DBSceneVec)
+	{
+		if (it->stage == GameData::GetInstance()->stagenum)
+		{
+			enemyVec.emplace_back(new Enemy((EEnemyType)it->enemytype, 1, 15 * it->stage, it->x * GRID, it->y * GRID));
+		}
+	}
 }
 
 void GameScene::Init()
@@ -69,7 +76,7 @@ void GameScene::Update(float Delta)
 	}
 	player->Update(Delta);
 	IsPlayerColl(player, Delta);
-
+/*
 	if (GetAsyncKeyState(VK_SPACE) & 0x1001)
 	{
 		if (enemyVec.empty())
@@ -78,7 +85,7 @@ void GameScene::Update(float Delta)
 			enemy = new Enemy((EEnemyType)a, 1, 30, 600, 300);
 			enemyVec.emplace_back(enemy);
 		}
-	}
+	}*/
 
 	if (enemyVec.empty())
 	{
@@ -96,52 +103,21 @@ void GameScene::Update(float Delta)
 				EnemyPattern1(it);
 				break;
 			case eEnemyType_Digda: //디그다
-				EnemyPattern2(it);
-				break;
-			case eEnemyType_Digda2: //디그다2
 				EnemyPattern3(it);
 				break;
-			case eEnemyType_Slime: //슬라임
+			case eEnemyType_Digda2: //디그다2
 				EnemyPattern4(it);
 				break;
+			case eEnemyType_Slime: //슬라임
+				EnemyPattern2(it);
+				break;
 			case eEnemyType_Boss: //보스
-				if (it->addDelta > 3.0f)
-				{
-					it->addDelta = 0.0f;
-					pattern++;
-					if (pattern >= 4) pattern = 0;
-				}
-
-				switch (pattern)
-				{
-				case 0:
-					EnemyPattern1(it);
-					EnemyPattern2(it);
-					break;
-				case 1:
-					EnemyPattern2(it);
-					EnemyPattern3(it);
-					break;
-				case 2:
-					EnemyPattern3(it);
-					EnemyPattern4(it);
-					break;
-				case 3:
-					EnemyPattern4(it);
-					EnemyPattern1(it);
-					EnemyPattern5(it);
-					break;
-				default:
-					EnemyPattern5(it);
-					EnemyPattern1(it);
-					break;
-				}
+				EnemyPattern5(it);
 				break;
 			default:
 				EnemyPattern1(it);
 				break;
 			}
-
 		}
 		isAllEnemyDead = false;
 	}
@@ -277,7 +253,7 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 {
-	for (int i = -10; i < 10; ++i)
+	/*for (int i = -10; i < 10; ++i)
 	{
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
@@ -285,7 +261,7 @@ void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 			b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x + i * 10, point.y + i * 10, eObjectType_PBullet, 1);
 			bulletVec.emplace_back(b);
 		}
-	}
+	}*/
 }
 
 void GameScene::ReturnBulletFromGameScene(Bullet* b)
@@ -336,7 +312,7 @@ void GameScene::BulletCollCheck(Bullet* b)
 			//몬스터의 총알과 플레이어가 충돌
 			AssetManager::GetInstance()->RetrunBullet(b);
 			ReturnBulletFromGameScene(b);
-			player->HP -= enemy->ATK;
+			player->HP -= 1;
 			if (player->HP <= 0)
 			{
 				//플레이어 사망
@@ -372,13 +348,21 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 	}
 	if (pow((nextStageBoard->center.x - p->center.x), 2) + pow((nextStageBoard->center.y - p->center.y), 2) <= pow((nextStageBoard->r + p->r), 2) && isAllEnemyDead)
 	{
-		SceneManager::GetInstance()->SetGameClear(true);
-		GameData::GetInstance()->SavePlayerData();
-		SceneManager::GetInstance()->GotoResultScene();
+		if (GameData::GetInstance()->stagenum == 11)
+		{
+			SceneManager::GetInstance()->SetGameClear(true);
+			GameData::GetInstance()->SavePlayerData();
+			SceneManager::GetInstance()->GotoResultScene();
+		}
+		else
+		{
+			GameData::GetInstance()->stagenum++;
+			SceneSetting();
+		}
 	}
 }
 
-//8방향 발사. Bird
+//8방향 발사. 
 void GameScene::EnemyPattern1(Enemy* it) 
 {
 	Bullet* b;
@@ -463,7 +447,7 @@ void GameScene::EnemyPattern1(Enemy* it)
 	}
 }
 
-//회오리 발사 Digda
+//회오리 발사 
 void GameScene::EnemyPattern2(Enemy* it) 
 {
 	int MAX = 7;
@@ -492,7 +476,7 @@ void GameScene::EnemyPattern2(Enemy* it)
 	}
 }
 
-//플레이어 유도 Digda2
+//플레이어 유도 
 void GameScene::EnemyPattern3(Enemy* it) 
 {
 	if (it->addDelta2 > 0.3f)
@@ -510,7 +494,7 @@ void GameScene::EnemyPattern3(Enemy* it)
 	}
 }
 
-//쌍 레이저 발사 Slime
+//쌍 레이저 발사
 void GameScene::EnemyPattern4(Enemy* it) 
 {
 	int MAX = 31;
@@ -547,17 +531,28 @@ void GameScene::EnemyPattern4(Enemy* it)
 	}
 }
 
-//빠른 플레이어 유도 Boss
+//모든 패턴 종합 Boss
 void GameScene::EnemyPattern5(Enemy* it)
 {
 	if (it->addDelta2 > 0.3f)
 	{
 		it->addDelta2 = 0.0f;
+
+		//플레이어 유도
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + (player->r), eObjectType_EBullet, 1200);
+			b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + (player->r), eObjectType_EBullet, 800);
 			bulletVec.emplace_back(b);
 		}
+
+		//8방향
+		//it->addDelta2 = 1.0f;
+		//EnemyPattern1(it);
+
+		//레이저
+		it->addDelta2 = 1.0f;
+		EnemyPattern4(it);
+
 	}
 }

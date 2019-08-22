@@ -33,7 +33,7 @@ public:
 		, ATK(1)
 		, SPD(100)
 		, SSPD(10)
-		, EXP(1000)
+		, EXP(hp * 5)
 		, addDelta(0.0f)
 		, addDelta2(0.0f)
 	{

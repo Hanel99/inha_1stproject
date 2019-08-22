@@ -10,7 +10,14 @@ void Enemy::Update(float Delta)
 
 void Enemy::Render(Gdiplus::Graphics* MemG)
 {
-	Gdiplus::Rect rect(0, 0, 256, 256);
+	if (this->EnemyType == eEnemyType_Boss)
+	{
+		Gdiplus::Rect rect(0, 0, 256, 256);
+	}
+	else
+	{
+		Gdiplus::Rect rect(0, 0, 100, 100);
+	}
 
 	switch (this->EnemyType)
 	{

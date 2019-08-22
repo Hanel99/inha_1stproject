@@ -42,6 +42,7 @@ public:
 	float addDelta;
 	Gdiplus::Rect* rec;
 
+	bool issafe = false;
 	EPlayerLook eplayerlook;
 	std::weak_ptr<Gdiplus::Image> playerimg;
 };

@@ -4,7 +4,19 @@
 
 void Player::Update(float Delta)
 {
-	addDelta += Delta;
+	
+	if (issafe)
+	{
+		addDelta += Delta;
+		if (addDelta > 1.5f)
+		{
+			issafe = false;
+		}
+	}
+	else
+	{
+		addDelta = 0;
+	}
 	//state머신을 바꿀것
 	if ((GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('a') || GetAsyncKeyState('A')) & 0x8001)
 	{

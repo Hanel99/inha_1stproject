@@ -4,6 +4,12 @@
 
 void Enemy::Update(float Delta)
 {
+	if (this->EnemyType == eEnemyType_Boss)
+	{
+		this->SetX(GetX());
+		this->SetY(GetY());
+
+	}
 	addDelta += Delta;
 	addDelta2 += Delta;
 }

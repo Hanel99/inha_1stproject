@@ -59,7 +59,4 @@ private:
 	int p4y = 1;
 	bool p4xup = false;
 	bool p4yup = true;
-
-
-
 };

@@ -13,6 +13,7 @@ GameScene::GameScene()
 void GameScene::SceneSetting()
 {
 	player = GameData::GetInstance()->player;
+	player->issafe = false;
 
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
 	player->SPD = 500 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM) * 1.5f);
@@ -39,9 +40,16 @@ void GameScene::SceneSetting()
 
 	for (auto& it : GameData::GetInstance()->DBSceneVec)
 	{
-		if (it->stage == GameData::GetInstance()->stagenum)
+		if (it->chapter == GameData::GetInstance()->chapternum && it->stage == GameData::GetInstance()->stagenum)
 		{
-			enemyVec.emplace_back(new Enemy((EEnemyType)it->enemytype, 1, 15 * it->stage, it->x * GRID, it->y * GRID));
+			if (it->enemytype == eEnemyType_Boss)
+			{
+				enemyVec.emplace_back(new Enemy((EEnemyType)it->enemytype, 1, 100 * it->stage * it->chapter, it->x * GRID, it->y * GRID));
+			}
+			else
+			{
+				enemyVec.emplace_back(new Enemy((EEnemyType)it->enemytype, 1, 15 * it->stage * it->chapter, it->x * GRID, it->y * GRID));
+			}
 		}
 	}
 }
@@ -69,10 +77,15 @@ void GameScene::Update(float Delta)
 		SceneManager::GetInstance()->isComeGameScene = false;
 		SceneSetting();
 	}
-	//스탯창으로
+	//탭 키로 스탯창으로
 	if (GetAsyncKeyState(VK_TAB) & 0x1001)
 	{
 		SceneManager::GetInstance()->SwapStatusScene();
+	}
+	//esc키로 메인화면으로 
+	if (GetAsyncKeyState(VK_ESCAPE) & 0x1001)
+	{
+		SceneManager::GetInstance()->GotoTitleScene();
 	}
 	player->Update(Delta);
 	IsPlayerColl(player, Delta);
@@ -311,15 +324,19 @@ void GameScene::BulletCollCheck(Bullet* b)
 		if (b->Objtype == eObjectType_EBullet)
 		{
 			//몬스터의 총알과 플레이어가 충돌
-			AssetManager::GetInstance()->RetrunBullet(b);
-			ReturnBulletFromGameScene(b);
-			player->HP -= 1;
-			if (player->HP <= 0)
+			if (!GameData::GetInstance()->player->issafe)//무적시간이 아니라면
 			{
-				//플레이어 사망
-				SceneManager::GetInstance()->SetGameClear(false);
-				SceneManager::GetInstance()->GotoResultScene();
-			}
+				GameData::GetInstance()->player->issafe = true;
+				AssetManager::GetInstance()->RetrunBullet(b);
+				ReturnBulletFromGameScene(b);
+				player->HP -= 1;
+				if (player->HP <= 0)
+				{
+					//플레이어 사망
+					SceneManager::GetInstance()->SetGameClear(false);
+					SceneManager::GetInstance()->GotoResultScene();
+				}
+			}			
 		}
 	}
 }
@@ -352,6 +369,8 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 		if (GameData::GetInstance()->stagenum == 11)
 		{
 			SceneManager::GetInstance()->SetGameClear(true);
+			GameData::GetInstance()->chapternum = 2;
+			GameData::GetInstance()->stagenum = 1;
 			GameData::GetInstance()->SavePlayerData();
 			SceneManager::GetInstance()->GotoResultScene();
 		}
@@ -483,12 +502,12 @@ void GameScene::EnemyPattern3(Enemy* it)
 	if (it->addDelta2 > 0.3f)
 	{
 		it->addDelta2 = 0.0f;
-		for (int i = -2; i < 3; i++)
+		for (int i = -1; i < 2; i++)
 		{
 			Bullet* b = AssetManager::GetInstance()->CreateBullet();
 			if (b != nullptr)
 			{
-				b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + i * 10 + (player->r)+ i * 10, eObjectType_EBullet, 600);
+				b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + i * 30 + (player->r)+ i * 30, eObjectType_EBullet, 500);
 				bulletVec.emplace_back(b);
 			}
 		}		
@@ -499,7 +518,7 @@ void GameScene::EnemyPattern3(Enemy* it)
 void GameScene::EnemyPattern4(Enemy* it) 
 {
 	int MAX = 31;
-	if (it->addDelta2 > 0.02f)
+	if (it->addDelta2 > 0.05f)
 	{
 		it->addDelta2 = 0.0f;
 		if (p4y > MAX || p4y < -MAX)
@@ -535,7 +554,7 @@ void GameScene::EnemyPattern4(Enemy* it)
 //모든 패턴 종합 Boss
 void GameScene::EnemyPattern5(Enemy* it)
 {
-	if (it->addDelta2 > 0.3f)
+	if (it->addDelta2 > 0.1f)
 	{
 		it->addDelta2 = 0.0f;
 
@@ -543,7 +562,7 @@ void GameScene::EnemyPattern5(Enemy* it)
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + (player->r), eObjectType_EBullet, 800);
+			b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + (player->r), eObjectType_EBullet, 700);
 			bulletVec.emplace_back(b);
 		}
 

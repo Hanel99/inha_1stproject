@@ -19,6 +19,11 @@ void StatusScene::Update(float Delta)
 	{
 		SceneManager::GetInstance()->SwapStatusScene();
 	}
+	if (GetAsyncKeyState(VK_UP)  && GetAsyncKeyState(VK_DOWN))
+	{
+		GameData::GetInstance()->ATKP = 10000;
+		GameData::GetInstance()->player->HP = 10000;
+	}
 
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
 	player->SPD = 500 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM) * 1.5f);
@@ -198,8 +203,6 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	//레벨과 잔여포인트 표시
 	Gdiplus::Font F3(L"Berlin Sans FB", 28, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	Gdiplus::SolidBrush B3(Gdiplus::Color(126, 109, 225)); // SP 색
-
-
 	// Lv
 	P.X = 12;
 	P.Y = 8;

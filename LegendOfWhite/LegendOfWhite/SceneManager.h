@@ -25,6 +25,7 @@ public:
 	void GotoTitleScene();
 	void SetGameClear(bool bol);
 	bool IsGameClear();
+	bool isComeGameScene = false;
 
 private : 
 	Scene* introScene;

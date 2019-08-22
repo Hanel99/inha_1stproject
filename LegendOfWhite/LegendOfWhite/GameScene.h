@@ -12,6 +12,7 @@ class GameScene : public Scene
 public:
 	GameScene();	
 
+	void SceneSetting();
 	void Init();
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
@@ -27,6 +28,8 @@ public:
 	void EnemyPattern1(Enemy* it);
 	void EnemyPattern2(Enemy* it);
 	void EnemyPattern3(Enemy* it);
+	void EnemyPattern4(Enemy* it);
+	void EnemyPattern5(Enemy* it);
 
 
 	std::weak_ptr<Gdiplus::Image> bgImg;
@@ -45,4 +48,18 @@ private:
 	std::vector<Enemy*> enemyVec;
 	Gdiplus::Bitmap* bm;
 	Gdiplus::Bitmap* bm2;
+
+	int pattern = 0;
+	int p2x = 7;
+	int p2y = 1;
+	bool p2xup = false;
+	bool p2yup = true;
+
+	int p4x = 31;
+	int p4y = 1;
+	bool p4xup = false;
+	bool p4yup = true;
+
+
+
 };

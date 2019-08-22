@@ -44,6 +44,4 @@ public:
 
 	EPlayerLook eplayerlook;
 	std::weak_ptr<Gdiplus::Image> playerimg;
-	std::weak_ptr<Gdiplus::Image> uibgImg;
-	std::weak_ptr<Gdiplus::Image> stagebgImg;
 };

@@ -17,10 +17,10 @@ public:
 		, addDelta(0.0f)
 		, addDelta2(0.0f)
 	{
-		SetX(1000);
-		SetY(100);
-		width = 140;
-		height = 140;
+		SetX(500);
+		SetY(500);
+		width = 10;
+		height = 10;
 		r = width/2;
 		center.x = GetX() + r;
 		center.y = GetY() + r;
@@ -39,8 +39,16 @@ public:
 	{
 		SetX(x);
 		SetY(y);
-		width = 140;
-		height = 140;
+		if (enemytype == eEnemyType_Boss)
+		{
+			width = 140;
+			height = 140;
+		}
+		else
+		{
+			width = 80;
+			height = 80;
+		}
 		r = width / 2;
 		center.x = GetX() + r;
 		center.y = GetY() + r;

@@ -8,7 +8,7 @@ public:
 	int datanum;
 	int chapter;
 	int stage;
-	EObjectType objtype;
+	EEnemyType enemytype;
 	int x;
 	int y;
 };

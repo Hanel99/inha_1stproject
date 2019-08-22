@@ -4,21 +4,24 @@
 
 void Bullet::Update(float Delta)
 {
-	if (this->Objtype == eObjectType_EBullet)
+	if (SPD <= 500)
 	{
-		if (updown)
+		/*if (this->Objtype == eObjectType_EBullet)
 		{
-			SPD -= 10;
-			if (SPD <= 0)
-				updown = !updown;
-		}
-		else
-		{
-			SPD += 20;
-			if (SPD >= 400)
-				updown = !updown;
-		}
-	}
+			if (updown)
+			{
+				SPD -= 10;
+				if (SPD <= 0)
+					updown = !updown;
+			}
+			else
+			{
+				SPD += 20;
+				if (SPD >= 400)
+					updown = !updown;
+			}
+		}*/
+	}	
 	SetX(GetX() + Delta * SPDX * SPD);
 	SetY(GetY() + Delta * SPDY * SPD);
 	center.x = GetX() + r;
@@ -83,13 +86,12 @@ void Bullet::SPDSet(int px, int py, int clickx, int clicky)
 		SPDY = -SPDY;
 }
 
-void Bullet::BulletInit(int px, int py, int clickx, int clicky, EObjectType type)
+void Bullet::BulletInit(int px, int py, int clickx, int clicky, EObjectType type, int spd)
 {
 	Objtype = type;
 	damage = GameData::GetInstance()->player->ATK;
 	if (type == eObjectType_EBullet)
-		SPD = DefaultSPD;
-		//SPD = 200;
+		SPD = spd;
 	else
 		SPD = GameData::GetInstance()->player->SSPD;
 	SetX(px);

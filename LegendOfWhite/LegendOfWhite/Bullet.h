@@ -20,10 +20,10 @@ public:
 		center.x = GetX() + r;
 		center.y = GetY() + r;
 	}
-	Bullet(int px, int py, int clickx, int clicky, EObjectType type)
+	Bullet(int px, int py, int clickx, int clicky, EObjectType type, int spd)
 		: Object(type)
 		, damage(GameData::GetInstance()->player->ATK)
-		, SPD(DefaultSPD)
+		, SPD(spd)
 	{
 		width = 20;
 		height = 20;
@@ -38,7 +38,7 @@ public:
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 	void SPDSet(int px, int py, int clickx, int clicky);
-	void BulletInit(int px, int py, int clickx, int clicky, EObjectType type);
+	void BulletInit(int px, int py, int clickx, int clicky, EObjectType type, int spd);
 	void BulletReset();
 	CPoint center;
 
@@ -47,7 +47,6 @@ public:
 	int SPD;
 private:
 	int damage;
-	//int SPD;
 	float SPDX;
 	float SPDY;
 	bool updown = false;

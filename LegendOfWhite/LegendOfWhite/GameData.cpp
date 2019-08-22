@@ -28,11 +28,11 @@ void GameData::Init()
 	player->HP = 3;
 	healCount = 0;
 	CRI = 0.0f;
-
-	//SavePlayerData();
-	//LoadPlayerData();
-	//LoadSceneData(TEXT(""));
+	
+	LoadPlayerData();
+	LoadSceneData(TEXT(""));
 }
+
 
 void GameData::SavePlayerData()
 {
@@ -104,7 +104,7 @@ int GameData::LoadSceneData(CString where)
 	}
 	else
 	{
-		CString temp = TEXT("SELECT * FROM scenedata");
+		CString temp = TEXT("SELECT * FROM scenedata ");
 		temp.Append(where);
 		err = sqlite3_prepare_v2(pSQLite3, (CStringA)temp.GetBuffer(), 1000, &stmt, &tail);
 
@@ -118,7 +118,7 @@ int GameData::LoadSceneData(CString where)
 			dbSceneData->datanum = sqlite3_column_int(stmt, 0); //datanum	
 			dbSceneData->chapter = sqlite3_column_int(stmt, 1); //chapter
 			dbSceneData->stage = sqlite3_column_int(stmt, 2); //stage
-			dbSceneData->objtype = (EObjectType)sqlite3_column_int(stmt, 3); //objtype
+			dbSceneData->enemytype = (EEnemyType)sqlite3_column_int(stmt, 3); //enemytype
 			dbSceneData->x = sqlite3_column_int(stmt, 4); //x
 			dbSceneData->y = sqlite3_column_int(stmt, 5); //y
 			DBSceneVec.emplace_back(dbSceneData);

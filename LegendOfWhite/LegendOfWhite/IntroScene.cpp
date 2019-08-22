@@ -85,7 +85,8 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 		GameData::GetInstance()->SaveFirstPlayerData();
 		GameData::GetInstance()->LoadPlayerData();
 		GameData::GetInstance()->SetPlayerDBData();
-		SetStartPos(100, 100);
+		
+		SceneManager::GetInstance()->isComeGameScene = true;
 		SceneManager::GetInstance()->MoveNextScene();
 	}
 	else if (MouseManager::GetInstance()->GetMousePos().x >= WIDTH / 2 - BTN_WIDTH / 2 && MouseManager::GetInstance()->GetMousePos().x <= WIDTH / 2 + BTN_WIDTH / 2
@@ -94,7 +95,8 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 		//DB에서 데이터 불러오는 작업 거친 뒤 게임 시작
 		GameData::GetInstance()->LoadPlayerData();
 		GameData::GetInstance()->SetPlayerDBData();
-		SetStartPos(100, 100);
+		
+		SceneManager::GetInstance()->isComeGameScene = true;
 		SceneManager::GetInstance()->MoveNextScene();
 	}
 	else if (MouseManager::GetInstance()->GetMousePos().x >= WIDTH / 2 - BTN_WIDTH / 2 && MouseManager::GetInstance()->GetMousePos().x <= WIDTH / 2 + BTN_WIDTH / 2

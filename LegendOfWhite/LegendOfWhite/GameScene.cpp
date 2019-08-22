@@ -9,7 +9,8 @@ GameScene::GameScene()
 
 #define GRID 60
 
-void GameScene::Init()
+
+void GameScene::SceneSetting()
 {
 	player = GameData::GetInstance()->player;
 
@@ -21,7 +22,26 @@ void GameScene::Init()
 
 	SetStartPos(100, 100);
 	isAllEnemyDead = false;
+	int x = rand() % 16 + 2;
+	int y = rand() % 7 + 2;
 
+	nextStageBoard = new NextStage(x * GRID, y * GRID);
+
+	for (auto& it : bulletVec)
+	{
+		AssetManager::GetInstance()->RetrunBullet(it);
+		ReturnBulletFromGameScene(it);
+	}
+	bulletVec.clear();
+	bulletVec.empty();
+
+	enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 600, 300);
+	enemyVec.emplace_back(enemy);
+}
+
+void GameScene::Init()
+{
+	SceneSetting();	
 	for (int gridy = 0; gridy * GRID < HEIGHT; ++gridy)
 	{
 		for (int gridx = 0; gridx * GRID < WIDTH; ++gridx)
@@ -31,24 +51,17 @@ void GameScene::Init()
 				wallVec.emplace_back(new Wall(gridx * GRID, gridy * GRID - 20));
 			}
 		}
-	}
-	nextStageBoard = new NextStage(13 * GRID, 4 * GRID);
-
-	enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 600, 300);
-	enemyVec.emplace_back(enemy);
-	enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 900, 400);
-	enemyVec.emplace_back(enemy);
+	}	
 	bulletVec.reserve(1000);
 }
 
-bool xup = false;
-bool yup = true;
-int x = 2;
-int y = 1;
-int i = 0;
-
 void GameScene::Update(float Delta)
 {
+	if (SceneManager::GetInstance()->isComeGameScene)
+	{
+		SceneManager::GetInstance()->isComeGameScene = false;
+		SceneSetting();
+	}
 	//스탯창으로
 	if (GetAsyncKeyState(VK_TAB) & 0x1001)
 	{
@@ -61,7 +74,8 @@ void GameScene::Update(float Delta)
 	{
 		if (enemyVec.empty())
 		{
-			enemy = new Enemy(EEnemyType::eEnemyType_Bird, 1, 30, 600, 300);
+			int a = rand() % 5;
+			enemy = new Enemy((EEnemyType)a, 1, 30, 600, 300);
 			enemyVec.emplace_back(enemy);
 		}
 	}
@@ -76,35 +90,56 @@ void GameScene::Update(float Delta)
 		{
 			it->Update(Delta);
 
-			if (it->addDelta > 2.0f)
+			switch (it->EnemyType)
 			{
-				it->addDelta = 0.0f;
-				i++;
-				if (i >= 3) i = 0;
-			}
-
-			switch (i)
-			{
-			case 0:
+			case eEnemyType_Bird: //새
 				EnemyPattern1(it);
 				break;
-			case 1:
+			case eEnemyType_Digda: //디그다
 				EnemyPattern2(it);
 				break;
-			case 2:
+			case eEnemyType_Digda2: //디그다2
 				EnemyPattern3(it);
 				break;
-			default:
+			case eEnemyType_Slime: //슬라임
+				EnemyPattern4(it);
 				break;
-			}
+			case eEnemyType_Boss: //보스
+				if (it->addDelta > 3.0f)
+				{
+					it->addDelta = 0.0f;
+					pattern++;
+					if (pattern >= 4) pattern = 0;
+				}
 
-			if (it->EnemyType == eEnemyType_Bird)
-			{
+				switch (pattern)
+				{
+				case 0:
+					EnemyPattern1(it);
+					EnemyPattern2(it);
+					break;
+				case 1:
+					EnemyPattern2(it);
+					EnemyPattern3(it);
+					break;
+				case 2:
+					EnemyPattern3(it);
+					EnemyPattern4(it);
+					break;
+				case 3:
+					EnemyPattern4(it);
+					EnemyPattern1(it);
+					EnemyPattern5(it);
+					break;
+				default:
+					EnemyPattern5(it);
+					EnemyPattern1(it);
+					break;
+				}
+				break;
+			default:
 				EnemyPattern1(it);
-			}
-			else if (it->EnemyType == eEnemyType_Devil)
-			{
-				EnemyPattern2(it);
+				break;
 			}
 
 		}
@@ -125,22 +160,11 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	++CLegendOfWhiteApp::CallCount;
 	Gdiplus::Rect rect(0, 0, WIDTH, HEIGHT);
 
-
-
-
 	bgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bgImg.png"));
-	//uibgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\uibgImg.png")); // ui 배경
-	//temp.DrawImage(bgImg.lock().get(), rect, 0, 0, WIDTH, HEIGHT, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-
-	//Gdiplus::SolidBrush WhiteBrush(Gdiplus::Color(255, 180, 180, 180));
-	//MemG->FillRectangle(&WhiteBrush, rect);
 
 	//그려줄 screen좌표의 rect
-	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);	
+	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 	MemG->DrawImage(bgImg.lock().get(), screenPosRect);
-
-	//Gdiplus::Rect screenPosRect2(0, 0, 350, 114); // ui배경
-	//MemG->DrawImage(uibgImg.lock().get(), screenPosRect2);
 
 	if (isAllEnemyDead)
 		nextStageBoard->Render(MemG);
@@ -174,7 +198,13 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 		it->Render(MemG);
 	}
 	player->Render(MemG);
+	UIRender(MemG);
+}
 
+void GameScene::UIRender(Gdiplus::Graphics* MemG)
+{
+	Gdiplus::Rect rect(1220, 180, 40, 330);
+	tabImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\tab.png"));
 
 	uibgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\uibgImg.png")); // ui 배경
 	Gdiplus::Rect screenPosRect2(0, 0, 340, 90); // ui배경
@@ -184,22 +214,16 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	Gdiplus::Rect screenPosRect3(1085, 0, 234, 68); // ui배경
 	MemG->DrawImage(stagebgImg.lock().get(), screenPosRect3);
 
-	UIRender(MemG);
-}
-
-void GameScene::UIRender(Gdiplus::Graphics* MemG)
-{
-	Gdiplus::Rect rect(1210, 120, 50, 450);
-	tabImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\tab.png"));
-
 	Gdiplus::PointF P;
 	std::wstring tempStr;
 	Gdiplus::SolidBrush B(Gdiplus::Color(255, 255, 255));
+
 	Gdiplus::SolidBrush B4(Gdiplus::Color(255, 236, 79)); // EXP 색
 	Gdiplus::SolidBrush B5(Gdiplus::Color(76, 101, 228)); // chapter 색
 	Gdiplus::SolidBrush B6(Gdiplus::Color(133, 51, 255)); // stage 색
 	Gdiplus::Font F3(L"Berlin Sans FB", 28, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	Gdiplus::Font F4(L"Berlin Sans FB", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+	
 	P.X = 12;
 	P.Y = 8;
 	tempStr = L"Lv. " + std::to_wstring(player->LV);
@@ -217,12 +241,12 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 
 	P.X = 1100;
 	P.Y = 8;
-	tempStr = L"CHAPTER : " + std::to_wstring(GameData::GetInstance()->chapternum); // chapter값 받아야됨
+	tempStr = L"CHAPTER : " + std::to_wstring(GameData::GetInstance()->chapternum);
 	MemG->DrawString(tempStr.c_str(), -1, &F4, P, &B5);
 
 	P.X = 1128;
 	P.Y = 33;
-	tempStr = L"STAGE : " + std::to_wstring(GameData::GetInstance()->stagenum); // stage값 받아야됨
+	tempStr = L"STAGE : " + std::to_wstring(GameData::GetInstance()->stagenum);
 	MemG->DrawString(tempStr.c_str(), -1, &F4, P, &B6);
 
 	//P.X = 200;
@@ -231,8 +255,8 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 	//tempStr.append(L" / Y : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().y));
 	//MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
 
-	//Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
-	//MemG->DrawImage(tabImg.lock().get(), rect, 0, 0, 32, 512, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
+	MemG->DrawImage(tabImg.lock().get(), rect, 0, 0, 32, 512, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 }
 
 void GameScene::SetStartPos(float x, float y)
@@ -246,7 +270,7 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 	Bullet* b = AssetManager::GetInstance()->CreateBullet();
 	if (b != nullptr)
 	{
-		b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x, point.y, eObjectType_PBullet);
+		b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x, point.y, eObjectType_PBullet, 1);
 		bulletVec.emplace_back(b);
 	}
 }
@@ -258,7 +282,7 @@ void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x + i * 10, point.y + i * 10, eObjectType_PBullet);
+			b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x + i * 10, point.y + i * 10, eObjectType_PBullet, 1);
 			bulletVec.emplace_back(b);
 		}
 	}
@@ -354,8 +378,8 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 	}
 }
 
-
-void GameScene::EnemyPattern1(Enemy* it) //8방향 발사
+//8방향 발사. Bird
+void GameScene::EnemyPattern1(Enemy* it) 
 {
 	Bullet* b;
 	if (it->addDelta2 > 0.5f)
@@ -364,117 +388,175 @@ void GameScene::EnemyPattern1(Enemy* it) //8방향 발사
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r, it->GetY() + it->r + 30, eObjectType_EBullet);
+			b->BulletInit(it->center.x, it->center.y, it->center.x, it->center.y + 30, eObjectType_EBullet, 400);
 			bulletVec.emplace_back(b);
 		}
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r, it->GetY() + it->r - 30, eObjectType_EBullet);
+			b->BulletInit(it->center.x, it->center.y, it->center.x, it->center.y - 30, eObjectType_EBullet, 400);
 			bulletVec.emplace_back(b);
 		}
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r + 30, it->GetY() + it->r, eObjectType_EBullet);
+			b->BulletInit(it->center.x, it->center.y, it->center.x + 30, it->center.y, eObjectType_EBullet, 400);
 			bulletVec.emplace_back(b);
 		}
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r - 30, it->GetY() + it->r, eObjectType_EBullet);
+			b->BulletInit(it->center.x, it->center.y, it->center.x - 30, it->center.y, eObjectType_EBullet, 400);
 			bulletVec.emplace_back(b);
 		}
 
-
-		b = AssetManager::GetInstance()->CreateBullet();
-		if (b != nullptr)
-		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r - 20, it->GetY() + it->r + 10, eObjectType_EBullet);
-			bulletVec.emplace_back(b);
-		}
-		b = AssetManager::GetInstance()->CreateBullet();
-		if (b != nullptr)
-		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r - 20, it->GetY() + it->r - 10, eObjectType_EBullet);
-			bulletVec.emplace_back(b);
-		}
-		b = AssetManager::GetInstance()->CreateBullet();
-		if (b != nullptr)
-		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r - 10, it->GetY() + it->r + 20, eObjectType_EBullet);
-			bulletVec.emplace_back(b);
-		}
-		b = AssetManager::GetInstance()->CreateBullet();
-		if (b != nullptr)
-		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r - 10, it->GetY() + it->r - 20, eObjectType_EBullet);
-			bulletVec.emplace_back(b);
-		}
 
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r + 20, it->GetY() + it->r + 10, eObjectType_EBullet);
+			b->BulletInit(it->center.x, it->center.y, it->center.x - 20, it->center.y + 10, eObjectType_EBullet, 400);
 			bulletVec.emplace_back(b);
 		}
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r + 20, it->GetY() + it->r - 10, eObjectType_EBullet);
+			b->BulletInit(it->center.x, it->center.y, it->center.x - 20, it->center.y - 10, eObjectType_EBullet, 400);
 			bulletVec.emplace_back(b);
 		}
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r + 10, it->GetY() + it->r + 20, eObjectType_EBullet);
+			b->BulletInit(it->center.x, it->center.y, it->center.x - 10, it->center.y + 20, eObjectType_EBullet, 400);
 			bulletVec.emplace_back(b);
 		}
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r + 10, it->GetY() + it->r - 20, eObjectType_EBullet);
+			b->BulletInit(it->center.x, it->center.y, it->center.x - 10, it->center.y - 20, eObjectType_EBullet, 400);
+			bulletVec.emplace_back(b);
+		}
+
+		b = AssetManager::GetInstance()->CreateBullet();
+		if (b != nullptr)
+		{
+			b->BulletInit(it->center.x, it->center.y, it->center.x + 20, it->center.y + 10, eObjectType_EBullet, 400);
+			bulletVec.emplace_back(b);
+		}
+		b = AssetManager::GetInstance()->CreateBullet();
+		if (b != nullptr)
+		{
+			b->BulletInit(it->center.x, it->center.y, it->center.x + 20, it->center.y - 10, eObjectType_EBullet, 400);
+			bulletVec.emplace_back(b);
+		}
+		b = AssetManager::GetInstance()->CreateBullet();
+		if (b != nullptr)
+		{
+			b->BulletInit(it->center.x, it->center.y, it->center.x + 10, it->center.y + 20, eObjectType_EBullet, 400);
+			bulletVec.emplace_back(b);
+		}
+		b = AssetManager::GetInstance()->CreateBullet();
+		if (b != nullptr)
+		{
+			b->BulletInit(it->center.x, it->center.y, it->center.x + 10, it->center.y - 20, eObjectType_EBullet, 400);
 			bulletVec.emplace_back(b);
 		}
 	}
 }
 
-void GameScene::EnemyPattern2(Enemy* it) //회오리 발사
+//회오리 발사 Digda
+void GameScene::EnemyPattern2(Enemy* it) 
 {
-	if (it->addDelta2 > 0.1f)
+	int MAX = 7;
+	if (it->addDelta2 > 0.02f)
 	{
 		it->addDelta2 = 0.0f;
-		if (y >= 3 || y <= -3)
-			yup = !yup;
-		if (x >= 3 || x <= -3)
-			xup = !xup;
-		if (xup)
-			x++;
+		if (p2y > MAX || p2y < -MAX)
+			p2yup = !p2yup;
+		if (p2x > MAX || p2x < -MAX)
+			p2xup = !p2xup;
+		if (p2xup)
+			p2x++;
 		else
-			x--;
-		if (yup)
-			y++;
+			p2x--;
+		if (p2yup)
+			p2y++;
 		else
-			y--;
+			p2y--;
 
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, it->GetX() + it->r + x, it->GetY() + it->r + y, eObjectType_EBullet);
+			b->BulletInit(it->center.x, it->center.y, it->center.x + p2x, it->center.y + p2y, eObjectType_EBullet, 600);
 			bulletVec.emplace_back(b);
 		}
 	}
 }
 
-void GameScene::EnemyPattern3(Enemy* it) //플레이어 유도
+//플레이어 유도 Digda2
+void GameScene::EnemyPattern3(Enemy* it) 
 {
-	if (it->addDelta2 > 0.1f)
+	if (it->addDelta2 > 0.3f)
+	{
+		it->addDelta2 = 0.0f;
+		for (int i = -2; i < 3; i++)
+		{
+			Bullet* b = AssetManager::GetInstance()->CreateBullet();
+			if (b != nullptr)
+			{
+				b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + i * 10 + (player->r)+ i * 10, eObjectType_EBullet, 600);
+				bulletVec.emplace_back(b);
+			}
+		}		
+	}
+}
+
+//쌍 레이저 발사 Slime
+void GameScene::EnemyPattern4(Enemy* it) 
+{
+	int MAX = 31;
+	if (it->addDelta2 > 0.02f)
+	{
+		it->addDelta2 = 0.0f;
+		if (p4y > MAX || p4y < -MAX)
+			p4yup = !p4yup;
+		if (p4x > MAX || p4x < -MAX)
+			p4xup = !p4xup;
+		if (p4xup)
+			p4x++;
+		else
+			p4x--;
+		if (p4yup)
+			p4y++;
+		else
+			p4y--;
+
+		Bullet* b = AssetManager::GetInstance()->CreateBullet();
+		if (b != nullptr)
+		{
+			b->BulletInit(it->center.x, it->center.y, it->center.x + p4x, it->center.y + p4y, eObjectType_EBullet, 400);
+			bulletVec.emplace_back(b);
+
+		}
+		b = AssetManager::GetInstance()->CreateBullet();
+		if (b != nullptr)
+		{
+			b->BulletInit(it->center.x, it->center.y, it->center.x - p4x, it->center.y - p4y, eObjectType_EBullet, 400);
+			bulletVec.emplace_back(b);
+
+		}
+	}
+}
+
+//빠른 플레이어 유도 Boss
+void GameScene::EnemyPattern5(Enemy* it)
+{
+	if (it->addDelta2 > 0.3f)
 	{
 		it->addDelta2 = 0.0f;
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->GetX() + it->r, it->GetY() + it->r, player->GetX() + (player->r), player->GetY() + (player->r), eObjectType_EBullet);
+			b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + (player->r), eObjectType_EBullet, 1200);
 			bulletVec.emplace_back(b);
 		}
 	}

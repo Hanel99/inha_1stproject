@@ -31,8 +31,9 @@ enum EEnemyType
 {
 	eEnemyType_Bird,
 	eEnemyType_Digda,
-	eEnemyType_Devil,
+	eEnemyType_Digda2,
 	eEnemyType_Slime,
+	eEnemyType_Boss,
 	eEnemyType_Cnt
 };
 

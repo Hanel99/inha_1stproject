@@ -21,12 +21,13 @@ void StatusScene::Update(float Delta)
 	}
 	if (GetAsyncKeyState(VK_UP)  && GetAsyncKeyState(VK_DOWN))
 	{
-		GameData::GetInstance()->ATKP = 10000;
-		GameData::GetInstance()->SPDM = 1000;
-		GameData::GetInstance()->SSPDM = 1000;
-		GameData::GetInstance()->MAXHP = 10000;
-		GameData::GetInstance()->player->HP = 10000;
-		GameData::GetInstance()->player->CRI = 0.8f;
+		GameData::GetInstance()->ATKP = 1000;
+		GameData::GetInstance()->SPDP = 300;
+		GameData::GetInstance()->SSPDP = 300;
+		GameData::GetInstance()->MAXHP = 1000;
+		GameData::GetInstance()->player->HP = 1000;
+		GameData::GetInstance()->CRI = 0.6f;
+		player->skillPoint = 1000;
 	}
 
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
@@ -348,7 +349,7 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 5 + STATP_HITV * 4)
 	{
 
-		if (player->skillPoint >= GameData::GetInstance()->CRI * 100 / 5 + 2)
+		if (player->skillPoint >= GameData::GetInstance()->CRI * 100 / 5 + 2 && player->CRI<1.0f)
 		{
 			player->skillPoint -= GameData::GetInstance()->CRI * 100 / 5 + 2;
 			GameData::GetInstance()->CRI += 0.1f;

@@ -128,6 +128,7 @@ int GameData::LoadSceneData(CString where)
 	//∞¥√º«ÿ¡¶ 
 	sqlite3_free(szErrMsg);
 	sqlite3_close(pSQLite3);
+	return 0;
 }
 
 int GameData::LoadPlayerData()

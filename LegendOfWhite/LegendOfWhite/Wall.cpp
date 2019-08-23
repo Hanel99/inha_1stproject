@@ -17,4 +17,7 @@ void Wall::Render(Gdiplus::Graphics* MemG)
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), width, height);
 
 	MemG->DrawImage(wallimg.lock().get(), screenPosRect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+
+	//Gdiplus::Pen P(Gdiplus::Color(255, 0, 0), 2);
+	//MemG->DrawEllipse(&P, (int)(center.x - r), (int)(center.y - r), r * 2, r * 2);
 }

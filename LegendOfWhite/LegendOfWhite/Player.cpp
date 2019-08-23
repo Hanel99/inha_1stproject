@@ -81,6 +81,6 @@ void Player::Render(Gdiplus::Graphics* MemG)
 	
 	MemG->DrawImage(playerimg.lock().get(), screenPosRect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 
-	//Gdiplus::Pen P(Gdiplus::Color(255, 0, 0), 5);
+	//Gdiplus::Pen P(Gdiplus::Color(0, 0, 255), 2);
 	//MemG->DrawEllipse(&P, (int)(center.x - r), (int)(center.y - r), r * 2, r * 2);
 }

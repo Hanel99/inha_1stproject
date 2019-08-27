@@ -259,13 +259,12 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 			bulletVec.emplace_back(b);
 		}
 	}
-	//소리나는지 테스트해볼거어어어엇
-	AssetManager::GetInstance()->PlaySound(1);
+	AssetManager::GetInstance()->PlaySound(eSound_Shot);
 }
 
 void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 {
-	AssetManager::GetInstance()->PlaySound(0);
+
 }
 
 void GameScene::ReturnBulletFromGameScene(Bullet* b)
@@ -305,6 +304,7 @@ void GameScene::BulletCollCheck(Bullet* b)
 					std::vector<Enemy*>::iterator itr = std::find(enemyVec.begin(), enemyVec.end(), it);
 					enemyVec.erase(itr);
 					player->EXP += it->EXP;
+					AssetManager::GetInstance()->PlaySound(eSound_EnemyDead);
 				}
 			}
 		}
@@ -320,9 +320,11 @@ void GameScene::BulletCollCheck(Bullet* b)
 				AssetManager::GetInstance()->RetrunBullet(b);
 				ReturnBulletFromGameScene(b);
 				player->HP -= 1;
+				AssetManager::GetInstance()->PlaySound(eSound_PlayerDamaged);
 				if (player->HP <= 0)
 				{
 					//플레이어 사망
+					AssetManager::GetInstance()->PlaySound(eSound_GameOver);
 					SceneManager::GetInstance()->SetGameClear(false);
 					SceneManager::GetInstance()->GotoResultScene();
 				}
@@ -358,6 +360,7 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 	{
 		if (GameData::GetInstance()->stagenum == 11)
 		{
+			AssetManager::GetInstance()->PlaySound(eSound_GameClear);
 			SceneManager::GetInstance()->SetGameClear(true);
 			GameData::GetInstance()->chapternum++;
 			GameData::GetInstance()->stagenum = 1;
@@ -366,8 +369,9 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 		}
 		else
 		{
+			AssetManager::GetInstance()->PlaySound(eSound_NextStage);
 			GameData::GetInstance()->stagenum++;
-			SceneSetting();
+			SceneSetting();			
 		}
 	}
 }

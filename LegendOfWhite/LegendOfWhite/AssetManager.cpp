@@ -16,6 +16,7 @@ AssetManager::~AssetManager()
 		delete it.second;
 	}
 	AssetbulletVec.clear();
+	ReleaseSound();
 }
 
 void AssetManager::Init()
@@ -85,19 +86,32 @@ void AssetManager::SoundSystem()
 
 	pSystem->init(4, FMOD_INIT_NORMAL, NULL);
 
-	pSystem->createSound("Asset\\sound\\FelledTrap.wav", FMOD_LOOP_NORMAL | FMOD_DEFAULT, NULL, &pSound[0]);
-	pSystem->createSound("Asset\\sound\\Dead1.wav", FMOD_DEFAULT, NULL, &pSound[1]);
+	//루프 해결할 수 있으면 이걸로 bgm 넣기
+	//pSystem->createSound("Asset\\sound\\FelledTrap.wav", FMOD_LOOP_NORMAL | FMOD_DEFAULT, NULL, &pSound[0]);
+	pSystem->createSound("Asset\\sound\\BtnClick.wav", FMOD_DEFAULT, NULL, &pSound[eSound_BtnClick]);
+	pSystem->createSound("Asset\\sound\\EnemyDead.wav", FMOD_DEFAULT, NULL, &pSound[eSound_EnemyDead]);
+	pSystem->createSound("Asset\\sound\\GameClear.wav", FMOD_DEFAULT, NULL, &pSound[eSound_GameClear]);
+	pSystem->createSound("Asset\\sound\\GameOver.wav", FMOD_DEFAULT, NULL, &pSound[eSound_GameOver]);
+	pSystem->createSound("Asset\\sound\\NextStage.wav", FMOD_DEFAULT, NULL, &pSound[eSound_NextStage]);
+	pSystem->createSound("Asset\\sound\\PlayerDamaged.wav", FMOD_DEFAULT, NULL, &pSound[eSound_PlayerDamaged]);
+	pSystem->createSound("Asset\\sound\\Shot.mp3", FMOD_DEFAULT, NULL, &pSound[eSound_Shot]);
+	pSystem->createSound("Asset\\sound\\Shot2.wav", FMOD_DEFAULT, NULL, &pSound[eSound_Shot2]);
 }
 
 void AssetManager::PlaySound(int Sound_num)
 {
-	pSystem->playSound(pSound[Sound_num], NULL, 0, pChannel);
+	pSystem->playSound(pSound[Sound_num], NULL, 0, &pChannel[Sound_num]);
 }
 
 void AssetManager::ReleaseSound()
 {
 	pSystem->release();
-	//pSystem->close();
+	pSystem->close();
+}
+
+void AssetManager::StopSound()
+{
+
 }
 
 

@@ -19,12 +19,13 @@ public:
 	Gdiplus::Rect* GetRect(EXMLType, int);
 
 	FMOD::System* pSystem;
-	FMOD::Sound* pSound[2];
-	FMOD::Channel* pChannel[1];
+	FMOD::Sound* pSound[8];
+	FMOD::Channel* pChannel[8];
 
 	void SoundSystem();
 	void PlaySound(int Sound_num);
 	void ReleaseSound();
+	void StopSound();
 
 private:
 	std::vector<std::pair<bool, Bullet*>> AssetbulletVec;

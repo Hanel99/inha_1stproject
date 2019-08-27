@@ -78,3 +78,15 @@ enum EXMLObjnum
 	eXMLObjnum_Pd3,
 	eXMLObjnum_Cnt
 };
+
+enum ESound
+{
+	eSound_BtnClick,
+	eSound_EnemyDead,
+	eSound_GameClear,
+	eSound_GameOver,
+	eSound_NextStage,
+	eSound_PlayerDamaged,
+	eSound_Shot,
+	eSound_Shot2
+};

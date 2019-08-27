@@ -212,6 +212,7 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 
 void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 {
+	AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
 	// ÅÇ ´Ý±â
 	if (MouseManager::GetInstance()->GetMousePos().x >= 336 && MouseManager::GetInstance()->GetMousePos().x <= 376
 		&& MouseManager::GetInstance()->GetMousePos().y >= 180 && MouseManager::GetInstance()->GetMousePos().y <= 510)

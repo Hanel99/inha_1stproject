@@ -93,8 +93,7 @@ void SceneManager::GotoResultScene()
 void SceneManager::GotoTitleScene()
 {
 	scenenum = eScene_Intro;
-	curScene = sceneVec[scenenum];
-	AssetManager::GetInstance()->ReleaseSound();
+	curScene = sceneVec[scenenum];	
 }
 
 void SceneManager::SetGameClear(bool bol)

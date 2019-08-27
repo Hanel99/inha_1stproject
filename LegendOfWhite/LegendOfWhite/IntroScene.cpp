@@ -82,6 +82,7 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y >= HEIGHT / 2 && MouseManager::GetInstance()->GetMousePos().y <= HEIGHT / 2 + BTN_HEIGHT)
 	{
 		// DB 초기화 뒤 게임 시작
+		AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
 		GameData::GetInstance()->SaveFirstPlayerData();
 		GameData::GetInstance()->LoadPlayerData();
 		GameData::GetInstance()->SetPlayerDBData();
@@ -93,6 +94,7 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y >= HEIGHT / 2 + BTN_HEIGHT + 14 && MouseManager::GetInstance()->GetMousePos().y <= HEIGHT / 2 + BTN_HEIGHT + 14 + BTN_HEIGHT)
 	{
 		//DB에서 데이터 불러오는 작업 거친 뒤 게임 시작
+		AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
 		GameData::GetInstance()->LoadPlayerData();
 		GameData::GetInstance()->SetPlayerDBData();
 		
@@ -103,6 +105,7 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y >= HEIGHT / 2 + BTN_HEIGHT * 2 + 28 && MouseManager::GetInstance()->GetMousePos().y <= HEIGHT / 2 + BTN_HEIGHT * 2 + 28 + BTN_HEIGHT)
 	{
 		//게임 끄기
+		AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
 		PostQuitMessage(0);
 	}
 	else

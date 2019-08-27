@@ -10,7 +10,7 @@ IntroScene::IntroScene()
 
 void IntroScene::Init()
 {
-	eXMLBtnnum = 0;
+	eXMLBtnnum = 0;	
 }
 
 void IntroScene::Update(float Delta)
@@ -83,6 +83,7 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 	{
 		// DB 초기화 뒤 게임 시작
 		AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
+		AssetManager::GetInstance()->PlaySound(eSound_BGM);
 		GameData::GetInstance()->SaveFirstPlayerData();
 		GameData::GetInstance()->LoadPlayerData();
 		GameData::GetInstance()->SetPlayerDBData();
@@ -95,6 +96,7 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 	{
 		//DB에서 데이터 불러오는 작업 거친 뒤 게임 시작
 		AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
+		AssetManager::GetInstance()->PlaySound(eSound_BGM);
 		GameData::GetInstance()->LoadPlayerData();
 		GameData::GetInstance()->SetPlayerDBData();
 		
@@ -116,6 +118,7 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 void IntroScene::SendRButtonDown(UINT nFlags, CPoint point)
 {
+
 }
 
 void IntroScene::SetStartPos(float x, float y)

@@ -81,6 +81,7 @@ enum EXMLObjnum
 
 enum ESound
 {
+	eSound_BGM,
 	eSound_BtnClick,
 	eSound_EnemyDead,
 	eSound_GameClear,
@@ -88,5 +89,6 @@ enum ESound
 	eSound_NextStage,
 	eSound_PlayerDamaged,
 	eSound_Shot,
-	eSound_Shot2
+	eSound_Shot2,	
+	eSound_Cnt
 };

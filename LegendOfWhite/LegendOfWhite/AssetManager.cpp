@@ -5,7 +5,7 @@
 
 
 AssetManager::AssetManager()
-{	
+{
 	Init();
 }
 
@@ -53,7 +53,7 @@ Bullet* AssetManager::CreateBullet()
 
 void AssetManager::RetrunBullet(Bullet* b)
 {
-	int i=0;
+	int i = 0;
 	for (auto& it : AssetbulletVec)
 	{
 		i++;
@@ -85,9 +85,7 @@ void AssetManager::SoundSystem()
 	System_Create(&pSystem);
 
 	pSystem->init(4, FMOD_INIT_NORMAL, NULL);
-
-	//루프 해결할 수 있으면 이걸로 bgm 넣기
-	//pSystem->createSound("Asset\\sound\\FelledTrap.wav", FMOD_LOOP_NORMAL | FMOD_DEFAULT, NULL, &pSound[0]);
+	pSystem->createSound("Asset\\sound\\bgm.mp3", FMOD_LOOP_NORMAL | FMOD_DEFAULT, NULL, &pSound[eSound_BGM]);
 	pSystem->createSound("Asset\\sound\\BtnClick.wav", FMOD_DEFAULT, NULL, &pSound[eSound_BtnClick]);
 	pSystem->createSound("Asset\\sound\\EnemyDead.wav", FMOD_DEFAULT, NULL, &pSound[eSound_EnemyDead]);
 	pSystem->createSound("Asset\\sound\\GameClear.wav", FMOD_DEFAULT, NULL, &pSound[eSound_GameClear]);
@@ -109,9 +107,9 @@ void AssetManager::ReleaseSound()
 	pSystem->close();
 }
 
-void AssetManager::StopSound()
+void AssetManager::StopSound(int Sound_num)
 {
-
+	pChannel[Sound_num]->stop();
 }
 
 
@@ -164,10 +162,10 @@ void AssetManager::SetXMLData(std::vector<Gdiplus::Rect>& rects, EXMLType etype)
 	tinyxml2::XMLElement* atlasInfo = Root->FirstChildElement("SubTexture");
 
 	for (tinyxml2::XMLElement* element = atlasInfo; element != nullptr; element = element->NextSiblingElement())
-	{		
+	{
 		Gdiplus::Rect r(Gdiplus::Rect(element->IntAttribute("x"), element->IntAttribute("y"),
 			element->IntAttribute("width"), element->IntAttribute("height")));
 		rects.emplace_back(r);
-	}	
+	}
 	delete doc;
 }

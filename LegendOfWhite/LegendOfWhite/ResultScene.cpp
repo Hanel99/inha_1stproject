@@ -13,6 +13,7 @@ void ResultScene::Update(float Delta)
 {
 	if ((GetAsyncKeyState(VK_SPACE) & 0x8001))
 	{
+		AssetManager::GetInstance()->StopSound(eSound_BGM);
 		SceneManager::GetInstance()->GotoTitleScene();
 	}
 }
@@ -38,6 +39,7 @@ void ResultScene::Render(Gdiplus::Graphics* MemG)
 
 void ResultScene::SendLButtonDown(UINT nFlags, CPoint point)
 {
+
 }
 
 void ResultScene::SendRButtonDown(UINT nFlags, CPoint point)

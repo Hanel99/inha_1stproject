@@ -19,14 +19,15 @@ void StatusScene::Update(float Delta)
 	{
 		SceneManager::GetInstance()->SwapStatusScene();
 	}
-	if (GetAsyncKeyState(VK_UP)  && GetAsyncKeyState(VK_DOWN))
+	if (GetAsyncKeyState(VK_UP) && GetAsyncKeyState(VK_DOWN))
 	{
-		GameData::GetInstance()->ATKP = 10000;
-		GameData::GetInstance()->SPDM = 1000;
-		GameData::GetInstance()->SSPDM = 1000;
-		GameData::GetInstance()->MAXHP = 10000;
-		GameData::GetInstance()->player->HP = 10000;
-		GameData::GetInstance()->player->CRI = 0.8f;
+		GameData::GetInstance()->ATKP = 1000;
+		GameData::GetInstance()->SPDP = 300;
+		GameData::GetInstance()->SSPDP = 300;
+		GameData::GetInstance()->MAXHP = 1000;
+		GameData::GetInstance()->player->HP = 1000;
+		GameData::GetInstance()->CRI = 0.6f;
+		player->skillPoint = 1000;d	
 	}
 
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
@@ -48,7 +49,6 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	MemG->DrawImage(statImg.lock().get(), screenPosRect);
 
 	//그려줄 screen좌표의 rect
-	
 
 	Gdiplus::Font F(L"맑은고딕", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	Gdiplus::SolidBrush B(Gdiplus::Color(255, 255, 255));
@@ -204,31 +204,16 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
 	//레벨과 잔여포인트 표시
-	Gdiplus::Font F3(L"Berlin Sans FB", 28, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
-	Gdiplus::SolidBrush B3(Gdiplus::Color(126, 109, 225)); // SP 색
-	Gdiplus::SolidBrush B7(Gdiplus::Color(228, 39, 39)); // HP 색
-
-	// Lv
-	P.X = 12;
-	P.Y = 8;
-	tempStr = L"Lv. " + std::to_wstring(player->LV);
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
-
-	//HP
-	P.X = 150;
-	P.Y = 8;
-	tempStr = L"HP : " + std::to_wstring(player->HP);
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B7);
 
 	// SP
-	P.X = 204;
-	P.Y = 42;
+	P.X = 1158;
+	P.Y = 88;
 	tempStr = L"SP " + std::to_wstring(player->skillPoint);
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B3);
+	MemG->DrawString(tempStr.c_str(), -1, &F, P, &B);
 }
 
 void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
-{	
+{
 	// 탭 닫기
 	if (MouseManager::GetInstance()->GetMousePos().x >= 336 && MouseManager::GetInstance()->GetMousePos().x <= 376
 		&& MouseManager::GetInstance()->GetMousePos().y >= 180 && MouseManager::GetInstance()->GetMousePos().y <= 510)
@@ -248,7 +233,7 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 			GameData::GetInstance()->ATKP++;
 		}
 	}
-	
+
 	// 공격력 곱
 	if (MouseManager::GetInstance()->GetMousePos().x >= STATUPX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUPX_WIDTH + STATUB_WIDTH
 		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT && MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT)
@@ -262,7 +247,7 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 	// 공격속도 합
 	if (MouseManager::GetInstance()->GetMousePos().x >= STATUX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUX_WIDTH + STATUB_WIDTH
-		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT + STATP_HITV 
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT + STATP_HITV
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 2 + STATP_HITV)
 	{
 
@@ -275,7 +260,7 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 	// 공격속도 곱
 	if (MouseManager::GetInstance()->GetMousePos().x >= STATUPX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUPX_WIDTH + STATUB_WIDTH
-		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT + STATP_HITV 
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT + STATP_HITV
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 2 + STATP_HITV)
 	{
 
@@ -288,7 +273,7 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 
 	// 이동속도 합
 	if (MouseManager::GetInstance()->GetMousePos().x >= STATUX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUX_WIDTH + STATUB_WIDTH
-		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT *2 + STATP_HITV * 2
+		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT * 2 + STATP_HITV * 2
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 3 + STATP_HITV * 2)
 	{
 
@@ -332,7 +317,7 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 	{
 
 		if (player->skillPoint >= GameData::GetInstance()->healCount)
-		{			
+		{
 			if (GameData::GetInstance()->MAXHP > GameData::GetInstance()->player->HP)
 			{
 				player->skillPoint -= GameData::GetInstance()->healCount;
@@ -348,7 +333,7 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 5 + STATP_HITV * 4)
 	{
 
-		if (player->skillPoint >= GameData::GetInstance()->CRI * 100 / 5 + 2)
+		if (player->skillPoint >= GameData::GetInstance()->CRI * 100 / 5 + 2 && player->CRI < 1.0f)
 		{
 			player->skillPoint -= GameData::GetInstance()->CRI * 100 / 5 + 2;
 			GameData::GetInstance()->CRI += 0.1f;

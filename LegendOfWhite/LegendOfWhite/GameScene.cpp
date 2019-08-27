@@ -56,7 +56,7 @@ void GameScene::SceneSetting()
 
 void GameScene::Init()
 {
-	SceneSetting();	
+	SceneSetting();
 	for (int gridy = 0; gridy * GRID < HEIGHT; ++gridy)
 	{
 		for (int gridx = 0; gridx * GRID < WIDTH; ++gridx)
@@ -66,7 +66,7 @@ void GameScene::Init()
 				wallVec.emplace_back(new Wall(gridx * GRID, gridy * GRID - 20));
 			}
 		}
-	}	
+	}
 	bulletVec.reserve(1000);
 }
 
@@ -89,16 +89,16 @@ void GameScene::Update(float Delta)
 	}
 	player->Update(Delta);
 	IsPlayerColl(player, Delta);
-/*
-	if (GetAsyncKeyState(VK_SPACE) & 0x1001)
-	{
-		if (enemyVec.empty())
-		{
-			int a = rand() % 5;
-			enemy = new Enemy((EEnemyType)a, 1, 30, 600, 300);
-			enemyVec.emplace_back(enemy);
-		}
-	}*/
+	/*
+	   if (GetAsyncKeyState(VK_SPACE) & 0x1001)
+	   {
+		  if (enemyVec.empty())
+		  {
+			 int a = rand() % 5;
+			 enemy = new Enemy((EEnemyType)a, 1, 30, 600, 300);
+			 enemyVec.emplace_back(enemy);
+		  }
+	   }*/
 
 	if (enemyVec.empty())
 	{
@@ -137,7 +137,7 @@ void GameScene::Update(float Delta)
 
 	for (auto& it : bulletVec)
 	{
-		//if (it == nullptr)	break;
+		//if (it == nullptr)   break;
 		it->Update(Delta);
 		BulletCollCheck(it);
 	}
@@ -195,13 +195,9 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 	Gdiplus::Rect rect(1220, 180, 40, 330);
 	tabImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\tab.png"));
 
-	uibgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\uibgImg.png")); // ui 배경
-	Gdiplus::Rect screenPosRect2(0, 0, 340, 90); // ui배경
+	uibgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\uibgImg.png")); // uibg 배경
+	Gdiplus::Rect screenPosRect2(0, 0, WIDTH, HEIGHT);
 	MemG->DrawImage(uibgImg.lock().get(), screenPosRect2);
-
-	stagebgImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\stagebgImg.png")); // ui 배경
-	Gdiplus::Rect screenPosRect3(1085, 0, 234, 68); // ui배경
-	MemG->DrawImage(stagebgImg.lock().get(), screenPosRect3);
 
 	Gdiplus::PointF P;
 	std::wstring tempStr;
@@ -209,41 +205,33 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 
 	Gdiplus::SolidBrush B4(Gdiplus::Color(255, 236, 79)); // EXP 색
 	Gdiplus::SolidBrush B5(Gdiplus::Color(76, 101, 228)); // chapter 색
-	Gdiplus::SolidBrush B6(Gdiplus::Color(133, 51, 255)); // stage 색
-	Gdiplus::SolidBrush B7(Gdiplus::Color(228, 39, 39)); // HP 색
-	Gdiplus::Font F3(L"Berlin Sans FB", 28, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
-	Gdiplus::Font F4(L"Berlin Sans FB", 20, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
-	
-	P.X = 12;
-	P.Y = 8;
-	tempStr = L"Lv. " + std::to_wstring(player->LV);
+	Gdiplus::Font F3(L"Arial rounded MT Bold", 24, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+	Gdiplus::Font F4(L"Arial rounded MT Bold", 30, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+
+	P.X = 13;
+	P.Y = 40;
+	tempStr = L" " + std::to_wstring(player->LV); // LEVEL
+	MemG->DrawString(tempStr.c_str(), -1, &F4, P, &B);
+
+	P.X = 160;
+	P.Y = 11;
+	tempStr = L" " + std::to_wstring(player->HP);  // HP
 	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
 
-	P.X = 150;
-	P.Y = 8;
-	tempStr = L"HP : " + std::to_wstring(player->HP);
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B7);
-
-	P.X = 12;
-	P.Y = 42;
-	tempStr = L"EXP : " + std::to_wstring(player->EXP);
+	P.X = 292;
+	P.Y = 11;
+	tempStr = L"EXP : " + std::to_wstring(player->EXP); // EXP
 	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B4);
 
-	P.X = 1100;
-	P.Y = 8;
-	tempStr = L"CHAPTER : " + std::to_wstring(GameData::GetInstance()->chapternum);
-	MemG->DrawString(tempStr.c_str(), -1, &F4, P, &B5);
+	P.X = 1030;
+	P.Y = 11;
+	tempStr = L"CHAPTER : " + std::to_wstring(GameData::GetInstance()->chapternum); // CHAPTER
+	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B5);
 
-	P.X = 1128;
-	P.Y = 33;
-	tempStr = L"STAGE : " + std::to_wstring(GameData::GetInstance()->stagenum);
-	MemG->DrawString(tempStr.c_str(), -1, &F4, P, &B6);
-
-	//P.X = 200;
-	//P.Y = 56;
-	//tempStr = L"X : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().x);
-	//tempStr.append(L" / Y : " + std::to_wstring(MouseManager::GetInstance()->GetMousePos().y));
-	//MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
+	P.X = 1175;
+	P.Y = 11;
+	tempStr = L"  - " + std::to_wstring(GameData::GetInstance()->stagenum); // STAGE
+	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B5);
 
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 	MemG->DrawImage(tabImg.lock().get(), rect, 0, 0, 32, 512, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
@@ -280,19 +268,19 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 			b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x, point.y, eObjectType_PBullet, 1);
 			bulletVec.emplace_back(b);
 		}
-	}	
+	}
 }
 
 void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 {
 	/*for (int i = -10; i < 10; ++i)
 	{
-		Bullet* b = AssetManager::GetInstance()->CreateBullet();
-		if (b != nullptr)
-		{
-			b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x + i * 10, point.y + i * 10, eObjectType_PBullet, 1);
-			bulletVec.emplace_back(b);
-		}
+	   Bullet* b = AssetManager::GetInstance()->CreateBullet();
+	   if (b != nullptr)
+	   {
+		  b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x + i * 10, point.y + i * 10, eObjectType_PBullet, 1);
+		  bulletVec.emplace_back(b);
+	   }
 	}*/
 }
 
@@ -354,7 +342,7 @@ void GameScene::BulletCollCheck(Bullet* b)
 					SceneManager::GetInstance()->SetGameClear(false);
 					SceneManager::GetInstance()->GotoResultScene();
 				}
-			}			
+			}
 		}
 	}
 }
@@ -401,7 +389,7 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 }
 
 //8방향 발사. 
-void GameScene::EnemyPattern1(Enemy* it) 
+void GameScene::EnemyPattern1(Enemy* it)
 {
 	Bullet* b;
 	if (it->addDelta2 > 0.5f)
@@ -486,7 +474,7 @@ void GameScene::EnemyPattern1(Enemy* it)
 }
 
 //회오리 발사 
-void GameScene::EnemyPattern2(Enemy* it) 
+void GameScene::EnemyPattern2(Enemy* it)
 {
 	int MAX = 7;
 	if (it->addDelta2 > 0.02f)
@@ -515,7 +503,7 @@ void GameScene::EnemyPattern2(Enemy* it)
 }
 
 //플레이어 유도 
-void GameScene::EnemyPattern3(Enemy* it) 
+void GameScene::EnemyPattern3(Enemy* it)
 {
 	if (it->addDelta2 > 0.3f)
 	{
@@ -525,15 +513,15 @@ void GameScene::EnemyPattern3(Enemy* it)
 			Bullet* b = AssetManager::GetInstance()->CreateBullet();
 			if (b != nullptr)
 			{
-				b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + i * 30 + (player->r)+ i * 30, eObjectType_EBullet, 500);
+				b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + i * 30 + (player->r) + i * 30, eObjectType_EBullet, 500);
 				bulletVec.emplace_back(b);
 			}
-		}		
+		}
 	}
 }
 
 //쌍 레이저 발사
-void GameScene::EnemyPattern4(Enemy* it) 
+void GameScene::EnemyPattern4(Enemy* it)
 {
 	int MAX = 31;
 	if (it->addDelta2 > 0.05f)

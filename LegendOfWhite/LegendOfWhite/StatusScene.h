@@ -41,17 +41,16 @@
 
 
 
-
 class StatusScene : public Scene
 {
 public:
 	StatusScene();
 
-	void Init();
-	void Update(float Delta);
-	void Render(Gdiplus::Graphics* MemG);
-	void SendLButtonDown(UINT nFlags, CPoint point);
-	void SendRButtonDown(UINT nFlags, CPoint point);
+	virtual void Init() override;
+	virtual void Update(float Delta) override;
+	virtual void Render(Gdiplus::Graphics* MemG) override;
+	virtual void SendLButtonDown(UINT nFlags, CPoint point) override;
+	virtual void SendRButtonDown(UINT nFlags, CPoint point) override;
 	
 	Gdiplus::PointF P;
 	std::wstring tempStr;

@@ -15,8 +15,6 @@ GameData::~GameData()
 void GameData::Init()
 {
 	player = new Player;
-	//이어하기를 눌렀을경우, DB불러서 데이터 가져오기
-	//새로시작의 경우 위 DB불러오는걸 넘기고 초기값 셋팅해준뒤 바로 게임씬으로 이동.
 
 	ATKP = 1;
 	ATKM = 0.0f;
@@ -37,11 +35,8 @@ void GameData::Init()
 void GameData::SavePlayerData()
 {
 	sqlite3* pSQLite3 = NULL;
-	// SQLite DB 객체저장변수
 	char* szErrMsg = NULL;
-	// Error 발생시메세지를저장하는변수
 
-	// 데이터베이스열기: 파일이존재하지않으면생성한다. 
 	int rst = sqlite3_open("maindb.db", &pSQLite3);
 	if (rst)
 	{
@@ -56,7 +51,6 @@ void GameData::SavePlayerData()
 
 		rst = sqlite3_exec(pSQLite3, (CStringA)temp.GetBuffer(), 0, 0, 0);
 	}
-	//객체해제 
 	sqlite3_free(szErrMsg);
 	sqlite3_close(pSQLite3);
 }
@@ -64,11 +58,8 @@ void GameData::SavePlayerData()
 void GameData::SaveFirstPlayerData()
 {
 	sqlite3* pSQLite3 = NULL;
-	// SQLite DB 객체저장변수
 	char* szErrMsg = NULL;
-	// Error 발생시메세지를저장하는변수
 
-	// 데이터베이스열기: 파일이존재하지않으면생성한다. 
 	int rst = sqlite3_open("maindb.db", &pSQLite3);
 	if (rst)
 	{
@@ -83,7 +74,6 @@ void GameData::SaveFirstPlayerData()
 
 		rst = sqlite3_exec(pSQLite3, (CStringA)temp.GetBuffer(), 0, 0, 0);
 	}
-	//객체해제 
 	sqlite3_free(szErrMsg);
 	sqlite3_close(pSQLite3);
 }
@@ -125,7 +115,6 @@ int GameData::LoadSceneData(CString where)
 			cnt++;
 		}
 	}
-	//객체해제 
 	sqlite3_free(szErrMsg);
 	sqlite3_close(pSQLite3);
 }
@@ -172,7 +161,6 @@ int GameData::LoadPlayerData()
 			cnt++;
 		}
 	}
-	//객체해제 
 	sqlite3_free(szErrMsg);
 	sqlite3_close(pSQLite3);
 }

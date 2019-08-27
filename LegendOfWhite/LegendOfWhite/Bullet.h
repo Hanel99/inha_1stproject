@@ -7,36 +7,12 @@
 class Bullet : public Object
 {
 public:
-	Bullet()
-		: Object(EObjectType::eObjectType_PBullet)
-		, SPD(DefaultSPD)
-		, damage(1)
-		, SPDY(1)
-		, SPDX(1)
-	{
-		width = 20;
-		height = 20;
-		r = width/2;
-		center.x = GetX() + r;
-		center.y = GetY() + r;
-	}
-	Bullet(int px, int py, int clickx, int clicky, EObjectType type, int spd)
-		: Object(type)
-		, damage(GameData::GetInstance()->player->ATK)
-		, SPD(spd)
-	{
-		width = 20;
-		height = 20;
-		SPDSet(px, py, clickx, clicky);
-		SetX(px);
-		SetY(py);		
-		r = width / 2;
-		center.x = GetX() + r;
-		center.y = GetY() + r;
-	}
+	Bullet();
+	Bullet(int px, int py, int clickx, int clicky, EObjectType type, int spd);
 
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
+
 	void SPDSet(int px, int py, int clickx, int clicky);
 	void BulletInit(int px, int py, int clickx, int clicky, EObjectType type, int spd);
 	void BulletReset();
@@ -45,12 +21,11 @@ public:
 	Gdiplus::Rect* rec;
 	Gdiplus::SolidBrush* P;
 	int SPD;
-	bool iscritical = false;
-private:
-	int damage;
 	float SPDX;
 	float SPDY;
-	
+	bool iscritical = false;
 
+private:
+	int damage;	
 	std::weak_ptr<Gdiplus::Image> bulletimg;
 };

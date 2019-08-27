@@ -22,6 +22,8 @@
 #include <sqlite3.h>
 #include <string>
 #include <afx.h>
+#include "fmod.hpp"
+#include "fmod_errors.h"
 
 //#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 

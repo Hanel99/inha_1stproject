@@ -89,16 +89,6 @@ void GameScene::Update(float Delta)
 	}
 	player->Update(Delta);
 	IsPlayerColl(player, Delta);
-	/*
-	   if (GetAsyncKeyState(VK_SPACE) & 0x1001)
-	   {
-		  if (enemyVec.empty())
-		  {
-			 int a = rand() % 5;
-			 enemy = new Enemy((EEnemyType)a, 1, 30, 600, 300);
-			 enemyVec.emplace_back(enemy);
-		  }
-	   }*/
 
 	if (enemyVec.empty())
 	{
@@ -269,19 +259,13 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 			bulletVec.emplace_back(b);
 		}
 	}
+	//소리나는지 테스트해볼거어어어엇
+	AssetManager::GetInstance()->PlaySound(1);
 }
 
 void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 {
-	/*for (int i = -10; i < 10; ++i)
-	{
-	   Bullet* b = AssetManager::GetInstance()->CreateBullet();
-	   if (b != nullptr)
-	   {
-		  b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x + i * 10, point.y + i * 10, eObjectType_PBullet, 1);
-		  bulletVec.emplace_back(b);
-	   }
-	}*/
+	AssetManager::GetInstance()->PlaySound(0);
 }
 
 void GameScene::ReturnBulletFromGameScene(Bullet* b)
@@ -419,8 +403,6 @@ void GameScene::EnemyPattern1(Enemy* it)
 			b->BulletInit(it->center.x, it->center.y, it->center.x - 30, it->center.y, eObjectType_EBullet, 400);
 			bulletVec.emplace_back(b);
 		}
-
-
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
@@ -445,7 +427,6 @@ void GameScene::EnemyPattern1(Enemy* it)
 			b->BulletInit(it->center.x, it->center.y, it->center.x - 10, it->center.y - 20, eObjectType_EBullet, 400);
 			bulletVec.emplace_back(b);
 		}
-
 		b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{

@@ -15,9 +15,10 @@ public:
 	~SceneManager();
 
 	void Init();
+	void Release();
+
 	Scene* GetCurScene();
 	void SetCurScene(Scene* scene);
-	void SetCurScene(Scene* scene, int chapternum, int stagenum);
 
 	void MoveNextScene();
 	void SwapStatusScene();
@@ -31,10 +32,10 @@ private :
 	Scene* introScene;
 	Scene* gameScene;
 	Scene* statusScene;
-	Scene* allClearScene;
+	Scene* resultScene;
 	Scene* curScene;
 
-	int scenenum;
+	EScene scenenum;
 	bool isgameclear;
 	std::vector<Scene*> sceneVec;
 };

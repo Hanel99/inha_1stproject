@@ -11,10 +11,12 @@ public:
 
 	static inline POINT GetMousePos(void)
 	{
-		POINT   pt;
+		POINT pt;
 		GetCursorPos(&pt);
-		::ScreenToClient(AfxGetMainWnd()->GetSafeHwnd(), &pt);
-
+		if (AfxGetMainWnd() != nullptr)
+		{
+			::ScreenToClient(AfxGetMainWnd()->GetSafeHwnd(), &pt);
+		}
 		return pt;
 	}
 };

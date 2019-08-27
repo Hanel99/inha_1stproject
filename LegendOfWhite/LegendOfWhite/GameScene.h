@@ -13,14 +13,14 @@ public:
 	GameScene();
 
 	void SceneSetting();
-	void Init();
-	void Update(float Delta);
-	void Render(Gdiplus::Graphics* MemG);
-	void UIRender(Gdiplus::Graphics* MemG);
+	virtual void Init();
+	virtual void Update(float Delta);
+	virtual void Render(Gdiplus::Graphics* MemG);
+	virtual void SendLButtonDown(UINT nFlags, CPoint point);
+	virtual void SendRButtonDown(UINT nFlags, CPoint point);
 
-	void SetStartPos(float x, float y);
-	void SendLButtonDown(UINT nFlags, CPoint point);
-	void SendRButtonDown(UINT nFlags, CPoint point);
+	void UIRender(Gdiplus::Graphics* MemG);
+	void SetStartPos(float x, float y);	
 	void ReturnBulletFromGameScene(Bullet* b);
 	void BulletCollCheck(Bullet* b);
 	void IsPlayerColl(Player* p, float Delta);

@@ -2,26 +2,37 @@
 #include "Object.h"
 #include "Bullet.h"
 
+Bullet::Bullet()
+	: Object(EObjectType::eObjectType_PBullet)
+	, SPD(DefaultSPD)
+	, damage(1)
+	, SPDY(1)
+	, SPDX(1)
+{
+	width = 20;
+	height = 20;
+	r = width / 2;
+	center.x = GetX() + r;
+	center.y = GetY() + r;
+}
+
+Bullet::Bullet(int px, int py, int clickx, int clicky, EObjectType type, int spd)
+	: Object(type)
+	, damage(GameData::GetInstance()->player->ATK)
+	, SPD(spd)
+{
+	width = 20;
+	height = 20;
+	SPDSet(px, py, clickx, clicky);
+	SetX(px);
+	SetY(py);
+	r = width / 2;
+	center.x = GetX() + r;
+	center.y = GetY() + r;
+}
+
 void Bullet::Update(float Delta)
 {
-	if (SPD <= 400)
-	{
-		/*if (this->Objtype == eObjectType_EBullet)
-		{
-			if (updown)
-			{
-				SPD -= 20;
-				if (SPD <= 0)
-					updown = !updown;
-			}
-			else
-			{
-				SPD += 20;
-				if (SPD >= 400)
-					updown = !updown;
-			}
-		}*/
-	}
 	SetX(GetX() + Delta * SPDX * SPD);
 	SetY(GetY() + Delta * SPDY * SPD);
 	center.x = GetX() + r;
@@ -90,10 +101,10 @@ void Bullet::BulletInit(int px, int py, int clickx, int clicky, EObjectType type
 	if (iscritical)
 	{
 		damage = GameData::GetInstance()->player->ATK * 1.5f;
-	}		
+	}
 	else
 	{
-		damage = GameData::GetInstance()->player->ATK; damage = GameData::GetInstance()->player->ATK;
+		damage = GameData::GetInstance()->player->ATK;
 	}
 	if (type == eObjectType_EBullet)
 		SPD = spd;

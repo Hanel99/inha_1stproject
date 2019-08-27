@@ -6,6 +6,20 @@
 
 AssetManager::AssetManager()
 {	
+	Init();
+}
+
+AssetManager::~AssetManager()
+{
+	for (auto& it : AssetbulletVec)
+	{
+		delete it.second;
+	}
+	AssetbulletVec.clear();
+}
+
+void AssetManager::Init()
+{
 	//메모리 풀을 이용해서 총알로 인한 메모리 파편화를 방지
 	AssetbulletVec.reserve(VEC_LENGTH);
 	AssetbulletVec.resize(VEC_LENGTH);
@@ -18,15 +32,8 @@ AssetManager::AssetManager()
 
 	SetXMLData(AssetBtnImgVec, eXMLType_Btn);
 	SetXMLData(AssetObjImgVec, eXMLType_Obj);
-}
 
-AssetManager::~AssetManager()
-{
-	for (auto& it : AssetbulletVec)
-	{
-		delete it.second;
-	}
-	AssetbulletVec.clear();
+	SoundSystem();
 }
 
 
@@ -53,7 +60,6 @@ void AssetManager::RetrunBullet(Bullet* b)
 		{
 			it.first = true;
 			it.second->BulletReset();
-			//printf("%d번 불릿 복귀\n", i);
 			break;
 		}
 	}
@@ -71,6 +77,27 @@ Gdiplus::Rect* AssetManager::GetRect(EXMLType etype, int i)
 		break;
 	}
 	return nullptr;
+}
+
+void AssetManager::SoundSystem()
+{
+	System_Create(&pSystem);
+
+	pSystem->init(4, FMOD_INIT_NORMAL, NULL);
+
+	pSystem->createSound("Asset\\sound\\FelledTrap.wav", FMOD_LOOP_NORMAL | FMOD_DEFAULT, NULL, &pSound[0]);
+	pSystem->createSound("Asset\\sound\\Dead1.wav", FMOD_DEFAULT, NULL, &pSound[1]);
+}
+
+void AssetManager::PlaySound(int Sound_num)
+{
+	pSystem->playSound(pSound[Sound_num], NULL, 0, pChannel);
+}
+
+void AssetManager::ReleaseSound()
+{
+	pSystem->release();
+	//pSystem->close();
 }
 
 
@@ -107,19 +134,6 @@ std::weak_ptr<Gdiplus::Image> AssetManager::MyLoadImage(std::wstring fileName)
 
 void AssetManager::SetXMLData(std::vector<Gdiplus::Rect>& rects, EXMLType etype)
 {
-	////render에서 이미지를 이렇게 불러와서 xml만큼 따주면 된다.
-	//std::weak_ptr<Gdiplus::Image> load = GetImage(TEXT("sokoban_spritesheet.png"));
-	//Gdiplus::Rect Dst(0, 0, 116, 164);
-	//Gdiplus::Bitmap bm(116, 164, PixelFormat32bppARGB);
-	//Gdiplus::Graphics test(&bm);
-	////불러온 이미지 load, xml에서 파싱해온 rects. [frame]부분에 enum쓰면 찾기 더 쉬울것
-	//test.DrawImage(load, Dst, rects[frame].X, rects[frame].Y, rects[frame].Width, rects[frame].Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-	//
-	////실제 그려줄 위치 . x, y, widt, height
-	//Gdiplus::Rect Dst2(x, 0, 116, 164);
-	//MemG->DrawImage(&bm, Dst2);
-
-
 	tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument();
 	switch (etype)
 	{

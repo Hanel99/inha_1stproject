@@ -3,8 +3,7 @@
 
 
 void Player::Update(float Delta)
-{
-	
+{	
 	if (issafe)
 	{
 		addDelta += Delta;
@@ -17,7 +16,7 @@ void Player::Update(float Delta)
 	{
 		addDelta = 0;
 	}
-	//state머신을 바꿀것
+
 	if ((GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('a') || GetAsyncKeyState('A')) & 0x8001)
 	{
 		eplayerlook = ePlayerLook_Left;
@@ -71,16 +70,8 @@ void Player::Render(Gdiplus::Graphics* MemG)
 	//Player의 크기
 	Gdiplus::Rect rect(0, 0, 35, 42);
 
-	//Gdiplus::Bitmap bm(rec->Width, rec->Height, PixelFormat32bppARGB);
-	//Gdiplus::Graphics temp(&bm);
-
-	//temp.DrawImage(playerimg.lock().get(), rect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), rec->Width, rec->Height);
 	
 	MemG->DrawImage(playerimg.lock().get(), screenPosRect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
-
-	//Gdiplus::Pen P(Gdiplus::Color(255, 0, 0), 5);
-	//MemG->DrawEllipse(&P, (int)(center.x - r), (int)(center.y - r), r * 2, r * 2);
 }

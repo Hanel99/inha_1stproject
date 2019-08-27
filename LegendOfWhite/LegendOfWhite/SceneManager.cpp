@@ -11,23 +11,31 @@ SceneManager::SceneManager()
 
 SceneManager::~SceneManager()
 {
+	Release();
 }
 
 void SceneManager::Init()
 {
 	introScene = new IntroScene();
-	//게임씬을 양산해서 사용할것. 여기선 임시로 하나만
 	gameScene = new GameScene();
 	statusScene = new StatusScene();
-	allClearScene = new ResultScene();
+	resultScene = new ResultScene();
 	
 	sceneVec.emplace_back(introScene);
-	sceneVec.emplace_back(statusScene);
 	sceneVec.emplace_back(gameScene);
-	sceneVec.emplace_back(allClearScene);
+	sceneVec.emplace_back(statusScene);	
+	sceneVec.emplace_back(resultScene);
 
-	scenenum = 0;
-	curScene = introScene;	
+	scenenum = eScene_Intro;
+	curScene = sceneVec[eScene_Intro];	
+}
+
+void SceneManager::Release()
+{
+	delete introScene;
+	delete gameScene;
+	delete statusScene;
+	delete resultScene;
 }
 
 Scene* SceneManager::GetCurScene()
@@ -38,22 +46,16 @@ void SceneManager::SetCurScene(Scene* scene)
 {
 	curScene = scene;
 }
-//나중에 게임씬 양산하고 넣어줄때는 이렇게 넣을 것
-void SceneManager::SetCurScene(Scene* scene, int chapternum, int stagenum)
-{
-	curScene = scene;
-}
 
 void SceneManager::MoveNextScene()
 {
-	if (scenenum == 0)
+	if (scenenum == eScene_Intro)
 	{
 		//인트로 -> 게임
-		//새로시작의 경우 2로, 저장되있는 경우 저장한 수의 씬으로 이동
-		curScene = sceneVec[2];
-		scenenum = 2;
+		scenenum = eScene_Game;
+		curScene = sceneVec[scenenum];		
 	}
-	else if (scenenum > 2)
+	else if (scenenum == eScene_Game)
 	{
 		//스테이지 클리어 후 다음 스테이지로 이동
 		if (GameData::GetInstance()->stagenum == BOSS_STAGE)
@@ -69,27 +71,30 @@ void SceneManager::MoveNextScene()
 
 void SceneManager::SwapStatusScene()
 {
-	if (scenenum == 1)
+	if (scenenum == eScene_Game)
 	{
 		//게임 -> 스테이터스 창
-		curScene = sceneVec[++scenenum];
+		scenenum = eScene_Status;
+		curScene = sceneVec[scenenum];
 	}
-	else if (scenenum == 2)
+	else if (scenenum == eScene_Status)
 	{
 		//스테이터스 창 -> 게임
-		curScene = sceneVec[--scenenum];
+		scenenum = eScene_Game;
+		curScene = sceneVec[scenenum];
 	}
 }
 
 void SceneManager::GotoResultScene()
 {
-	scenenum = 3;
+	scenenum = eScene_Result;
 	curScene = sceneVec[scenenum];
 }
 void SceneManager::GotoTitleScene()
 {
-	scenenum = 0;
+	scenenum = eScene_Intro;
 	curScene = sceneVec[scenenum];
+	AssetManager::GetInstance()->ReleaseSound();
 }
 
 void SceneManager::SetGameClear(bool bol)

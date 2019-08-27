@@ -2,11 +2,14 @@
 #include "Singleton.h"
 #include "pch.h"
 
+
 class AssetManager : public Singleton<AssetManager>
 {
 public:
 	AssetManager();
 	~AssetManager();
+
+	void Init();
 
 	std::weak_ptr<Gdiplus::Image> GetImage(std::wstring str);
 	void SetXMLData(std::vector<Gdiplus::Rect>& rects, EXMLType etype);
@@ -15,6 +18,14 @@ public:
 	void RetrunBullet(Bullet* pBullet);
 	Gdiplus::Rect* GetRect(EXMLType, int);
 
+	FMOD::System* pSystem;
+	FMOD::Sound* pSound[2];
+	FMOD::Channel* pChannel[1];
+
+	void SoundSystem();
+	void PlaySound(int Sound_num);
+	void ReleaseSound();
+
 private:
 	std::vector<std::pair<bool, Bullet*>> AssetbulletVec;
 	std::vector<Gdiplus::Rect> AssetBtnImgVec;
@@ -22,7 +33,6 @@ private:
 
 	std::weak_ptr<Gdiplus::Image> MyLoadImage(std::wstring std);
 	std::unordered_map<size_t, std::shared_ptr<Gdiplus::Image>> imgDic;
-	//std::unordered_map<size_t, Image*> soundDic;
 };
 
 AssetManager* AssetManager::instance = nullptr;

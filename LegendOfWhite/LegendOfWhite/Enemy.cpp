@@ -45,10 +45,10 @@ Enemy::Enemy(EEnemyType enemytype, int enemynum, int hp, int x, int y)
 		SPD = 200;
 		break;
 	case eEnemyType_Slime:
-		SPD = 50;
+		SPD = 100;
 		break;
 	case eEnemyType_Devil:
-		SPD = 400;
+		SPD = 300;
 		break;
 	case eEnemyType_Boss:
 		SPD = 300;

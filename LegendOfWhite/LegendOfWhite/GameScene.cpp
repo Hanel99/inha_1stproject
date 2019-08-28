@@ -85,7 +85,6 @@ void GameScene::Update(float Delta)
 	//esc키로 메인화면으로 
 	if (GetAsyncKeyState(VK_ESCAPE) & 0x1001)
 	{
-		AssetManager::GetInstance()->StopSound(eSound_BGM);
 		SceneManager::GetInstance()->GotoTitleScene();
 	}
 	player->Update(Delta);
@@ -368,8 +367,10 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 	}
 	if (pow((nextStageBoard->center.x - p->center.x), 2) + pow((nextStageBoard->center.y - p->center.y), 2) <= pow((nextStageBoard->r + p->r), 2) && isAllEnemyDead)
 	{
+		//NextStage 발판을 밟았을 경우
 		if (GameData::GetInstance()->stagenum == 11)
 		{
+			//보스 스테이지 클리어의 경우
 			AssetManager::GetInstance()->PlaySound(eSound_GameClear);
 			SceneManager::GetInstance()->SetGameClear(true);
 			GameData::GetInstance()->chapternum++;
@@ -379,6 +380,7 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 		}
 		else
 		{
+			//일반 스테이지 클리어의 경우
 			AssetManager::GetInstance()->PlaySound(eSound_NextStage);
 			GameData::GetInstance()->stagenum++;
 			SceneSetting();			

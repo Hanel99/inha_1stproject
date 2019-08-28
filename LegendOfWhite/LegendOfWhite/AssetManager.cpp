@@ -35,6 +35,7 @@ void AssetManager::Init()
 	SetXMLData(AssetObjImgVec, eXMLType_Obj);
 
 	SoundSystem();
+	PlaySound(eSound_BGM);
 }
 
 
@@ -98,12 +99,6 @@ void AssetManager::SoundSystem()
 
 void AssetManager::PlaySound(int Sound_num)
 {
-	bool IsPlaying = false;
-	if (pChannel[0]->isPlaying(&IsPlaying))
-	{
-		int n = 0;
-		++n;
-	}
 	pSystem->playSound(pSound[Sound_num], NULL, 0, &pChannel[Sound_num]);
 }
 
@@ -111,15 +106,6 @@ void AssetManager::ReleaseSound()
 {
 	pSystem->release();
 	pSystem->close();
-}
-
-void AssetManager::StopSound(int Sound_num)
-{
-	for (int i = 0; i < 9; i++)
-	{
-		pChannel[i]->stop();
-		pChannel[Sound_num]->stop();
-	}
 }
 
 

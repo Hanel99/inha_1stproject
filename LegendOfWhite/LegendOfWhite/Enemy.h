@@ -5,7 +5,6 @@
 class Enemy : public Object
 {
 public:
-	Enemy();
 	Enemy(EEnemyType enemytype, int enemynum, int hp, int x, int y);
 	~Enemy();
 
@@ -17,6 +16,12 @@ public:
 	int HP;
 	int ATK;
 	int SPD;
+	
+	//이건 플레이어 추격에만 사용하는 변수. 일반적으론 SPD만 사용
+	void SPDSet(int ex, int ey, int px, int py);
+	float SPDX;
+	float SPDY;
+
 	int SSPD;
 	int EXP;
 	CPoint center;

@@ -74,11 +74,6 @@ void Bullet::Render(Gdiplus::Graphics* MemG)
 void Bullet::SPDSet(int px, int py, int clickx, int clicky)
 {
 	float length = sqrtf(pow(abs(clickx - px), 2) + pow(abs(clicky - py), 2));
-	if (length < DBL_EPSILON)
-	{
-		int a = 0;;
-		++a;
-	}
 	SPDX = abs(clickx - px) / length;
 	SPDY = abs(clicky - py) / length;
 

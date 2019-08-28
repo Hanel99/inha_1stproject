@@ -25,7 +25,6 @@ public:
 	void SoundSystem();
 	void PlaySound(int Sound_num);
 	void ReleaseSound();
-	void StopSound(int Sound_num);
 
 private:
 	std::vector<std::pair<bool, Bullet*>> AssetbulletVec;

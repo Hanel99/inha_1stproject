@@ -13,7 +13,6 @@ void ResultScene::Update(float Delta)
 {
 	if ((GetAsyncKeyState(VK_SPACE) & 0x8001))
 	{
-		AssetManager::GetInstance()->StopSound(eSound_BGM);
 		SceneManager::GetInstance()->GotoTitleScene();
 	}
 }

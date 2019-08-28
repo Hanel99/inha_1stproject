@@ -5,7 +5,6 @@
 Bullet::Bullet()
 	: Object(EObjectType::eObjectType_PBullet)
 	, SPD(DefaultSPD)
-	, damage(1)
 	, SPDY(1)
 	, SPDX(1)
 {
@@ -18,7 +17,6 @@ Bullet::Bullet()
 
 Bullet::Bullet(int px, int py, int clickx, int clicky, EObjectType type, int spd)
 	: Object(type)
-	, damage(GameData::GetInstance()->player->ATK)
 	, SPD(spd)
 {
 	width = 20;
@@ -53,7 +51,7 @@ void Bullet::Render(Gdiplus::Graphics* MemG)
 
 	if (this->Objtype == eObjectType_PBullet)
 	{
-		if (iscritical)
+		if (isCritical)
 		{
 			P = new Gdiplus::SolidBrush(Gdiplus::Color(0, 10, 40));
 		}
@@ -69,11 +67,6 @@ void Bullet::Render(Gdiplus::Graphics* MemG)
 
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), width, height);
-
-	if (this->iscritical)
-	{
-		P = new Gdiplus::SolidBrush(Gdiplus::Color(0, 10, 40));
-	}
 
 	MemG->FillEllipse(P, (int)(GetX()), (int)(GetY()), width, height);
 }
@@ -98,14 +91,6 @@ void Bullet::SPDSet(int px, int py, int clickx, int clicky)
 void Bullet::BulletInit(int px, int py, int clickx, int clicky, EObjectType type, int spd)
 {
 	Objtype = type;
-	if (iscritical)
-	{
-		damage = GameData::GetInstance()->player->ATK * 1.5f;
-	}
-	else
-	{
-		damage = GameData::GetInstance()->player->ATK;
-	}
 	if (type == eObjectType_EBullet)
 		SPD = spd;
 	else
@@ -119,11 +104,10 @@ void Bullet::BulletInit(int px, int py, int clickx, int clicky, EObjectType type
 
 void Bullet::BulletReset()
 {
-	damage = 1;
 	SetX(10);
 	SetY(10);
 	SPDX = 0;
 	SPDY = 0;
 	SPD = 0;
-	iscritical = false;
+	isCritical = false;
 }

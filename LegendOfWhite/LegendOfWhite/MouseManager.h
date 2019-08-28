@@ -9,14 +9,5 @@ public:
 	MouseManager();
 	~MouseManager();
 
-	static inline POINT GetMousePos(void)
-	{
-		POINT pt;
-		GetCursorPos(&pt);
-		if (AfxGetMainWnd() != nullptr)
-		{
-			::ScreenToClient(AfxGetMainWnd()->GetSafeHwnd(), &pt);
-		}
-		return pt;
-	}
+	POINT GetMousePos();
 };

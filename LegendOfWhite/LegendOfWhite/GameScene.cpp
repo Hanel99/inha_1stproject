@@ -85,6 +85,7 @@ void GameScene::Update(float Delta)
 	//esc키로 메인화면으로 
 	if (GetAsyncKeyState(VK_ESCAPE) & 0x1001)
 	{
+		AssetManager::GetInstance()->StopSound(eSound_BGM);
 		SceneManager::GetInstance()->GotoTitleScene();
 	}
 	player->Update(Delta);
@@ -235,7 +236,6 @@ void GameScene::SetStartPos(float x, float y)
 
 void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 {
-	Gdiplus::Rect rect(1220, 180, 40, 330);
 	// 탭 열기
 	if (MouseManager::GetInstance()->GetMousePos().x >= 1220 && MouseManager::GetInstance()->GetMousePos().x <= 1260
 		&& MouseManager::GetInstance()->GetMousePos().y >= 180 && MouseManager::GetInstance()->GetMousePos().y <= 510)
@@ -247,11 +247,11 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (rand() % 100 < player->CRI * 100)
 		{
-			b->iscritical = true;
+			b->isCritical = true;
 		}
 		else
 		{
-			b->iscritical = false;
+			b->isCritical = false;
 		}
 		if (b != nullptr)
 		{
@@ -295,10 +295,15 @@ void GameScene::BulletCollCheck(Bullet* b)
 		{
 			if (b->Objtype == eObjectType_PBullet)
 			{
-				//플레이어의 총알과 몬스터가 충돌
-				AssetManager::GetInstance()->RetrunBullet(b);
-				ReturnBulletFromGameScene(b);
-				it->HP -= player->ATK;
+				//플레이어의 총알과 몬스터가 충돌							
+				if (b->isCritical)
+				{
+					it->HP -= player->ATK * 1.5f;
+				}
+				else
+				{
+					it->HP -= player->ATK;
+				}
 				if (it->HP <= 0)
 				{
 					std::vector<Enemy*>::iterator itr = std::find(enemyVec.begin(), enemyVec.end(), it);
@@ -306,6 +311,8 @@ void GameScene::BulletCollCheck(Bullet* b)
 					player->EXP += it->EXP;
 					AssetManager::GetInstance()->PlaySound(eSound_EnemyDead);
 				}
+				AssetManager::GetInstance()->RetrunBullet(b);
+				ReturnBulletFromGameScene(b);
 			}
 		}
 	}

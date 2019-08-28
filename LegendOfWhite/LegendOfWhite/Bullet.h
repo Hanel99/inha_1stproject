@@ -23,9 +23,5 @@ public:
 	int SPD;
 	float SPDX;
 	float SPDY;
-	bool iscritical = false;
-
-private:
-	int damage;	
-	std::weak_ptr<Gdiplus::Image> bulletimg;
+	bool isCritical = false;
 };

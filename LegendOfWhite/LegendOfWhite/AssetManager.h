@@ -20,7 +20,7 @@ public:
 
 	FMOD::System* pSystem;
 	FMOD::Sound* pSound[9];
-	FMOD::Channel* pChannel[9];
+	FMOD::Channel* pChannel[18];
 
 	void SoundSystem();
 	void PlaySound(int Sound_num);

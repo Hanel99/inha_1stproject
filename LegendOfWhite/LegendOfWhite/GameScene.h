@@ -16,8 +16,8 @@ public:
 	virtual void Init();
 	virtual void Update(float Delta);
 	virtual void Render(Gdiplus::Graphics* MemG);
-	virtual void SendLButtonDown(UINT nFlags, CPoint point);
-	virtual void SendRButtonDown(UINT nFlags, CPoint point);
+	void SendLButtonDown(UINT nFlags, CPoint point);
+	virtual void SendRButtonDown(UINT nFlags, CPoint point)override;
 
 	void UIRender(Gdiplus::Graphics* MemG);
 	void SetStartPos(float x, float y);	

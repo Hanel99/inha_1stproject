@@ -84,7 +84,7 @@ void AssetManager::SoundSystem()
 {
 	System_Create(&pSystem);
 
-	pSystem->init(4, FMOD_INIT_NORMAL, NULL);
+	pSystem->init(32, FMOD_INIT_NORMAL, NULL);
 	pSystem->createSound("Asset\\sound\\bgm.mp3", FMOD_LOOP_NORMAL | FMOD_DEFAULT, NULL, &pSound[eSound_BGM]);
 	pSystem->createSound("Asset\\sound\\BtnClick.wav", FMOD_DEFAULT, NULL, &pSound[eSound_BtnClick]);
 	pSystem->createSound("Asset\\sound\\EnemyDead.wav", FMOD_DEFAULT, NULL, &pSound[eSound_EnemyDead]);
@@ -98,6 +98,12 @@ void AssetManager::SoundSystem()
 
 void AssetManager::PlaySound(int Sound_num)
 {
+	bool IsPlaying = false;
+	if (pChannel[0]->isPlaying(&IsPlaying))
+	{
+		int n = 0;
+		++n;
+	}
 	pSystem->playSound(pSound[Sound_num], NULL, 0, &pChannel[Sound_num]);
 }
 

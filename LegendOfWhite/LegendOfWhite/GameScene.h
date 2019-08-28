@@ -30,6 +30,7 @@ public:
 	void EnemyPattern3(Enemy* it);
 	void EnemyPattern4(Enemy* it);
 	void EnemyPattern5(Enemy* it);
+	void EnemyPattern6(Enemy* it);
 
 
 	std::weak_ptr<Gdiplus::Image> bgImg;

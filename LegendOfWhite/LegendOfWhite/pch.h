@@ -7,7 +7,7 @@
 #ifndef PCH_H
 #define PCH_H
 
-#define WIDTH 1280
+#define WIDTH 1280	
 #define HEIGHT 720
 
 // 여기에 미리 컴파일하려는 헤더 추가

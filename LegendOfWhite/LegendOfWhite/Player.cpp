@@ -97,5 +97,24 @@ void Player::Render(Gdiplus::Graphics* MemG)
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), rec->Width, rec->Height);
 	
-	MemG->DrawImage(playerimg.lock().get(), screenPosRect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	if (issafe)
+	{
+		float R = 255.0f;
+		float alpha = 0.5f;
+		//무적상태임을 표시할 반투명 빨간 플레이어 이미지 처리
+		Gdiplus::ColorMatrix colorMatrix = { R, 0.0f, 0.0f, 0.0f, 0.0f,
+									0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+									0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+									 0.0f, 0.0f, 0.0f, alpha, 0.0f,
+									 0.0f, 0.0f, 0.0f, 0.0f, 1.0f };
+
+		Gdiplus::ImageAttributes imageAtt;
+		imageAtt.SetColorMatrix(&colorMatrix, Gdiplus::ColorMatrixFlagsDefault, Gdiplus::ColorAdjustTypeBitmap);
+
+		MemG->DrawImage(playerimg.lock().get(), screenPosRect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, &imageAtt, 0, nullptr);
+	}
+	else
+	{
+		MemG->DrawImage(playerimg.lock().get(), screenPosRect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	}
 }

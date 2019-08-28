@@ -101,7 +101,7 @@ void GameScene::Update(float Delta)
 		{
 			it->Update(Delta);
 
-			switch (it->EnemyType)
+			switch (it->enemyType)
 			{
 			case eEnemyType_Bird: //새
 				EnemyPattern1(it);
@@ -115,8 +115,11 @@ void GameScene::Update(float Delta)
 			case eEnemyType_Slime: //슬라임
 				EnemyPattern4(it);
 				break;
-			case eEnemyType_Boss: //보스
+			case eEnemyType_Devil: //악마
 				EnemyPattern5(it);
+				break;
+			case eEnemyType_Boss: //보스
+				EnemyPattern6(it);
 				break;
 			default:
 				EnemyPattern1(it);
@@ -505,7 +508,7 @@ void GameScene::EnemyPattern3(Enemy* it)
 			Bullet* b = AssetManager::GetInstance()->CreateBullet();
 			if (b != nullptr)
 			{
-				b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + i * 30 + (player->r) + i * 30, eObjectType_EBullet, 500);
+				b->BulletInit(it->center.x, it->center.y, player->center.x + i * 30, player->center.y + i * 30, eObjectType_EBullet, 500);
 				bulletVec.emplace_back(b);
 			}
 		}
@@ -549,8 +552,26 @@ void GameScene::EnemyPattern4(Enemy* it)
 	}
 }
 
-//모든 패턴 종합 Boss
+//플레이어 저격하는 속도다른 16개 탄
 void GameScene::EnemyPattern5(Enemy* it)
+{
+	if (it->addDelta2 > 0.5f)
+	{
+		it->addDelta2 = 0.0f;
+		for (int i = 0; i < 16; i++)
+		{
+			Bullet* b = AssetManager::GetInstance()->CreateBullet();
+			if (b != nullptr)
+			{
+				b->BulletInit(it->center.x, it->center.y, player->center.x, player->center.y, eObjectType_EBullet, 200 + (i * 50));
+				bulletVec.emplace_back(b);
+			}
+		}
+	}
+}
+
+//모든 패턴 종합 Boss
+void GameScene::EnemyPattern6(Enemy* it)
 {
 	if (it->addDelta2 > 0.1f)
 	{
@@ -560,7 +581,7 @@ void GameScene::EnemyPattern5(Enemy* it)
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (b != nullptr)
 		{
-			b->BulletInit(it->center.x, it->center.y, player->GetX() + (player->r), player->GetY() + (player->r), eObjectType_EBullet, 700);
+			b->BulletInit(it->center.x, it->center.y, player->center.x, player->center.y, eObjectType_EBullet, 700);
 			bulletVec.emplace_back(b);
 		}
 
@@ -571,6 +592,5 @@ void GameScene::EnemyPattern5(Enemy* it)
 		//레이저
 		it->addDelta2 = 1.0f;
 		EnemyPattern4(it);
-
 	}
 }

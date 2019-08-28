@@ -4,8 +4,8 @@
 
 Enemy::Enemy()
 	: Object(EObjectType::eObjectType_Enemy)
-	, EnemyType(EEnemyType::eEnemyType_Bird)
-	, EnemyNum(1)
+	, enemyType(EEnemyType::eEnemyType_Bird)
+	, enemyNum(1)
 	, HP(10)
 	, ATK(1)
 	, SPD(1)
@@ -13,6 +13,8 @@ Enemy::Enemy()
 	, EXP(1000)
 	, addDelta(0.0f)
 	, addDelta2(0.0f)
+	, lookLeft(true)
+	, moveUp(false)
 {
 	SetX(500);
 	SetY(500);
@@ -25,8 +27,8 @@ Enemy::Enemy()
 
 Enemy::Enemy(EEnemyType enemytype, int enemynum, int hp, int x, int y)
 	: Object(EObjectType::eObjectType_Enemy)
-	, EnemyType(enemytype)
-	, EnemyNum(enemynum)
+	, enemyType(enemytype)
+	, enemyNum(enemynum)
 	, HP(hp)
 	, ATK(1)
 	, SPD(100)
@@ -34,6 +36,8 @@ Enemy::Enemy(EEnemyType enemytype, int enemynum, int hp, int x, int y)
 	, EXP(hp * 3)
 	, addDelta(0.0f)
 	, addDelta2(0.0f)
+	, lookLeft(true)
+	, moveUp(false)
 {
 	SetX(x);
 	SetY(y);
@@ -58,19 +62,76 @@ Enemy::~Enemy()
 
 void Enemy::Update(float Delta)
 {
-	if (this->EnemyType == eEnemyType_Boss)
-	{
-		this->SetX(GetX());
-		this->SetY(GetY());
-
-	}
 	addDelta += Delta;
 	addDelta2 += Delta;
+
+	if (Delta < 0.1f) //처음 튀는거 방지
+	{
+		switch (enemyType)
+		{
+		case eEnemyType_Bird:
+			if (lookLeft)
+			{
+				SetX(GetX() - Delta * 300);
+			}
+			else
+			{
+				SetX(GetX() + Delta * 300);
+			}
+			if (GetX() < 60 || GetX() > WIDTH-60)
+			{
+				enemyimg.lock().get()->RotateFlip(Gdiplus::Rotate180FlipY);
+				lookLeft = !lookLeft;
+			}
+
+			if (moveUp)
+			{
+				SetY(GetX() - Delta * 300);
+			}
+			else
+			{
+				SetY(GetX() + Delta * 300);
+			}
+			if (GetY() < 60 || GetY() > 500)
+			{
+				moveUp = !moveUp;
+			}
+			break;
+
+		case eEnemyType_Digda:
+			SetX(GetX());
+			SetY(GetY());
+			break;
+
+		case eEnemyType_Digda2:
+			SetX(GetX());
+			SetY(GetY());
+			break;
+
+		case eEnemyType_Slime:
+			SetX(GetX());
+			SetY(GetY());
+			break;
+
+		case eEnemyType_Devil:
+			SetX(GetX());
+			SetY(GetY());
+			break;
+
+		case eEnemyType_Boss:
+			SetX(GetX());
+			SetY(GetY());
+			break;
+		}
+	}
+
+	center.x = GetX() + width / 2;
+	center.y = GetY() + height / 2;
 }
 
 void Enemy::Render(Gdiplus::Graphics* MemG)
 {
-	if (this->EnemyType == eEnemyType_Boss)
+	if (this->enemyType == eEnemyType_Boss)
 	{
 		Gdiplus::Rect rect(0, 0, 256, 256);
 	}
@@ -79,7 +140,7 @@ void Enemy::Render(Gdiplus::Graphics* MemG)
 		Gdiplus::Rect rect(0, 0, 100, 100);
 	}
 
-	switch (this->EnemyType)
+	switch (this->enemyType)
 	{
 	case eEnemyType_Boss: //보스
 		enemyimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\boss.png"));
@@ -96,13 +157,14 @@ void Enemy::Render(Gdiplus::Graphics* MemG)
 	case eEnemyType_Slime: //슬라임
 		enemyimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\sli.png"));
 		break;
+	case eEnemyType_Devil: //악마
+		enemyimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\dev.png"));
+		break;
 	default:
 		enemyimg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\bird.png"));
 		break;
 	}
-
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), width, height);
-	
 	MemG->DrawImage(enemyimg.lock().get(), screenPosRect, 0, 0, 256, 256, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
 }

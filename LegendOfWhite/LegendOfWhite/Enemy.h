@@ -12,8 +12,8 @@ public:
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 
-	EEnemyType EnemyType;
-	int EnemyNum;
+	EEnemyType enemyType;
+	int enemyNum;
 	int HP;
 	int ATK;
 	int SPD;
@@ -22,6 +22,8 @@ public:
 	CPoint center;
 	float addDelta;
 	float addDelta2;
+	bool lookLeft;
+	bool moveUp;
 
 	std::weak_ptr<Gdiplus::Image> enemyimg;
 };

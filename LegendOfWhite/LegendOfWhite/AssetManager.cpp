@@ -85,14 +85,14 @@ void AssetManager::SoundSystem()
 	System_Create(&pSystem);
 
 	pSystem->init(32, FMOD_INIT_NORMAL, NULL);
-	pSystem->createSound("Asset\\sound\\bgm.mp3", FMOD_LOOP_NORMAL | FMOD_DEFAULT, NULL, &pSound[eSound_BGM]);
+	pSystem->createSound("Asset\\sound\\bgm.wav", FMOD_LOOP_NORMAL | FMOD_DEFAULT, NULL, &pSound[eSound_BGM]);
 	pSystem->createSound("Asset\\sound\\BtnClick.wav", FMOD_DEFAULT, NULL, &pSound[eSound_BtnClick]);
 	pSystem->createSound("Asset\\sound\\EnemyDead.wav", FMOD_DEFAULT, NULL, &pSound[eSound_EnemyDead]);
 	pSystem->createSound("Asset\\sound\\GameClear.wav", FMOD_DEFAULT, NULL, &pSound[eSound_GameClear]);
 	pSystem->createSound("Asset\\sound\\GameOver.wav", FMOD_DEFAULT, NULL, &pSound[eSound_GameOver]);
 	pSystem->createSound("Asset\\sound\\NextStage.wav", FMOD_DEFAULT, NULL, &pSound[eSound_NextStage]);
 	pSystem->createSound("Asset\\sound\\PlayerDamaged.wav", FMOD_DEFAULT, NULL, &pSound[eSound_PlayerDamaged]);
-	pSystem->createSound("Asset\\sound\\Shot.mp3", FMOD_DEFAULT, NULL, &pSound[eSound_Shot]);
+	pSystem->createSound("Asset\\sound\\Shot.wav", FMOD_DEFAULT, NULL, &pSound[eSound_Shot]);
 	pSystem->createSound("Asset\\sound\\Shot2.wav", FMOD_DEFAULT, NULL, &pSound[eSound_Shot2]);
 }
 
@@ -115,7 +115,11 @@ void AssetManager::ReleaseSound()
 
 void AssetManager::StopSound(int Sound_num)
 {
-	pChannel[Sound_num]->stop();
+	for (int i = 0; i < 9; i++)
+	{
+		pChannel[i]->stop();
+		pChannel[Sound_num]->stop();
+	}
 }
 
 

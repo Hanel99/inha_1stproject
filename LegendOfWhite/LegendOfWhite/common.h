@@ -90,6 +90,6 @@ enum ESound
 	eSound_NextStage,
 	eSound_PlayerDamaged,
 	eSound_Shot,
-	eSound_Shot2,	
+	eSound_EnemyDamaged,
 	eSound_Cnt
 };

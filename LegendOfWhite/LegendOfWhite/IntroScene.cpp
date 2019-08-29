@@ -119,6 +119,9 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 	{
 		//°ÔÀÓ ²ô±â
 		AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
+		Release();
+		GameData::GetInstance()->Release();
+		SceneManager::GetInstance()->Release();
 		PostQuitMessage(0);
 	}
 	else

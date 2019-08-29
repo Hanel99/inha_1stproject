@@ -78,7 +78,7 @@ void GameScene::Init()
 
 	B = new Gdiplus::SolidBrush(Gdiplus::Color(255, 255, 255));
 	B_Exp = new Gdiplus::SolidBrush(Gdiplus::Color(255, 236, 79)); // EXP 색
-	B_Chapter = new Gdiplus::SolidBrush(Gdiplus::Color(76, 101, 228)); // chapter 색
+	B_Chapter = new Gdiplus::SolidBrush(Gdiplus::Color(116, 178, 238)); // chapter 색
 
 	F_24 = new Gdiplus::Font(L"Arial rounded MT Bold", 24, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
 	F_30 = new Gdiplus::Font(L"Arial rounded MT Bold", 30, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
@@ -315,6 +315,7 @@ void GameScene::BulletCollCheck(Bullet* b)
 			{
 				//플레이어의 총알과 몬스터가 충돌	
 				it->ishit = true;
+				AssetManager::GetInstance()->PlaySound(eSound_EnemyDamaged);
 				if (b->isCritical)
 				{
 					it->HP -= player->ATK * 1.5f;

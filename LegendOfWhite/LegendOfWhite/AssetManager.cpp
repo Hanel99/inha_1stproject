@@ -91,6 +91,11 @@ void AssetManager::SoundSystem()
 	System_Create(&pSystem);
 
 	pSystem->init(32, FMOD_INIT_NORMAL, NULL);
+	
+	//BGM Song: Mike Chino - Double Points(Original Mix)
+	//Follow Artist : https://soundcloud.com/mike-chino
+	//Music promoted by DayDreamSound : https://youtu.be/6jl05TYNQy4
+
 	pSystem->createSound("Asset\\sound\\bgm.wav", FMOD_LOOP_NORMAL | FMOD_DEFAULT, NULL, &pSound[eSound_BGM]);
 	pSystem->createSound("Asset\\sound\\BtnClick.wav", FMOD_DEFAULT, NULL, &pSound[eSound_BtnClick]);
 	pSystem->createSound("Asset\\sound\\EnemyDead.wav", FMOD_DEFAULT, NULL, &pSound[eSound_EnemyDead]);
@@ -99,7 +104,7 @@ void AssetManager::SoundSystem()
 	pSystem->createSound("Asset\\sound\\NextStage.wav", FMOD_DEFAULT, NULL, &pSound[eSound_NextStage]);
 	pSystem->createSound("Asset\\sound\\PlayerDamaged.wav", FMOD_DEFAULT, NULL, &pSound[eSound_PlayerDamaged]);
 	pSystem->createSound("Asset\\sound\\Shot.wav", FMOD_DEFAULT, NULL, &pSound[eSound_Shot]);
-	pSystem->createSound("Asset\\sound\\Shot2.wav", FMOD_DEFAULT, NULL, &pSound[eSound_Shot2]);
+	pSystem->createSound("Asset\\sound\\EnemyDamaged.wav", FMOD_DEFAULT, NULL, &pSound[eSound_EnemyDamaged]);
 }
 
 void AssetManager::PlaySound(int Sound_num)

@@ -34,6 +34,7 @@ void SceneManager::Release()
 {
 	for (auto& it : sceneVec)
 	{
+		it->Release();
 		delete it;
 	}
 }

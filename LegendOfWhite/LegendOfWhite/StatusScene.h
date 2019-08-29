@@ -35,6 +35,7 @@
 #define STATUY_HEIGHT 160 // 위치값
 #define STATUB_WIDTH 113 // 버튼길이
 #define STATUB_HEIGHT 42 // 버튼길이
+
 // 스탯 업그레이드 퍼센트
 #define STATUPX_WIDTH 1131 // 위치값
 #define STATP_HITV 50 // 스탯 퍼센트 위아래 사이 간격
@@ -45,12 +46,14 @@ class StatusScene : public Scene
 {
 public:
 	StatusScene();
+	~StatusScene();
 
-	virtual void Init() override;
-	virtual void Update(float Delta) override;
-	virtual void Render(Gdiplus::Graphics* MemG) override;
-	virtual void SendLButtonDown(UINT nFlags, CPoint point) override;
-	virtual void SendRButtonDown(UINT nFlags, CPoint point) override;
+	virtual void Init()override;
+	virtual void Update(float Delta)override;
+	virtual void Release()override;
+	virtual void Render(Gdiplus::Graphics* MemG)override;
+	virtual void SendLButtonDown(UINT nFlags, CPoint point)override;
+	virtual void SendRButtonDown(UINT nFlags, CPoint point)override;
 	
 	Gdiplus::PointF P;
 	std::wstring tempStr;

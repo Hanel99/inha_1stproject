@@ -86,8 +86,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>../Output</OutDir>
-    <LibraryPath>D:\inha_1stproject\LegendOfWhite\LegendOfWhite\Lib;D:\dev\inha_1stproject\LegendOfWhite\LegendOfWhite\Lib;E:\inha_1stproject\LegendOfWhite\LegendOfWhite\Lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>D:\inha_1stproject\LegendOfWhite\LegendOfWhite\include;D:\dev\inha_1stproject\LegendOfWhite\LegendOfWhite\include;E:\inha_1stproject\LegendOfWhite\LegendOfWhite\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\LegendOfWhite\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\LegendOfWhite\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -156,7 +156,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>tinyxml2.lib;sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>tinyxml2.lib;sqlite3.lib;fmodL_vc.lib;fmodstudioL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>

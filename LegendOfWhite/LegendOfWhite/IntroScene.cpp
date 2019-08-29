@@ -8,10 +8,24 @@ IntroScene::IntroScene()
 	Init();
 }
 
+IntroScene::~IntroScene()
+{
+	Release();
+}
+
 void IntroScene::Init()
 {
 	eXMLBtnnum = 0;	
+
+	//메모리릭 번호 
+	//_crtBreakAlloc = 1200;
 }
+
+void IntroScene::Release()
+{
+	
+}
+
 
 void IntroScene::Update(float Delta)
 {
@@ -35,7 +49,6 @@ void IntroScene::Update(float Delta)
 		eXMLBtnnum = 0;
 	}
 }
-
 
 void IntroScene::Render(Gdiplus::Graphics* MemG)
 {
@@ -110,17 +123,11 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 	}
 	else
 	{
-		
+		//아무것도 아님
 	}
 }
 
 void IntroScene::SendRButtonDown(UINT nFlags, CPoint point)
 {
 
-}
-
-void IntroScene::SetStartPos(float x, float y)
-{
-	GameData::GetInstance()->player->SetX(x);
-	GameData::GetInstance()->player->SetY(y);
 }

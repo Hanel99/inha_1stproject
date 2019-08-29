@@ -11,12 +11,7 @@ AssetManager::AssetManager()
 
 AssetManager::~AssetManager()
 {
-	for (auto& it : AssetbulletVec)
-	{
-		delete it.second;
-	}
-	AssetbulletVec.clear();
-	ReleaseSound();
+	Release();
 }
 
 void AssetManager::Init()
@@ -36,6 +31,16 @@ void AssetManager::Init()
 
 	SoundSystem();
 	PlaySound(eSound_BGM);
+}
+
+void AssetManager::Release()
+{
+	for (auto& it : AssetbulletVec)
+	{
+		delete it.second;
+	}
+	AssetbulletVec.clear();
+	ReleaseSound();
 }
 
 

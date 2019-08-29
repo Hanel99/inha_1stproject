@@ -41,6 +41,7 @@ public:
 	~GameData();
 
 	void Init();
+	void Release();
 	
 public:
 	Player* player;

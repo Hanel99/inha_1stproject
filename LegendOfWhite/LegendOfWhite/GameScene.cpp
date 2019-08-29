@@ -7,11 +7,17 @@ GameScene::GameScene()
 	Init();
 }
 
+GameScene::~GameScene()
+{
+	Release();
+}
+
 #define GRID 60
 
 
 void GameScene::SceneSetting()
 {
+	delete nextStageBoard;
 	player = GameData::GetInstance()->player;
 	player->issafe = false;
 
@@ -68,6 +74,29 @@ void GameScene::Init()
 		}
 	}
 	bulletVec.reserve(1000);
+	bm = new Gdiplus::Bitmap(WIDTH, HEIGHT, PixelFormat32bppARGB);
+
+	B = new Gdiplus::SolidBrush(Gdiplus::Color(255, 255, 255));
+	B_Exp = new Gdiplus::SolidBrush(Gdiplus::Color(255, 236, 79)); // EXP 색
+	B_Chapter = new Gdiplus::SolidBrush(Gdiplus::Color(76, 101, 228)); // chapter 색
+
+	F_24 = new Gdiplus::Font(L"Arial rounded MT Bold", 24, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+	F_30 = new Gdiplus::Font(L"Arial rounded MT Bold", 30, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+}
+
+void GameScene::Release()
+{
+	for (auto& it : wallVec)
+	{
+		delete it;
+	}
+	for (auto& it : enemyVec)
+	{
+		delete it;
+	}
+	delete bm;
+	delete F_24;
+	delete F_30;
 }
 
 void GameScene::Update(float Delta)
@@ -154,7 +183,7 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	if (!bInit)
 	{
 		bInit = true;
-		bm = new Gdiplus::Bitmap(WIDTH, HEIGHT, PixelFormat32bppARGB);
+
 		Gdiplus::Graphics temp(bm);
 		for (auto& it : wallVec)
 		{
@@ -164,12 +193,6 @@ void GameScene::Render(Gdiplus::Graphics* MemG)
 	else
 	{
 		MemG->DrawImage(bm, screenPosRect);
-	}
-	static bool bInit2 = false;
-	if (!bInit2)
-	{
-		bInit2 = true;
-		bm2 = new Gdiplus::Bitmap(WIDTH, HEIGHT, PixelFormat32bppARGB);
 	}
 	for (auto& it : bulletVec)
 	{
@@ -194,37 +217,29 @@ void GameScene::UIRender(Gdiplus::Graphics* MemG)
 
 	Gdiplus::PointF P;
 	std::wstring tempStr;
-	Gdiplus::SolidBrush B(Gdiplus::Color(255, 255, 255));
 
-	Gdiplus::SolidBrush B4(Gdiplus::Color(255, 236, 79)); // EXP 색
-	Gdiplus::SolidBrush B5(Gdiplus::Color(76, 101, 228)); // chapter 색
-	Gdiplus::Font F3(L"Arial rounded MT Bold", 24, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
-	Gdiplus::Font F4(L"Arial rounded MT Bold", 30, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
-
-	P.X = 13;
-	P.Y = 40;
+	Gdiplus::RectF R(-10, 40, 100 ,40);
+	Gdiplus::StringFormat SF;
+	SF.SetAlignment(Gdiplus::StringAlignmentCenter);
+	SF.SetLineAlignment(Gdiplus::StringAlignmentCenter);
 	tempStr = L" " + std::to_wstring(player->LV); // LEVEL
-	MemG->DrawString(tempStr.c_str(), -1, &F4, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, F_30, R, &SF, B);
 
 	P.X = 160;
 	P.Y = 11;
 	tempStr = L" " + std::to_wstring(player->HP);  // HP
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B);
+	MemG->DrawString(tempStr.c_str(), -1, F_24, P, B);
 
 	P.X = 292;
 	P.Y = 11;
 	tempStr = L"EXP : " + std::to_wstring(player->EXP); // EXP
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B4);
+	MemG->DrawString(tempStr.c_str(), -1, F_24, P, B_Exp);
 
 	P.X = 1030;
 	P.Y = 11;
-	tempStr = L"CHAPTER : " + std::to_wstring(GameData::GetInstance()->chapternum); // CHAPTER
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B5);
-
-	P.X = 1175;
-	P.Y = 11;
-	tempStr = L"  - " + std::to_wstring(GameData::GetInstance()->stagenum); // STAGE
-	MemG->DrawString(tempStr.c_str(), -1, &F3, P, &B5);
+	tempStr = L"CHAPTER : " + std::to_wstring(GameData::GetInstance()->chapternum); // Chapter
+	tempStr.append(L"  - " + std::to_wstring(GameData::GetInstance()->stagenum)); //Stage
+	MemG->DrawString(tempStr.c_str(), -1, F_24, P, B_Chapter);
 
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
 	MemG->DrawImage(tabImg.lock().get(), rect, 0, 0, 32, 512, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
@@ -242,10 +257,12 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 	if (MouseManager::GetInstance()->GetMousePos().x >= 1220 && MouseManager::GetInstance()->GetMousePos().x <= 1260
 		&& MouseManager::GetInstance()->GetMousePos().y >= 180 && MouseManager::GetInstance()->GetMousePos().y <= 510)
 	{
+		AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
 		SceneManager::GetInstance()->SwapStatusScene();
 	}
 	else
 	{
+		AssetManager::GetInstance()->PlaySound(eSound_Shot);
 		Bullet* b = AssetManager::GetInstance()->CreateBullet();
 		if (rand() % 100 < player->CRI * 100)
 		{
@@ -261,7 +278,6 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 			bulletVec.emplace_back(b);
 		}
 	}
-	AssetManager::GetInstance()->PlaySound(eSound_Shot);
 }
 
 void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
@@ -297,7 +313,8 @@ void GameScene::BulletCollCheck(Bullet* b)
 		{
 			if (b->Objtype == eObjectType_PBullet)
 			{
-				//플레이어의 총알과 몬스터가 충돌							
+				//플레이어의 총알과 몬스터가 충돌	
+				it->ishit = true;
 				if (b->isCritical)
 				{
 					it->HP -= player->ATK * 1.5f;
@@ -383,7 +400,7 @@ void GameScene::IsPlayerColl(Player* p, float Delta)
 			//일반 스테이지 클리어의 경우
 			AssetManager::GetInstance()->PlaySound(eSound_NextStage);
 			GameData::GetInstance()->stagenum++;
-			SceneSetting();			
+			SceneSetting();
 		}
 	}
 }
@@ -572,27 +589,13 @@ void GameScene::EnemyPattern5(Enemy* it)
 	}
 }
 
-//모든 패턴 종합 Boss
+//1패턴 강화 Boss
 void GameScene::EnemyPattern6(Enemy* it)
 {
-	if (it->addDelta2 > 0.1f)
+	if (it->addDelta2 > 0.2f)
 	{
-		it->addDelta2 = 0.0f;
-
-		//플레이어 유도
-		Bullet* b = AssetManager::GetInstance()->CreateBullet();
-		if (b != nullptr)
-		{
-			b->BulletInit(it->center.x, it->center.y, player->center.x, player->center.y, eObjectType_EBullet, 700);
-			bulletVec.emplace_back(b);
-		}
-
 		//8방향
-		//it->addDelta2 = 1.0f;
-		//EnemyPattern1(it);
-
-		//레이저
 		it->addDelta2 = 1.0f;
-		EnemyPattern4(it);
+		EnemyPattern1(it);
 	}
 }

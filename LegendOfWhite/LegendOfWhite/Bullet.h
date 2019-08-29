@@ -8,7 +8,10 @@ class Bullet : public Object
 {
 public:
 	Bullet();
-	Bullet(int px, int py, int clickx, int clicky, EObjectType type, int spd);
+	~Bullet();
+
+	void Init();
+	void Release();
 
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
@@ -20,6 +23,11 @@ public:
 
 	Gdiplus::Rect* rec;
 	Gdiplus::SolidBrush* P;
+
+	Gdiplus::SolidBrush* criP;
+	Gdiplus::SolidBrush* pbulletP;
+	Gdiplus::SolidBrush* ebulletP;
+
 	int SPD;
 	float SPDX;
 	float SPDY;

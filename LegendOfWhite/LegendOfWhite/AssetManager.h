@@ -10,6 +10,7 @@ public:
 	~AssetManager();
 
 	void Init();
+	void Release();
 
 	std::weak_ptr<Gdiplus::Image> GetImage(std::wstring str);
 	void SetXMLData(std::vector<Gdiplus::Rect>& rects, EXMLType etype);

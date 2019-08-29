@@ -5,11 +5,22 @@
 
 StatusScene::StatusScene()
 {
-	player = GameData::GetInstance()->player;
+	Init();
+}
+
+StatusScene::~StatusScene()
+{
+	Release();
 }
 
 void StatusScene::Init()
 {
+	player = GameData::GetInstance()->player;
+}
+
+void StatusScene::Release()
+{
+
 }
 
 void StatusScene::Update(float Delta)
@@ -21,6 +32,7 @@ void StatusScene::Update(float Delta)
 	}
 	if (GetAsyncKeyState(VK_UP) && GetAsyncKeyState(VK_DOWN))
 	{
+		AssetManager::GetInstance()->PlaySound(eSound_GameClear);
 		GameData::GetInstance()->ATKP = 1000;
 		GameData::GetInstance()->SPDP = 300;
 		GameData::GetInstance()->SSPDP = 300;
@@ -40,9 +52,9 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 {
 	Gdiplus::Rect rect(0, 0, WIDTH, HEIGHT);
 
-	Gdiplus::Rect recttab(336, 180, 40, 330);
+	Gdiplus::Rect rectTab(336, 180, 40, 330);
 	tabImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\tab.png"));
-	MemG->DrawImage(tabImg.lock().get(), recttab);
+	MemG->DrawImage(tabImg.lock().get(), rectTab);
 
 	statImg = AssetManager::GetInstance()->GetImage(TEXT("Asset\\statImg.png"));
 	Gdiplus::Rect screenPosRect(0, 0, WIDTH, HEIGHT);
@@ -201,8 +213,6 @@ void StatusScene::Render(Gdiplus::Graphics* MemG)
 	tempStr = std::to_wstring((int)(GameData::GetInstance()->CRI * 100 / 5 + 2)) + L"pt";
 	MemG->DrawString(tempStr.c_str(), -1, &F2, P, &B2);
 
-	//레벨과 잔여포인트 표시
-
 	// SP
 	P.X = 1158;
 	P.Y = 88;
@@ -220,12 +230,10 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		SceneManager::GetInstance()->SwapStatusScene();
 	}
 
-
 	// 공격력 합
 	if (MouseManager::GetInstance()->GetMousePos().x >= STATUX_WIDTH && MouseManager::GetInstance()->GetMousePos().x <= STATUX_WIDTH + STATUB_WIDTH
 		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT && MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT)
 	{
-
 		if (player->skillPoint > 0)
 		{
 			--player->skillPoint;
@@ -249,7 +257,6 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT + STATP_HITV
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 2 + STATP_HITV)
 	{
-
 		if (player->skillPoint > 0)
 		{
 			--player->skillPoint;
@@ -262,7 +269,6 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT + STATP_HITV
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 2 + STATP_HITV)
 	{
-
 		if (player->skillPoint >= GameData::GetInstance()->SSPDM * 100 / 5 + 2)
 		{
 			player->skillPoint -= GameData::GetInstance()->SSPDM * 100 / 5 + 2;
@@ -275,7 +281,6 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT * 2 + STATP_HITV * 2
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 3 + STATP_HITV * 2)
 	{
-
 		if (player->skillPoint > 0)
 		{
 			--player->skillPoint;
@@ -288,7 +293,6 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT * 2 + STATP_HITV * 2
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 3 + STATP_HITV * 2)
 	{
-
 		if (player->skillPoint >= GameData::GetInstance()->SPDM * 100 / 5 + 2)
 		{
 			player->skillPoint -= GameData::GetInstance()->SPDM * 100 / 5 + 2;
@@ -301,7 +305,6 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT * 3 + STATP_HITV * 3
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 4 + STATP_HITV * 3)
 	{
-
 		if (player->skillPoint >= (GameData::GetInstance()->MAXHP - 2) * 10)
 		{
 			player->skillPoint -= (GameData::GetInstance()->MAXHP - 2) * 10;
@@ -314,7 +317,6 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT * 3 + STATP_HITV * 3
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 4 + STATP_HITV * 3)
 	{
-
 		if (player->skillPoint >= GameData::GetInstance()->healCount)
 		{
 			if (GameData::GetInstance()->MAXHP > GameData::GetInstance()->player->HP)
@@ -331,7 +333,6 @@ void StatusScene::SendLButtonDown(UINT nFlags, CPoint point)
 		&& MouseManager::GetInstance()->GetMousePos().y >= STATUY_HEIGHT + STATUB_HEIGHT * 4 + STATP_HITV * 4
 		&& MouseManager::GetInstance()->GetMousePos().y <= STATUY_HEIGHT + STATUB_HEIGHT * 5 + STATP_HITV * 4)
 	{
-
 		if (player->skillPoint >= GameData::GetInstance()->CRI * 100 / 5 + 2 && player->CRI < 1.0f)
 		{
 			player->skillPoint -= GameData::GetInstance()->CRI * 100 / 5 + 2;

@@ -3,11 +3,24 @@
 
 ResultScene::ResultScene()
 {
+	Init();
+}
+
+ResultScene::~ResultScene()
+{
+	Release();
 }
 
 void ResultScene::Init()
 {
+
 }
+
+void ResultScene::Release()
+{
+
+}
+
 
 void ResultScene::Update(float Delta)
 {

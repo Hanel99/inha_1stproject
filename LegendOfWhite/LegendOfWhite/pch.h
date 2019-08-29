@@ -34,4 +34,9 @@
 #include "GameData.h"
 #include "MouseManager.h"
 
+//메모리릭
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
 #endif //PCH_H

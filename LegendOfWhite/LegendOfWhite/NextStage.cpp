@@ -5,6 +5,16 @@
 NextStage::NextStage(int getx, int gety)
 	: Object(EObjectType::eObjectType_NextStage)
 {
+	Init(getx, gety);
+}
+
+NextStage::~NextStage()
+{
+	Release();
+}
+
+void NextStage::Init(int getx, int gety)
+{
 	SetX(getx);
 	SetY(gety);
 	width = 64;
@@ -14,8 +24,9 @@ NextStage::NextStage(int getx, int gety)
 	center.y = GetY() + width / 2;
 }
 
-NextStage::~NextStage()
+void NextStage::Release()
 {
+	
 }
 
 void NextStage::Update(float Delta)

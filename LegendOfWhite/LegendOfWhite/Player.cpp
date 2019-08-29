@@ -15,6 +15,16 @@ Player::Player()
 	, eplayerlook(ePlayerLook_Down)
 	, addDelta(0)
 {
+	Init();
+}
+
+Player::~Player()
+{
+	Release();
+}
+
+void Player::Init()
+{
 	width = 35;
 	height = 42;
 	r = width / 2;
@@ -22,8 +32,9 @@ Player::Player()
 	center.y = GetY() + height / 2;
 }
 
-Player::~Player()
+void Player::Release()
 {
+	
 }
 
 void Player::Update(float Delta)
@@ -65,7 +76,13 @@ void Player::Update(float Delta)
 	center.x = GetX() + width / 2;
 	center.y = GetY() + height / 2;
 
-	if (EXP >= 100)
+	if (EXP >= 1000)
+	{
+		EXP -= 1000;
+		skillPoint += 10;
+		LV += 10;
+	}
+	else if (EXP >= 100)
 	{
 		EXP -= 100;
 		++skillPoint;
@@ -101,12 +118,12 @@ void Player::Render(Gdiplus::Graphics* MemG)
 	{
 		float R = 255.0f;
 		float alpha = 0.5f;
-		//무적상태임을 표시할 반투명 빨간 플레이어 이미지 처리
+		//피격상태임을 표시할 반투명 빨간 플레이어 이미지 처리
 		Gdiplus::ColorMatrix colorMatrix = { R, 0.0f, 0.0f, 0.0f, 0.0f,
-									0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-									0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-									 0.0f, 0.0f, 0.0f, alpha, 0.0f,
-									 0.0f, 0.0f, 0.0f, 0.0f, 1.0f };
+											0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+											0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+											0.0f, 0.0f, 0.0f, alpha, 0.0f,
+											0.0f, 0.0f, 0.0f, 0.0f, 1.0f };
 
 		Gdiplus::ImageAttributes imageAtt;
 		imageAtt.SetColorMatrix(&colorMatrix, Gdiplus::ColorMatrixFlagsDefault, Gdiplus::ColorAdjustTypeBitmap);

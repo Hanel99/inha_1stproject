@@ -20,6 +20,16 @@ Enemy::Enemy(EEnemyType enemytype, int enemynum, int hp, int x, int y)
 	, lookLeft(true)
 	, moveUp(false)
 {
+	Init(enemytype, enemynum, hp, x, y);
+}
+
+Enemy::~Enemy()
+{
+	Release();
+}
+
+void Enemy::Init(EEnemyType enemytype, int enemynum, int hp, int x, int y)
+{
 	SetX(x);
 	SetY(y);
 	if (enemytype == eEnemyType_Boss)
@@ -42,25 +52,25 @@ Enemy::Enemy(EEnemyType enemytype, int enemynum, int hp, int x, int y)
 		SPD = 0;
 		break;
 	case eEnemyType_Digda2:
-		SPD = 200;
+		SPD = 100;
 		break;
 	case eEnemyType_Slime:
 		SPD = 100;
 		break;
 	case eEnemyType_Devil:
-		SPD = 300;
+		SPD = 200;
 		break;
 	case eEnemyType_Boss:
 		SPD = 300;
 		break;
-
 	}
 	r = width / 2;
 	center.x = GetX() + r;
 	center.y = GetY() + r;
+	ishit = false;
 }
 
-Enemy::~Enemy()
+void Enemy::Release()
 {
 }
 
@@ -73,7 +83,20 @@ void Enemy::Update(float Delta)
 	{
 		addDelta = 0.0;
 		addDelta2 = 0.0f;
-	}		
+	}
+
+	if (ishit)
+	{
+		addDelta += Delta;
+		if (addDelta > 0.1f)
+		{
+			ishit = false;
+		}
+	}
+	else
+	{
+		addDelta = 0;
+	}
 
 	switch (enemyType)
 	{
@@ -114,14 +137,10 @@ void Enemy::Update(float Delta)
 		break;
 
 	case eEnemyType_Digda2:
-		//아주 느리게 플레이어 추격
-		if (addDelta > 0.02f)
-		{
-			addDelta = 0.0f;
-			SPDSet(GetX(), GetY(), GameData::GetInstance()->player->GetX(), GameData::GetInstance()->player->GetY());
-			SetX(GetX() + Delta * SPDX * SPD);
-			SetY(GetY() + Delta * SPDY * SPD);
-		}
+		//아주 느리게 플레이어 추격		
+		SPDSet(GetX(), GetY(), GameData::GetInstance()->player->GetX(), GameData::GetInstance()->player->GetY());
+		SetX(GetX() + Delta * SPDX * SPD);
+		SetY(GetY() + Delta * SPDY * SPD);
 		break;
 
 	case eEnemyType_Slime:
@@ -158,13 +177,9 @@ void Enemy::Update(float Delta)
 
 	case eEnemyType_Devil:
 		//보통 속도로 플레이어 추격
-		if (addDelta > 0.02f)
-		{
-			addDelta = 0.0f;
-			SPDSet(GetX(), GetY(), GameData::GetInstance()->player->GetX(), GameData::GetInstance()->player->GetY());
-			SetX(GetX() + Delta * SPDX * SPD);
-			SetY(GetY() + Delta * SPDY * SPD);
-		}
+		SPDSet(GetX(), GetY(), GameData::GetInstance()->player->GetX(), GameData::GetInstance()->player->GetY());
+		SetX(GetX() + Delta * SPDX * SPD);
+		SetY(GetY() + Delta * SPDY * SPD);
 		break;
 
 	case eEnemyType_Boss:
@@ -199,7 +214,6 @@ void Enemy::Update(float Delta)
 		}
 		break;
 	}
-
 	center.x = GetX() + width / 2;
 	center.y = GetY() + height / 2;
 }
@@ -241,7 +255,27 @@ void Enemy::Render(Gdiplus::Graphics* MemG)
 	}
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), width, height);
-	MemG->DrawImage(enemyimg.lock().get(), screenPosRect, 0, 0, 256, 256, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+
+	if (ishit)
+	{
+		float R = 255.0f;
+		float alpha = 0.8f;
+		//피격상태임을 표시할 반투명 빨간 몬스터 이미지 처리
+		Gdiplus::ColorMatrix colorMatrix = { R, 0.0f, 0.0f, 0.0f, 0.0f,
+											0.0f, 0.5f, 0.0f, 0.0f, 0.0f,
+											0.0f, 0.0f, 0.5f, 0.0f, 0.0f,
+											0.0f, 0.0f, 0.0f, alpha, 0.0f,
+											0.0f, 0.0f, 0.0f, 0.0f, 0.5f };
+
+		Gdiplus::ImageAttributes imageAtt;
+		imageAtt.SetColorMatrix(&colorMatrix, Gdiplus::ColorMatrixFlagsDefault, Gdiplus::ColorAdjustTypeBitmap);
+
+		MemG->DrawImage(enemyimg.lock().get(), screenPosRect, 0, 0, 256, 256, Gdiplus::Unit::UnitPixel, &imageAtt, 0, nullptr);
+	}
+	else
+	{
+		MemG->DrawImage(enemyimg.lock().get(), screenPosRect, 0, 0, 256, 256, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	}
 }
 
 void Enemy::SPDSet(int ex, int ey, int px, int py)

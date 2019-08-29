@@ -8,6 +8,9 @@ public:
 	Player();
 	~Player();
 
+	void Init();
+	void Release();
+
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 

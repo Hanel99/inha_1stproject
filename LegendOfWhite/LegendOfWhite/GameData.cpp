@@ -10,6 +10,7 @@ GameData::GameData()
 
 GameData::~GameData()
 {
+	Release();
 }
 
 void GameData::Init()
@@ -29,6 +30,15 @@ void GameData::Init()
 	
 	LoadPlayerData();
 	LoadSceneData(TEXT(""));
+}
+
+void GameData::Release()
+{
+	delete player;
+	for (auto& it : DBSceneVec)
+	{
+		delete it;
+	}
 }
 
 

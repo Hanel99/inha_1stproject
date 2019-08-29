@@ -8,6 +8,9 @@ public:
 	Enemy(EEnemyType enemytype, int enemynum, int hp, int x, int y);
 	~Enemy();
 
+	void Init(EEnemyType enemytype, int enemynum, int hp, int x, int y);
+	void Release();
+
 	void Update(float Delta);
 	void Render(Gdiplus::Graphics* MemG);
 
@@ -29,6 +32,8 @@ public:
 	float addDelta2;
 	bool lookLeft;
 	bool moveUp;
+
+	bool ishit;
 
 	std::weak_ptr<Gdiplus::Image> enemyimg;
 };

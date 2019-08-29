@@ -32,10 +32,10 @@ void SceneManager::Init()
 
 void SceneManager::Release()
 {
-	delete introScene;
-	delete gameScene;
-	delete statusScene;
-	delete resultScene;
+	for (auto& it : sceneVec)
+	{
+		delete it;
+	}
 }
 
 Scene* SceneManager::GetCurScene()

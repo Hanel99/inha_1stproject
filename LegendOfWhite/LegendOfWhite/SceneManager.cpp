@@ -37,6 +37,7 @@ void SceneManager::Release()
 		it->Release();
 		delete it;
 	}
+	sceneVec.clear();
 }
 
 Scene* SceneManager::GetCurScene()

@@ -14,6 +14,9 @@ Player::Player()
 	, skillPoint(0)
 	, eplayerlook(ePlayerLook_Down)
 	, addDelta(0)
+	, addDelta2(0)
+	, isSafe(false)
+	, isDamaged(false)
 {
 	Init();
 }
@@ -30,26 +33,40 @@ void Player::Init()
 	r = width / 2;
 	center.x = GetX() + width / 2;
 	center.y = GetY() + height / 2;
+	P_Shild = new Gdiplus::SolidBrush(Gdiplus::Color(100, 61, 200, 185));
 }
 
 void Player::Release()
 {
-	
+	delete P_Shild;
 }
 
 void Player::Update(float Delta)
 {	
-	if (issafe)
+	if (isDamaged)
 	{
 		addDelta += Delta;
 		if (addDelta > 1.5f)
 		{
-			issafe = false;
+			isDamaged = false;
 		}
 	}
 	else
 	{
 		addDelta = 0;
+	}
+
+	if (isSafe)
+	{
+		addDelta2 += Delta;
+		if (addDelta2 > 1.5f)
+		{
+			isSafe = false;
+		}
+	}
+	else
+	{
+		addDelta2 = 0;
 	}
 
 	if ((GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('a') || GetAsyncKeyState('A')) & 0x8001)
@@ -114,7 +131,8 @@ void Player::Render(Gdiplus::Graphics* MemG)
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), rec->Width, rec->Height);
 	
-	if (issafe)
+
+	if (isDamaged) //피격 & 무적상태라면
 	{
 		float R = 255.0f;
 		float alpha = 0.5f;
@@ -133,5 +151,10 @@ void Player::Render(Gdiplus::Graphics* MemG)
 	else
 	{
 		MemG->DrawImage(playerimg.lock().get(), screenPosRect, rec->X, rec->Y, rec->Width, rec->Height, Gdiplus::Unit::UnitPixel, nullptr, 0, nullptr);
+	}
+
+	if (isSafe) //실드를 쓴 상태라면
+	{
+		MemG->FillEllipse(P_Shild, center.x - (8 * r), center.y - (8 * r), 16 * r, 16 * r);
 	}
 }

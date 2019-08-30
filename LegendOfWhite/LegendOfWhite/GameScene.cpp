@@ -18,16 +18,18 @@ GameScene::~GameScene()
 void GameScene::SceneSetting()
 {
 	delete nextStageBoard;
+
 	player = GameData::GetInstance()->player;
-	player->issafe = false;
+	player->isDamaged = false;
+	player->isSafe = false;
+	SetStartPos(100, 100);
+	isAllEnemyDead = false;
 
 	player->ATK = (player->LV + GameData::GetInstance()->ATKP) * (1 + GameData::GetInstance()->ATKM);
 	player->SPD = 500 + (GameData::GetInstance()->SPDP * (1 + GameData::GetInstance()->SPDM) * 1.5f);
 	player->SSPD = 800 + (GameData::GetInstance()->SSPDP * (1 + GameData::GetInstance()->SSPDM) * 3.0f);
 	player->CRI = GameData::GetInstance()->CRI;
-
-	SetStartPos(100, 100);
-	isAllEnemyDead = false;
+	
 	int x = rand() % 16 + 2;
 	int y = rand() % 7 + 2;
 
@@ -90,10 +92,12 @@ void GameScene::Release()
 	{
 		delete it;
 	}
+	wallVec.clear();
 	for (auto& it : enemyVec)
 	{
 		delete it;
 	}
+	enemyVec.clear();
 	delete bm;
 	delete F_24;
 	delete F_30;
@@ -262,27 +266,36 @@ void GameScene::SendLButtonDown(UINT nFlags, CPoint point)
 	}
 	else
 	{
-		AssetManager::GetInstance()->PlaySound(eSound_Shot);
-		Bullet* b = AssetManager::GetInstance()->CreateBullet();
-		if (rand() % 100 < player->CRI * 100)
+		if (!player->isSafe)
 		{
-			b->isCritical = true;
-		}
-		else
-		{
-			b->isCritical = false;
-		}
-		if (b != nullptr)
-		{
-			b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x, point.y, eObjectType_PBullet, 1);
-			bulletVec.emplace_back(b);
+			//실드 상태의 경우, 총알 발사 불가
+
+			AssetManager::GetInstance()->PlaySound(eSound_Shot);
+			Bullet* b = AssetManager::GetInstance()->CreateBullet();
+			if (rand() % 100 < player->CRI * 100)
+			{
+				b->isCritical = true;
+			}
+			else
+			{
+				b->isCritical = false;
+			}
+			if (b != nullptr)
+			{
+				b->BulletInit(player->GetX() + (player->r), player->GetY() + (player->r), point.x, point.y, eObjectType_PBullet, 1);
+				bulletVec.emplace_back(b);
+			}
 		}
 	}
 }
 
 void GameScene::SendRButtonDown(UINT nFlags, CPoint point)
 {
-
+	if (!player->isSafe)
+	{
+		player->isSafe = true;
+		AssetManager::GetInstance()->PlaySound(eSound_GameClear);
+	}
 }
 
 void GameScene::ReturnBulletFromGameScene(Bullet* b)
@@ -297,6 +310,18 @@ void GameScene::ReturnBulletFromGameScene(Bullet* b)
 
 void GameScene::BulletCollCheck(Bullet* b)
 {
+	if (player->isSafe)
+	{
+		if (pow((player->center.x - b->center.x), 2) + pow((player->center.y - b->center.y), 2) <= pow((player->r * 8 + b->r), 2))
+		{
+			//실드와 충돌
+			AssetManager::GetInstance()->RetrunBullet(b);
+			ReturnBulletFromGameScene(b);
+		}
+	
+	}
+
+
 	for (auto& it : wallVec)
 	{
 		if (pow((it->center.x - b->center.x), 2) + pow((it->center.y - b->center.y), 2) <= pow((it->length + b->r), 2))
@@ -341,9 +366,9 @@ void GameScene::BulletCollCheck(Bullet* b)
 		if (b->Objtype == eObjectType_EBullet)
 		{
 			//몬스터의 총알과 플레이어가 충돌
-			if (!GameData::GetInstance()->player->issafe)//무적시간이 아니라면
+			if (!GameData::GetInstance()->player->isDamaged)//무적시간이 아니라면
 			{
-				GameData::GetInstance()->player->issafe = true;
+				GameData::GetInstance()->player->isDamaged = true;
 				AssetManager::GetInstance()->RetrunBullet(b);
 				ReturnBulletFromGameScene(b);
 				player->HP -= 1;

@@ -26,9 +26,13 @@ public:
 	CPoint center;
 
 	float addDelta;
+	float addDelta2;
 	Gdiplus::Rect* rec;
+	Gdiplus::Pen* P;
+	Gdiplus::SolidBrush* P_Shild;
 
-	bool issafe = false;
+	bool isSafe;
+	bool isDamaged;
 	EPlayerLook eplayerlook;
 	std::weak_ptr<Gdiplus::Image> playerimg;
 };

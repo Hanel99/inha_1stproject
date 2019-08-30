@@ -39,6 +39,7 @@ void GameData::Release()
 	{
 		delete it;
 	}
+	DBSceneVec.clear();
 }
 
 

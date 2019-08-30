@@ -36,7 +36,7 @@ void AssetManager::Init()
 void AssetManager::Release()
 {
 	for (auto& it : AssetbulletVec)
-	{
+	{		
 		delete it.second;
 	}
 	AssetbulletVec.clear();

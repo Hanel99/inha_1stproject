@@ -113,6 +113,7 @@ void GameScene::Update(float Delta)
 	//탭 키로 스탯창으로
 	if (GetAsyncKeyState(VK_TAB) & 0x1001)
 	{
+		AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
 		SceneManager::GetInstance()->SwapStatusScene();
 	}
 	//esc키로 메인화면으로 

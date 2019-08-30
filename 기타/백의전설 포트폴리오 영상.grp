@@ -1,0 +1,952 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GRP Version="2.0.0.1" Mode="0" TemplateObjectCnt="0">
+    <GrTxtBrushArr Size="1">
+        <GrTxtBrush Type="0" GradientType="0" Color="ffffffff" GradientColor1="ff000000" GradientColor2="ff000000" KeepRate="false" Alpha="255" IgnoreBgColor="false"/>
+    </GrTxtBrushArr>
+    <GrTxtOutlineArr Size="1">
+        <GrTxtOutline Color="ff000000" Ratio="0.10000000000000001"/>
+    </GrTxtOutlineArr>
+    <GrTxtShadowArr Size="2">
+        <GrTxtShadow Color="00000000" ThickRatio="0.15000000596046448" Shadow_Type2="4"/>
+        <GrTxtShadow Color="00fcffff" ThickRatio="0.15000000596046448" Shadow_Type2="4"/>
+    </GrTxtShadowArr>
+    <GrTimelineViewMode Mode="12" output_width="1280" output_height="720"/>
+    <GrEncodingPath Path="C:\Users\Inha\Downloads\"/>
+    <GrVideoArr Size="1">
+        <GrVideo>
+            <GrVideoData FileName="C:\Users\Inha\Downloads\2019-08-30 17-02-39.mp4" SegStart="0" SegEnd="9126" FadeType="3" ScreenTransformType="0" ScreenTransformTime="0" Mute="false" Volume="1" Tempo="1"/>
+            <GrVideoColorAdjust/>
+            <GrVideoFilter VideoColor="0" VideoColorType="0" VideoEffect="0" VideoEffectValue="20" FilterUseLookupFile="0" FilterUseVignetteFile="0"/>
+            <GrVideoTextureAdjust/>
+        </GrVideo>
+    </GrVideoArr>
+    <GrObjArr Size="18">
+        <GrObj Type="4">
+            <GrTxtData Title="안녕하세요 백의 전설을 만든
+백팀의 게임 포트폴리오 영상입니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="0" TotalSeg="379" VideoIndex="0" EffectListID="1" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="35">
+                <GrTxtAtt Code="50504" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45397" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49464" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50836" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48177" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51204" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49444" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47564" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46304" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48177" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54016" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54252" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53944" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54260" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50724" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50689" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49345" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51077" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="Gdiplus와 MFC를 이용하여 제작하였으며
+개발기간은 총 3주 소요되었습니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="400" TotalSeg="379" VideoIndex="0" EffectListID="2" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="45">
+                <GrTxtAtt Code="71" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="100" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="105" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="112" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="108" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="117" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="115" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50752" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="77" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="70" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="67" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50857" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50668" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51228" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48156" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44592" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44036" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51008" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52509" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51452" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49548" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50836" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46104" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50632" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="마우스 좌표값을 받아와 지정 좌표에 들어오면
+게임 시작 버튼 이미지가 바뀌도록 구현하였습니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="870" TotalSeg="480" VideoIndex="0" EffectListID="3" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="52">
+                <GrTxtAtt Code="47560" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50864" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51340" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54364" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44050" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48155" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50500" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50752" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51221" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51340" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54364" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50640" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46308" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50724" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47732" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48260" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53948" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48120" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48148" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45068" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47197" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44396" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54788" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="모든 이미지는 sprite화 시켜 사용하였고
+xml파일에 이미지 데이터를 저장해 불러와 사용하였습니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="1429" TotalSeg="480" VideoIndex="0" EffectListID="5" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="57">
+                <GrTxtAtt Code="47784" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46304" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48120" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="115" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="112" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="114" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="105" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="116" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="101" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54868" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49324" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50857" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="120" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="109" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="108" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54028" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51068" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50640" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48120" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51200" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51109" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54644" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48520" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47084" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50752" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49324" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50857" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="새로하기를 눌러 게임을 시작하면
+1챕터 1스테이지부터 시작하며" GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="1999" TotalSeg="379" VideoIndex="0" EffectListID="6" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="34">
+                <GrTxtAtt Code="49352" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44592" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45580" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47084" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47732" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52309" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53580" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48512" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="Sqlite3 DB에 저장시켜놓은 위치에
+지정 몬스터가 스폰됩니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="2400" TotalSeg="379" VideoIndex="0" EffectListID="7" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="37">
+                <GrTxtAtt Code="83" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="113" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="108" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="105" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="116" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="101" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="68" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="66" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50640" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51200" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51109" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45459" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51008" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50948" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52824" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50640" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51221" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47788" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54256" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46121" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="WASD로 움직이고 마우스 클릭으로 총알을 발사하며" GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="2800" TotalSeg="379" VideoIndex="0" EffectListID="8" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="28">
+                <GrTxtAtt Code="87" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="65" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="83" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="68" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50880" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51649" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47560" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50864" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53364" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52509" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50508" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48156" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49324" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="플레이어와 마우스 좌표값을 받아 단위벡터를 계산하여
+Delta 값과 단위벡터를 이용해 총알 속도, 방향을 정해줍니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="3199" TotalSeg="480" VideoIndex="0" EffectListID="9" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="65">
+                <GrTxtAtt Code="54540" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50752" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47560" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50864" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51340" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54364" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44050" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48155" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50500" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45800" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50948" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48289" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44228" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49328" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50668" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="68" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="101" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="108" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="116" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="97" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44050" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44284" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45800" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50948" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48289" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50857" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54644" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52509" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50508" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49549" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48169" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54693" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51221" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54644" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51469" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="총알은 Memory pool을 이용하여
+미리 생성된 총알을 사용하였으며" GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="4699" TotalSeg="379" VideoIndex="0" EffectListID="10" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="39">
+                <GrTxtAtt Code="52509" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50508" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51008" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="77" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="101" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="109" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="111" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="114" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="121" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="112" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="111" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="111" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="108" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50857" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50668" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48120" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49373" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49457" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46108" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52509" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50508" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49324" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50857" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="호출시 벡터에서 반환에 초기화 후 사용하고,
+오브젝트 충돌시 해당 총알을 벡터에 넣어" GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="5100" TotalSeg="379" VideoIndex="0" EffectListID="11" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="47">
+                <GrTxtAtt Code="54840" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52636" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48289" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50640" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49436" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48152" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54872" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50640" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52488" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44592" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54868" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54980" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49324" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50857" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44256" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50724" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48652" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51229" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53944" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52649" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46028" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54644" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45817" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52509" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50508" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48289" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50640" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45347" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="메모리 파편화를 방지할 수 있도록 제작하였습니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="5500" TotalSeg="379" VideoIndex="0" EffectListID="12" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="27">
+                <GrTxtAtt Code="47700" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47784" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54028" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54200" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54868" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48169" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54624" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47197" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51228" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51089" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="사운드는 FMOD를 사용하였으며
+이벤트 발생시마다 호출하여 사용하였습니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="3700" TotalSeg="450" VideoIndex="0" EffectListID="13" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="41">
+                <GrTxtAtt Code="49324" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50868" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46300" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="70" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="77" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="79" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="68" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49324" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50857" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48292" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53944" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48156" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49373" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47560" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54840" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52636" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50668" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49324" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50857" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="벽과 플레이어, 총알 등은 충돌처리를 하여
+이동할 수 없거나 총알을 반환하도록 처리하였습니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="4200" TotalSeg="379" VideoIndex="0" EffectListID="14" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="52">
+                <GrTxtAtt Code="48317" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44284" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54540" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52509" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50508" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46321" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51008" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52649" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46028" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52376" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50668" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46041" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54624" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50630" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44144" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45208" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52509" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50508" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48152" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54872" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47197" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52376" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47532" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="플레이어의 HP가 0이 되면 사망해 게임오버 화면이 나오며
+데이터 저장 없이 처음 화면으로 되돌아갑니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="6400" TotalSeg="379" VideoIndex="0" EffectListID="15" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="58">
+                <GrTxtAtt Code="54540" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="72" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="80" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46104" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47732" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49324" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47581" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54644" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44172" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51076" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50724" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48260" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54868" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47732" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45208" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50724" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51200" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51109" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50630" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52376" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54868" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47732" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46104" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46028" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50500" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44049" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="플레이어와 몬스터가 피격시 붉은색으로 표시되며
+플레이어는 해당 시간 동안 무적 판정이 되도록 하였습니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="5899" TotalSeg="480" VideoIndex="0" EffectListID="16" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="58">
+                <GrTxtAtt Code="54540" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50752" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47788" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54588" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44201" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48521" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51008" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49353" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54364" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46104" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54540" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47112" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50612" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54644" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45817" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44036" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46041" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50504" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47924" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51201" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51221" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46104" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47197" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="해당 스테이지에 모든 몬스터가 사망하면
+다음 스테이지로 이동할 수 있는 발판이 나타나며" GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="7812" TotalSeg="480" VideoIndex="0" EffectListID="17" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="48">
+                <GrTxtAtt Code="54644" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45817" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53580" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50640" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47784" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46304" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47788" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49324" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47581" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47732" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53580" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46041" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54624" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45716" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48156" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45208" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53440" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45208" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="발판을 밟으면 스테이지 초기화 후
+DB 데이터를 불러와 다음 몬스터를 스폰하도록 하였습니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="8316" TotalSeg="480" VideoIndex="0" EffectListID="19" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="51">
+                <GrTxtAtt Code="48156" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54032" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48159" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47732" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53580" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51648" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52488" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44592" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54868" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54980" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="68" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="66" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45936" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51060" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48520" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47084" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50752" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47788" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53552" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49828" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54256" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46020" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47197" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54616" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+        <GrObj Type="4">
+            <GrTxtData Title="우클릭으로 실드를 펼칠 수 있으며
+발동 시간 동안 모든 총알을 막을 수 있습니다." GrEffectType="0" BackEffectType="1000" FirstEffectTime="0" BackEffectTime="100" ApplyAll="0" Align="1" StartSeg="7192" TotalSeg="480" VideoIndex="0" EffectListID="20" PosX="50" PosY="80" bTemplateObject="0" TemplateObjectID="-1" BrushType="0" GradientType="0" PlaceHolderType="0" Color="7f000000" Tempo="1"/>
+            <GrTxtAttArr Size="45">
+                <GrTxtAtt Code="50864" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="53364" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47533" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47196" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49892" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46300" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47484" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="54204" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52832" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51004" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47728" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="13" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="48156" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46041" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49884" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="44036" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46041" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50504" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47784" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46304" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="52509" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="50508" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="47561" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51012" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49688" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="32" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="51080" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="49845" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45768" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="45796" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+                <GrTxtAtt Code="46" FontSize="36" FontStyle="0" FaceName="나눔스퀘어 Bold" BrushID="0" ShadowID="1" OutlineID="0"/>
+            </GrTxtAttArr>
+        </GrObj>
+    </GrObjArr>
+    <GrAudioArr Size="0"/>
+    <GrEffectArr Size="0"/>
+</GRP>

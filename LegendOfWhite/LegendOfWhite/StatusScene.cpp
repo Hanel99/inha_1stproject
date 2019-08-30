@@ -28,6 +28,7 @@ void StatusScene::Update(float Delta)
 	//°ÔÀÓ¾ÀÀ¸·Î
 	if (GetAsyncKeyState(VK_TAB) & 0x1001)
 	{
+		AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
 		SceneManager::GetInstance()->SwapStatusScene();
 	}
 	if (GetAsyncKeyState(VK_UP) && GetAsyncKeyState(VK_DOWN))

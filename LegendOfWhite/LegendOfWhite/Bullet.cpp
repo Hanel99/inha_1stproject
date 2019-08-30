@@ -23,17 +23,16 @@ void Bullet::Init()
 	r = width / 2;
 	center.x = GetX() + r;
 	center.y = GetY() + r;
-	criP = new Gdiplus::SolidBrush(Gdiplus::Color(0, 10, 40));
-	pbulletP = new Gdiplus::SolidBrush(Gdiplus::Color(80, 200, 200));
-	ebulletP = new Gdiplus::SolidBrush(Gdiplus::Color(255, 73, 73));
+	criB = new Gdiplus::SolidBrush(Gdiplus::Color(0, 10, 40));
+	pbulletB = new Gdiplus::SolidBrush(Gdiplus::Color(80, 200, 200));
+	ebulletB = new Gdiplus::SolidBrush(Gdiplus::Color(255, 73, 73));
 }
 
 void Bullet::Release()
 {
-	delete criP;
-	delete pbulletP;
-	delete ebulletP;
-	delete P;
+	delete criB;
+	delete pbulletB;
+	delete ebulletB;
 	delete rec;
 }
 
@@ -61,22 +60,22 @@ void Bullet::Render(Gdiplus::Graphics* MemG)
 	{
 		if (isCritical)
 		{
-			P = criP;
+			brush = criB;
 		}
 		else
 		{
-			P = pbulletP;
+			brush = pbulletB;
 		}
 	}
 	else if (this->Objtype == eObjectType_EBullet)
 	{
-		P = ebulletP;
+		brush = ebulletB;
 	}
 
 	//그려줄 screen좌표의 rect
 	Gdiplus::Rect screenPosRect(GetX(), GetY(), width, height);
 
-	MemG->FillEllipse(P, (int)(GetX()), (int)(GetY()), width, height);
+	MemG->FillEllipse(brush, (int)(GetX()), (int)(GetY()), width, height);
 }
 
 void Bullet::SPDSet(int px, int py, int clickx, int clicky)

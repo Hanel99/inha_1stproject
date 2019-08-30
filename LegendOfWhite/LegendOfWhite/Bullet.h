@@ -22,11 +22,11 @@ public:
 	CPoint center;
 
 	Gdiplus::Rect* rec;
-	Gdiplus::SolidBrush* P;
+	Gdiplus::SolidBrush* brush;
 
-	Gdiplus::SolidBrush* criP;
-	Gdiplus::SolidBrush* pbulletP;
-	Gdiplus::SolidBrush* ebulletP;
+	Gdiplus::SolidBrush* criB;
+	Gdiplus::SolidBrush* pbulletB;
+	Gdiplus::SolidBrush* ebulletB;
 
 	int SPD;
 	float SPDX;

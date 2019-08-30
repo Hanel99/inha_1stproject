@@ -18,7 +18,9 @@ void IntroScene::Init()
 	eXMLBtnnum = 0;	
 
 	//메모리릭 번호 
-	//_crtBreakAlloc = 1200;
+	//_crtBreakAlloc = 19090;
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
 }
 
 void IntroScene::Release()
@@ -121,7 +123,12 @@ void IntroScene::SendLButtonDown(UINT nFlags, CPoint point)
 		AssetManager::GetInstance()->PlaySound(eSound_BtnClick);
 		Release();
 		GameData::GetInstance()->Release();
+		AssetManager::GetInstance()->Release();
 		SceneManager::GetInstance()->Release();
+
+		//메모리릭 체크용
+		_CrtDumpMemoryLeaks();
+		
 		PostQuitMessage(0);
 	}
 	else
